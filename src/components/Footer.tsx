@@ -33,15 +33,15 @@ export const Footer = () => {
                 </div>
 
                 <div className={styles.socialItems}>
-                    <a href="#" className={styles.social}>
+                    <a href="#" className={styles.social} target="_blank" rel="noopener noreferrer">
                         <Image
                             src={facebook} alt="facebook" />
                     </a>
-                    <a href="#" className={styles.social}>
+                    <a href="#" className={styles.social} target="_blank" rel="noopener noreferrer">
                         <Image
                             src={instagram} alt="instagram" />
                     </a>
-                    <a href="#" className={styles.social} id='whatsup'>
+                    <a href="#" className={styles.social} id='whatsup' target="_blank" rel="noopener noreferrer">
                         <Image
                             src={whatsup} alt="whatsup" width={52} height={52} />
                     </a>

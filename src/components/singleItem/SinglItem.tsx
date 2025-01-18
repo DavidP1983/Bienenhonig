@@ -95,15 +95,15 @@ export const SingleItem = ({ data }: IData) => {
                                 <a className='phone' href="tel:44999228974" inputMode='tel'>+4 (499) 922-89-74</a>
                             </li>
                             <li className='singleItem__media-social'>
-                                <a href="#" className="social">
+                                <a href="#" className="social" target="_blank" rel="noopener noreferrer">
                                     <Image
                                         src={facebook} alt="facebook" />
                                 </a>
-                                <a href="#" className="social">
+                                <a href="#" className="social" target="_blank" rel="noopener noreferrer">
                                     <Image
                                         src={instagram} alt="instagram" />
                                 </a>
-                                <a href="#" className="social" id='whatsup'>
+                                <a href="#" className="social" id='whatsup' target="_blank" rel="noopener noreferrer">
                                     <Image
                                         className='whatsup'
                                         src={whatsup} alt="whatsup" />

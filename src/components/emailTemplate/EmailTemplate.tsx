@@ -178,7 +178,7 @@ export const EmailTemplate = ({ id, name, surname, email, phone, comment, cartOr
                                 color: "rgb(0,0,0, 0.7)",
                             }}
                         >
-                            © 2025 | Germany | www.honey-land.com
+                            © 2025 | Germany | https://bienenhonig.vercel.app
                         </Text>
 
                     </Section>

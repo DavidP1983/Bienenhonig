@@ -33,7 +33,50 @@ export const generateMetadata = async ({ params: { id } }: Props): Promise<Metad
     const place = await getPlacebyName(id)
 
     return {
-        title: place?.city
+        title: `Visit Our Location ${place?.city}`,
+        description: "Visit us to experience the best raw organic honey and artisan bee products directly from our location in Germany.",
+        keywords: [
+            'visit Bienenhonig',
+            'organic honey location',
+            'artisan honey shop',
+            'Germany honey store',
+            'buy raw honey',
+            'honeycomb products Germany',
+            'bee pollen store',
+            'Düsseldorf',
+            'Erkrath-Hochdahl',
+            'Hubbelrath',
+            'clover',
+            'rape',
+            'linden'
+        ],
+        openGraph: {
+            title: 'Visit Our Location',
+            description: `Come visit ${place?.city} in Germany for the finest raw honey and bee products.`,
+            url: `https://bienenhonig.vercel.app/location/${id}`,
+            siteName: 'Bienenhonig',
+            images: [
+                {
+                    url: "https://res.cloudinary.com/dmrsemgsn/image/upload/v1737127324/passika_simoa7.webp",
+                    width: 1200,
+                    height: 630,
+                    alt: "Our artisan honey store in Germany"
+                }
+            ],
+            locale: 'en_US',
+            type: "website"
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: 'Visit Our Location',
+            description: `Come visit ${place?.city} in Germany for the finest raw honey and bee products.`,
+            images: {
+                url: "https://res.cloudinary.com/dmrsemgsn/image/upload/v1737127324/passika_simoa7.webp",
+                alt: "Our artisan honey store in Germany"
+            },
+            site: `https://bienenhonig.vercel.app/location/${id}`
+        },
+
     }
 }
 
@@ -43,8 +86,32 @@ const LocationPage = async ({ params }: Props) => {
 
     if (!place?.title) return notFound();
 
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": place.city,
+        "image": "https://res.cloudinary.com/dmrsemgsn/image/upload/v1737127324/passika_simoa7.webp",
+        "description": place.description,
+        "brand": {
+            "@type": "Brand",
+            "name": "Bienenhonig"
+        },
+        "offers": {
+            "@type": "Offer",
+            "url": `https://bienenhonig.vercel.app/location/${id}`
+        }
+    };
+
     return (
-        <Location {...place} />
+        <>
+            <head>
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+                />
+            </head>
+            <Location {...place} />
+        </>
     )
 }
 

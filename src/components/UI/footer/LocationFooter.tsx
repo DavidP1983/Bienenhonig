@@ -33,25 +33,25 @@ export const LocationFooter = () => {
                 <div className={styles.footerAddr}>
                     <h2>Address</h2>
                     <address>
-                        <a href="#">
+                        <a href="#" target="_blank" rel="noopener noreferrer">
                             <i className='fa fa-map-marker'></i>Germany, Dusseldorf</a>
-                        <a href="mailto:bienenhonig.info@gmail.com">
+                        <a href="mailto:bienenhonig.info@gmail.com" target="_blank" rel="noopener noreferrer">
                             <i className='fa fa-envelope-open'></i>bienenhonig.info@gmail.com</a>
-                        <a href="tel:+99559951242628">
+                        <a href="tel:+99559951242628" target="_blank" rel="noopener noreferrer">
                             <i className="fa fa-phone"></i>+4(551) 243-263-283</a>
                     </address>
                 </div>
             </div >
             <div className={styles.socialItems}>
-                <a href="#" className={styles.social}>
+                <a href="#" className={styles.social} target="_blank" rel="noopener noreferrer">
                     <Image
                         src={facebook} alt="facebook" />
                 </a>
-                <a href="#" className={styles.social}>
+                <a href="#" className={styles.social} target="_blank" rel="noopener noreferrer">
                     <Image
                         src={instagram} alt="instagram" />
                 </a>
-                <a href="#" className={styles.social} id='whatsup'>
+                <a href="#" className={styles.social} id='whatsup' target="_blank" rel="noopener noreferrer">
                     <Image
                         src={whatsup} alt="whatsup" width={52} height={52} />
                 </a>
