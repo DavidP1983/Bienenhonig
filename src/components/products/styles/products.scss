@@ -1,0 +1,231 @@
+@mixin link_hover {
+    &:hover, &:active {
+        color: white;
+        text-shadow: 5px 5px 10px black;
+        font-family: var(--font-museoBold);
+    }
+}
+
+.products {
+    min-height: calc(100vh - 30px);
+    padding: 30px 20px 30px 20px;
+    margin-top: 230px;
+    position: relative;
+    z-index: 2;
+    background: linear-gradient(135deg, #ffcc00, #ffa500);
+
+    & .productscontainer {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 200px) minmax(240px, 1fr) minmax(100px, 200px));
+        grid-template-rows: minmax(200px, auto);
+        grid-auto-rows: minmax(200px, auto);
+        gap: 20px;
+        padding: 20px 20px;
+
+        & .categories, .info {
+           display: flex;
+           flex-direction: column;
+           gap: 7px;
+           .title {
+            font-size: 26px;
+            font-family: var(--font-museoBold);
+           }
+           .description {
+            font-size: 13px;
+           }
+           .input {
+            margin-left: 8px;
+            margin-top: 8px;
+           }
+           .root {
+            transition: all 150ms ease;
+            &[data-checked] {
+                border-color: red;
+                background-color:rgba(12, 143, 167, 0.962)
+              }
+              &:hover {
+                background-color:rgba(12, 143, 167, 0.962)
+              }
+           }
+           a {
+            color: #000;
+            font-size: 20px;
+            padding: 7px;
+            font-family: var(--font-museoSans);
+            transition: all 0.3s;
+           }
+        }
+
+        & .articles {
+            h1 {
+                text-align: center;
+                font-size: 35px;
+                font-family: var(--font-museoBold);
+            }
+            .articlefilter {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 20px;
+                .totalarticle  {
+                    font-size: 20px;
+                    font-family: var(--font-museoMono);
+                    color: #d65d07;
+                }
+    
+            }
+            .articlescontainer {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
+                grid-template-rows: minmax(100px, auto);
+                grid-auto-rows: minmax(100px, auto);
+                gap: 20px;
+
+                .content, .outstock {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    margin-top: 20px;
+                    width: 100%;
+                    min-height: 300px;
+                    box-shadow: rgba(39, 249, 2, 0.35) 0px 2px 10px 1px;
+                    border-radius: 20px;
+                    transition: all 0.5s;
+                    .image {
+                        a {
+                            display: block;
+                            img {
+                                display: block;
+                                margin: 10px auto 0 auto;
+                                max-width: 100%;
+                                max-height: 100%;
+                                object-fit: cover;
+                                border-radius: 20px;
+                                border: 2px dotted #000;
+                            }
+                        }
+                    }
+                    .sort {
+                        text-align: center;
+                        font-size: 20px;
+                        font-family: var(--font-museoBold);
+                        margin-top: 10px;
+                        color: #000;
+                    }
+                    .descr, .price, .qnt, .stock, .empty {
+                        display: block;
+                        padding: 10px 10px;
+                        color: #000;
+                        font-family: var(--font-museoMono);
+                        transition: all 0.3s ease;
+                    }
+                    .rating {
+                        display: flex;
+                        align-items: center;
+                        padding: 10px 10px;
+                        transition: all 0.3s ease;
+                    }
+
+                    .descr, .qnt {
+                        @include link_hover
+                    }
+
+                    & .stock, & .empty {
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                        font-family: var(--font-museoBold);
+                        color: green;
+                        .indicator {
+                            width: 10px;
+                            height: 10px;
+                            border-radius: 10px;
+                            background-color: green;
+                        }
+                    }
+
+                    .empty {
+                        color: red;
+                        .indicator {
+                            background-color: red;
+                        }
+                    }
+
+                    & .checkOut, .outstockbtn {
+                        display: block;
+                        padding: 10px 10px;
+                        border: 2px dotted red;
+                        border-radius: 20px;
+                        margin: 20px 10px 10px 10px;
+                        text-align: center;
+                        background: wheat;
+                        color: #000;
+                        font-family: var(--font-museoMono);
+                        transition: all 0.5s;
+                        &::after {
+                            font-size: 16px;
+                            font-family: var(--font-museoMono);
+                        }
+                        &:hover {
+                            color: white;
+                            background: rgba(1, 145, 61, 0.962); 
+                        }
+
+                        &:active {
+                            transform: translateY(12px);
+                        }
+                    }
+
+                    .outstockbtn {
+                        font-size: 0px;
+                        border: 2px dotted black;
+                        background: red;
+                        transition: all 0.5s;
+                        &::after {
+                            content: 'Out Of Stock';
+                        }
+                        &:hover::after {
+                            content: 'More Information';
+                        }
+                    }
+
+                    &:hover:not(.outstock) {
+                        box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+                    }                   
+                }
+
+                .outstock {
+                    box-shadow: rgba(247, 2, 2, 0.35) 0px 22px 85px 4px;
+                }               
+            }
+            .nodata {
+                text-align: center;
+                margin-top: 30px;
+                color: #000;
+            }
+        }
+    }
+
+    .info {
+        align-items: end;
+        .addr {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            li a {
+                display: block;
+                font-size: 16px;
+                padding: 13px;
+                font-family: var(--font-museoSans);
+                text-align: end;
+                transition: all 0.3s;
+                @include link_hover
+            }
+            .phone {
+                font-size: 19px;
+                font-family: var(--font-museoBold);
+            }
+        }
+    }
+}

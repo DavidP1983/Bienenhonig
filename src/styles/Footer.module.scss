@@ -1,0 +1,117 @@
+.footer {
+    height: 450px;
+    position: relative;
+    overflow: hidden;
+
+    & .info {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 460px;
+        min-height: 270px;
+        background: rgb(199, 1, 1, 0.7);
+        padding: 30px 68px 33px 68px;
+    }
+
+    & .location {
+        margin-bottom: 20px;
+        color: #ffffff;
+        font-family:var(--font-museoMono);
+        font-size: 20px;
+        text-align: center;
+        line-height: 20px;
+    }
+
+    & .addr {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 24px;
+        .link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+            img {
+                width: 30px;
+                height: 30px;
+            }
+            &::after{
+                content: ' 🐝';
+                opacity: 0;
+                height: 19px;
+                transition: all 0.3s;
+            }
+
+            &:hover,&:hover::after {
+                color: #000;
+                font-size: 18px;
+                opacity: 1;
+            }
+        }
+    }
+    & .phone {
+        display: flex;
+        align-items:center;
+        justify-content: center;
+        margin-bottom: 20px;
+        gap: 10px;
+        img {
+            width: 20px;
+            height: 20px;
+        }
+        & .phonenumber {
+            display: block;
+            color: #ffffff;
+            font-family:var(--font-museoBold);
+            font-size: 20px;
+            text-align: center;
+        }    
+    }
+
+    & .socialItems {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    & .social {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        border: 2px solid #ffffff;
+        border-radius: 100%;
+        margin: 0 15px;
+        transition: all 0.5s;
+        &#whatsup {
+            img {
+                width: 52px;
+                height: 52px;
+                background: rgb(216 177 107 / 20%);
+                border-radius: 100%;
+            }
+        }
+        img {
+            transition: all 0.5s;
+            &[alt="facebook"]:hover {
+                border-radius: 100%;
+                background-color: blue;
+                filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
+            }
+            &[alt="instagram"]:hover {
+                border-radius: 100%;
+                background-color: #ff0066;
+                filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
+            }
+            &[alt="whatsup"]:hover {
+                border-radius: 100%;
+                background-color:   rgb(93, 181, 6);
+                filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
+            }
+    
+        }
+    }
+}

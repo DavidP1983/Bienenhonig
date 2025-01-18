@@ -1,0 +1,453 @@
+.singleItem {
+    min-height: calc(100vh - 30px);
+    padding: 30px 20px 30px 20px;
+    margin-top: 230px;
+    position: relative;
+    z-index: 2;
+    background: linear-gradient(135deg, #ffcc00, #ffa500);
+
+    &__container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr) minmax(240px, 1fr) minmax(100px, 200px));
+        grid-template-rows: minmax(200px, auto);
+        grid-auto-rows: minmax(200px, auto);
+        gap: 20px;
+        padding: 20px 20px;
+
+    }
+
+    // About section
+    &__about, &__article, &__contacts {
+        margin-top: 20px;
+        padding: 20px; 
+        border: 1px dotted red;       
+    }
+    &__image, &__reviews, &__comments {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        img {
+            object-fit: cover;
+            aspect-ratio: 4 / 7;
+            border-radius: 20px;
+            box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+        }
+        a {
+            color: #000;
+            font-family: var(--font-museoBold);
+        }
+    }
+    &__description {
+        margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        em {
+            color: rgb(239, 36, 36);
+            margin-top: 10px;
+        }
+    }
+    &__title, &__reviews_title {
+        align-self: start;
+        font-family: var(--font-museoBold);
+        font-size: 30px;
+    }
+    &__owner, &__descr, &__crystallisation  {
+        margin-top: 20px;
+        font-family: var(--font-museoMono);
+        color: #000;
+        strong {
+            margin-top: 10px;
+            color: #f4f2ef;
+        }
+    }
+
+    &__crystallisation {
+        height: 50px; 
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        transition: all 0.3s;
+    }
+
+    &__crystallisation.open {
+        height: 280px;
+    }
+
+
+    &__reviews {
+        margin-top: 40px;
+    }
+    &__total {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+    }
+    &__rate {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+    &__rateNum, &__qnt {
+        font-family: var(--font-museoBold);
+        font-size: 20px;
+    }
+
+    &__rateNum {
+        margin-top: 4px;
+    }
+    hr {
+        width: 100%;
+    }
+
+    &__comments {
+        width: 100%;
+        ul {
+            width: 100%;
+            .comment {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                .name, .data, .city, .title, .desc, .item {
+                    font-family: var(--font-museoMono);
+                    color: #000;
+                }
+                .name {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+                .data {
+                    color: #583b3b;
+                }
+
+                .title, .desc, .item {
+                    margin-top: 10px;
+                }
+                .item {
+                    font-size: 15px;
+                }
+                &::after {
+                    content: '';
+                    display: block;
+                    width: 100%;
+                    height: 1px;
+                    background-color: gray;
+                    margin: 40px 0;
+                }
+            }
+        }
+    }
+
+    &__btn, &__readmore {
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 9px 15px;
+        border-radius: 20px;
+        border: 1px dotted red;
+        background-color:wheat;
+        box-shadow: rgb(11 14 10 / 35%) 0px 2px 10px 1px;
+        font-family: var(--font-museoBold);
+        transition: outline 0.2s;
+        &:hover {
+            outline: 4px solid aqua;
+        }
+        &:active {
+            transform: translateY(5px);
+        }
+    }
+
+    &__readmore {
+        margin-top: 5px;
+        padding: 9px 15px;
+        background: lightgoldenrodyellow;
+        &:active {
+            transform: translateY(0);
+        }
+    }
+
+// Article section
+    &__article {
+        position: relative;
+        &_fixe {
+            position: sticky;
+            top: 50px;
+        }
+        &_title {
+            font-size: 30px;
+            font-family: var(--font-museoBold);
+        }
+        &_sort {
+            margin-top: 10px;
+            font-size: 20px;
+            font-family: var(--font-museoMono);
+            color: rgb(137, 90, 5);
+        }
+        &_rate {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+            &-num {
+                font-size: 20px;
+                margin-top: 3px;
+                font-family: var(--font-museoMono);
+            }
+        }
+        &_divider {
+            margin-top: 10px;
+            width: 100%;
+            height: 1px;
+            background: grey;
+        }
+        &_size, &_price, &_stock, &_qnt-label, &_discount {
+            margin-top: 20px;
+            font-family: var(--font-museoMono);
+            font-size: 20px;
+            color: #000;
+        }
+        &_size, &_price {
+            span {
+                margin-left: 12px;
+                color:rgb(252 252 252);
+                font-family: var(--font-museoMono);
+            }
+        }
+        &_size.zeroSize {
+            display: none;
+        }
+        &_choice {
+            margin-top: 10px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            &-btn {
+                padding: 10px;
+                border: 1px dotted red;
+                cursor: pointer;
+                border-radius: 10px;
+                background: wheat;
+                font-family: var(--font-museoMono);
+                &.active {
+                    border: 2px solid red;
+                }
+            }
+        }
+        &_price {
+            span {
+                font-size: 25px;
+            }
+            em {
+                display: block;
+                color: green;
+                font-size: 13px;
+                text-decoration: underline;
+                opacity: 0;
+                transition: opacity 1s ease;
+            }
+            em.visible {
+                opacity: 1;
+            }
+        }
+
+        &_stock {
+            display: flex;
+            gap: 20px;
+            &-check {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                &_indicator {
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 20px;
+                    &.instock {
+                        background-color: green;
+                    }
+                    &.empty {
+                        background-color: red;
+                    }    
+                }
+                &_units {
+                    &.instock {
+                        color: green;
+                    }
+                    &.empty {
+                        color: red;
+                    }
+                }
+
+            }
+        }
+        &_qnt {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            &-label {
+                margin-top: 0;
+            }
+            &-calculator {
+                display: flex;
+                input {
+                    width: 40px;
+                    text-align: center;
+                    border: none;
+                    background-color:inherit;
+                    font-family: var(--font-museoBold);
+                }
+            }
+            &-min, &-max {
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                width: 30px;
+                height: 30px;
+                cursor: pointer;
+                border: 1px dotted red;
+                border-radius: 8px;
+                background: wheat;
+                font-family: var(--font-museoBold);
+            }
+
+        }
+        &_discount {
+            color: red;
+            font-size: 15px;
+        }
+        &_checkout {
+            margin-top: 40px;
+            height: 40px;
+            width: 100%;
+            border-radius: 20px;
+            border: 1px dotted red;
+            background: wheat;
+            cursor: pointer;
+            font-family: var(--font-museoBold);
+            transition: all 0.3s;
+            &:hover:not([disabled]) {
+                outline: 4px solid aqua;
+                box-shadow: rgba(3, 3, 3, 0.35) 0px 22px 85px 4px;
+            }
+            &:active:not([disabled]) {
+                transform: translateY(5px);
+            }
+            &[disabled] {
+                opacity: .6;
+                cursor: not-allowed;
+              }
+        }
+    }
+// Contacts section
+    &__contacts {
+        position: relative;
+        &_fixe {
+            position: sticky;
+            top: 240px;
+        }
+        &-title {
+            font-size: 21px;
+            text-align: center;
+            font-family: var(--font-museoBold);
+        }
+    }
+
+    &__media {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        &-phone {
+            & .phone {
+                font-family: var(--font-museoBold);
+                color: #000;
+            }
+        }
+        &-social {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            & .social {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 100%;
+                width: 40px;
+                height: 40px;
+                -webkit-transform: scale(0.8);
+                transform: scale(0.8);
+                -webkit-transition: .3s ease-in-out;
+                transition: .3s ease-in-out;
+
+                &#whatsup {
+                    img {
+                        width: 52px;
+                        height: 52px;
+                        background: rgb(216 177 107 / 20%);
+                        border-radius: 100%;
+                    }
+                }
+
+                &:hover img  {
+                    -webkit-transform: scale(1.3);
+	                transform: scale(1.3);
+                    border-radius: 100%;
+                    box-shadow: rgba(3, 3, 3, 0.35) 0px 22px 85px 4px;
+                }
+                & img[alt="facebook"]:hover {
+                    border-radius: 100%;
+                    box-shadow: 0 0 20px rgba(0, 36, 239, 0.575);
+                }
+    
+                & img[alt="instagram"]:hover {
+                    border-radius: 100%;
+                    box-shadow:  4px 4px 20px 4px rgb(231, 114, 114);
+                }
+                & img[alt="whatsup"]:hover {
+                    border-radius: 100%;
+                    box-shadow:  4px 4px 20px 4px rgb(93, 181, 6);
+                } 
+            }
+        }
+    }
+
+    // Modal
+    &__modalContent {
+        border: 1px dotted red;
+        border-radius: 20px;
+    }
+
+    &__modalTitle {
+        text-align: center;
+        &> .ant-modal-title {
+            color: #ffa500;
+            width: 100%;
+            font-size: 20px;
+            font-family: var(--font-museoBold);    
+        }
+    }
+
+
+    &__modalClose {
+        border-radius: 20px;
+        color: #ffa500;
+        & > .ant-modal-close:hover {
+            background-color: #ffa500;
+            color: #ffffff;
+        }
+    }
+
+
+    &__modalMask {
+        backdrop-filter: blur(10px);
+    }
+}

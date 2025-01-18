@@ -1,0 +1,93 @@
+.order {
+    width: 100%;
+    margin-top: 20px;
+    &__item {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 20px;
+        border-radius: 20px;
+        transition: all 0.5s;
+
+        &-image {
+            width: 50%;
+            height: 50%;
+            border-radius: 22px;
+            border: 1px dotted red;
+            img {
+                display: block;
+                border-radius: 20px;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        &-descr {
+           display: flex;
+           flex-direction: column;
+           align-items: flex-start;
+           gap: 5px;
+           & .title, .size, .price, .qnt {
+                font-family: var(--font-museoBold);
+                font-size: 15px;
+                text-decoration: underline;
+                strong {
+                    margin-left: 10px;
+                } 
+           }
+           .size, .price, .qnt {
+            font-family: var(--font-museoMono);
+            text-decoration: none;
+           }
+        }
+        &:hover {
+            box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+        }
+
+        &-remove {
+            border: none;
+            background: inherit;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        &-empty {
+            text-align: center;
+            font-size: 23px;
+            img {
+                width: 50%;
+                height: 50%;
+            }
+        }
+    }
+
+      
+    &__drawerContent {
+        border: 1px dotted red;
+        border-radius: 20px;
+    }
+
+    &__drawerTitle {
+        text-align: center;
+        p {
+            color: #ffa500;
+            font-size: 25px;
+            font-family: var(--font-museoBold);    
+        }
+    }
+
+    &__drawerClose  {
+        border-radius: 20px;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+        color: #ffa500;
+    }
+
+    &__drawerMask {
+        backdrop-filter: blur(10px);
+    }
+    
+}

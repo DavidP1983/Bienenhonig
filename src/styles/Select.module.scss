@@ -1,0 +1,10 @@
+.selectfilter {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    .title {
+        font-size: 20px;
+        font-family: var(--font-museoMono);
+        color: #d65d07;
+    }
+}

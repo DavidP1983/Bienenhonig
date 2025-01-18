@@ -1,0 +1,13 @@
+.pagination {
+    display: flex;
+    margin-top: 50px;
+    justify-content: center;
+    color: rgb(0, 0, 0);
+    a:where([data-active]) {
+        color: white;
+        font-family: var(--font-museoBold);
+    }
+    a:where([href^="#page"]):hover {
+        color: red !important;
+    }
+}

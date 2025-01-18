@@ -1,0 +1,22 @@
+.skeleton {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+    transform: translateY(-45%);
+    z-index: 1;
+    .content {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+    li {
+        background: grey;
+        width: 48%;
+        height: 200px;
+        border-radius: 20px;
+    }
+}

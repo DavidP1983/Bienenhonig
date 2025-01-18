@@ -1,0 +1,45 @@
+.form {
+    display: block;
+    margin: 40px auto 0 auto;
+    padding: 20px;
+    width: 50%;
+    backdrop-filter: blur(10px);
+    background: #e5cf78;
+    border-radius: 20px;
+    label {
+        color: #000;
+        font-family: var(--font-museoMono);
+        span {
+            color: red;
+        }
+    }
+    input, textarea {
+        margin-bottom: 10px;
+        &:focus-within {
+            outline: 2px solid var(--mantine-color-blue-filled);
+            border-color: transparent;
+          }
+    }
+    p {
+        color: #861717;
+        font-size: 12px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+    &__input {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    &__btn {
+        width: 100%;
+        &:disabled {
+            opacity: .6;
+            cursor: not-allowed;
+        }
+    }
+
+}

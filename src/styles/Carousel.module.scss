@@ -1,0 +1,16 @@
+.carousel {
+    min-height: 150px;
+    padding: 50px 0;
+    text-align: center;
+    & .title {
+        font-size: 80px;
+        font-family: var(--font-museoBold);
+        background: linear-gradient(45deg, #9f9f04 0%, #7b5204 50%, #301f00 100% );
+        color: #f7c90f;
+        background-clip: text;
+        -webkit-text-stroke: 6px transparent;; 
+    }
+    & .gallery {
+        margin-top: 50px;
+    }
+}

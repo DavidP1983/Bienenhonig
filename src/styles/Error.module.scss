@@ -1,0 +1,33 @@
+.error, .errormodule {
+    height: 100vh;
+    margin-top: 230px;
+    padding: 50px 20px;
+    z-index: 2;
+    background: linear-gradient(135deg, #ffcc00, #ffa500);
+    & .errorcontent {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20;
+        .errortitle {
+            font-family: var(--font-museoBold);
+            font-size: 40px;
+            color: red;
+            margin-left: 40px;
+        }
+        .errormessage {
+            font-size: 20px;
+            font-family: var(--font-museoBold);
+            text-align: center;
+            color: red;
+        }
+    }
+  
+}
+
+.error {
+    height: 60vh;
+    margin-top: 0;
+    background: none;
+    padding: 20px 20px;
+}
