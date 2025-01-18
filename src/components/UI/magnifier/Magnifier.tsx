@@ -1,18 +1,16 @@
-import { GlassMagnifier } from "react-image-magnifiers";
-
-export const MagnifierImg = ({ imageSrc, alt }: { imageSrc: string, alt: string }) => {
+import Magnifier from "react18-image-magnifier";
+export const MagnifierImg = ({ imageSrc }: { imageSrc: string }) => {
     return (
-
-        <GlassMagnifier
-            imageSrc={imageSrc}
-            imageAlt={alt}
-            magnifierSize="70%"
-            magnifierBorderSize={5}
-            allowOverflow={true}
-            style={{ width: "80%", height: "80%" }}
-            largeImageSrc={imageSrc}
-            magnifierBorderColor="rgba(255, 255, 255, 0.5)"
-
+        <Magnifier
+            src={imageSrc}
+            mgShape="circle"
+            mgBorderWidth={2}
+            mgWidth={200}
+            mgHeight={200}
+            zoomFactor={1.5}
+            zoomImgSrc={imageSrc}
+            width="80%"
+            mgShowOverflow={true}
         />
     )
 }

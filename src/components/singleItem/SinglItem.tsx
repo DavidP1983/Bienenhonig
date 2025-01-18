@@ -54,7 +54,7 @@ export const SingleItem = ({ data }: IData) => {
                 <div className='singleItem__about'>
                     <div className='singleItem__image'>
 
-                        <MagnifierImg imageSrc={data.image} alt={data.sort} />
+                        <MagnifierImg imageSrc={data.image} />
                         {data.link ?
                             <Link href={{
                                 pathname: `/location/${data.link}`,
