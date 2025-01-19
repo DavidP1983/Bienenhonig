@@ -18,7 +18,7 @@ async function sendMail(data: TData, cartOrder: ICartOrder[]) {
         const { id, name, surname, email, phone, comment } = result.data;
         try {
             const { data, error } = await resend.emails.send({
-                from: 'Honey-land <onboarding@resend.dev>',
+                from: 'Begrüßt Sie Bienenhonig <onboarding@resend.dev>',
                 to: ['david.piruzashvili@gmail.com'],
                 subject: 'Order from submission',
                 text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}`,

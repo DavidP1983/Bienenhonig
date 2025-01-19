@@ -87,8 +87,10 @@
 html,
 body {
   /* для эффекта с footer */
-  max-width: 100vw;  
+  max-width: 100vw; 
+  scroll-behavior: smooth; 
 }
+
 
 /* для эффекта с modal избегая дерганеи*/
 body#body[data-scroll-locked="1"] {

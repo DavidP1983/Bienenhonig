@@ -92,6 +92,11 @@ const LocationPage = async ({ params }: Props) => {
         "name": place.city,
         "image": "https://res.cloudinary.com/dmrsemgsn/image/upload/v1737127324/passika_simoa7.webp",
         "description": place.description,
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": place.city,
+            "addressCountry": "DE",
+        },
         "brand": {
             "@type": "Brand",
             "name": "Bienenhonig"
@@ -104,12 +109,12 @@ const LocationPage = async ({ params }: Props) => {
 
     return (
         <>
-            <head>
+            <section>
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
                 />
-            </head>
+            </section>
             <Location {...place} />
         </>
     )

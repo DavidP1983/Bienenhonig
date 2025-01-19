@@ -69,12 +69,12 @@ const Products = () => {
 
     return (
         <>
-            <head>
+            <section>
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
                 />
-            </head>
+            </section>
             <AllProducts />
         </>
     )

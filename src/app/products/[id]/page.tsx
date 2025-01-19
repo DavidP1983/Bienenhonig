@@ -83,7 +83,7 @@ const SingleItemPage = async ({ params }: Props) => {
         },
         "offers": {
             "@type": "Offer",
-            "price": data.price,
+            "price": data.price[0],
             "priceCurrency": "EUR",
             "url": `https://bienenhonig.vercel.app/products/${id}`
         }
@@ -91,12 +91,12 @@ const SingleItemPage = async ({ params }: Props) => {
 
     return (
         <>
-            <head>
+            <section>
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
                 />
-            </head>
+            </section>
             <SingleItem data={data} />
         </>
     );

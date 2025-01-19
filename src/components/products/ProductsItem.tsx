@@ -53,7 +53,7 @@ export const ProductsItem = ({ data }: IProductsItem) => {
                         <div className='price'><span>&#8364;</span>{price[0]}</div>
                         <div className='rating'>
                             <RateProducts rating={reviews} />
-                            <Link href={`/products/${_id}`} className='qnt'>{reviews?.length} reviews</Link>
+                            <Link href={`/products/${_id}#reviews`} className='qnt'>{reviews?.length} reviews</Link>
                         </div>
                         <div className={stock ? 'stock' : 'empty'}>
                             <div className='indicator'></div>

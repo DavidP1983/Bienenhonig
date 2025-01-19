@@ -75,13 +75,14 @@ export default function Home() {
 
   return (
     <>
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-      </head>
       <main style={{ minHeight: 500 }}>
+        <section>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          />
+        </section>
+
         <HomePage />
         <Carousel slides={SLIDES} options={OPTIONS} />
       </main>

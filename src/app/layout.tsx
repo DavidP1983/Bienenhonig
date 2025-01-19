@@ -34,8 +34,8 @@ const museoBold = localFont({
 
 
 export const metadata: Metadata = {
-  title: "Honey Land",
-  description: "My Honey Land",
+  title: "Bienenhonig - Pure Organic Honey",
+  description: "Discover premium honey products directly from Germany.",
 };
 
 export interface LayoutProps {

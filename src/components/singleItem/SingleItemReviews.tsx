@@ -3,6 +3,7 @@ import { ModalReview } from '../UI/modal/ModalReview';
 import { Reviews } from '@/shared/types/type';
 import { Rate } from 'antd';
 import { calcRating } from '@/utils/calcRating';
+import { useEffect, useRef } from 'react';
 
 
 import dayjs from 'dayjs';
@@ -19,6 +20,29 @@ interface IReviews {
 }
 
 export const SingleItemReviews = ({ reviews }: IReviews) => {
+
+    const reviewsRef = useRef<HTMLDivElement | null>(null);
+
+    useEffect(() => {
+
+        const timer = setTimeout(() => {
+            const item = reviewsRef;
+            if (!item.current) {
+                return;
+            }
+            if (window.location.hash === '#reviews' && reviewsRef.current) {
+                window.scrollTo({
+                    top: item.current.offsetTop
+                })
+            }
+        }, 500);
+
+        return () => {
+            clearTimeout(timer);
+        }
+
+    }, []);
+
 
     const renderReviews = (arr: Reviews[]) => {
         if (arr.length === 0) {
@@ -64,7 +88,7 @@ export const SingleItemReviews = ({ reviews }: IReviews) => {
     const { totalStars } = calcRating(reviews);
 
     return (
-        <div className='singleItem__reviews'>
+        <div className='singleItem__reviews' ref={reviewsRef}>
             <h2 className='singleItem__reviews_title'>Reviews</h2>
             <div className='singleItem__total'>
                 <div className='singleItem__rate'>
