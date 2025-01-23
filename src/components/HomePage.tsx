@@ -35,7 +35,7 @@ export const HomePage = () => {
             })
             .to(".bee", {
                 opacity: 0,
-                x: 1200, // Уходит за пределы экрана
+                x: 1600, // Уходит за пределы экрана
                 duration: 1.5,
                 ease: "power1.inOut",
             });
