@@ -18,12 +18,12 @@ export const Footer = () => {
                     <li className={styles.link}>
                         <Image
                             src={location} alt="location Erkrath-Hochdahl" />
-                        <Link href="/location/Erkrath-Hochdahl" title="location address Erkrath-Hochdahl"><address ><strong>Erkrath-Hochdahl, Germany</strong></address></Link>
+                        <Link href="/location/Erkrath-Hochdahl" title="location address Erkrath-Hochdahl" scroll={true}><address ><strong>Erkrath-Hochdahl, Germany</strong></address></Link>
                     </li>
                     <li className={styles.link}>
                         <Image
                             src={location} alt="location Düsseldorf" />
-                        <Link href="/location/Dusseldorf" title="location address Düsseldorf"><address ><strong>Düsseldorf, Germany</strong></address></Link>
+                        <Link href="/location/Dusseldorf" title="location address Düsseldorf" scroll={true}><address ><strong>Düsseldorf, Germany</strong></address></Link>
                     </li>
                 </ul>
                 <div className={styles.phone}>

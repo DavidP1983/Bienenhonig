@@ -265,6 +265,9 @@
             display: flex;
             gap: 13px;
             font-family: var(--font-museoBold);
+            i {
+                align-self: center;
+            }
         }
     }
 

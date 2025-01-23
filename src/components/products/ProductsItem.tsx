@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { Products } from '@/shared/types/type';
 import { useProducts } from '@/store';
 import { RateProducts } from '../UI/rate/Rate';
+import * as motion from "motion/react-client";
 
 
 import '../products/styles/products.scss';
@@ -36,7 +37,17 @@ export const ProductsItem = ({ data }: IProductsItem) => {
                     stock,
                     reviews
                 }) => (
-                    <div className={stock ? 'content' : 'outstock'} key={_id}>
+                    <motion.div
+                        className={stock ? 'content' : 'outstock'}
+                        key={_id}
+                        initial={{ opacity: 0, scale: 0 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{
+                            type: "tween",
+                            stiffness: 80,
+                            damping: 20,
+                            ease: "linear"
+                        }}>
                         <div className='image'>
                             <Link href={`/products/${_id}`}>
                                 <Image
@@ -60,7 +71,7 @@ export const ProductsItem = ({ data }: IProductsItem) => {
                             <div className='units'>In Stock, {qnt[0]} units</div>
                         </div>
                         <Link href={`/products/${_id}`} className={stock || qnt[0] ? 'checkOut' : 'outstockbtn'}>Check Product</Link>
-                    </div>
+                    </motion.div>
 
                 ))
             }

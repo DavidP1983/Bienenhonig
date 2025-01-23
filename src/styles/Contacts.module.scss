@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
 .contacts {
     padding: 30px 20px 30px 20px;
     margin-top: 230px;
@@ -9,8 +10,36 @@
         text-align: center;
         font-family: var(--font-museoBold);
     }
+    & .title {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: 'Anonymous Pro', monospace;
+        width: 800px;
+        font-size: 27px;
+        border-right:  2px solid rgb(255, 255, 255, .75);
+        white-space: nowrap;
+        overflow: hidden;
+
+        &.typewriter {
+            animation: typewriter 4s steps(44) 1s 1 normal both,
+                        blinkTextCursor 1s steps(44) infinite;
+           
+        }    
+       
+    }
     & .subtitle {
         font-family: var(--font-museoMono);
         color: red;
+    }
+
+    @keyframes typewriter{
+        from{width: 0;}
+        to{width: 800px;}
+    }
+
+    @keyframes blinkTextCursor{
+        from{border-right-color: rgb(241 6 6 / 75%);}
+        to{border-right-color: transparent;}
     }
 }

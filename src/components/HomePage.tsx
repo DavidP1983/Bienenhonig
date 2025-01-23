@@ -1,13 +1,84 @@
+'use client';
 import Image from 'next/image';
-import { urls } from '@/assets/img/index';
+import { textAnimation } from '@/animation/textAnimation';
+import { urls, flyingBee } from '@/assets/img/index';
+import { useRef } from 'react';
+import { useGSAP } from '@gsap/react';
+import { gsap } from 'gsap';
+import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 
 import styles from '@/styles/Home.module.scss';
 
 export const HomePage = () => {
+    const myRef = useRef<HTMLUListElement>(null);
+
+    useGSAP(() => {
+        gsap.registerPlugin(MotionPathPlugin);
+        gsap.set(".bee", { opacity: 0, visibility: "hidden", x: -1100, y: -100 });
+        const beeTimeline = gsap.timeline();
+        beeTimeline
+            .to(".bee", {
+                visibility: "visible", // Пчелка становится видимой
+                opacity: 1,
+                duration: 1.5,
+                ease: "power1.inOut",
+            })
+            .to(".bee", {
+                motionPath: {
+                    path: "#beePath",
+                    align: "#beePath",
+                    alignOrigin: [0.5, 0.5],
+                    autoRotate: true,
+                },
+                duration: 6,
+                ease: "power1.inOut",
+            })
+            .to(".bee", {
+                opacity: 0,
+                x: 1200, // Уходит за пределы экрана
+                duration: 1.5,
+                ease: "power1.inOut",
+            });
+
+        if (myRef?.current) {
+            const elem = myRef?.current.querySelectorAll(`.${styles.words} li`);
+            textAnimation(elem);
+        }
+
+    });
+
     return (
         <section className={styles.about}>
             <div className="container">
-                <h1 className={styles.maintitle}>Welcome to the World <br />of Honey</h1>
+                <div className={styles.maintitle}>
+                    <h1 className={styles.title} id="words">Welcome to the World </h1>
+                    <h1 className={styles.subtitle}>of
+                        <ul className={styles.words} ref={myRef}>
+                            <li>Honey</li>
+                            <li>Bee</li>
+                            <li>And more...</li>
+                        </ul>
+                    </h1>
+                </div>
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" width="100%" height={0}>
+                        <path
+                            id="beePath"
+                            fill="none"
+                            stroke="transparent"
+                            strokeWidth="2"
+                            d="M-100,-50 C300,50 900,50 1540,-50"
+                        />
+                    </svg>
+                    <div className='bee' style={{ position: "absolute", top: 0, left: 0, zIndex: 3, visibility: "hidden", }}>
+                        <Image
+                            src={flyingBee}
+                            alt="bee"
+                            width={100}
+                            height={100}
+                        />
+                    </div>
+                </div>
                 <div className={styles.content}>
                     <div className={styles.image}>
                         <Image

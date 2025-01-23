@@ -62,7 +62,7 @@ export const SingleItem = ({ data }: IData) => {
 
 
                             }}
-                                title={`location address ${data.link}`}>The place where we collect our honey</Link>
+                                title={`location address ${data.link}`}><i className='fa fa-map-marker'></i>The place where we collect our honey</Link>
                             :
                             <div><span style={{ marginRight: "10px" }}><i className='fa fa-search-plus'></i></span>Roll over image to zoom in</div>
                         }

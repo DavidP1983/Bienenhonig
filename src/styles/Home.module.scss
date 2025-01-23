@@ -6,14 +6,45 @@
     background: url(/_next/static/media/pngwing.8d33f7bf.png) right top no-repeat;
     background-size: 78% 65%;
     margin-top: 230px;
-& .maintitle {
-    font-family: var(--font-museoBold);
-    font-size: 40px;
-    text-shadow: 1px 1px 2px white, 0 0 1em blue, 0 0 0.2em blue;
-    color: var(--background);
-}
+    .maintitle {
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        & .title, .subtitle {
+            font-family: var(--font-museoBold);
+            font-size: 40px;
+            text-shadow: 1px 1px 2px white, 0 0 1em blue, 0 0 0.2em blue;
+            color: var(--background);
+        }
+        & .subtitle {
+            margin: 0 auto;
+            display: flex;
+            gap: 30px;
+            & .words {
+                overflow: hidden;
+                background-color: inherit;
+                padding: 0;
+                margin: 0;
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr;
+                grid-column-gap: 0px;
+                grid-row-gap: 0px;
+                align-items: start;
+                justify-items: start;
+                color: #fffffe;
+                text-shadow: none;
+            }
+            & .words > * {
+                grid-area: 1/1/2/2;
+            } 
+        }
+    }
  & .content {
-    padding-top: 50px;
+    padding-top: 115px;
     display: grid;
     grid-template-columns: 400px 570px;
     grid-template-rows: minmax(243px, auto) minmax(312px, auto);
