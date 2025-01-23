@@ -102,8 +102,8 @@ export const OrderConfirm = ({ open, setOpen }: Props) => {
                     type: "primary",
                     style: { display: 'block', marginTop: '70px', width: '100%' },
                     onClick: () => {
-                        router.push('/contacts');
                         setOpen(false);
+                        router.push('/contacts');
                     },
                     disabled: !cartOrder.length
                 }}>
