@@ -63,7 +63,7 @@ export const CheckoutPage = () => {
 
 
     return (
-        <form onSubmit={form.onSubmit(handleSubmit)} className='form' suppressHydrationWarning={true}>
+        <form onSubmit={form.onSubmit(handleSubmit)} className='form'>
             {contextHolder}
             <div className='form__input'>
                 <TextInput
