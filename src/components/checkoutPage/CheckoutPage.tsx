@@ -10,6 +10,7 @@ import { Confiramtion } from '../UI/confirmation/Confiramtion';
 import { v4 as uuidv4 } from 'uuid';
 import { useCartOrder } from '@/store';
 import { useShallow } from 'zustand/shallow';
+import { useRef, useEffect } from 'react';
 
 
 import './styles/checkoutPage.scss';
@@ -19,6 +20,8 @@ export const CheckoutPage = () => {
     const { cartOrder } = useCartOrder(useShallow((state) => ({
         cartOrder: state.cartOrder,
     })));
+    const myRef = useRef<HTMLInputElement>(null);
+
 
     const id = uuidv4();
 
@@ -34,6 +37,19 @@ export const CheckoutPage = () => {
         },
         validate: zodResolver(schema),
     });
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            console.log('Effect');
+            if (myRef.current) {
+                myRef.current.focus();
+            }
+        }, 500);
+
+        return () => clearTimeout(timer);
+    }, []);
+
+
 
 
     const handleSubmit = async (values: typeof form.values) => {
@@ -69,6 +85,7 @@ export const CheckoutPage = () => {
                 <TextInput
                     withAsterisk
                     autoFocus
+                    ref={myRef}
                     label="Name"
                     name='name'
                     placeholder="Your first name"

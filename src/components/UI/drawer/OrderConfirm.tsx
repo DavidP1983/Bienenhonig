@@ -103,9 +103,7 @@ export const OrderConfirm = ({ open, setOpen }: Props) => {
                     style: { display: 'block', marginTop: '70px', width: '100%' },
                     onClick: () => {
                         setOpen(false);
-                        setTimeout(() => {
-                            router.push('/contacts');
-                        }, 100)
+                        router.push('/contacts');
                     },
                     disabled: !cartOrder.length
                 }}>

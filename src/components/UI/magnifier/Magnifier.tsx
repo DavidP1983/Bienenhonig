@@ -9,7 +9,7 @@ export const MagnifierImg = ({ imageSrc }: { imageSrc: string }) => {
             mgHeight={200}
             zoomFactor={1.5}
             zoomImgSrc={imageSrc}
-            width="80%"
+            width="60%"
             mgShowOverflow={true}
         />
     )
