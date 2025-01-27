@@ -1,3 +1,4 @@
+@use './media/home' as homeMedia;
 .about {
     position: relative;
     min-height: 500px;
@@ -107,3 +108,4 @@
     background-color: red;
 }
 }
+@include homeMedia.home-query;

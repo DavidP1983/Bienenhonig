@@ -1,0 +1,28 @@
+@mixin footer-query {
+    @media (max-width: 1200px) {
+        .footer {
+            .info {
+                left: 60%;
+            }
+        }
+    }
+
+    @media (max-width: 992px) {
+        .footer {
+            .info {
+                left: 74%;
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        .footer {
+            .info {
+                width: 369px;
+                top: 25%;
+                left: 50%;
+            }
+        }
+    }
+
+}

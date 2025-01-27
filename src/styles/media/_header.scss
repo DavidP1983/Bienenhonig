@@ -1,0 +1,90 @@
+@mixin header-query {
+    @media (max-width: 1200px) {
+        .header {
+            & .logo {
+                width: 120px;
+                height: 120px;
+            }
+            & .circle {
+                top: 11px;
+                left: 21px;
+                width: 80px;
+            }
+        }
+    }
+
+    @media (max-width: 992px) {
+        .header {
+            height: 200px;
+            padding: 13px 0;
+
+            .circle {
+                top: 6px;
+            }
+
+           .active, .links {
+            width: 130px;
+
+            & img {
+                width: 57%;
+                height: 50%;
+            }
+           }
+
+        }
+    }
+
+    @media (max-width: 768px) {
+        .header {
+            height: 100px;
+            width: 100vw;
+            .desktopNav, .circle, .logo {
+                display: none;
+            }
+            .mobileNav {
+                display: block;
+                position: absolute;
+                top: -3px;
+                left: -4px;
+            }
+            
+        }
+        
+        .cart {
+            top: 6%;
+            right: -40%;
+        }
+
+    }
+
+    @media (max-width: 768px) and (min-width: 657px) {
+        .cart {
+            position: fixed;
+            top: 22%;
+            right: 8%;
+        }
+ 
+     }
+
+    @media (max-width: 656px) and (min-width: 577px) {
+        .cart {
+            position: fixed;
+            top: 22%;
+            right: 8%;
+        }
+
+    }
+
+
+    @media (max-width: 576px) {
+       .header {
+        width: 100vw;
+       }
+        .cart {
+            position: fixed;
+            top: 22%;
+            right: 8%;
+        }
+
+    }
+}

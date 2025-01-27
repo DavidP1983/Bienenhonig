@@ -1,0 +1,111 @@
+.container {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex: 1;
+    width: 390px;
+    max-width: 100%;
+    height: 250px;
+    background-color: var(--accent);
+    border: 2px dotted transparent;
+    border-top-right-radius: 35px;
+    overflow: hidden;
+    transition: all 0.5s;
+
+    .nav {
+        width: 390px;
+    }
+
+    
+    .background {
+        background-color: #f5f5f5;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 390px;
+    }
+    
+    .list {
+        display: flex;
+        flex-direction: column;
+        place-items: center;
+        gap: 20px;
+        list-style: none;
+        margin-top: 50px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        z-index: 0;
+    }
+
+    .listItem {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 30px;
+        width: 70%;
+        padding: 10px;
+        margin: 0;
+        list-style: none;
+        box-shadow: 0px 0px 30px rgb(171 86 42 / 78%);
+        border-radius: 20px;
+        cursor: pointer;
+        a {
+            color: #000;
+            order: 2;
+            font-size: 20px;
+            font-family: var(--font-museoBold);
+        }
+        img {
+            width: 70px;
+            height: 70px;
+        }
+    
+        &:last-child {
+            border-radius: 0;
+            box-shadow: none;
+
+            a {
+                display: block;
+                margin: 0 auto;
+            }
+            img {
+                width: 100px;
+                height: 100px;
+            }
+        }
+    }
+
+    .toggleContainer {
+    outline: none;
+    border: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    cursor: pointer;
+    position: absolute;
+    top: 18px;
+    left: 15px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: transparent;
+    pointer-events: auto;
+    }
+
+ &.open {
+    height: 101vh;
+ }
+}
+
+@media (max-width:350px) and (min-width: 321px) {
+    .list {
+        left: -8%;
+   }
+
+}
+
+
+

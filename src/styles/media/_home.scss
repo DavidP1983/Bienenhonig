@@ -1,0 +1,113 @@
+@mixin home-query {
+    @media (max-width: 1200px) {
+        .about {
+            background-size: 98% 60%;
+            margin-top: 230px;
+            .content {
+                grid-template-columns: 380px 444px;
+            }
+        }
+    }
+
+    @media (max-width: 992px) {
+        .about {
+            background-size: 100% 40%;
+            margin-top: 200px;
+            .content {
+                padding-top: 100px;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 680px));
+                column-gap: 36px;
+               
+            }
+            .image {
+                height: 100%;
+                box-shadow: none;
+                position: relative;
+                img, #propose {
+                    position: absolute;
+                    left: 0;
+                    width: 60% !important; 
+                    height: 100% !important;
+                    object-fit: cover;
+                    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+                   
+                }
+                #propose {
+                    left: 50%;
+                    transform: translateX(-50%);
+                }    
+            }
+            .title {
+                font-size: 23px;
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+       .about {
+            background-size: 100% 26%;
+            margin-top: 100px;
+            padding: 50px 0 0 0;
+            .content {
+                padding-top: 70px;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 500px));
+            }
+       }
+    }
+
+    @media (max-width: 510px) and (min-width: 321px) {
+        .about {
+            background-size: 100% 20%;
+            .content {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 433px));
+    
+            }
+       }
+
+    }
+
+    @media (max-width: 455px) and (min-width: 321px) {
+        .about {
+            background-size: 100% 16%;
+            .content {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 370px));
+    
+            }
+       }
+
+    }
+
+    @media (max-width: 425px) and (min-width: 321px) {
+        .about {
+                .image {
+                    #propose, img {
+                        width: 100% !important;
+                        height: 100% !important;
+                    }
+            }
+            .maintitle {
+                .title, .subtitle {
+                    font-size: 35px;
+                }    
+            }
+       }
+
+    }
+
+
+    @media (max-width:380px) and (min-width: 321px) {
+        .about {
+            background-size: 100% 12%;
+            .content {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 330px));    
+            }
+            .maintitle {
+                .title, .subtitle {
+                    font-size: 30px;
+                }    
+            }
+       }
+
+    }
+ 
+}

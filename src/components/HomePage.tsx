@@ -35,9 +35,13 @@ export const HomePage = () => {
             })
             .to(".bee", {
                 opacity: 0,
-                x: 1600, // Уходит за пределы экрана
+                scale: 0, // Уходит за пределы экрана
                 duration: 1.5,
                 ease: "power1.inOut",
+                onComplete: () => {
+                    // Устанавливаем финальное состояние, чтобы предотвратить "возврат"
+                    gsap.set(".bee", { visibility: "hidden", x: 0, scale: 1 });
+                },
             });
 
         if (myRef?.current) {
@@ -60,7 +64,7 @@ export const HomePage = () => {
                         </ul>
                     </h1>
                 </div>
-                <div>
+                <div style={{ maxWidth: "200px" }}>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" width="100%" height={0}>
                         <path
                             id="beePath"
@@ -82,6 +86,7 @@ export const HomePage = () => {
                 <div className={styles.content}>
                     <div className={styles.image}>
                         <Image
+                            id="passika"
                             src={urls.passika}
                             alt="passika"
                             priority={true}
@@ -115,8 +120,9 @@ export const HomePage = () => {
                             nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
                         </p>
                     </div>
-                    <div className={styles.image}>
+                    <div className={styles.image} >
                         <Image
+                            id={styles.propose}
                             src={urls.propose}
                             alt="propose"
                             width={1200}

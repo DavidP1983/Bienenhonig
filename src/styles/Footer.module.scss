@@ -1,3 +1,4 @@
+@use './media/footer' as footerMedia;
 .footer {
     height: 450px;
     position: relative;
@@ -115,3 +116,5 @@
         }
     }
 }
+
+@include footerMedia.footer-query;

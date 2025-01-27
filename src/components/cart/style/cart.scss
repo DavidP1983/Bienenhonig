@@ -1,4 +1,4 @@
-
+@use '../../../styles/media/header' as headerMedia;
 .cart {
     position: absolute;
     top: 13px;
@@ -31,3 +31,4 @@
         }
     }
 }
+@include headerMedia.header-query;
