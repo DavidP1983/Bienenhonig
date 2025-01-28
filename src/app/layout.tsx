@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { Header } from "@/components/Header";
 import { MantineProvider } from '@mantine/core';
@@ -31,6 +31,13 @@ const museoBold = localFont({
   variable: '--font-museoBold'
 
 })
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+}
 
 
 export const metadata: Metadata = {
