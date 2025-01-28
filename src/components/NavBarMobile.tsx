@@ -40,7 +40,7 @@ export default function Variants() {
                     }}
                 >
                     <motion.div className={styles.background} variants={sidebarVariants} />
-                    <Navigation />
+                    <Navigation toggle={() => setIsOpen(!isOpen)} />
                     <MenuToggle toggle={() => setIsOpen(!isOpen)} />
                 </motion.nav>
             </div>
@@ -57,12 +57,16 @@ const navVariants = {
     },
 }
 
-const Navigation = () => (
+const Navigation = ({ toggle }: { toggle: () => void }) => (
     <motion.ul className={styles.list} variants={navVariants}>
         {navigation.map((item) => (
-            <MenuItem item={item} key={item.id} />
+            <MenuItem item={item} key={item.id} toggle={toggle} />
         ))}
-        <motion.li className={styles.listItem} variants={itemVariants}>
+        <motion.li
+            className={styles.listItem}
+            variants={itemVariants}
+            onClick={toggle}
+        >
             <Link href='/'>
                 <Image
                     src={logo}
@@ -95,9 +99,10 @@ const itemVariants = {
 }
 
 
-const MenuItem = ({ item }: { item: NavigationType }) => {
+const MenuItem = ({ item, toggle }: { item: NavigationType, toggle: () => void }) => {
     return (
         <motion.li
+            onClick={toggle}
             className={styles.listItem}
             variants={itemVariants}
             whileHover={{ scale: 1.1 }}
