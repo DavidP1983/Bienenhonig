@@ -189,5 +189,17 @@ a {
     }
 }
 
+@media (max-width: 992px) {
+  .location-container {
+       width: 90%;
+  }
+}
+@media (max-width: 695px) and (min-width: 567px) {
+  .location-container {
+    width: 86%;
+  }
+}
+
+
 
 

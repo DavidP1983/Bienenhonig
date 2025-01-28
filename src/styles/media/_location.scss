@@ -1,0 +1,253 @@
+@mixin location-query {
+    @media (max-width: 992px) {
+        #sectionloacation {
+           .gellery {
+                .title {
+                    font-size: 70px;
+                }
+           }
+        }
+    }
+
+    @media (max-width: 768px) {
+        #sectionloacation {
+           .location {
+                margin-top: 140px;
+           }
+           .reason {
+                .article {
+                    column-count: 1;
+                }
+            }
+        }
+    }
+
+
+    @media (max-width: 695px) and (min-width: 567px) {
+        #sectionloacation {
+           .location {
+                .title {
+                    h1 {
+                        font-size: 18px;
+                    }
+                    span {
+                        font-size: 30px;
+                    }
+                }
+                .desc {
+                    width: 500px;
+                }
+           }
+            .gellery {
+                .title {
+                    font-size: 60px;
+                }
+                .gellerycontainer {
+                    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                }
+
+            }
+
+        }
+
+        .footer {
+            .footerLogo {
+                display: none;
+            }
+        }
+    }
+
+    @media (max-width: 613px) and (min-width: 567px) {
+        #sectionloacation {
+            .location {
+                .title {
+                    h1 {
+                        font-size: 16px;
+                    }
+                }
+            }
+            .gellery {
+                .title {
+                    font-size: 50px;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 576px) {
+        #sectionloacation {
+            .location {
+                .title {
+                    h1 {
+                        font-size: 16px;
+                    }
+                    div {
+                        margin-top: 4px;
+                    }
+                    span {
+                        font-size: 20px;
+                    }
+                }
+                .desc {
+                    width: 430px;
+                }
+           }
+           .gellery {
+                .title {
+                    font-size: 50px;
+                }
+                .gellerycontainer {
+                    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                }
+            }
+        }
+        .footer {
+            .footerLogo {
+                display: none;
+            }
+            .footerContent {
+                padding: 10px 9px;
+            }
+        }
+    }
+
+    @media (max-width: 550px) and (min-width: 321px) {
+        #sectionloacation {
+            .gellery {
+                .gellerycontainer {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    .items {
+                        width: 75%;
+                    }
+                }
+            }
+        }
+    }
+
+
+    @media (max-width: 500px) and (min-width: 321px) {
+        #sectionloacation {
+            .location {
+                .title {
+                    flex-direction: column;
+                    h1 {
+                        font-size: 20px;
+                    }
+                    #line1 {
+                        align-self: flex-start;
+                    }
+                    #line2 {
+                        align-self: flex-end;
+                    }
+                    span {
+                        font-size: 28px;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 475px) and (min-width: 321px) {
+        #sectionloacation {
+            .location {
+                .title {
+                    h1 {
+                        font-size: 17px;
+                    }
+                }
+                .addr {
+                    font-size: 16px;
+                    .clover {
+                        width: 80px;
+                        height: 80px;
+                    }
+                }
+                .desc {
+                    width: 350px;
+                }
+            }
+            .gellery {
+                .title {
+                    font-size: 40px;
+                }
+            }
+        }
+        .footer {
+            .footerLinks, .footerAddr {
+                h2 {
+                    font-size: 16px;
+                }
+                ul {
+                    li a {
+                        font-size: 15px;
+                    }
+                }
+            }
+            .footerAddr {
+                address {
+                    a {
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 391px) and (min-width: 321px) {
+        #sectionloacation {
+            .location {
+                .title {
+                    h1 {
+                        font-size: 15px;
+                    }
+                }
+                .addr {
+                    flex-direction: column;
+                }
+                .desc {
+                    width: 250px;
+                    text-align: start;
+                }
+            }
+            .reason {
+                .title {
+                    font-size: 37px;
+                }
+            }
+            .gellery {
+                .title {
+                    font-size: 35px;
+                }
+                .gellerycontainer {
+                    .items {
+                        width: 89%;
+                    }
+                }
+            }
+            .accordion {
+                .title {
+                    font-size: 30px;
+                }
+            }
+        }
+        .footer {
+           .footerContent {
+                flex-direction: column;
+                place-items: center;
+                gap: 20px;
+           }
+           .footerLinks, .footerAddr {
+                width: 235px;
+                h2 {
+                    text-decoration: underline;
+                }
+           }
+           .footerAddr {
+                width: inherit;
+           }
+        }
+    }
+}

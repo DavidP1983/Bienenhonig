@@ -34,10 +34,9 @@ export const Location = ({ title, city, srcURI, info, description, gelleryImage 
             }
         });
 
-
         tl.fromTo('.title',
-            { x: -1100, opacity: 0, fontSize: 0, ease: "power1.out" },
-            { x: 0, opacity: 1, fontSize: 80, duration: 6, delay: 1.2, ease: "power1.out" }
+            { x: -1100, opacity: 0, ease: "power1.out" },
+            { x: 0, opacity: 1, duration: 6, delay: 1.2, ease: "power1.out" }
         );
 
         tl.fromTo('.box', {
@@ -58,11 +57,11 @@ export const Location = ({ title, city, srcURI, info, description, gelleryImage 
     return (
         <main id={styles.sectionloacation}>
             <section className={styles.location}>
-                <div className="container">
+                <div className="container location-container">
                     <div className={styles.title}>
-                        <div></div>
+                        <div id={styles.line1}></div>
                         <h1>Our <span>{title}</span> Honey from the  Heart of Nature</h1>
-                        <div></div>
+                        <div id={styles.line2}></div>
                     </div>
                     <div className={styles.addr}>
                         <Image
@@ -81,7 +80,7 @@ export const Location = ({ title, city, srcURI, info, description, gelleryImage 
                 </div>
             </section>
             <section className={styles.reason} ref={container}>
-                <div className="container">
+                <div className="container location-container">
                     <h2 className={styles.title}>Why this region?</h2>
                     <article >
                         <div className={styles.article}>{description}</div>
@@ -91,7 +90,7 @@ export const Location = ({ title, city, srcURI, info, description, gelleryImage 
             </section>
             <section className={styles.gellery} >
                 <h2 className={`title ${styles.title}`}>Gellery of Loaction</h2>
-                <div className="container" >
+                <div className="container location-container" >
                     <div className={styles.gellerycontainer} >
                         <div className={`box ${styles.items}`} >
                             <Image
@@ -127,7 +126,7 @@ export const Location = ({ title, city, srcURI, info, description, gelleryImage 
                 </div>
             </section>
             <section className={styles.accordion}>
-                <div className="container">
+                <div className="container location-container">
                     <h2 className={styles.title}>Recipes & Opinions</h2>
                     <div>
                         <Accordion />
