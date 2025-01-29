@@ -1,3 +1,4 @@
+@use './mixins/mixins' as product;
 @mixin link_hover {
     &:hover, &:active {
         color: white;
@@ -5,6 +6,8 @@
         font-family: var(--font-museoBold);
     }
 }
+
+
 
 .products {
     min-height: calc(100vh - 30px);
@@ -75,130 +78,177 @@
                 }
     
             }
-            .articlescontainer {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
-                grid-template-rows: minmax(100px, auto);
-                grid-auto-rows: minmax(100px, auto);
-                gap: 20px;
+            #container {
+                width: 100%;
 
-                .content, .outstock {
+                .view {
                     display: flex;
-                    flex-direction: column;
-                    justify-content: space-between;
-                    margin-top: 20px;
-                    width: 100%;
-                    min-height: 300px;
-                    box-shadow: rgba(39, 249, 2, 0.35) 0px 2px 10px 1px;
-                    border-radius: 20px;
-                    transition: all 0.5s;
-                    .image {
-                        a {
-                            display: block;
-                            img {
-                                display: block;
-                                margin: 10px auto 0 auto;
-                                max-width: 100%;
-                                max-height: 100%;
-                                object-fit: cover;
-                                border-radius: 20px;
-                                border: 2px dotted #000;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 30px;
+                    margin-top: 10px;
+
+                    .viewTitle {
+                        font-size: 20px;
+                        font-family: var(--font-museoBold);
+                    }
+
+                    .viewBtn {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background: inherit;
+                        padding: 5px;
+                        border: 1px dotted #000;
+                        i {
+                            font-size: 28px;
+                            &.active {
+                                color: red;
                             }
                         }
                     }
-                    .sort {
-                        text-align: center;
-                        font-size: 20px;
-                        font-family: var(--font-museoBold);
-                        margin-top: 10px;
-                        color: #000;
-                    }
-                    .descr, .price, .qnt, .stock, .empty {
-                        display: block;
-                        padding: 10px 10px;
-                        color: #000;
-                        font-family: var(--font-museoMono);
-                        transition: all 0.3s ease;
-                    }
-                    .rating {
-                        display: flex;
-                        align-items: center;
-                        padding: 10px 10px;
-                        transition: all 0.3s ease;
-                    }
-
-                    .descr, .qnt {
-                        @include link_hover
-                    }
-
-                    & .stock, & .empty {
-                        display: flex;
-                        align-items: center;
-                        gap: 10px;
-                        font-family: var(--font-museoBold);
-                        color: green;
-                        .indicator {
-                            width: 10px;
-                            height: 10px;
-                            border-radius: 10px;
-                            background-color: green;
-                        }
-                    }
-
-                    .empty {
-                        color: red;
-                        .indicator {
-                            background-color: red;
-                        }
-                    }
-
-                    & .checkOut, .outstockbtn {
-                        display: block;
-                        padding: 10px 10px;
-                        border: 2px dotted red;
-                        border-radius: 20px;
-                        margin: 20px 10px 10px 10px;
-                        text-align: center;
-                        background: wheat;
-                        color: #000;
-                        font-family: var(--font-museoMono);
-                        transition: all 0.5s;
-                        &::after {
-                            font-size: 16px;
-                            font-family: var(--font-museoMono);
-                        }
-                        &:hover {
-                            color: white;
-                            background: rgba(1, 145, 61, 0.962); 
-                        }
-
-                        &:active {
-                            transform: translateY(12px);
-                        }
-                    }
-
-                    .outstockbtn {
-                        font-size: 0px;
-                        border: 2px dotted black;
-                        background: red;
-                        transition: all 0.5s;
-                        &::after {
-                            content: 'Out Of Stock';
-                        }
-                        &:hover::after {
-                            content: 'More Information';
-                        }
-                    }
-
-                    &:hover:not(.outstock) {
-                        box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
-                    }                   
                 }
 
-                .outstock {
-                    box-shadow: rgba(247, 2, 2, 0.35) 0px 22px 85px 4px;
-                }               
+                // Vertical original view grid
+                .articlescontainer {
+                    @include product.container(grid);
+                    
+                    .content, .outstock {
+                        @include product.card(column, 100%, 0, none, 330px);
+                        .image {
+                            a {
+                                display: block;
+                                img {
+                                    @include product.image(10px auto 0 auto);
+                                }
+                            }
+                        }
+                        .description {
+                            display: flex;
+                            flex-direction: column;
+                            width: 100%;
+                            padding: 10px 18px;
+                            gap: 16px;
+    
+                            .sort {
+                                text-align: center;
+                                font-size: 20px;
+                                font-family: var(--font-museoBold);
+                                margin-top: 10px;
+                                color: #000;
+                            }
+                            .descr, .price, .qnt, .stock, .empty {
+                                display: block;
+                                color: #000;
+                                font-family:  var(--font-museoBold);
+                                transition: all 0.3s ease;
+                            }
+                            .descr {
+                                height: 50px;
+                            }
+                            .rating {
+                                display: flex;
+                                align-items: center;
+                                gap: 12px;
+                                transition: all 0.3s ease;
+                            }
+        
+                            .descr, .qnt {
+                                @include link_hover
+                            }
+        
+                            & .stock, & .empty {
+                                display: flex;
+                                align-items: center;
+                                gap: 10px;
+                                font-family: var(--font-museoBold);
+                                color: green;
+                                .indicator {
+                                    width: 10px;
+                                    height: 10px;
+                                    border-radius: 10px;
+                                    background-color: green;
+                                }
+                            }
+        
+                            .empty {
+                                color: red;
+                                .indicator {
+                                    background-color: red;
+                                }
+                            }
+        
+                            & .checkOut, .outstockbtn {
+                                display: block;
+                                padding: 10px 10px;
+                                border: 2px dotted red;
+                                border-radius: 20px;
+                                margin: 20px 10px 10px 10px;
+                                text-align: center;
+                                background: wheat;
+                                color: #000;
+                                font-family: var(--font-museoMono);
+                                transition: all 0.5s;
+                                &::after {
+                                    font-size: 16px;
+                                    font-family: var(--font-museoMono);
+                                }
+                                &:hover {
+                                    color: white;
+                                    background: rgba(1, 145, 61, 0.962); 
+                                }
+        
+                                &:active {
+                                    transform: translateY(12px);
+                                }
+                            }
+        
+                            .outstockbtn {
+                                font-size: 0px;
+                                border: 2px dotted black;
+                                background: red;
+                                transition: all 0.5s;
+                                &::after {
+                                    content: 'Out Of Stock';
+                                }
+                                &:hover::after {
+                                    content: 'More Information';
+                                }
+                            }
+                        }
+                        &:hover:not(.outstock) {
+                            box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+                        }  
+                    }
+    
+                    .outstock {
+                        box-shadow: rgba(247, 2, 2, 0.35) 0px 22px 85px 4px;
+                    }
+                    
+                    //Horizontal View flex
+                    &.listViewHorizontal {
+                        @include product.container(flex);
+    
+                        .content, .outstock {
+                            @include product.card(row, 49%, 19px, 355px, 0px); 
+    
+                            .image {
+                                align-self: center;
+                                a {
+                                    display: block;
+                                    height: 50%;
+                                    margin-left: 12px;
+                                    img {
+                                        max-height: 0;
+                                        @include product.image(0)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
+
             .nodata {
                 text-align: center;
                 margin-top: 30px;
