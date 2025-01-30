@@ -125,3 +125,22 @@ export const useCartOrder = create<ICart>()(devtools((set, get) => ({
 }), { name: 'useCartOrder', version: 1 }));
 
 
+
+
+// MobileFilter modal window
+
+interface IMobileFilter {
+    status: boolean;
+    changeStatus: () => void;
+}
+
+export const useMobileFilter = create<IMobileFilter>()(devtools((set) => ({
+    status: false,
+    changeStatus: () => {
+        set(state => ({
+            status: !state.status
+        }))
+    }
+
+
+}), { name: 'useMobileFilter', version: 1 }));

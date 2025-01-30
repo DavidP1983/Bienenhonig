@@ -1,0 +1,32 @@
+@use '../../../products/styles/mixins/mixins' as mobileFilter; 
+
+
+    .wrapper {
+        height: 472px !important;
+        
+        .content {
+            background-color: orange;
+        }
+        .ant-drawer-title {
+            text-align: center;
+            font-size: 20px;
+            font-family: var(--font-museoBold);
+    
+        }
+        .ant-drawer-close {
+            font-size: 23px;
+        }
+        .mobileFilter {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            .categories, .location  {
+                @include mobileFilter.categories()
+            }
+        
+            .location {
+                @include mobileFilter.info()
+            }
+        }
+    }    
+

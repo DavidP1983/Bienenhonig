@@ -1,3 +1,11 @@
+@mixin link_hover {
+    &:hover, &:active {
+        color: white;
+        text-shadow: 5px 5px 10px black;
+        font-family: var(--font-museoBold);
+    }
+}
+
 @mixin container($display: grid) {
     display: $display;
     @if $display == grid {
@@ -34,6 +42,63 @@
     object-fit: cover;
     border-radius: 20px;
     border: 2px dotted #000;
+}
+
+
+@mixin categories() {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    .title {
+    font-size: 26px;
+    font-family: var(--font-museoBold);
+    }
+    .description {
+    font-size: 13px;
+    }
+    .input {
+    margin-left: 8px;
+    margin-top: 8px;
+    }
+    .root {
+    transition: all 150ms ease;
+    &[data-checked] {
+        border-color: red;
+        background-color:rgba(12, 143, 167, 0.962)
+        }
+        &:hover {
+        background-color:rgba(12, 143, 167, 0.962)
+        }
+    }
+    a {
+    color: #000;
+    font-size: 20px;
+    padding: 7px;
+    font-family: var(--font-museoSans);
+    transition: all 0.3s;
+    }
+}
+
+@mixin info() {
+    align-items: end;
+    .addr {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        li a {
+            display: block;
+            font-size: 16px;
+            padding: 13px;
+            font-family: var(--font-museoBold);
+            text-align: end;
+            transition: all 0.3s;
+            @include link_hover
+        }
+        .phone {
+            font-size: 19px;
+            font-family: var(--font-museoBold);
+        }
+    }
 }
 
 

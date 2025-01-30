@@ -19,6 +19,7 @@ import { useSelectAndFilterSort } from '@/hooks/useSelectAndFilterSort';
 
 import classes from '@/styles/Error.module.scss';
 import '../products/styles/products.scss';
+import { MobileFilter } from '../UI/mobilefilter/MobileFilter';
 
 export const AllProducts = () => {
     const { data, status, errorMessage, limit, page, getProducts, changePageNumber } = useProducts(useShallow((state) => ({
@@ -33,8 +34,11 @@ export const AllProducts = () => {
     })));
     const selectFilter = useFilter(state => state.filter);
 
+    console.log("Products component");
 
     useEffect(() => {
+        console.log("Products effect");
+
         selectFilter.search = '';
         changePageNumber(1);
         getProducts();
@@ -81,6 +85,7 @@ export const AllProducts = () => {
                     </ul>
                 </div>
             </div>
+            < MobileFilter />
         </section>
     );
 }

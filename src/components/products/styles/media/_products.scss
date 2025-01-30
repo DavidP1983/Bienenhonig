@@ -1,0 +1,150 @@
+@use '../mixins/mixins' as product;
+
+@mixin product-query {
+    @media (max-width: 1350px) {
+        .products {
+            .productscontainer {
+                .articles {
+                    #container {
+                        .articlescontainer {
+                            &.listViewHorizontal {
+                                .content, .outstock {
+                                    width: 100%;                
+                                }
+                            }
+                        }
+                    }            
+                }
+            }
+        }
+    }
+
+
+    @media (max-width: 992px) {
+        .products {
+            .productscontainer {
+                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+
+                & .categories, .info {
+                    display: none;
+                }
+                .articles {
+                    #container {
+                        .view {
+                            .viewTitle {
+                                &.mobile {
+                                    display: block;
+                                }
+                            }
+                            .viewBtn {
+                                &.mobile {
+                                    display: flex;
+                                }
+                            }
+                        }
+                    }            
+                }
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        .products {
+            margin-top: 110px;
+        }
+    }
+
+    @media (max-width: 590px) and (min-width: 321px) {
+        .products {
+           .productscontainer {
+                .articles {
+                    .articlefilter {
+                        flex-direction: column;
+                        align-items: flex-start;
+                        gap: 10px;
+                        .totalarticle {
+                            display: block;
+                            margin: 0 auto;
+                        }
+                    }
+                }
+           }
+            
+        }
+    }
+
+    @media (max-width: 550px) and (min-width: 321px) {
+        .wrapper {
+            .mobileFilter {
+                flex-direction: column;
+                align-items: unset !important;
+            }
+        }
+    }
+
+    @media (max-width: 399px) and (min-width: 321px) {
+        .products {
+            .productscontainer {
+                .articles {
+                    #container {
+                        .view {
+                            .viewTitle {
+                                display: none;
+                            }
+                            .viewBtn {
+                                display: none;
+                            }
+                        }
+                    }            
+                }
+            }
+        }
+
+    }
+
+    @media (max-width: 475px) and (min-width: 321px) {
+        .products {
+            margin-top: 80px;
+            .productscontainer {
+                .articles {
+                    #container {
+                        .articlescontainer {
+                            &.listViewHorizontal {
+                                .content, .outstock {
+                                    max-height: 400px;
+                                    gap: 0;
+                                    .image {
+                                        a {
+                                            margin-left: 0;
+                                        }
+                                    }
+                                    .description {
+                                        .rating {
+                                            flex-direction: column;
+                                        }
+                                    }               
+                                }
+                            }
+                        }
+                    }            
+                }
+            }
+        }
+    }
+
+    @media (max-width: 355px) and (min-width: 321px) {
+        .products {
+            .productscontainer {
+                padding: 0;
+                .articles {
+                    .articlefilter {
+                        .totalarticle {
+                            font-size: 18px;
+                        }
+                    }            
+                }
+            }
+        }
+    }
+
+}

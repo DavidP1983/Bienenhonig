@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Checkbox, Group, Stack, Text } from '@mantine/core';
 import { dbCategory } from './dbCategory';
 
-import { useFilter, useProducts } from '@/store';
+import { useFilter, useMobileFilter, useProducts } from '@/store';
 import '../products/styles/products.scss';
 
 export const ProductsCategory = () => {
@@ -10,6 +10,7 @@ export const ProductsCategory = () => {
     const [selected, setSelected] = useState<string | null>(null);
     const handleCheck = useFilter(state => state.handleSelect);
     const changePageNumber = useProducts(state => state.changePageNumber);
+    const changeStatus = useMobileFilter(state => state.changeStatus);
 
 
     const handleCheckboxChange = (event: React.MouseEvent<HTMLButtonElement>, currentVal: string) => {
@@ -19,6 +20,7 @@ export const ProductsCategory = () => {
         const isEmptyValue = selected === currentVal ? [''] : [attrValue];
         setValue(isEmptyValue);
         changePageNumber(1);// из-за пагинации
+        changeStatus(); //close filter modal on mobile 
         handleCheck(checkBox, isEmptyValue[0]);
 
     }

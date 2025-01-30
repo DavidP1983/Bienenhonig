@@ -91,3 +91,11 @@
     }
     
 }
+
+@media(max-width: 364px) and (min-width: 321px) {
+    .ant-drawer-body {
+        .order__item-empty {
+            font-size: 20px;
+         }     
+    }
+}

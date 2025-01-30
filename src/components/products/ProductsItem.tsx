@@ -1,14 +1,14 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Products } from '@/shared/types/type';
-import { useProducts } from '@/store';
+import { useMobileFilter, useProducts } from '@/store';
 import { RateProducts } from '../UI/rate/Rate';
 import { useState } from 'react';
 import * as motion from "motion/react-client";
-
+import classNames from 'classnames';
+import { btnArray, IBtnView } from './dbProductsItem';
 
 import '../products/styles/products.scss';
-import classNames from 'classnames';
 
 interface IProductsItem {
     data: Products[][];
@@ -16,7 +16,8 @@ interface IProductsItem {
 
 export const ProductsItem = ({ data }: IProductsItem) => {
     const page = useProducts(state => state.page);
-    const [view, setView] = useState('grid');
+    const changeStatus = useMobileFilter(state => state.changeStatus);
+    const [view, setView] = useState('vertical');
 
     if (!data.length) {
         return (
@@ -28,26 +29,41 @@ export const ProductsItem = ({ data }: IProductsItem) => {
 
     const viewDirection = classNames({
         ['articlescontainer']: true,
-        ['listViewHorizontal']: view === 'list'
+        ['listViewHorizontal']: view === 'horizontal'
     })
+
+
+    const renderBtn = (arr: IBtnView[]) => {
+        return arr.map((item) => (
+            <button
+                key={item.title}
+                className={item.clazz}
+                title={item.title}
+                style={{ order: item.order }}
+                onClick={() => {
+                    setView(item.title);
+                    if (item.title === 'filter') {
+                        changeStatus();
+                    }
+                }}>
+                <i className={`${"material-icons"} ${view === item.title ? 'active' : ''}`}>{item.content}</i></button>
+        ));
+    }
+
+    const btn = renderBtn(btnArray);
+
+    console.log("Products Item");
+
 
     return (
         <div id='container'>
             <div className='view'>
-                <div className='viewTitle'>View</div>
-                <button
-                    className='viewBtn'
-                    title='vertical view'
-                    onClick={() => setView('grid')}>
-                    <i className={`${"material-icons"} ${view === 'grid' ? 'active' : ''}`}>view_module</i></button>
-                <button
-                    className='viewBtn'
-                    title='horizontal view'
-                    onClick={() => setView('list')}>
-                    <i className={`${"material-icons"} ${view === 'list' ? 'active' : ''}`}>view_list</i></button>
+                <div className='viewTitle' style={{ order: 1 }}>View</div>
+                {btn}
+                <div className='viewTitle mobile' style={{ order: 4 }}>Filters</div>
             </div>
-            <div className={viewDirection}>
 
+            <div className={viewDirection}>
                 {
                     data[page - 1].map(({
                         _id,
@@ -98,13 +114,10 @@ export const ProductsItem = ({ data }: IProductsItem) => {
                                 <Link href={`/products/${_id}`} className={stock || qnt[0] ? 'checkOut' : 'outstockbtn'}>Check Product</Link>
                             </div>
                         </motion.div>
-
                     ))
                 }
-
             </div>
         </div>
-
     );
 }
 

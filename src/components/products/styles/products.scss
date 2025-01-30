@@ -1,13 +1,5 @@
+@use './media/products' as productMedia;
 @use './mixins/mixins' as product;
-@mixin link_hover {
-    &:hover, &:active {
-        color: white;
-        text-shadow: 5px 5px 10px black;
-        font-family: var(--font-museoBold);
-    }
-}
-
-
 
 .products {
     min-height: calc(100vh - 30px);
@@ -26,37 +18,7 @@
         padding: 20px 20px;
 
         & .categories, .info {
-           display: flex;
-           flex-direction: column;
-           gap: 7px;
-           .title {
-            font-size: 26px;
-            font-family: var(--font-museoBold);
-           }
-           .description {
-            font-size: 13px;
-           }
-           .input {
-            margin-left: 8px;
-            margin-top: 8px;
-           }
-           .root {
-            transition: all 150ms ease;
-            &[data-checked] {
-                border-color: red;
-                background-color:rgba(12, 143, 167, 0.962)
-              }
-              &:hover {
-                background-color:rgba(12, 143, 167, 0.962)
-              }
-           }
-           a {
-            color: #000;
-            font-size: 20px;
-            padding: 7px;
-            font-family: var(--font-museoSans);
-            transition: all 0.3s;
-           }
+            @include product.categories();
         }
 
         & .articles {
@@ -91,6 +53,9 @@
                     .viewTitle {
                         font-size: 20px;
                         font-family: var(--font-museoBold);
+                        &.mobile {
+                            display: none;
+                        }
                     }
 
                     .viewBtn {
@@ -105,6 +70,10 @@
                             &.active {
                                 color: red;
                             }
+                        }
+
+                        &.mobile {
+                            display: none;
                         }
                     }
                 }
@@ -154,7 +123,7 @@
                             }
         
                             .descr, .qnt {
-                                @include link_hover
+                                @include product.link_hover
                             }
         
                             & .stock, & .empty {
@@ -220,17 +189,13 @@
                             box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
                         }  
                     }
-    
-                    .outstock {
-                        box-shadow: rgba(247, 2, 2, 0.35) 0px 22px 85px 4px;
-                    }
                     
                     //Horizontal View flex
                     &.listViewHorizontal {
                         @include product.container(flex);
     
                         .content, .outstock {
-                            @include product.card(row, 49%, 19px, 355px, 0px); 
+                            @include product.card(row, 48%, 19px, 355px, 0px); 
     
                             .image {
                                 align-self: center;
@@ -245,6 +210,13 @@
                                 }
                             }
                         }
+                        .outstock {
+                            box-shadow: rgba(247, 2, 2, 0.35) 0px 22px 85px 4px;
+                        }
+    
+                    }
+                    .outstock {
+                        box-shadow: rgba(247, 2, 2, 0.35) 0px 22px 85px 4px;
                     }
                 }
             }
@@ -258,24 +230,8 @@
     }
 
     .info {
-        align-items: end;
-        .addr {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-            li a {
-                display: block;
-                font-size: 16px;
-                padding: 13px;
-                font-family: var(--font-museoSans);
-                text-align: end;
-                transition: all 0.3s;
-                @include link_hover
-            }
-            .phone {
-                font-size: 19px;
-                font-family: var(--font-museoBold);
-            }
-        }
+        @include product.info();
     }
 }
+
+@include productMedia.product-query;
