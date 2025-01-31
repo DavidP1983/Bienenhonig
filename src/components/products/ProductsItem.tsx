@@ -52,7 +52,6 @@ export const ProductsItem = ({ data }: IProductsItem) => {
 
     const btn = renderBtn(btnArray);
 
-    console.log("Products Item");
 
 
     return (
