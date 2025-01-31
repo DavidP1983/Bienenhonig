@@ -34,10 +34,8 @@ export const AllProducts = () => {
     })));
     const selectFilter = useFilter(state => state.filter);
 
-    console.log("Products component");
 
     useEffect(() => {
-        console.log("Products effect");
 
         selectFilter.search = '';
         changePageNumber(1);

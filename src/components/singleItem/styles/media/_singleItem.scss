@@ -1,0 +1,198 @@
+@mixin article-styles($title-size: null, $stock-size: null) {
+    
+    @if $title-size {
+        &_title {
+            font-size: $title-size;
+        }    
+    }
+    @if $stock-size {
+        &_stock-check_units.instock {
+            font-size: $stock-size;
+        }    
+    }
+}
+
+@mixin location-discount($location: null, $discount: null) {
+    
+    @if $location {
+        &__image {
+            a {
+                font-size: $location;
+            }
+        }           
+    }
+    @if $discount {
+        &__article_discount {
+            font-size:  $discount;
+        }
+           
+    }
+}
+
+
+
+@mixin singleItem-query {
+
+    @media (max-width: 1200px) {
+        .singleItem {
+            &__contacts {
+                display: none;
+            }
+        }
+    }
+
+    @media (max-width: 992px) {
+        .singleItem {
+            &__article {
+                @include article-styles(27px, 17px);
+
+            }
+            &__image {
+                .magnifier {
+                    width: 80% !important;
+                }
+            }
+            @include location-discount(15px, null);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .singleItem {
+            margin-top: 140px;
+            &__container {
+                display: flex;
+                flex-direction: column;
+            }
+            &__about {
+                order: 2;
+            }
+             &__article {
+                @include article-styles(null, unset);
+
+            }
+            &__image {
+                .magnifier {
+                    width: 50% !important;
+                }
+            }
+            @include location-discount(17px, null);
+        }
+    }
+
+
+    @media (max-width: 575px)  and (min-width: 320px) {
+        .singleItem {
+
+            &__modalWrapper {
+                width: 407px;
+                margin: -75px auto;
+                overflow: visible !important;
+                .ant-modal {
+                    width: 100% !important;
+                }
+                .ant-modal-body {
+                    .ant-form {
+                        .ant-form-item {
+                            margin-bottom: 4px;
+                            &:last-child {
+                                margin-top: 25px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &__modalClose {
+                width: 401px;
+                margin: 0 auto;
+            }
+        }
+    }
+
+    @media (max-width: 567px) {
+        .singleItem {
+            &__article {
+                @include article-styles(24px, 18px);
+            }
+            &__image {
+                .magnifier {
+                    width: 70% !important;
+                }
+            }
+            @include location-discount(16px, null);
+        }
+    }
+
+    @media (max-width: 450px) and (min-width: 320px) {
+        .singleItem {
+            padding: 0;
+            &__article {
+                @include article-styles(23px, 19px);
+            }
+            &__image {
+                .magnifier {
+                    width: 80% !important;
+                }
+            }
+
+            &__modalClose {
+                width: 330px;
+                margin: 0 auto;
+            }
+            @include location-discount(16px, null);
+        }
+    }
+
+    @media (max-width: 400px) and (min-width: 320px) {
+        .singleItem {
+            &__article {
+                &_size, &_price, &_stock, &_qnt-label {
+                    font-size: 18px;
+                }
+                &_price, &_size {
+                    span {
+                        font-size: 22px;
+                    }
+                }   
+                @include article-styles(22px, 19px);
+            }
+            .ant-breadcrumb {
+                display: none;
+            }
+
+            &__modalWrapper {
+                width: 320px;
+            }
+
+            &__modalClose {
+                width: 300px;
+                margin: 0 auto;
+            }
+
+        }
+    }
+
+    @media (max-width: 391px) and (min-width: 320px) {
+        .singleItem {
+            margin-top: 77px;
+            &__container {
+                padding: 20px 0;
+            }
+            &__article {
+                @include article-styles(20px, 16px);
+            }
+            @include location-discount(15px, 15px);
+        }
+    }
+
+    @media (max-width: 340px) and (min-width: 320px) {
+        .singleItem {
+            &__article {
+                @include article-styles(null, 15px);
+            }
+
+            @include location-discount(14px, 14px);
+        }
+    }
+
+}

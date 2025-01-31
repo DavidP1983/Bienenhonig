@@ -29,7 +29,8 @@ export const ModalReview = () => {
                     {
                         mask: "singleItem__modalMask",
                         header: "singleItem__modalTitle",
-                        content: "singleItem__modalClose"
+                        content: "singleItem__modalClose",
+                        wrapper: "singleItem__modalWrapper"
 
                     }
                 }

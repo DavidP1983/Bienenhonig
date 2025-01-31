@@ -25,6 +25,7 @@ export const ProductsCategory = () => {
 
     }
 
+
     const cards = dbCategory.map((item) => (
         <Checkbox.Card
             radius="md"

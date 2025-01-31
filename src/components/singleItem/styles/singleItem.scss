@@ -1,3 +1,5 @@
+@use './media/singleItem' as singleItemMedia;
+
 .singleItem {
     min-height: calc(100vh - 30px);
     padding: 30px 20px 30px 20px;
@@ -28,6 +30,9 @@
         justify-content: center;
         align-items: center;
         gap: 20px;
+        .magnifier {
+            width: 60% !important;
+        }
         img {
             object-fit: cover;
             aspect-ratio: 4 / 7;
@@ -428,6 +433,10 @@
         border: 1px dotted red;
         border-radius: 20px;
     }
+    &__modalWrapper {
+        width: 100%;
+       
+    }
 
     &__modalTitle {
         text-align: center;
@@ -454,3 +463,5 @@
         backdrop-filter: blur(10px);
     }
 }
+
+@include singleItemMedia.singleItem-query;
