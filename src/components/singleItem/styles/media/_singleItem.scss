@@ -62,9 +62,19 @@
             &__container {
                 margin-top: 170px;
             }
+            &__image {
+                .magnifier {
+                    width: 80% !important;
+                }
+            }
+            &__article {
+                @include article-styles(21px, 17px);
+
+            }
             .ant-breadcrumb {
                 margin-top: 170px;
             }
+            @include location-discount(15px, null);
         }
     }
 
@@ -99,9 +109,14 @@
             &__container {
                 margin-top: 115px;
             }
+            &__article {
+                @include article-styles(20px, 15px);
+
+            }
             .ant-breadcrumb {
                 margin-top: 115px;
             }
+            @include location-discount(15px, 14px);
         }
     }
 
