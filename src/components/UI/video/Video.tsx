@@ -1,5 +1,3 @@
-// import { erkrath1 } from '@/assets/img/location/Erkrath';
-// import img from './clover.jpg';
 
 export const Video = () => {
     return (

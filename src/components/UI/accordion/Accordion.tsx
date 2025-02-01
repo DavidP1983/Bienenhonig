@@ -14,18 +14,18 @@ export const Accordion = () => {
     const items: CollapseProps['items'] = [
         {
             key: '1',
-            label: <span className='ant-collapse-header-text label'>Recipes</span>,
-            children: <p className='descr'>{text}</p>,
+            label: <span className='ant-collapse-header-text label' role='tab'>Recipes</span>,
+            children: <p className='descr' role='tabpanel' aria-labelledby="tab1">{text}</p>,
         },
         {
             key: '2',
-            label: <span className='ant-collapse-header-text label'>Opinions</span>,
-            children: <p className='descr'>{text}</p>,
+            label: <span className='ant-collapse-header-text label' role='tab'>Opinions</span>,
+            children: <p className='descr' role='tabpanel' aria-labelledby="tab2">{text}</p>,
         },
         {
             key: '3',
-            label: <span className='ant-collapse-header-text label'>Books</span>,
-            children: <p className='descr'>{text}</p>,
+            label: <span className='ant-collapse-header-text label' role='tab'>Books</span>,
+            children: <p className='descr' role='tabpanel' aria-labelledby="tab3">{text}</p>,
         },
     ];
 
