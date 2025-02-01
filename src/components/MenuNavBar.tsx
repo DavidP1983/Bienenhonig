@@ -10,7 +10,7 @@ export const MenuNavBar = ({ title, path, img }: NavigationType) => {
             <Link href={path}>{title}</Link>
             <Image
                 src={img}
-                alt={title}
+                alt={`${title} Page`}
                 priority={true}
                 width={384}
                 height={384} />

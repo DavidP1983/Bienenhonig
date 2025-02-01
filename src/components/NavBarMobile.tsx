@@ -150,7 +150,7 @@ const Path = (props: PathProps) => (
 )
 
 const MenuToggle = ({ toggle }: { toggle: () => void }) => (
-    <button className={styles.toggleContainer} onClick={toggle}>
+    <button className={styles.toggleContainer} onClick={toggle} title="hamburger" aria-label="hamburger">
         <svg width="23" height="23" viewBox="0 0 23 23">
             <Path
                 variants={{
