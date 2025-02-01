@@ -59,6 +59,7 @@ export const CheckoutPage = () => {
             cartOrder.length = 0;
             api.open({
                 message: 'Confirmation',
+                style: { height: "100vh", overflow: "auto" },
                 description: <Confiramtion confirmNumber={result.order?.id} />,
                 duration: 0,
             });
