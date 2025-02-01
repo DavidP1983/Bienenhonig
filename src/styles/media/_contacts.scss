@@ -1,8 +1,10 @@
 @mixin contacts-query {
 
-    @media (max-width: 992px) {
+    @media (max-width: 992px) and (min-width: 320px)  and (orientation: portrait) {
         .contacts {
+            margin-top: unset;
             .title {
+                margin-top: unset;
                 font-size: 22px;
             }
             @keyframes typewriter{
@@ -13,10 +15,26 @@
         }
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 992px) and (min-width: 320px)  and (orientation: landscape) {
+        .contacts {
+            margin-top: 48px;
+            .title {
+                margin-top: 178px;
+                font-size: 22px;
+            }
+            @keyframes typewriter{
+                from{width: 0;}
+                to{width: 660px;}
+            }
+        }
+    }
+
+
+    @media (max-width: 768px) and (min-width: 320px)  and (orientation: portrait) {
         .contacts {
             margin-top: 110px;
             .title {
+                margin-top: unset;
                 font-size: 19px;
             }
             @keyframes typewriter{
@@ -26,6 +44,23 @@
         
         }
     }
+
+    @media (max-width: 768px) and (min-width: 320px)  and (orientation: landscape)  {
+        .contacts {
+            margin-top: 105px;
+            .title {
+                margin-top: unset;
+                font-size: 19px;
+            }
+            @keyframes typewriter{
+                from{width: 0;}
+                to{width: 570px;}
+            }
+        }
+    }
+
+
+
 
     @media (max-width: 610px) and (min-width: 567px) {
         .contacts {
@@ -73,27 +108,18 @@
             margin-top: 70px;
             .title {
                 margin-top: 40px;
-                color: #000;
-                font-size: 11px;
-                font-weight: 900;
             }
             & .subtitle {
                 font-family: var(--font-museoMono);
                 color: red;
                 font-size: 14px;
             }
-        
-            @keyframes typewriter{
-                from{width: 0;}
-                to{width: 330px;}
-            }
         }
     }
 
-    @media (max-width: 343px) and (min-width: 320px) {
-        .contacts {
-            margin-top: 70px;
 
+    @media (max-width: 400px) and (min-width: 320px) {
+        .contacts {
             .title {
                 display: none;
             }

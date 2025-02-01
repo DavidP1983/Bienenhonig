@@ -44,15 +44,32 @@
 
 }
 
-@media (max-width: 992px) {
+@media (max-width: 992px) and (min-width: 320px) and (orientation: portrait) {
     .form {
-        width: 60%; 
+        width: 60% !important; 
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) and (min-width: 320px) and (orientation: landscape) {
     .form {
-        width: 80%;
+        width: 65% !important; 
+    }
+}
+
+
+@media (max-width: 768px) and (min-width: 320px) and (orientation: portrait) {
+    .form {
+        width: 80% !important;
+        &__input {
+            flex-direction: column;
+            align-items: stretch; 
+        }
+    }
+}
+
+@media (max-width: 768px) and (min-width: 320px) and (orientation: landscape) {
+    .form {
+        width: 80% !important;
         &__input {
             flex-direction: column;
             align-items: stretch; 
