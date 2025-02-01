@@ -93,8 +93,9 @@
 
         & img {
             width: 50%;
-            height: 80%;
-            object-fit: cover;
+            height: auto;
+            aspect-ratio: 384 / 384;
+            object-fit: contain;
             transition: all 0.5s;
         }
         & a {

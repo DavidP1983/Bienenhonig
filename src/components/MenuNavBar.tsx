@@ -12,8 +12,8 @@ export const MenuNavBar = ({ title, path, img }: NavigationType) => {
                 src={img}
                 alt={title}
                 priority={true}
-                width={300}
-                height={300} />
+                width={384}
+                height={384} />
         </>
     );
 }

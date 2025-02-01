@@ -80,6 +80,7 @@ export const HomePage = () => {
                             alt="bee"
                             width={100}
                             height={100}
+                            unoptimized
                         />
                     </div>
                 </div>
