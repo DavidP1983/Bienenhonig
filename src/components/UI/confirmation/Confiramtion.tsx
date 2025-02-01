@@ -10,7 +10,7 @@ export const Confiramtion = ({ confirmNumber }: { confirmNumber: string | undefi
             title={<div><span style={{ fontSize: "18px" }}>Your Email was sent Successfully</span> <br /> Thank you for your purchase</div>}
             subTitle={`Order number: ${confirmNumber}`}
             extra={[
-                <Button type="primary" key="again" onClick={() => router.push('/products')}>
+                <Button type="primary" key="again" onClick={() => router.push('/products')} style={{ marginBottom: "14px" }}>
                     Buy Again
                 </Button>,
                 <Button key="main" onClick={() => router.push('/')}>Back to main page</Button>,

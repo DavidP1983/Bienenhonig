@@ -43,3 +43,25 @@
     }
 
 }
+
+@media (max-width: 992px) {
+    .form {
+        width: 60%; 
+    }
+}
+
+@media (max-width: 768px) {
+    .form {
+        width: 80%;
+        &__input {
+            flex-direction: column;
+            align-items: stretch; 
+        }
+    }
+}
+
+@media (max-width: 420px) and (min-width: 320px) {
+    .form {
+        width: 90%; 
+    }
+}

@@ -1,3 +1,4 @@
+@use './media/contacts' as contactsMedia;
 
 .contacts {
     padding: 30px 20px 30px 20px;
@@ -43,3 +44,5 @@
         to{border-right-color: transparent;}
     }
 }
+
+@include contactsMedia.contacts-query;

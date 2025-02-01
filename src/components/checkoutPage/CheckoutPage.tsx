@@ -40,7 +40,6 @@ export const CheckoutPage = () => {
 
     useEffect(() => {
         const timer = setTimeout(() => {
-            console.log('Effect');
             if (myRef.current) {
                 myRef.current.focus();
             }
