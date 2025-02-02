@@ -40,11 +40,11 @@ export const Paginations = ({ pages }: { pages: number }) => {
                 }
 
                 if (control === 'next') {
-                    return { component: 'a', href: `#page-${page}`, "aria-labelledby": `page next` };
+                    return { component: 'a', href: `#page-${page}`, "aria-label": `page next count` };
                 }
 
                 if (control === 'previous') {
-                    return { component: 'a', href: `#page-${page}`, "aria-labelledby": `page previous` };
+                    return { component: 'a', href: `#page-${page}`, "aria-label": `page previous count` };
                 }
 
                 return {};
