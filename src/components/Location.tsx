@@ -16,7 +16,7 @@ import { location } from '@/assets/icons';
 import styles from '@/styles/Location.module.scss';
 
 
-export const Location = ({ title, city, srcURI, info, description, gelleryImage }: LocationType) => {
+const Location = ({ title, city, srcURI, info, description, gelleryImage }: LocationType) => {
     const router = useSearchParams();
     const forwardProductItem = router.get('products');
 
@@ -136,3 +136,5 @@ export const Location = ({ title, city, srcURI, info, description, gelleryImage 
         </main>
     );
 }
+
+export default Location;

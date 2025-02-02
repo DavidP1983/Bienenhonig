@@ -67,6 +67,7 @@ export default function RootLayout({ children }: LayoutProps) {
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"></link>
         <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" as="style" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
       </head>
       <body className={`${museoSans.variable} ${museoMono.variable} ${museoBold.variable}`} id="body">
         <Header />
