@@ -25,9 +25,10 @@ export const Paginations = ({ pages }: { pages: number }) => {
             className={styles.pagination}
             onChange={handleChangeNumber}
             withEdges
+            aria-label='pagination buttons'
             getItemProps={(page) => ({
                 component: 'a',
-                href: `#page-${page}`
+                href: `#page-${page}`,
             })}
             getControlProps={(control) => {
                 if (control === 'first') {

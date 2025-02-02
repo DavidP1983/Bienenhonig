@@ -22,6 +22,7 @@ export const SelectFilter = () => {
                     onChange={handleChange}
                     allowClear
                     title='select'
+                    aria-label='select options'
                     options={[
                         { value: 'sort', label: 'Alphabetically, A-Z', title: 'select' },
                         { value: 'price,L-H', label: 'Price, low to high', title: 'select' },
