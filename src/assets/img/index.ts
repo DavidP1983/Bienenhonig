@@ -5,11 +5,11 @@ import flyingBee from './flyingBee.gif';
 export { slot, flyingBee }
 
 const urls = {
-    home: 'https://res.cloudinary.com/dmrsemgsn/image/upload/v1738438385/home-bee_fcvkgb.png',
-    products: "https://res.cloudinary.com/dmrsemgsn/image/upload/v1737127372/products_akaokz.png",
-    contacts: "https://res.cloudinary.com/dmrsemgsn/image/upload/v1737127402/contacts_eqztbw.png",
-    passika: "https://res.cloudinary.com/dmrsemgsn/image/upload/v1737127324/passika_simoa7.webp",
-    propose: "https://res.cloudinary.com/dmrsemgsn/image/upload/v1737127336/propose_ty6rnj.jpg"
+    home: 'https://res.cloudinary.com/dmrsemgsn/image/upload/v1738508590/home-bee-risize_kxakfm.webp',
+    products: "https://res.cloudinary.com/dmrsemgsn/image/upload/v1738509437/products_nsvkix.webp",
+    contacts: "https://res.cloudinary.com/dmrsemgsn/image/upload/v1738509424/contacts_d47slg.webp",
+    passika: "https://res.cloudinary.com/dmrsemgsn/image/upload/v1738511200/passika_1_rxqnst.webp",
+    propose: "https://res.cloudinary.com/dmrsemgsn/image/upload/v1738511208/propose_j3ermu.webp"
 
 }
 

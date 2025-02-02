@@ -91,8 +91,8 @@ export const HomePage = () => {
                             src={urls.passika}
                             alt="passika"
                             priority={true}
-                            width={1200}
-                            height={800}
+                            width={600}
+                            height={400}
                             style={{ width: "100%", height: "100%", aspectRatio: 1 }}
                         />
                     </div>
@@ -126,8 +126,8 @@ export const HomePage = () => {
                             id={styles.propose}
                             src={urls.propose}
                             alt="propose"
-                            width={1200}
-                            height={800}
+                            width={600}
+                            height={400}
                             priority={true}
                         />
                     </div>
