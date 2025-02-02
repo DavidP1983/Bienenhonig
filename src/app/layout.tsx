@@ -1,9 +1,13 @@
 import type { Metadata, Viewport } from "next";
+import dynamic from 'next/dynamic'
 import localFont from "next/font/local";
 import { Header } from "@/components/Header";
-import { MantineProvider } from '@mantine/core';
 import '@mantine/core/styles.css';
 import "./globals.css";
+
+const MantineProvider = dynamic(() => import('@mantine/core').then(mod => mod.MantineProvider), {
+  ssr: false, // Отключает SSR для стилей
+});
 
 const museoSans = localFont({
   src: './fonts/MuseoSansCyrl-300.woff',
@@ -59,6 +63,7 @@ export default function RootLayout({ children }: LayoutProps) {
         <link rel="manifest" href="/site.webmanifest" />
         <link rel="preload" href="https://fonts.googleapis.com/css?family=Anonymous+Pro&display=swap" as="style" />
         <link href="https://fonts.googleapis.com/css?family=Anonymous+Pro&display=swap" rel="stylesheet" />
+        <link rel="preload" href="https://fonts.googleapis.com/icon?family=Material+Icons" as="style"></link>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"></link>
         <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" as="style" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
