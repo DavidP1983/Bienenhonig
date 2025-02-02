@@ -145,7 +145,7 @@ export const SingleItemArticle = ({ size, price, title, sort, reviews, qnt, imag
                     <div className='singleItem__article_qnt-label'>Quantity:</div>
                     <div className='singleItem__article_qnt-calculator'>
                         <button className='singleItem__article_qnt-min' type='button' suppressHydrationWarning={true} onClick={() => decrement()}>-</button>
-                        <input type="text" value={counter} suppressHydrationWarning={true} readOnly />
+                        <input type="text" value={counter} suppressHydrationWarning={true} readOnly aria-label="count" />
                         <button className='singleItem__article_qnt-max' type='button' suppressHydrationWarning={true} onClick={() => increment()}>+</button>
                     </div>
                 </div>
