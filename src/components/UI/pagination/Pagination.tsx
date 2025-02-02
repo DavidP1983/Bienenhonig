@@ -32,19 +32,19 @@ export const Paginations = ({ pages }: { pages: number }) => {
             })}
             getControlProps={(control) => {
                 if (control === 'first') {
-                    return { component: 'a', href: `#page-${page}` };
+                    return { component: 'a', href: `#page-${page}`, "aria-label": `page previous` };
                 }
 
                 if (control === 'last') {
-                    return { component: 'a', href: `#page-${page}` };
+                    return { component: 'a', href: `#page-${page}`, "aria-label": `page next` };
                 }
 
                 if (control === 'next') {
-                    return { component: 'a', href: `#page-${page}` };
+                    return { component: 'a', href: `#page-${page}`, "aria-labelledby": `page ${page}` };
                 }
 
                 if (control === 'previous') {
-                    return { component: 'a', href: `#page-${page}` };
+                    return { component: 'a', href: `#page-${page}`, "aria-labelledby": `page ${page}` };
                 }
 
                 return {};
