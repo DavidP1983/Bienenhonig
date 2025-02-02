@@ -1,8 +1,11 @@
 import Magnifier from "react18-image-magnifier";
+
+
 export const MagnifierImg = ({ imageSrc }: { imageSrc: string }) => {
     return (
         <Magnifier
             src={imageSrc}
+            alt="image presentation"
             mgShape="circle"
             mgBorderWidth={2}
             mgWidth={200}
