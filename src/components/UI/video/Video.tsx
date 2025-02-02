@@ -7,7 +7,7 @@ export const Video = () => {
             controls
             preload="none"
             muted
-            poster="https://res.cloudinary.com/dmrsemgsn/image/upload/v1733840603/clover_zly6yr.jpg"
+            poster="https://res.cloudinary.com/dmrsemgsn/image/upload/v1738495090/clover-video_gifreu.webp"
             playsInline
             aria-label="Video player">
             <source src="https://res.cloudinary.com/dmrsemgsn/video/upload/v1733830323/Erkrath-video_ipkwp4.mp4" type="video/mp4" />
