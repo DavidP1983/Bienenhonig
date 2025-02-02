@@ -12,6 +12,8 @@ export const LocationFooter = () => {
                 <div className={styles.footerLogo}>
                     <Link href='/'>
                         <Image
+                            width={120}
+                            height={120}
                             src={logo}
                             alt="logo" />
                     </Link>

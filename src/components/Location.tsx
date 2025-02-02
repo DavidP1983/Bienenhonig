@@ -71,8 +71,8 @@ export const Location = ({ title, city, srcURI, info, description, gelleryImage 
                             src={srcURI}
                             alt={title}
                             title={title}
-                            width={508}
-                            height={340}
+                            width={250}
+                            height={150}
                             className={styles.clover}
                         />
                     </div>
@@ -97,8 +97,8 @@ export const Location = ({ title, city, srcURI, info, description, gelleryImage 
                                 src={gelleryImage.img1}
                                 alt={`photo of location ${city}`}
                                 title={city}
-                                width={1600}
-                                height={1200}
+                                width={800}
+                                height={600}
                             />
                         </div>
                         <div className={`box ${styles.items}`}>
@@ -106,8 +106,8 @@ export const Location = ({ title, city, srcURI, info, description, gelleryImage 
                                 src={gelleryImage.img2}
                                 alt={`photo of location ${city}`}
                                 title={city}
-                                width={1600}
-                                height={1200}
+                                width={800}
+                                height={600}
                             />
                         </div>
                         <div className={`box ${styles.items}`}>
@@ -115,8 +115,8 @@ export const Location = ({ title, city, srcURI, info, description, gelleryImage 
                                 src={gelleryImage.img3}
                                 alt={`photo of location ${city}`}
                                 title={city}
-                                width={1600}
-                                height={1200}
+                                width={800}
+                                height={490}
                             />
                         </div>
                         <div className={`box ${styles.items}`} id={styles.video}>
