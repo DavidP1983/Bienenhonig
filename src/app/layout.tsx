@@ -57,8 +57,10 @@ export default function RootLayout({ children }: LayoutProps) {
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
         <link rel="manifest" href="/site.webmanifest" />
+        <link rel="preload" href="https://fonts.googleapis.com/css?family=Anonymous+Pro&display=swap" as="style" />
         <link href="https://fonts.googleapis.com/css?family=Anonymous+Pro&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"></link>
+        <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" as="style" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
       </head>
       <body className={`${museoSans.variable} ${museoMono.variable} ${museoBold.variable}`} id="body">
