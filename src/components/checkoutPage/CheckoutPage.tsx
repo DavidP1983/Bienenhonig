@@ -141,6 +141,7 @@ export const CheckoutPage = () => {
             <Group justify="flex-end" mt="md">
                 <Button
                     type="submit"
+                    style={{ backgroundColor: "#104E84" }}
                     className='form__btn'
                     disabled={form.submitting}
                     loading={form.submitting}>Submit</Button>
