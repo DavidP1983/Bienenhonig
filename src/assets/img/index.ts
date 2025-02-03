@@ -1,5 +1,5 @@
 
-import slot from './pngwing.png';
+import slot from './pngwing.webp';
 import flyingBee from './flyingBee.gif';
 
 export { slot, flyingBee }
