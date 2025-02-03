@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 import { textAnimation } from '@/animation/textAnimation';
-import { urls, flyingBee } from '@/assets/img/index';
+import { urls } from '@/assets/img/index';
 import { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
@@ -76,7 +76,7 @@ export const HomePage = () => {
                     </svg>
                     <div className='bee' style={{ position: "absolute", top: 0, left: 0, zIndex: 3, visibility: "hidden", }}>
                         <Image
-                            src={flyingBee}
+                            src="https://res.cloudinary.com/dmrsemgsn/image/upload/v1738612908/output-onlinegiftools_jfpkky.gif"
                             alt="bee"
                             width={100}
                             height={100}

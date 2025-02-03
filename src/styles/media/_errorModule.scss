@@ -1,0 +1,65 @@
+@mixin error-query { 
+    @media (max-width: 768px)  { 
+        .error, .errormodule { 
+            margin-top: 110px;
+        }
+        .error {
+            margin-top: 10px;
+            .errorcontent {
+                .errortitle {
+                    font-size: 25px;
+                }
+           }
+        }
+    }
+    @media (max-width: 567px)  { 
+        .error, .errormodule { 
+           .errorcontent {
+                .errortitle {
+                    font-size: 30px;
+                }
+           }
+        }
+        .error {
+            .errorcontent {
+                .errortitle {
+                    display: block;
+                    margin: 0 auto;
+                    font-size: 25px;
+                }
+                img {
+                    width: 30%;
+                    height: auto;
+                }
+                .errormessage {
+                    font-size: 15px;
+                }
+           }
+        }
+    }
+
+    @media (max-width: 405px) and (min-width: 320px)  { 
+        .error, .errormodule { 
+            margin-top: 60px;
+           .errorcontent {
+                .errortitle {
+                    margin-top: 60px;
+                    font-size: 22px;
+                }
+           }
+        }
+        .error {
+            margin-top: 0;
+            .errorcontent {
+                .errortitle {
+                    margin-top: 14px;
+                    font-size: 20px;
+                }
+                img {
+                    width: 40%;
+                    height: auto;
+                }
+           }
+        }
+    }
+}

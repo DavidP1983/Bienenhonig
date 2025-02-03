@@ -1,8 +1,7 @@
 
 import slot from './pngwing.webp';
-import flyingBee from './flyingBee.gif';
 
-export { slot, flyingBee }
+export { slot }
 
 const urls = {
     home: 'https://res.cloudinary.com/dmrsemgsn/image/upload/v1738508590/home-bee-risize_kxakfm.webp',

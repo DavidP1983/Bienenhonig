@@ -1,11 +1,17 @@
 'use client';
 
-import { LocationFooter } from "@/components/UI/footer/LocationFooter";
-import { ErrorComponent } from "@/components/UI/error/ErrorComponent";
-import { Buttons } from "@/components/UI/button/Buttons";
 import { useRouter } from 'next/navigation'
 
-import styles from '@/styles/Error.module.scss'
+import dynamic from "next/dynamic";
+
+import styles from '@/styles/Error.module.scss';
+
+const LocationFooter = dynamic(() => import("@/components/UI/footer/LocationFooter").then((mod) => mod.LocationFooter),
+    { ssr: false });
+const ErrorComponent = dynamic(() => import("@/components/UI/error/ErrorComponent").then((mod) => mod.ErrorComponent),
+    { ssr: false });
+const Buttons = dynamic(() => import("@/components/UI/button/Buttons").then((mod) => mod.Buttons),
+    { ssr: false });
 
 export default function ErrorWrapper() {
     const router = useRouter()

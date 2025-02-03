@@ -1,3 +1,5 @@
+@use './media/errorModule' as errorMedia;
+
 .error, .errormodule {
     height: 100vh;
     margin-top: 230px;
@@ -31,3 +33,5 @@
     background: none;
     padding: 20px 20px;
 }
+
+@include errorMedia.error-query;

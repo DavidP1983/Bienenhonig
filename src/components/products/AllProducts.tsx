@@ -50,7 +50,6 @@ export const AllProducts = () => {
     const error = status === 'error' ? <div className={classes.error}><ErrorComponent error={errorMessage} /></div> : null;
     const content = !(loading || error) ? <ErrorBoundary><ProductsItem data={paginatedArray} /></ErrorBoundary> : null;
 
-
     return (
         <section className='products' >
 
