@@ -1,13 +1,8 @@
 import type { Metadata, Viewport } from "next";
-import dynamic from 'next/dynamic'
 import localFont from "next/font/local";
 import { Header } from "@/components/Header";
-import '@mantine/core/styles.css';
 import "./globals.css";
 
-const MantineProvider = dynamic(() => import('@mantine/core').then(mod => mod.MantineProvider), {
-  ssr: false, // Отключает SSR для стилей
-});
 
 const museoSans = localFont({
   src: './fonts/MuseoSansCyrl-300.woff',
@@ -72,9 +67,7 @@ export default function RootLayout({ children }: LayoutProps) {
       <body className={`${museoSans.variable} ${museoMono.variable} ${museoBold.variable}`} id="body">
         <Header />
         <div id="__next">
-          <MantineProvider>
-            {children}
-          </MantineProvider>
+          {children}
         </div>
       </body>
     </html>

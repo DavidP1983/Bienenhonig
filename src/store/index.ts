@@ -138,7 +138,7 @@ export const useMobileFilter = create<IMobileFilter>()(devtools((set) => ({
     status: false,
     changeStatus: () => {
         set(state => ({
-            status: !state.status
+            status: !state.status,
         }))
     }
 

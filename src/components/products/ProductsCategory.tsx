@@ -4,13 +4,17 @@ import { dbCategory } from './dbCategory';
 
 import { useFilter, useMobileFilter, useProducts } from '@/store';
 import '../products/styles/products.scss';
+import { useShallow } from 'zustand/shallow';
 
 export const ProductsCategory = () => {
     const [value, setValue] = useState<string[]>([]);
     const [selected, setSelected] = useState<string | null>(null);
     const handleCheck = useFilter(state => state.handleSelect);
     const changePageNumber = useProducts(state => state.changePageNumber);
-    const changeStatus = useMobileFilter(state => state.changeStatus);
+    const { status, changeStatus } = useMobileFilter(useShallow((state) => ({
+        status: state.status,
+        changeStatus: state.changeStatus,
+    })));
 
 
     const handleCheckboxChange = (event: React.MouseEvent<HTMLButtonElement>, currentVal: string) => {
@@ -20,7 +24,9 @@ export const ProductsCategory = () => {
         const isEmptyValue = selected === currentVal ? [''] : [attrValue];
         setValue(isEmptyValue);
         changePageNumber(1);// из-за пагинации
-        changeStatus(); //close filter modal on mobile 
+        if (status) {
+            changeStatus(); //close filter modal on mobile 
+        }
         handleCheck(checkBox, isEmptyValue[0]);
 
     }

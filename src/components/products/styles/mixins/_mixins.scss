@@ -50,8 +50,9 @@
     flex-direction: column;
     gap: 7px;
     .title {
-    font-size: 26px;
-    font-family: var(--font-museoBold);
+        color: var(--text-color);
+        font-size: 26px;
+        font-family: var(--font-museoBold);
     }
     .description {
     font-size: 13px;

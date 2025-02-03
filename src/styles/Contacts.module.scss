@@ -12,6 +12,7 @@
         font-family: var(--font-museoBold);
     }
     & .title {
+        color: var(--text-color);
         position: relative;
         left: 50%;
         transform: translateX(-50%);

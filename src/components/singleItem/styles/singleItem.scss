@@ -58,6 +58,7 @@
         }
     }
     &__title, &__reviews_title {
+        color: var(--text-color);
         align-self: start;
         font-family: var(--font-museoBold);
         font-size: 30px;
@@ -190,6 +191,7 @@
             top: 50px;
         }
         &_title {
+            color: var(--text-color);
             font-size: 30px;
             font-family: var(--font-museoBold);
         }
