@@ -6,6 +6,11 @@
             .content {
                 grid-template-columns: 380px 444px;
             }
+            .image {
+                img {
+                    height: 100%;
+                }
+            }
         }
     }
 

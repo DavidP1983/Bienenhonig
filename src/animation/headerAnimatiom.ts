@@ -8,7 +8,7 @@ export const headerAnimation = (elem: HTMLHeadElement) => {
     const showAnim = gsap.from(elem, {
         yPercent: -100,
         paused: true,
-        duration: 0.2
+        duration: 0.2,
     }).progress(1);
 
     ScrollTrigger.create({
@@ -19,5 +19,5 @@ export const headerAnimation = (elem: HTMLHeadElement) => {
             self.direction === -1 ? showAnim.play() : showAnim.reverse()
         }
     });
-
+    ScrollTrigger.refresh()
 }

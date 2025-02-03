@@ -8,11 +8,14 @@ import NavBarMobile from './NavBarMobile';
 import { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 
+
 import styles from '../styles/Header.module.scss';
 import { Cart } from './cart/Cart';
 
+
 export const Header = () => {
     const myRef = useRef<HTMLHeadElement>(null);
+
 
     useGSAP(() => {
         if (myRef?.current) {
