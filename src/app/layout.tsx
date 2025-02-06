@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import dynamic from 'next/dynamic'
 import localFont from "next/font/local";
 import { Header } from "@/components/Header";
+import 'normalize.css';
 import '@mantine/core/styles.css';
 import "./globals.css";
 
