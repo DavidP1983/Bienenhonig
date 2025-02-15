@@ -34,6 +34,8 @@
             align-items: center;
             gap: 10px;
             transition: all 0.3s;
+            color: var(--text-color);
+            font-family: var(--font-museoBold);
             img {
                 width: 30px;
                 height: 30px;

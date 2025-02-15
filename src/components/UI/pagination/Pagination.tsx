@@ -1,8 +1,9 @@
 'use client';
 
 import { Pagination } from '@mantine/core';
-import styles from '@/styles/Pagination.module.scss';
 import { useProducts } from '@/store';
+
+import styles from '@/styles/Pagination.module.scss';
 
 
 

@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { Checkbox, Group, Stack, Text } from '@mantine/core';
 import { dbCategory } from './dbCategory';
+import { useShallow } from 'zustand/shallow';
+
 
 import { useFilter, useMobileFilter, useProducts } from '@/store';
+
 import '../products/styles/products.scss';
-import { useShallow } from 'zustand/shallow';
 
 export const ProductsCategory = () => {
     const [value, setValue] = useState<string[]>([]);

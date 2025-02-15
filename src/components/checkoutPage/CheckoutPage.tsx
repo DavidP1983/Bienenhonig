@@ -12,7 +12,7 @@ import { useCartOrder } from '@/store';
 import { useShallow } from 'zustand/shallow';
 import { useRef, useEffect } from 'react';
 
-
+import './styles/mantine/mantine.scss';
 import './styles/checkoutPage.scss';
 
 export const CheckoutPage = () => {
@@ -149,4 +149,3 @@ export const CheckoutPage = () => {
         </form>
     );
 }
-

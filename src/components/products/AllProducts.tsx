@@ -10,6 +10,8 @@ import { Spinner } from '../UI/spinner/Spinner';
 import { ErrorComponent } from '../UI/error/ErrorComponent';
 import ErrorBoundary from '../errorBoundary/ErrorBoundary';
 import SkeletonUI from '../UI/skeleton/Skeleton';
+import { MobileFilter } from '../UI/mobilefilter/MobileFilter';
+
 
 import { useEffect } from 'react';
 import { useShallow } from "zustand/shallow";
@@ -17,9 +19,9 @@ import { useShallow } from "zustand/shallow";
 import { useFilter, useProducts } from '@/store';
 import { useSelectAndFilterSort } from '@/hooks/useSelectAndFilterSort';
 
+import '../products/styles/mantine/mantine.scss';
 import classes from '@/styles/Error.module.scss';
 import '../products/styles/products.scss';
-import { MobileFilter } from '../UI/mobilefilter/MobileFilter';
 
 export const AllProducts = () => {
     const { data, status, errorMessage, limit, page, getProducts, changePageNumber } = useProducts(useShallow((state) => ({
