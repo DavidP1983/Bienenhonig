@@ -68,7 +68,7 @@ export default function RootLayout({ children }: LayoutProps) {
         <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" as="style" />
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async></script>
       </head>
       <body className={`${museoSans.variable} ${museoMono.variable} ${museoBold.variable}`} id="body">
         <Header />

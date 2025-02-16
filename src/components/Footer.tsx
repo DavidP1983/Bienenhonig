@@ -9,8 +9,8 @@ export const Footer = () => {
     return (
         <footer className={styles.footer}>
             <div className="map">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1668.39042580045!2d6.915595044421026!3d51.205052720172894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b8cddd77250e4f%3A0xf4bea4b7613fd16d!2s6W48%2B2R4%2C%2040699%20Erkrath-Hochdahl%2C%20Germany!5e0!3m2!1sen!2sge!4v1733681228684!5m2!1sen!2sge" width="100%" height="450" style={{ "border": 0 }} allowFullScreen={true} loading="lazy" referrerPolicy={"no-referrer-when-downgrade"} title="Location description" sandbox="allow-scripts allow-same-origin allow-popups" ></iframe>
+                <iframe className="lazyload"
+                    data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1668.39042580045!2d6.915595044421026!3d51.205052720172894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b8cddd77250e4f%3A0xf4bea4b7613fd16d!2s6W48%2B2R4%2C%2040699%20Erkrath-Hochdahl%2C%20Germany!5e0!3m2!1sen!2sge!4v1733681228684!5m2!1sen!2sge" width="100%" height="450" style={{ "border": 0 }} allowFullScreen={true} loading="lazy" referrerPolicy={"no-referrer-when-downgrade"} title="Location description" sandbox="allow-scripts allow-same-origin allow-popups" ></iframe>
             </div>
             <div className={styles.info}>
                 <div className={styles.location}>Locations</div>
