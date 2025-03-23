@@ -11,13 +11,19 @@ export const headerAnimation = (elem: HTMLHeadElement) => {
         duration: 0.2,
     }).progress(1);
 
+
     ScrollTrigger.create({
         start: "top top",
-        end: "max",
+        end: "bottom",
+        pin: true,
         onUpdate: (self) => {
             // eslint-disable-next-line @typescript-eslint/no-unused-expressions
             self.direction === -1 ? showAnim.play() : showAnim.reverse()
+        },
+        onToggle: () => {
+            ScrollTrigger.refresh()
         }
     });
-    ScrollTrigger.refresh()
+
+    ScrollTrigger.refresh();
 }

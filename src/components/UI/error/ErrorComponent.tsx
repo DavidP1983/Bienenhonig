@@ -22,7 +22,7 @@ export const ErrorComponent = ({ error }: { error?: Error }) => {
                 alt="error"
                 width={200}
                 height={200}
-                priority />
+                priority={false} />
             <div className={styles.errormessage}>
                 {error?.message ?? 'Something went wrong'} <br />Sorry for inconvenience <br />
             </div>

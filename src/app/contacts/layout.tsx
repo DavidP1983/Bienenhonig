@@ -1,7 +1,5 @@
-
 import { LocationFooter } from "@/components/UI/footer/LocationFooter";
 import { LayoutProps } from "../layout";
-
 
 
 const Location = ({ children }: LayoutProps) => {

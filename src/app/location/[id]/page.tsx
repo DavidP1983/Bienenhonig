@@ -1,10 +1,10 @@
 
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-// import { Location } from "@/components/Location";
 import { dbloaction } from "../db/dbLocaction";
 import { LocationType } from "@/shared/types/type";
-import dynamic from "next/dynamic";
+import Location from "@/components/Location";
+// import dynamic from "next/dynamic";
 
 
 interface Props {
@@ -13,9 +13,9 @@ interface Props {
     }
 }
 
-const Location = dynamic(() => import("@/components/Location").then((mod) => mod.default), {
-    ssr: false
-});
+// const Location = dynamic(() => import("@/components/Location").then((mod) => mod.default), {
+//     ssr: false
+// });
 
 const getPlacebyName = async (id: string) => {
 

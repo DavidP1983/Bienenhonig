@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import { textAnimation } from '@/animation/textAnimation';
 import { urls } from '@/assets/img/index';
+import { FlyingBee } from './UI/video/FlyingBee';
 import { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
@@ -74,14 +75,8 @@ export const HomePage = () => {
                             d="M-100,-50 C300,50 900,50 1540,-50"
                         />
                     </svg>
-                    <div className='bee' style={{ position: "absolute", top: 0, left: 0, zIndex: 3, visibility: "hidden", }}>
-                        <Image
-                            src="https://res.cloudinary.com/dmrsemgsn/image/upload/v1738612908/output-onlinegiftools_jfpkky.gif"
-                            alt="bee"
-                            width={100}
-                            height={100}
-                            unoptimized
-                        />
+                    <div className='bee' style={{ position: "absolute", top: 0, left: 0, zIndex: 3, visibility: "hidden" }}>
+                        <FlyingBee />
                     </div>
                 </div>
                 <div className={styles.content}>
@@ -127,7 +122,7 @@ export const HomePage = () => {
                             alt="propose"
                             width={400}
                             height={400}
-                            priority={true}
+                            priority={false}
 
                         />
                     </div>

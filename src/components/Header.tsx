@@ -16,13 +16,14 @@ import { Cart } from './cart/Cart';
 export const Header = () => {
     const myRef = useRef<HTMLHeadElement>(null);
 
-
     useGSAP(() => {
         if (myRef?.current) {
             const elem = myRef?.current;
             headerAnimation(elem);
         }
     });
+
+
 
     return (
         <header className={styles.header} ref={myRef}>

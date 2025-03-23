@@ -1,8 +1,15 @@
 import { Metadata } from "next";
 import { CheckoutPage } from "@/components/checkoutPage/CheckoutPage";
+// import dynamic from "next/dynamic";
+
 export const metadata: Metadata = {
     title: 'Contacts | Page',
 }
+
+// const CheckoutPage = dynamic(() => import("@/components/checkoutPage/CheckoutPage").then((mod) => mod.CheckoutPage),
+//     { ssr: false });
+
+
 
 import styles from '@/styles/Contacts.module.scss';
 

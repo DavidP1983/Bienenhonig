@@ -27,8 +27,7 @@ const Carousel: React.FC<PropType> = (props) => {
     const { slides, options } = props
     const [emblaRef, emblaApi] = useEmblaCarousel(options, [ClassNames(), Autoplay()])
 
-    const { selectedIndex, scrollSnaps, onDotButtonClick } =
-        useDotButton(emblaApi)
+    const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(emblaApi);
 
     const {
         prevBtnDisabled,
@@ -85,4 +84,4 @@ const Carousel: React.FC<PropType> = (props) => {
     )
 }
 
-export default Carousel
+export default Carousel;

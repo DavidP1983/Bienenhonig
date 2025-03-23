@@ -1,8 +1,14 @@
 import { HomePage } from "@/components/HomePage";
-import Carousel from "@/components/UI/carousel/Carousel";
 import { EmblaOptionsType } from 'embla-carousel';
+import Carousel from "@/components/UI/carousel/Carousel";
 import { Footer } from "@/components/Footer";
 import { Metadata } from "next";
+
+
+// import dynamic from "next/dynamic";
+
+// const Carousel = dynamic(() => import("@/components/UI/carousel/Carousel"), { ssr: false });
+// const Footer = dynamic(() => import("@/components/Footer"), { ssr: false });
 
 
 export const metadata: Metadata = {

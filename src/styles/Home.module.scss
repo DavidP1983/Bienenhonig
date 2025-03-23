@@ -17,8 +17,10 @@
         & .title, .subtitle {
             font-family: var(--font-museoBold);
             font-size: 40px;
-            text-shadow: 1px 1px 2px white, 0 0 1em blue, 0 0 0.2em blue;
-            color: var(--background);
+            text-shadow: 0 13.36px 8.896px #5a541a,
+                0 -2px 1px #fff;
+            color: #5d5719;
+            
         }
         & .subtitle {
             margin: 0 auto;
@@ -90,11 +92,10 @@
     margin-top: 20px;
     margin-bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 20px;
+    clip-path: inset(0 0 0 round 10px);
     padding: 16px;
     text-align: left;
     box-sizing: border-box;
-    width: 100%;
     &::first-letter {
         color: red;
         font-family: var(--font-museoBold);

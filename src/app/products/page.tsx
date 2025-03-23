@@ -1,5 +1,10 @@
 import { Metadata } from "next";
 import { AllProducts } from '@/components/products/AllProducts';
+// import dynamic from "next/dynamic";
+
+// const AllProducts = dynamic(() => import("@/components/products/AllProducts").then((mod) => mod.AllProducts),
+//     { ssr: false });
+
 
 export const metadata: Metadata = {
     title: 'Our products - Pure Raw and Organic Honey',
