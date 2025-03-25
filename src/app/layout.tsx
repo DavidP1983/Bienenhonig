@@ -1,7 +1,7 @@
-import type { Metadata, Viewport } from "next";
-import dynamic from 'next/dynamic'
-import localFont from "next/font/local";
 import { Header } from "@/components/Header";
+import type { Metadata, Viewport } from "next";
+import dynamic from 'next/dynamic';
+import localFont from "next/font/local";
 import 'normalize.css';
 import "./globals.css";
 
@@ -36,6 +36,7 @@ const museoBold = localFont({
 
 })
 
+
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
@@ -65,8 +66,9 @@ export default function RootLayout({ children }: LayoutProps) {
         <link href="https://fonts.googleapis.com/css?family=Anonymous+Pro&display=swap" rel="stylesheet" />
         <link rel="preload" href="https://fonts.googleapis.com/icon?family=Material+Icons" as="style"></link>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"></link>
+        <link rel="preload" href="/stylesheets/font-awesome.min.css" as="style" />
+        <link rel="stylesheet" href="/stylesheets/font-awesome.min.css" />
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async></script>
       </head>
       <body className={`${museoSans.variable} ${museoMono.variable} ${museoBold.variable}`} id="body">
