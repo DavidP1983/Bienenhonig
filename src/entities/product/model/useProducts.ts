@@ -1,7 +1,7 @@
-"use client";
-import { useQuery } from "@tanstack/react-query";
-import { productService } from "./product.service";
-import { productKeys } from "./queryKeys";
+'use client';
+import { useQuery } from '@tanstack/react-query';
+import { productService } from './product.service';
+import { productKeys } from './queryKeys';
 
 export const useProducts = () => {
   return useQuery({

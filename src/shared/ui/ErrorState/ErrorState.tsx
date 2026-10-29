@@ -1,19 +1,19 @@
-"use client";
-import { useRouter } from "@/i18n/navigation";
-import { sadBee } from "@/shared/assets/img";
-import { errorsHandler } from "@/shared/errors/errorsHandler";
-import { isErrorTranslationKey } from "@/shared/errors/isErrorTranslationKey";
-import { useTranslations } from "next-intl";
-import Image from "next/image";
-import { Button } from "../Button";
+'use client';
+import { useRouter } from '@/i18n/navigation';
+import { sadBee } from '@/shared/assets/img';
+import { errorsHandler } from '@/shared/errors/errorsHandler';
+import { isErrorTranslationKey } from '@/shared/errors/isErrorTranslationKey';
+import { useTranslations } from 'next-intl';
+import Image from 'next/image';
+import { Button } from '../Button';
 
-import styles from "./ErrorState.module.scss";
+import styles from './ErrorState.module.scss';
 
 type Props = {
   error?: Error | null;
   errorCode?: string;
   onRetry?: () => void;
-  variant?: "default" | "compact";
+  variant?: 'default' | 'compact';
   showAction?: boolean;
 };
 
@@ -24,7 +24,7 @@ export const ErrorState = ({
   variant,
   showAction,
 }: Props) => {
-  const t = useTranslations("ErrorDetails");
+  const t = useTranslations('ErrorDetails');
 
   const message =
     errorCode && isErrorTranslationKey(errorCode)
@@ -37,15 +37,14 @@ export const ErrorState = ({
     if (onRetry) {
       onRetry();
     } else {
-      router.push("/products");
+      router.push('/products');
     }
   };
 
   return (
     <div
-      className={`${styles.errorContent} ${variant === "compact" ? styles.compact : ""}`}
-    >
-      <div className={styles.title}>{t("title")}</div>
+      className={`${styles.errorContent} ${variant === 'compact' ? styles.compact : ''}`}>
+      <div className={styles.title}>{t('title')}</div>
 
       <Image
         src={sadBee}
@@ -55,16 +54,15 @@ export const ErrorState = ({
         priority={false}
       />
 
-      <div className={styles.message}>{message ?? t("title")}</div>
+      <div className={styles.message}>{message ?? t('title')}</div>
       {showAction && (
         <Button
           props={{
-            type: "primary",
-            style: { display: "block", margin: "10px auto" },
+            type: 'primary',
+            style: { display: 'block', margin: '10px auto' },
             onClick: handleClick,
-          }}
-        >
-          {onRetry ? `${t("btnDescTry")}` : `${t("btnDescBack")}`}
+          }}>
+          {onRetry ? `${t('btnDescTry')}` : `${t('btnDescBack')}`}
         </Button>
       )}
     </div>

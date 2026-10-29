@@ -1,7 +1,7 @@
-import { Button, ReusableDrawer } from "@/shared/ui";
-import type { Styles } from "@/shared/ui/ReusableDrawer/ReusableDrawer";
-import { useTranslations } from "next-intl";
-import type { ReactNode } from "react";
+import { Button, ReusableDrawer } from '@/shared/ui';
+import type { Styles } from '@/shared/ui/ReusableDrawer/ReusableDrawer';
+import { useTranslations } from 'next-intl';
+import type { ReactNode } from 'react';
 
 type MobileProductFilterProps = {
   filterOpen: boolean;
@@ -22,34 +22,31 @@ export const MobileProductFilter = ({
   btnStyles,
   resultCount,
 }: MobileProductFilterProps) => {
-  const t = useTranslations("ProductMobileFilter");
+  const t = useTranslations('ProductMobileFilter');
 
   return (
     <ReusableDrawer
-      title={<p>{t("title")}</p>}
+      title={<p>{t('title')}</p>}
       open={filterOpen}
       onClose={onClose}
       placement="right"
       width={400}
-      styles={styles}
-    >
+      styles={styles}>
       {children}
       <div className={btnStyles}>
         <Button
           props={{
-            type: "default",
+            type: 'default',
             onClick: resetFilter,
-          }}
-        >
-          {t("reset")}
+          }}>
+          {t('reset')}
         </Button>
         <Button
           props={{
-            type: "primary",
+            type: 'primary',
             onClick: onClose,
-          }}
-        >
-          {t("showResults", { count: resultCount })}
+          }}>
+          {t('showResults', { count: resultCount })}
         </Button>
       </div>
     </ReusableDrawer>

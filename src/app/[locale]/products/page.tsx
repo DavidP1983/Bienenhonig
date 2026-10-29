@@ -1,13 +1,13 @@
-import { productService } from "@/entities/product/model/product.service";
-import { productKeys } from "@/entities/product/model/queryKeys";
-import { ProductsPage } from "@/pages_fsd/products/ui";
+import { productService } from '@/entities/product/model/product.service';
+import { productKeys } from '@/entities/product/model/queryKeys';
+import { ProductsPage } from '@/pages_fsd/products/ui';
 import {
   HydrationBoundary,
   QueryClient,
   dehydrate,
-} from "@tanstack/react-query";
-import { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+} from '@tanstack/react-query';
+import { Metadata } from 'next';
+import { getTranslations } from 'next-intl/server';
 
 export async function generateMetadata({
   params,
@@ -18,42 +18,42 @@ export async function generateMetadata({
 
   const t = await getTranslations({
     locale,
-    namespace: "ProductsMetadata",
+    namespace: 'ProductsMetadata',
   });
 
-  const siteUrl = "https://bienenhonig.vercel.app/products";
+  const siteUrl = 'https://bienenhonig.vercel.app/products';
 
   return {
-    title: t("title"),
-    description: t("description"),
-    keywords: t.raw("keywords"),
+    title: t('title'),
+    description: t('description'),
+    keywords: t.raw('keywords'),
 
     openGraph: {
-      title: t("openGraphTitle"),
-      description: t("openGraphDescription"),
+      title: t('openGraphTitle'),
+      description: t('openGraphDescription'),
       url: `${siteUrl}/${locale}/products`,
-      siteName: "Bienenhonig",
+      siteName: 'Bienenhonig',
       images: [
         {
-          url: "https://res.cloudinary.com/dmrsemgsn/image/upload/v1737127372/products_akaokz.png",
+          url: 'https://res.cloudinary.com/dmrsemgsn/image/upload/v1737127372/products_akaokz.png',
           secureUrl:
-            "https://res.cloudinary.com/dmrsemgsn/image/upload/v1737127372/products_akaokz.png",
+            'https://res.cloudinary.com/dmrsemgsn/image/upload/v1737127372/products_akaokz.png',
           width: 1200,
           height: 630,
-          alt: t("imageAlt"),
+          alt: t('imageAlt'),
         },
       ],
-      locale: locale === "ru" ? "ru_RU" : "en_US",
-      type: "website",
+      locale: locale === 'ru' ? 'ru_RU' : 'en_US',
+      type: 'website',
     },
 
     twitter: {
-      card: "summary_large_image",
-      title: t("openGraphTitle"),
-      description: t("openGraphDescription"),
+      card: 'summary_large_image',
+      title: t('openGraphTitle'),
+      description: t('openGraphDescription'),
       images: {
-        url: "https://res.cloudinary.com/dmrsemgsn/image/upload/v1737127372/products_akaokz.png",
-        alt: t("imageAlt"),
+        url: 'https://res.cloudinary.com/dmrsemgsn/image/upload/v1737127372/products_akaokz.png',
+        alt: t('imageAlt'),
       },
       site: siteUrl,
     },
@@ -65,7 +65,7 @@ const Products = async ({ params }: { params: { locale: string } }) => {
 
   const t = await getTranslations({
     locale,
-    namespace: "ProductsMetadata",
+    namespace: 'ProductsMetadata',
   });
 
   const queryClient = new QueryClient();
@@ -78,18 +78,18 @@ const Products = async ({ params }: { params: { locale: string } }) => {
     .catch(() => {});
 
   const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    name: t("openGraphTitle"),
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: t('openGraphTitle'),
     image:
-      "https://res.cloudinary.com/dmrsemgsn/image/upload/v1737127372/products_akaokz.png",
-    description: t("openGraphDescription"),
+      'https://res.cloudinary.com/dmrsemgsn/image/upload/v1737127372/products_akaokz.png',
+    description: t('openGraphDescription'),
     brand: {
-      "@type": "Brand",
-      name: "Bienenhonig",
+      '@type': 'Brand',
+      name: 'Bienenhonig',
     },
     offers: {
-      "@type": "Offer",
+      '@type': 'Offer',
       url: `https://bienenhonig.vercel.app/${locale}/products`,
     },
   };

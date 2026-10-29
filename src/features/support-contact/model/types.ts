@@ -5,7 +5,7 @@ export type SupportFormValues = {
   comment: string;
 };
 
-type emailStatus = "pending" | "sent" | "failed";
+type emailStatus = 'pending' | 'sent' | 'failed';
 type Order = {
   orderNumber: string;
   paymentStatus: number;

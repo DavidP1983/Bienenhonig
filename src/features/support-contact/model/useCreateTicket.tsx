@@ -1,19 +1,19 @@
-"use client";
+'use client';
 import {
   errorsHandler,
   getApiErrorCode,
   isErrorTranslationKey,
-} from "@/shared/errors";
-import { useMutation } from "@tanstack/react-query";
-import { notification } from "antd";
-import { useTranslations } from "next-intl";
-import { useState } from "react";
-import { ticketService } from "./ticket.service";
-import type { SupportFormValues } from "./types";
+} from '@/shared/errors';
+import { useMutation } from '@tanstack/react-query';
+import { notification } from 'antd';
+import { useTranslations } from 'next-intl';
+import { useState } from 'react';
+import { ticketService } from './ticket.service';
+import type { SupportFormValues } from './types';
 
 export const useCreateTicket = () => {
-  const t = useTranslations("CreateTicket");
-  const tErrors = useTranslations("ErrorDetails");
+  const t = useTranslations('CreateTicket');
+  const tErrors = useTranslations('ErrorDetails');
 
   const [api, contextHolder] = notification.useNotification({
     stack: false,
@@ -31,13 +31,13 @@ export const useCreateTicket = () => {
 
     onSuccess: (response) => {
       if (
-        response.customerEmailStatus === "failed" ||
-        response.supportEmailStatus === "failed"
+        response.customerEmailStatus === 'failed' ||
+        response.supportEmailStatus === 'failed'
       ) {
         api.warning({
-          message: t("emailFailedTitle"),
-          description: t("emailFailedDescription"),
-          placement: "top",
+          message: t('emailFailedTitle'),
+          description: t('emailFailedDescription'),
+          placement: 'top',
           duration: 5,
         });
         return;
@@ -55,9 +55,9 @@ export const useCreateTicket = () => {
           : errorsHandler(error);
 
       api.error({
-        message: t("createFailedTitle"),
-        description: message || t("tryAgain"),
-        placement: "top",
+        message: t('createFailedTitle'),
+        description: message || t('tryAgain'),
+        placement: 'top',
         duration: 5,
       });
     },

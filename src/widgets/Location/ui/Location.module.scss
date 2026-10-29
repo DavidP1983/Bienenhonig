@@ -1,4 +1,4 @@
-@use "./media/location" as locationMedia;
+@use './media/location' as locationMedia;
 
 .sectionlocation {
   & .location {
@@ -122,7 +122,7 @@
       }
 
       &::after {
-        content: "";
+        content: '';
         display: block;
         position: absolute;
         border-radius: 4em;

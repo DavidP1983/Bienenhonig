@@ -1,5 +1,5 @@
-@use "./mixins/mixins" as product;
-@use "../../../shared/styles/mixins" as *;
+@use './mixins/mixins' as product;
+@use '../../../shared/styles/mixins' as *;
 
 .productSection {
   display: grid;

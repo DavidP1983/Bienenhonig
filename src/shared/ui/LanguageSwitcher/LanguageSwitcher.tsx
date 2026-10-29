@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { usePathname, useRouter } from "@/i18n/navigation";
-import { Select } from "antd";
-import { useLocale } from "next-intl";
+import { usePathname, useRouter } from '@/i18n/navigation';
+import { Select } from 'antd';
+import { useLocale } from 'next-intl';
 
 export const LanguageSwitcher = () => {
   const locale = useLocale();
@@ -18,8 +18,8 @@ export const LanguageSwitcher = () => {
       value={locale}
       onChange={handleChange}
       options={[
-        { value: "en", label: "English" },
-        { value: "ru", label: "Русский" },
+        { value: 'en', label: 'English' },
+        { value: 'ru', label: 'Русский' },
       ]}
       aria-label="Select language"
       style={{ width: 120 }}

@@ -1,19 +1,19 @@
-"use client";
-import { TbZoomScan } from "@/shared/assets/icons";
-import { useTranslations } from "next-intl";
-import { useEffect, useRef, useState } from "react";
-import { SellerContacts } from ".";
-import type { Product } from "../model/types";
-import { ProductImageMagnifier } from "./ProductImageMagnifier";
+'use client';
+import { TbZoomScan } from '@/shared/assets/icons';
+import { useTranslations } from 'next-intl';
+import { useEffect, useRef, useState } from 'react';
+import { SellerContacts } from '.';
+import type { Product } from '../model/types';
+import { ProductImageMagnifier } from './ProductImageMagnifier';
 
-import styles from "./ProductDetailsContent.module.scss";
+import styles from './ProductDetailsContent.module.scss';
 
 type ProductDetailsProps = {
   data: Product;
 };
 
 export const ProductDetailsContent = ({ data }: ProductDetailsProps) => {
-  const t = useTranslations("ProductDetailsContent");
+  const t = useTranslations('ProductDetailsContent');
 
   const [isOpen, setIsOpen] = useState(false);
   const [readMoreButton, setReadMoreButton] = useState(false);
@@ -33,10 +33,10 @@ export const ProductDetailsContent = ({ data }: ProductDetailsProps) => {
       const { scrollHeight } = element;
       if (!isOpen) {
         element.style.height = `${scrollHeight}px`;
-        element.classList.toggle("open");
+        element.classList.toggle('open');
       } else {
         element.style.height = `${52}px`;
-        element.classList.toggle("open");
+        element.classList.toggle('open');
       }
     }
     setIsOpen(!isOpen);
@@ -48,33 +48,32 @@ export const ProductDetailsContent = ({ data }: ProductDetailsProps) => {
         <ProductImageMagnifier imageSrc={data.images[0]} />
         <span>
           <TbZoomScan />
-          {t("zoom")}
+          {t('zoom')}
         </span>
       </div>
 
       <div className={styles.detailsContent__description}>
-        <h2 className={styles.title}>{t("title")}</h2>
+        <h2 className={styles.title}>{t('title')}</h2>
 
         <dl className={styles.attributes}>
           <div className={styles.producer}>
-            <dt>{t("producer")}</dt>
+            <dt>{t('producer')}</dt>
             <dd>{data.description.producer}</dd>
           </div>
 
           <div className={styles.color}>
-            <dt>{t("color")}</dt>
+            <dt>{t('color')}</dt>
             <dd>{data.description.color}</dd>
           </div>
 
           <div className={styles.origin}>
-            <dt>{t("origin")}</dt>
+            <dt>{t('origin')}</dt>
             <dd>{data.description.origin}</dd>
           </div>
 
           <div
             ref={contentRef}
-            className={`${styles.originDescription} ${isOpen ? styles.open : ""}`}
-          >
+            className={`${styles.originDescription} ${isOpen ? styles.open : ''}`}>
             <p>{data.description.text}</p>
           </div>
 
@@ -82,13 +81,12 @@ export const ProductDetailsContent = ({ data }: ProductDetailsProps) => {
             <button
               type="button"
               className={styles.readMore}
-              onClick={toggleText}
-            >
-              {isOpen ? `${t("readLess")}` : `${t("readMore")}`}
+              onClick={toggleText}>
+              {isOpen ? `${t('readLess')}` : `${t('readMore')}`}
             </button>
           )}
         </dl>
-        <p className={styles.photoDisclaimer}>{t("disclaimer")}</p>
+        <p className={styles.photoDisclaimer}>{t('disclaimer')}</p>
       </div>
       <SellerContacts contacts={data.contacts} />
     </div>

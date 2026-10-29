@@ -1,4 +1,4 @@
-import { PropType } from "../model/types";
+import { PropType } from '../model/types';
 
 export const DotButton = (props: PropType) => {
   const { children, ...restProps } = props;
@@ -8,8 +8,7 @@ export const DotButton = (props: PropType) => {
       type="button"
       title="dot buttons"
       aria-label="dot buttons navigation"
-      {...restProps}
-    >
+      {...restProps}>
       {children}
     </button>
   );

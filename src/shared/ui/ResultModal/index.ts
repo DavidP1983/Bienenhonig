@@ -1,1 +1,1 @@
-export { ResultModal } from "./ResultModal";
+export { ResultModal } from './ResultModal';

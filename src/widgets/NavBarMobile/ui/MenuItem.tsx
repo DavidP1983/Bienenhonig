@@ -1,10 +1,10 @@
-import { NavigationType } from "@/shared/config/types";
-import { NavBarItem } from "@/shared/ui/NavBarItem";
-import * as motion from "motion/react-client";
-import { useTranslations } from "next-intl";
-import { itemVariants } from "../model/animation";
+import { NavigationType } from '@/shared/config/types';
+import { NavBarItem } from '@/shared/ui/NavBarItem';
+import * as motion from 'motion/react-client';
+import { useTranslations } from 'next-intl';
+import { itemVariants } from '../model/animation';
 
-import styles from "./NavBarMobile.module.scss";
+import styles from './NavBarMobile.module.scss';
 
 export const MenuItem = ({
   item,
@@ -13,7 +13,7 @@ export const MenuItem = ({
   item: NavigationType;
   toggle: () => void;
 }) => {
-  const t = useTranslations("Navbar");
+  const t = useTranslations('Navbar');
 
   return (
     <motion.li
@@ -21,8 +21,7 @@ export const MenuItem = ({
       className={styles.listItem}
       variants={itemVariants}
       whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.95 }}
-    >
+      whileTap={{ scale: 0.95 }}>
       <NavBarItem
         {...item}
         title={t(item.translationKey)}

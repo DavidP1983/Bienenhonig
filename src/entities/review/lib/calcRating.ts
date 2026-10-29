@@ -1,4 +1,4 @@
-import type { Review } from "../model/type";
+import type { Review } from '../model/type';
 
 export const calcRating = (reviews: Review[]) => {
   if (reviews.length === 0) return 0;

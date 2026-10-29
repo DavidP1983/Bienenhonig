@@ -1,5 +1,5 @@
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export const headerAnimation = (elem: HTMLHeadElement) => {
   gsap.registerPlugin(ScrollTrigger); // регистрация плагина ScrollTrigger
@@ -13,8 +13,8 @@ export const headerAnimation = (elem: HTMLHeadElement) => {
     .progress(1);
 
   const trigger = ScrollTrigger.create({
-    start: "top top",
-    end: "bottom",
+    start: 'top top',
+    end: 'bottom',
     // pin: true,
     onUpdate: (self) => {
       // eslint-disable-next-line @typescript-eslint/no-unused-expressions

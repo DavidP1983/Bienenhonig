@@ -1,4 +1,4 @@
-import type { ICartOrder } from "@/entities/cart/model/types";
+import type { ICartOrder } from '@/entities/cart/model/types';
 
 interface CalculateOrderSummaryProps {
   cartOrder: ICartOrder[];
@@ -11,7 +11,7 @@ export const calculateOrderSummary = ({
 }: CalculateOrderSummaryProps) => {
   const productsTotal = cartOrder.reduce(
     (sum, item) => sum + item.totalPrice,
-    0,
+    0
   );
 
   /* Количество уникальных продавцов */

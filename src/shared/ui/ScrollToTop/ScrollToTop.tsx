@@ -1,12 +1,12 @@
-"use client";
-import { arrowup } from "@/shared/assets/icons";
-import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
-import { throttle } from "throttle-debounce";
+'use client';
+import { arrowup } from '@/shared/assets/icons';
+import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { throttle } from 'throttle-debounce';
 
-import styles from "./ScrollToTop.module.scss";
+import styles from './ScrollToTop.module.scss';
 
 export const ScrollToTop = () => {
   const [scroll, setScrollTop] = useState<boolean>(false);
@@ -16,16 +16,16 @@ export const ScrollToTop = () => {
     const throttledScroll = throttle(1000, () => {
       setScrollTop(window.scrollY > 800);
     });
-    window.addEventListener("scroll", throttledScroll);
+    window.addEventListener('scroll', throttledScroll);
     return () => {
-      window.removeEventListener("scroll", throttledScroll);
+      window.removeEventListener('scroll', throttledScroll);
     };
   }, []);
 
   const handleClick = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth",
+      behavior: 'smooth',
     });
   };
 
@@ -34,17 +34,21 @@ export const ScrollToTop = () => {
     window.scrollTo({
       top: 0,
       left: 0,
-      behavior: "instant",
+      behavior: 'instant',
     });
   }, [pathname]);
 
   return (
     <Link
       href="#body"
-      className={`${styles.arrow} ${scroll ? styles.show : ""}`}
-      onClick={handleClick}
-    >
-      <Image src={arrowup} alt="arrow up" width={50} height={50} />
+      className={`${styles.arrow} ${scroll ? styles.show : ''}`}
+      onClick={handleClick}>
+      <Image
+        src={arrowup}
+        alt="arrow up"
+        width={50}
+        height={50}
+      />
     </Link>
   );
 };

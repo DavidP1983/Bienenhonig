@@ -1,5 +1,5 @@
-import { getDiscountDescription } from ".";
-import type { DiscountDescription, Variants } from "../model/types";
+import { getDiscountDescription } from '.';
+import type { DiscountDescription, Variants } from '../model/types';
 
 type VariantPrice = {
   originalPrice: number;
@@ -11,11 +11,11 @@ type VariantPrice = {
 
 export const getVariantPrice = (
   variant: Variants,
-  quantity: number,
+  quantity: number
 ): VariantPrice => {
   const { discount, discountType, isActive } = getDiscountDescription(
     variant,
-    quantity,
+    quantity
   );
 
   const originalPrice = variant.price;

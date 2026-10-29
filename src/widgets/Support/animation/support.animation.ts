@@ -1,4 +1,4 @@
-import type { Variants } from "motion/react";
+import type { Variants } from 'motion/react';
 
 const containerVariants: Variants = {
   hidden: {},
@@ -19,7 +19,7 @@ const itemVariants: Variants = {
     y: 0,
     transition: {
       duration: 0.4,
-      ease: "easeOut",
+      ease: 'easeOut',
     },
   },
 };

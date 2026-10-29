@@ -1,9 +1,9 @@
-import { data } from "@/entities/location/model/data";
-import { LocationType } from "@/entities/location/model/type";
-import { LocationPage } from "@/pages_fsd/loaction/ui";
-import { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
-import { notFound } from "next/navigation";
+import { data } from '@/entities/location/model/data';
+import { LocationType } from '@/entities/location/model/type';
+import { LocationPage } from '@/pages_fsd/loaction/ui';
+import { Metadata } from 'next';
+import { getTranslations } from 'next-intl/server';
+import { notFound } from 'next/navigation';
 
 interface Props {
   params: {
@@ -36,40 +36,40 @@ export const generateMetadata = async ({
 
   const t = await getTranslations({
     locale,
-    namespace: "LocationMetadata",
+    namespace: 'LocationMetadata',
   });
 
   return {
-    title: t("title", { city: place.city }),
-    description: t("description"),
-    keywords: t.raw("keywords"),
+    title: t('title', { city: place.city }),
+    description: t('description'),
+    keywords: t.raw('keywords'),
     openGraph: {
-      title: t("openGraphTitle"),
-      description: t("openGraphDescription", {
+      title: t('openGraphTitle'),
+      description: t('openGraphDescription', {
         city: place.city,
       }),
       url: `https://bienenhonig.vercel.app/${locale}/location/${id}`,
-      siteName: "Bienenhonig",
+      siteName: 'Bienenhonig',
       images: [
         {
-          url: "https://res.cloudinary.com/dmrsemgsn/image/upload/v1737127324/passika_simoa7.webp",
+          url: 'https://res.cloudinary.com/dmrsemgsn/image/upload/v1737127324/passika_simoa7.webp',
           width: 1200,
           height: 630,
-          alt: t("imageAlt"),
+          alt: t('imageAlt'),
         },
       ],
-      locale: locale === "ru" ? "ru_RU" : "en_US",
-      type: "website",
+      locale: locale === 'ru' ? 'ru_RU' : 'en_US',
+      type: 'website',
     },
     twitter: {
-      card: "summary_large_image",
-      title: t("openGraphTitle"),
-      description: t("openGraphDescription", {
+      card: 'summary_large_image',
+      title: t('openGraphTitle'),
+      description: t('openGraphDescription', {
         city: place.city,
       }),
       images: {
-        url: "https://res.cloudinary.com/dmrsemgsn/image/upload/v1737127324/passika_simoa7.webp",
-        alt: "Our artisan honey store in Germany",
+        url: 'https://res.cloudinary.com/dmrsemgsn/image/upload/v1737127324/passika_simoa7.webp',
+        alt: 'Our artisan honey store in Germany',
       },
       site: `https://bienenhonig.vercel.app/${locale}/location/${id}`,
     },
@@ -82,7 +82,7 @@ const Location = async ({ params }: Props) => {
 
   const t = await getTranslations({
     locale,
-    namespace: "Locations",
+    namespace: 'Locations',
   });
 
   const location = t.raw(String(place.id)) as {
@@ -97,23 +97,23 @@ const Location = async ({ params }: Props) => {
   };
 
   const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Product",
+    '@context': 'https://schema.org',
+    '@type': 'Product',
     name: place.city,
     image:
-      "https://res.cloudinary.com/dmrsemgsn/image/upload/v1737127324/passika_simoa7.webp",
+      'https://res.cloudinary.com/dmrsemgsn/image/upload/v1737127324/passika_simoa7.webp',
     description: localizedPlace.description,
     address: {
-      "@type": "PostalAddress",
+      '@type': 'PostalAddress',
       addressLocality: place.city,
-      addressCountry: "DE",
+      addressCountry: 'DE',
     },
     brand: {
-      "@type": "Brand",
-      name: "Bienenhonig",
+      '@type': 'Brand',
+      name: 'Bienenhonig',
     },
     offers: {
-      "@type": "Offer",
+      '@type': 'Offer',
       url: `https://bienenhonig.vercel.app/${locale}/location/${id}`,
     },
   };

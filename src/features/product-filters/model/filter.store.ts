@@ -1,7 +1,7 @@
-import { create } from "zustand";
+import { create } from 'zustand';
 
 export interface CombineFilter {
-  select: "alphabetic" | "L-H" | "H-L" | "";
+  select: 'alphabetic' | 'L-H' | 'H-L' | '';
   search: string;
   checkbox: string[];
 }
@@ -13,7 +13,7 @@ interface IFilter {
 }
 
 export const useFilter = create<IFilter>()((set) => ({
-  filter: { select: "", search: "", checkbox: [] },
+  filter: { select: '', search: '', checkbox: [] },
 
   handleSelect: (key, value) =>
     set((state) => ({
@@ -23,8 +23,8 @@ export const useFilter = create<IFilter>()((set) => ({
   resetFilter: () =>
     set({
       filter: {
-        select: "",
-        search: "",
+        select: '',
+        search: '',
         checkbox: [],
       },
     }),

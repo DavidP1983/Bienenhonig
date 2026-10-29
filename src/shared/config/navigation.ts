@@ -1,26 +1,26 @@
-import { urls } from "@/shared/assets/img";
-import type { NavigationType } from "./types";
+import { urls } from '@/shared/assets/img';
+import type { NavigationType } from './types';
 
 export const navigation: NavigationType[] = [
   {
     id: 1,
-    translationKey: "home",
-    path: "/",
+    translationKey: 'home',
+    path: '/',
     url: urls.home,
-    subtitleKey: "homeSubtitle",
+    subtitleKey: 'homeSubtitle',
   },
   {
     id: 2,
-    translationKey: "products",
-    path: "/products",
+    translationKey: 'products',
+    path: '/products',
     url: urls.products,
-    subtitleKey: "productsSubtitle",
+    subtitleKey: 'productsSubtitle',
   },
   {
     id: 3,
-    translationKey: "support",
-    path: "/support",
+    translationKey: 'support',
+    path: '/support',
     url: urls.support,
-    subtitleKey: "supportSubtitle",
+    subtitleKey: 'supportSubtitle',
   },
 ];

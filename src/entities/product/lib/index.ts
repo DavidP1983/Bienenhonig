@@ -1,2 +1,2 @@
-export { getDiscountDescription } from "./getDiscountDescription";
-export { getVariantPrice } from "./getVariantPrice";
+export { getDiscountDescription } from './getDiscountDescription';
+export { getVariantPrice } from './getVariantPrice';

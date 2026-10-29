@@ -1,20 +1,20 @@
-import type { Variants } from "@/entities/product/model/types";
-import { useState } from "react";
+import type { Variants } from '@/entities/product/model/types';
+import { useState } from 'react';
 
 /* Ленивая загрузка */
 const getInitialVariant = (
   variants: Variants[],
-  size?: string,
+  size?: string
 ): Variants | undefined => {
   return variants.find((variant) => variant.size === size) ?? variants[0];
 };
 
 export const useProductPurchase = (
   filteredVariants: Variants[],
-  size?: string,
+  size?: string
 ) => {
-  const [selectedVariant, setSelectedVariant] = useState<Variants>(
-    () => getInitialVariant(filteredVariants, size)!,
+  const [selectedVariant, setSelectedVariant] = useState<Variants>(() =>
+    getInitialVariant(filteredVariants, size)!
   );
   const [quantity, setQuantity] = useState(1);
   const [selectedItems, setSelectedItems] = useState<
@@ -31,13 +31,13 @@ export const useProductPurchase = (
     }
 
     const existingItem = selectedItems.find(
-      (item) => item.size === variant.size,
+      (item) => item.size === variant.size
     );
 
     /* Не даем счетчику выбрать больше quantity чем в DB*/
     const nextQuantity = Math.min(
       existingItem?.quantity ?? 1,
-      variant.quantity,
+      variant.quantity
     );
 
     setSelectedVariant(variant);
@@ -55,8 +55,8 @@ export const useProductPurchase = (
         prev.map((item) =>
           item.size === variant.size
             ? { ...item, quantity: nextQuantity }
-            : item,
-        ),
+            : item
+        )
       );
     }
   };
@@ -65,8 +65,8 @@ export const useProductPurchase = (
   const updateSelectedQuantity = (size: string, nextQuantity: number) => {
     setSelectedItems((prev) =>
       prev.map((item) =>
-        item.size === size ? { ...item, quantity: nextQuantity } : item,
-      ),
+        item.size === size ? { ...item, quantity: nextQuantity } : item
+      )
     );
   };
 
@@ -94,7 +94,7 @@ export const useProductPurchase = (
   const removeItemFromTheList = (itemSize: string) => {
     setSelectedItems((prev) => {
       const updatedItems = prev.filter(
-        (selected) => selected.size !== itemSize,
+        (selected) => selected.size !== itemSize
       );
 
       if (updatedItems.length === 0) {

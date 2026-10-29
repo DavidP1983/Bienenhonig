@@ -1,4 +1,4 @@
-import { productApi } from "../api/products.api";
+import { productApi } from '../api/products.api';
 
 export const productService = {
   getProducts: (signal?: AbortSignal) => productApi.getProducts(signal),

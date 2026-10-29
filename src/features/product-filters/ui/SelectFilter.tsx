@@ -1,12 +1,12 @@
-import { Select, Space } from "antd";
-import { DefaultOptionType } from "antd/es/select";
-import { useTranslations } from "next-intl";
-import { useFilter } from "../model";
+import { Select, Space } from 'antd';
+import { DefaultOptionType } from 'antd/es/select';
+import { useTranslations } from 'next-intl';
+import { useFilter } from '../model';
 
-import styles from "./SelectFilter.module.scss";
+import styles from './SelectFilter.module.scss';
 
 export const SelectFilter = () => {
-  const t = useTranslations("ProductFilter");
+  const t = useTranslations('ProductFilter');
 
   const handleSelect = useFilter((state) => state.handleSelect);
 
@@ -19,29 +19,29 @@ export const SelectFilter = () => {
       <Space className={styles.selectContainer}>
         <Select
           className={styles.select}
-          defaultValue={t("sortPlaceholder")}
+          defaultValue={t('sortPlaceholder')}
           onChange={handleChange}
           allowClear
           title="select"
-          aria-label={t("sortAriaLabel")}
+          aria-label={t('sortAriaLabel')}
           options={[
             {
-              value: "alphabetic",
-              label: t("sortAlphabetic"),
-              title: "select",
+              value: 'alphabetic',
+              label: t('sortAlphabetic'),
+              title: 'select',
             },
             {
-              value: "L-H",
-              label: t("sortPriceLowHigh"),
-              title: "select",
+              value: 'L-H',
+              label: t('sortPriceLowHigh'),
+              title: 'select',
             },
             {
-              value: "H-L",
-              label: t("sortPriceHighLow"),
-              title: "select",
+              value: 'H-L',
+              label: t('sortPriceHighLow'),
+              title: 'select',
             },
           ]}
-          placeholder={t("sortPlaceholder")}
+          placeholder={t('sortPlaceholder')}
         />
       </Space>
     </div>

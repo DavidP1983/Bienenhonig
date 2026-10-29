@@ -1,2 +1,2 @@
-export { ProductContent } from "./ProductContent";
-export { Products } from "./Products";
+export { ProductContent } from './ProductContent';
+export { Products } from './Products';

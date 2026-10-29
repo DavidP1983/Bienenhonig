@@ -1,7 +1,7 @@
-import { Alert } from "antd";
+import { Alert } from 'antd';
 
 type StatusMessageProps = {
-  type: "success" | "error" | "info" | "warning";
+  type: 'success' | 'error' | 'info' | 'warning';
   message: string;
   description?: string;
 };
@@ -16,6 +16,6 @@ export const StatusMessage = ({
     showIcon
     message={message}
     description={description}
-    style={{ marginBottom: "30px" }}
+    style={{ marginBottom: '30px' }}
   />
 );

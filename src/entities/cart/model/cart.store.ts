@@ -1,6 +1,6 @@
-import { create } from "zustand";
-import { createJSONStorage, persist } from "zustand/middleware";
-import { ICartOrder } from "./types";
+import { create } from 'zustand';
+import { createJSONStorage, persist } from 'zustand/middleware';
+import { ICartOrder } from './types';
 
 export interface ICart {
   idempotencyKey: string | null;
@@ -54,12 +54,12 @@ export const useCartOrder = create<ICart>()(
       },
     }),
     {
-      name: "cart-order-storage",
+      name: 'cart-order-storage',
       storage: createJSONStorage(() => localStorage),
 
       onRehydrateStorage: () => (state) => {
         state?.setHasHydrated(true);
       },
-    },
-  ),
+    }
+  )
 );

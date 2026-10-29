@@ -1,13 +1,13 @@
-"use client";
-import { useProductById } from "@/entities/product/model/useProductById";
-import { useReviewsByProduct } from "@/entities/review/model/useReviewsByProduct";
-import { ProductDetailsProps } from "@/pages_fsd/product-details/ui/ProductDetailsPage";
-import { Breadcrumbs } from "@/shared/ui";
-import { useEffect, useState } from "react";
-import { ProductDetailsView } from "./ProductDetailsView";
-import { ProductReview } from "./ProductReviews";
+'use client';
+import { useProductById } from '@/entities/product/model/useProductById';
+import { useReviewsByProduct } from '@/entities/review/model/useReviewsByProduct';
+import { ProductDetailsProps } from '@/pages_fsd/product-details/ui/ProductDetailsPage';
+import { Breadcrumbs } from '@/shared/ui';
+import { useEffect, useState } from 'react';
+import { ProductDetailsView } from './ProductDetailsView';
+import { ProductReview } from './ProductReviews';
 
-import styles from "./ProductDetails.module.scss";
+import styles from './ProductDetails.module.scss';
 
 export const ProductDetails = ({ id, size }: ProductDetailsProps) => {
   const [reviewsPage, setReviewsPage] = useState(1);
@@ -23,15 +23,15 @@ export const ProductDetails = ({ id, size }: ProductDetailsProps) => {
 
   /*Для прокрутки страницы к ReviewsSection*/
   useEffect(() => {
-    if (window.location.hash !== "#reviews") return;
+    if (window.location.hash !== '#reviews') return;
 
     if (isPending || isReviewsPending) return;
 
-    const element = document.getElementById("reviews");
+    const element = document.getElementById('reviews');
     if (!element) return;
     element.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
+      behavior: 'smooth',
+      block: 'start',
     });
   }, [isPending, isReviewsPending, data, reviews]);
 
@@ -41,8 +41,10 @@ export const ProductDetails = ({ id, size }: ProductDetailsProps) => {
 
   return (
     <>
-      <h1 className="title" id="product-details">
-        {data?.title ?? ""}
+      <h1
+        className="title"
+        id="product-details">
+        {data?.title ?? ''}
       </h1>
       <div className={styles.breadcrumb}>
         <Breadcrumbs title={data?.title} />

@@ -1,4 +1,4 @@
-import { DiscountDescription, Variants } from "@/entities/product/model/types";
+import { DiscountDescription, Variants } from '@/entities/product/model/types';
 
 export type ICartOrder = {
   id: string;

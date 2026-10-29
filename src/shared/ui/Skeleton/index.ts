@@ -1,1 +1,1 @@
-export { SkeletonJSX } from "./SkeletonJSX";
+export { SkeletonJSX } from './SkeletonJSX';

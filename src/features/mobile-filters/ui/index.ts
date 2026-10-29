@@ -1,1 +1,1 @@
-export { MobileProductFilter } from "./MobileProductFilter";
+export { MobileProductFilter } from './MobileProductFilter';

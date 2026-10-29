@@ -1,4 +1,4 @@
-import { deliveryApi } from "../api/delivery.api";
+import { deliveryApi } from '../api/delivery.api';
 
 export const deliveryService = {
   getDeliveryPrice: (signal?: AbortSignal) =>

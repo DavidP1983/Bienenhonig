@@ -13,7 +13,7 @@ type QuantityDiscount = {
 
 export type DiscountDescription = {
   discount: number;
-  discountType: "regular" | "quantity" | null;
+  discountType: 'regular' | 'quantity' | null;
   isActive?: boolean;
 };
 
@@ -25,7 +25,7 @@ export type Variants = {
   quantityDiscount?: QuantityDiscount;
 };
 
-export type SellerContactType = "facebook" | "whatsapp" | "telegram" | "email";
+export type SellerContactType = 'facebook' | 'whatsapp' | 'telegram' | 'email';
 
 export interface SellerContact {
   type: SellerContactType;

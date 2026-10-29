@@ -1,16 +1,11 @@
-import type { ReactNode } from "react";
+import type { ReactNode } from 'react';
 
 interface IStyles {
   [key: string]: string | number;
 }
 
 type BaseButtonProps =
-  | "link"
-  | "text"
-  | "primary"
-  | "default"
-  | "dashed"
-  | undefined;
+  'link' | 'text' | 'primary' | 'default' | 'dashed' | undefined;
 
 interface IProps {
   type: BaseButtonProps;

@@ -1,1 +1,1 @@
-export { ProductPurchase } from "./ProductPurchase";
+export { ProductPurchase } from './ProductPurchase';

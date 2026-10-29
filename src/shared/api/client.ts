@@ -1,6 +1,6 @@
-import { ApiError } from "../errors/ApiError";
-import { handleResponse } from "./handleResponse";
-import { HTTPRequestMethods, RequestConfig, RequestOptions } from "./types";
+import { ApiError } from '../errors/ApiError';
+import { handleResponse } from './handleResponse';
+import { HTTPRequestMethods, RequestConfig, RequestOptions } from './types';
 
 class ApiRequest {
   baseURL: string;
@@ -14,7 +14,7 @@ class ApiRequest {
   async request<T>(
     endpoint: string,
     method: HTTPRequestMethods,
-    options: RequestOptions = {},
+    options: RequestOptions = {}
   ): Promise<T> {
     const { data, headers, signal } = options;
 
@@ -25,7 +25,7 @@ class ApiRequest {
     };
 
     if (data) {
-      config.headers["Content-Type"] = "application/json";
+      config.headers['Content-Type'] = 'application/json';
       config.body = JSON.stringify(data);
     }
 
@@ -36,10 +36,10 @@ class ApiRequest {
 
       if (!data) {
         throw new ApiError(
-          "The server returned no data",
-          "EMPTY_RESPONSE",
+          'The server returned no data',
+          'EMPTY_RESPONSE',
           response.status,
-          response.statusText,
+          response.statusText
         );
       }
       return data as T;
@@ -47,21 +47,21 @@ class ApiRequest {
       if (e instanceof ApiError) {
         throw e;
       }
-      if ((e as Error).name === "AbortError") {
+      if ((e as Error).name === 'AbortError') {
         throw e;
       }
 
-      throw new ApiError("Network request failed", "NETWORK_ERROR");
+      throw new ApiError('Network request failed', 'NETWORK_ERROR');
     }
   }
 
   get<T>(endpoint: string, options: RequestOptions = {}) {
-    return this.request<T>(endpoint, "GET", options);
+    return this.request<T>(endpoint, 'GET', options);
   }
 
   post<T>(endpoint: string, data: unknown, options: RequestOptions = {}) {
-    return this.request<T>(endpoint, "POST", { ...options, data });
+    return this.request<T>(endpoint, 'POST', { ...options, data });
   }
 }
 
-export const api = new ApiRequest(process.env.NEXT_PUBLIC_API_BASE ?? "");
+export const api = new ApiRequest(process.env.NEXT_PUBLIC_API_BASE ?? '');

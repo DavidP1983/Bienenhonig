@@ -1,1 +1,1 @@
-export { useProductPagination } from "./useProductPagination";
+export { useProductPagination } from './useProductPagination';

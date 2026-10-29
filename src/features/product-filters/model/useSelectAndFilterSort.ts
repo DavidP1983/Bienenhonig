@@ -1,6 +1,6 @@
-import { Product } from "@/entities/product/model/types";
-import { useMemo } from "react";
-import { CombineFilter } from "./filter.store";
+import { Product } from '@/entities/product/model/types';
+import { useMemo } from 'react';
+import { CombineFilter } from './filter.store';
 
 /* By Alphabetic */
 const sortByAlphabetic = (data: Product[]) => {
@@ -14,7 +14,7 @@ const getMinPrice = (product: Product): number => {
 
 const sortByPrice = (data: Product[], key: string) => {
   const sortedPrice = [...data].sort((a, b) => {
-    if (key === "L-H") {
+    if (key === 'L-H') {
       return getMinPrice(a) - getMinPrice(b);
     } else {
       return getMinPrice(b) - getMinPrice(a);
@@ -26,16 +26,16 @@ const sortByPrice = (data: Product[], key: string) => {
 
 const Strategy = {
   alphabetic: (data: Product[]) => sortByAlphabetic(data),
-  "L-H": (data: Product[]) => sortByPrice(data, "L-H"),
-  "H-L": (data: Product[]) => sortByPrice(data, "H-L"),
+  'L-H': (data: Product[]) => sortByPrice(data, 'L-H'),
+  'H-L': (data: Product[]) => sortByPrice(data, 'H-L'),
 };
 
 const useSelectSort = (
   data: Product[],
-  select: "alphabetic" | "L-H" | "H-L" | "",
+  select: 'alphabetic' | 'L-H' | 'H-L' | ''
 ) => {
   const sortedSelect = useMemo(() => {
-    if (select === "") return data;
+    if (select === '') return data;
     return Strategy[select](data);
   }, [data, select]);
 
@@ -51,7 +51,7 @@ const useCheckBoxFilter = (data: Product[], filter: CombineFilter) => {
       return sortedData;
     }
     return sortedData.filter((item) =>
-      filter.checkbox.includes(item.categoryId),
+      filter.checkbox.includes(item.categoryId)
     );
   }, [sortedData, filter.checkbox]);
 
@@ -61,13 +61,13 @@ const useCheckBoxFilter = (data: Product[], filter: CombineFilter) => {
 /* Main Filter */
 export const useSelectAndFilterSort = (
   data: Product[] | undefined,
-  filter: CombineFilter,
+  filter: CombineFilter
 ) => {
   const sortedData = useCheckBoxFilter(data ?? [], filter);
 
   const filteredData = useMemo(() => {
     return sortedData.filter((item) =>
-      item.slug.toLocaleLowerCase().includes(filter.search.toLocaleLowerCase()),
+      item.slug.toLocaleLowerCase().includes(filter.search.toLocaleLowerCase())
     );
   }, [filter.search, sortedData]);
 

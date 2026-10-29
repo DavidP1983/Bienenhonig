@@ -1,1 +1,1 @@
-export type TCategory = "orders" | "delivery" | "returns" | "payments";
+export type TCategory = 'orders' | 'delivery' | 'returns' | 'payments';

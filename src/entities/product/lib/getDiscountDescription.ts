@@ -1,14 +1,14 @@
-import type { DiscountDescription, Variants } from "../model/types";
+import type { DiscountDescription, Variants } from '../model/types';
 
 export const getDiscountDescription = (
   variant: Variants,
-  quantity: number,
+  quantity: number
 ): DiscountDescription => {
   /*проверяем обычную скидку*/
   if (variant.discountPercent > 0) {
     return {
       discount: variant.discountPercent,
-      discountType: "regular",
+      discountType: 'regular',
       isActive: true,
     };
   }
@@ -18,7 +18,7 @@ export const getDiscountDescription = (
     const { minQuantity, discountPercent } = variant.quantityDiscount;
     return {
       discount: discountPercent,
-      discountType: "quantity",
+      discountType: 'quantity',
       isActive: quantity >= minQuantity,
     };
   }

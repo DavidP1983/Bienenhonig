@@ -1,7 +1,7 @@
-import { IoAlertCircleOutline, LuPackageX } from "@/shared/assets/icons";
-import { useTranslations } from "next-intl";
+import { IoAlertCircleOutline, LuPackageX } from '@/shared/assets/icons';
+import { useTranslations } from 'next-intl';
 
-import styles from "./ProductUnavailable.module.scss";
+import styles from './ProductUnavailable.module.scss';
 
 interface ProductUnavailableProps {
   title?: string;
@@ -9,10 +9,10 @@ interface ProductUnavailableProps {
 }
 
 export const ProductUnavailable = ({
-  title = "unavailableTitle",
-  description = "unavailableDescription",
+  title = 'unavailableTitle',
+  description = 'unavailableDescription',
 }: ProductUnavailableProps) => {
-  const t = useTranslations("ProductPurchase");
+  const t = useTranslations('ProductPurchase');
   const titleKey = t(title);
   const descriptionKey = t(description);
 
@@ -33,9 +33,9 @@ export const ProductUnavailable = ({
       <div className={styles.unavailable__suggestion}>
         <div className={styles.unavailable__icon}>
           <IoAlertCircleOutline className={styles.unavailable__alertCircle} />
-          <span className={styles.unavailable__propose}>{t("propose")}</span>
+          <span className={styles.unavailable__propose}>{t('propose')}</span>
         </div>
-        <span className={styles.unavailable__try}>{t("try")}</span>
+        <span className={styles.unavailable__try}>{t('try')}</span>
       </div>
     </div>
   );

@@ -1,17 +1,17 @@
-import { productService } from "@/entities/product/model/product.service";
-import { productKeys } from "@/entities/product/model/queryKeys";
-import { Product } from "@/entities/product/model/types";
-import { ProductDetailsPage } from "@/pages_fsd/product-details/ui";
-import { ApiError } from "@/shared/errors/ApiError";
-import { ErrorState } from "@/shared/ui";
+import { productService } from '@/entities/product/model/product.service';
+import { productKeys } from '@/entities/product/model/queryKeys';
+import { Product } from '@/entities/product/model/types';
+import { ProductDetailsPage } from '@/pages_fsd/product-details/ui';
+import { ApiError } from '@/shared/errors/ApiError';
+import { ErrorState } from '@/shared/ui';
 import {
   HydrationBoundary,
   QueryClient,
   dehydrate,
-} from "@tanstack/react-query";
-import { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
-import { notFound } from "next/navigation";
+} from '@tanstack/react-query';
+import { Metadata } from 'next';
+import { getTranslations } from 'next-intl/server';
+import { notFound } from 'next/navigation';
 
 interface Props {
   params: {
@@ -29,36 +29,36 @@ export const generateMetadata = async ({
   const { id, locale } = params;
   const t = await getTranslations({
     locale,
-    namespace: "ProductDetailsMetadata",
+    namespace: 'ProductDetailsMetadata',
   });
 
   try {
     const data = await productService.getProductById(id);
 
-    const title = t("title", { title: data.title });
-    const description = t("description", { title: data.title });
+    const title = t('title', { title: data.title });
+    const description = t('description', { title: data.title });
     const productUrl = `https://bienenhonig.vercel.app/${locale}/products/${id}`;
     const images = data.images?.[0];
 
     return {
       title,
       description,
-      keywords: t.raw("keywords"),
+      keywords: t.raw('keywords'),
       openGraph: {
-        title: t("openGraphTitle"),
-        description: t("openGraphDescription"),
+        title: t('openGraphTitle'),
+        description: t('openGraphDescription'),
         url: productUrl,
-        siteName: "Bienenhonig",
+        siteName: 'Bienenhonig',
         ...(images && {
           images: [{ url: images, alt: data.title }],
         }),
-        locale: locale === "ru" ? "ru_RU" : "en_US",
-        type: "website",
+        locale: locale === 'ru' ? 'ru_RU' : 'en_US',
+        type: 'website',
       },
       twitter: {
-        card: "summary_large_image",
-        title: t("openGraphTitle"),
-        description: t("openGraphDescription"),
+        card: 'summary_large_image',
+        title: t('openGraphTitle'),
+        description: t('openGraphDescription'),
         ...(images && {
           images: [{ url: images, alt: data.title }],
         }),
@@ -67,8 +67,8 @@ export const generateMetadata = async ({
     };
   } catch {
     return {
-      title: t("fallbackTitle"),
-      description: t("fallbackDescription"),
+      title: t('fallbackTitle'),
+      description: t('fallbackDescription'),
     };
   }
 };
@@ -92,11 +92,11 @@ const ProductDetails = async ({ params, searchParams }: Props) => {
     });
   } catch (error) {
     if (error instanceof ApiError) {
-      if (error.code === "PRODUCT_NOT_FOUND") {
+      if (error.code === 'PRODUCT_NOT_FOUND') {
         notFound();
       }
 
-      if (error.code === "INVALID_PRODUCT_SIZE") {
+      if (error.code === 'INVALID_PRODUCT_SIZE') {
         return (
           <div className="globalError">
             <div className="container">
@@ -110,8 +110,8 @@ const ProductDetails = async ({ params, searchParams }: Props) => {
 
   const jsonLd = data
     ? {
-        "@context": "https://schema.org",
-        "@type": "Product",
+        '@context': 'https://schema.org',
+        '@type': 'Product',
         name: data.title,
         image: data.images,
         description: [
@@ -120,19 +120,19 @@ const ProductDetails = async ({ params, searchParams }: Props) => {
           data.description.origin,
         ]
           .filter(Boolean)
-          .join(", "),
+          .join(', '),
         brand: {
-          "@type": "Brand",
-          name: "Bienenhonig",
+          '@type': 'Brand',
+          name: 'Bienenhonig',
         },
         offers: data.variants.map((variant) => ({
-          "@type": "Offer",
+          '@type': 'Offer',
           price: variant.price,
-          priceCurrency: "EUR",
+          priceCurrency: 'EUR',
           availability:
             variant.quantity > 0
-              ? "https://schema.org/InStock"
-              : "https://schema.org/OutOfStock",
+              ? 'https://schema.org/InStock'
+              : 'https://schema.org/OutOfStock',
           productUrl,
         })),
       }
@@ -145,13 +145,16 @@ const ProductDetails = async ({ params, searchParams }: Props) => {
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
-              __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+              __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c'),
             }}
           />
         </section>
       )}
       <HydrationBoundary state={dehydrate(queryClient)}>
-        <ProductDetailsPage id={id} size={sizeData} />
+        <ProductDetailsPage
+          id={id}
+          size={sizeData}
+        />
       </HydrationBoundary>
     </>
   );

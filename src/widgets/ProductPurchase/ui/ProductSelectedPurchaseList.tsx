@@ -1,9 +1,9 @@
-import { PurchaseItem } from "@/shared/ui";
-import { AnimatePresence } from "motion/react";
-import { useTranslations } from "next-intl";
-import type { SelectedItemDescription } from "../model/types";
+import { PurchaseItem } from '@/shared/ui';
+import { AnimatePresence } from 'motion/react';
+import { useTranslations } from 'next-intl';
+import type { SelectedItemDescription } from '../model/types';
 
-import styles from "./ProductSelectedPurchaseList.module.scss";
+import styles from './ProductSelectedPurchaseList.module.scss';
 
 type Props = {
   selectedItemsData: SelectedItemDescription[];
@@ -16,7 +16,7 @@ export const ProductSelectedPurchaseList = ({
   total,
   removeItemFromTheList,
 }: Props) => {
-  const t = useTranslations("PurchaseItem");
+  const t = useTranslations('PurchaseItem');
 
   return (
     <ul className={styles.purchaseItems}>
@@ -33,7 +33,7 @@ export const ProductSelectedPurchaseList = ({
           })}
       </AnimatePresence>
       <div className={styles.total}>
-        <div className={styles.label}>{t("total")}</div>
+        <div className={styles.label}>{t('total')}</div>
         <strong>€{total.toFixed(2)}</strong>
       </div>
     </ul>

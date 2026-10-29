@@ -1,11 +1,11 @@
-import type { ICartOrder } from "@/entities/cart/model/types";
-import { SelectedItemDescription } from "@/widgets/ProductPurchase/model/types";
-import { Popconfirm } from "antd";
-import { motion } from "motion/react";
-import { useTranslations } from "next-intl";
-import Image from "next/image";
+import type { ICartOrder } from '@/entities/cart/model/types';
+import { SelectedItemDescription } from '@/widgets/ProductPurchase/model/types';
+import { Popconfirm } from 'antd';
+import { motion } from 'motion/react';
+import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 
-import styles from "./PurchaseItem.module.scss";
+import styles from './PurchaseItem.module.scss';
 
 type PurchaseItemProps = {
   item: SelectedItemDescription | ICartOrder;
@@ -24,22 +24,22 @@ export const PurchaseItem = ({
   image,
   confirmRemove = false,
 }: PurchaseItemProps) => {
-  const t = useTranslations("PurchaseItem");
+  const t = useTranslations('PurchaseItem');
 
   const { discount, discountType, isActive } = item.discountDesc;
   const { variant, size, quantity, totalPrice, quantityPrice } = item;
 
   const showDiscount =
     discount > 0 &&
-    (discountType === "regular" || (discountType === "quantity" && isActive));
+    (discountType === 'regular' || (discountType === 'quantity' && isActive));
 
   const discountLabel =
-    discountType === "quantity"
-      ? t("quantityDiscount", {
+    discountType === 'quantity'
+      ? t('quantityDiscount', {
           discount: discount,
           minQuantity: variant.quantityDiscount?.minQuantity ?? 3,
         })
-      : t("discount", {
+      : t('discount', {
           discount: discount,
         });
 
@@ -47,8 +47,7 @@ export const PurchaseItem = ({
     <button
       type="button"
       className={styles.remove}
-      aria-label={`Remove variant ${item.size}`}
-    >
+      aria-label={`Remove variant ${item.size}`}>
       ×
     </button>
   );
@@ -61,14 +60,13 @@ export const PurchaseItem = ({
       exit={{ opacity: 0 }}
       transition={{
         duration: 0.4,
-        ease: "easeInOut",
-      }}
-    >
+        ease: 'easeInOut',
+      }}>
       <div className={styles.desc}>
         {image && (
           <Image
             src={image}
-            alt={title ?? ""}
+            alt={title ?? ''}
             width={200}
             height={200}
             className={styles.image}
@@ -79,7 +77,7 @@ export const PurchaseItem = ({
           {title && <strong>{title}</strong>}
           {seller && (
             <span>
-              {t("seller")}: {seller}
+              {t('seller')}: {seller}
             </span>
           )}
         </div>
@@ -89,7 +87,7 @@ export const PurchaseItem = ({
         </strong>
 
         <div className={styles.units}>
-          €{variant.price.toFixed(2)} {t("perUnit")}
+          €{variant.price.toFixed(2)} {t('perUnit')}
         </div>
 
         {showDiscount && <div className={styles.discount}>{discountLabel}</div>}
@@ -100,7 +98,7 @@ export const PurchaseItem = ({
 
         {discount > 0 && (
           <div className={styles.quantityPrice}>
-            {t("was")} €{quantityPrice.toFixed(2)}
+            {t('was')} €{quantityPrice.toFixed(2)}
           </div>
         )}
       </div>
@@ -109,12 +107,11 @@ export const PurchaseItem = ({
         (confirmRemove ? (
           <Popconfirm
             placement="topRight"
-            title={t("removeConfirmTitle")}
-            description={t("removeConfirmDesc")}
-            okText={t("okText")}
-            cancelText={t("cancelText")}
-            onConfirm={onRemove}
-          >
+            title={t('removeConfirmTitle')}
+            description={t('removeConfirmDesc')}
+            okText={t('okText')}
+            cancelText={t('cancelText')}
+            onConfirm={onRemove}>
             {removeButton}
           </Popconfirm>
         ) : (
@@ -122,8 +119,7 @@ export const PurchaseItem = ({
             type="button"
             className={styles.remove}
             aria-label={`Remove variant ${item.size}`}
-            onClick={onRemove}
-          >
+            onClick={onRemove}>
             ×
           </button>
         ))}

@@ -9,5 +9,11 @@ coverage
 # framework/cache -> NextJS, Vite, Other cache
 .next
 .vercel
+public
 dist
 out
+
+# Ignore dependency locks
+pnpm-lock.yaml
+package-lock.json
+yarn.lock

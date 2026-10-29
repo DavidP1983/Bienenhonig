@@ -1,5 +1,5 @@
-import { Drawer } from "antd";
-import type { ReactNode } from "react";
+import { Drawer } from 'antd';
+import type { ReactNode } from 'react';
 
 export type Styles = {
   wrapper?: string;
@@ -13,7 +13,7 @@ type ReusableDrawerProps = {
   title?: ReactNode;
   open: boolean;
   onClose: () => void;
-  placement: "right" | "left";
+  placement: 'right' | 'left';
   styles?: Styles;
   children: ReactNode;
   width: number;
@@ -37,8 +37,7 @@ export const ReusableDrawer = ({
       placement={placement}
       open={open}
       onClose={onClose}
-      classNames={styles}
-    >
+      classNames={styles}>
       {children}
     </Drawer>
   );

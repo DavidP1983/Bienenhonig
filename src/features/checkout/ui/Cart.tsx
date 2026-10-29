@@ -1,13 +1,13 @@
-"use client";
-import { useCartOrder } from "@/entities/cart";
-import { TbShoppingBag } from "@/shared/assets/icons";
-import dynamic from "next/dynamic";
-import { useState } from "react";
+'use client';
+import { useCartOrder } from '@/entities/cart';
+import { TbShoppingBag } from '@/shared/assets/icons';
+import dynamic from 'next/dynamic';
+import { useState } from 'react';
 
-import styles from "./Cart.module.scss";
+import styles from './Cart.module.scss';
 
 const OrderConfirm = dynamic(() =>
-  import("./OrderConfirm").then((mod) => mod.OrderConfirm),
+  import('./OrderConfirm').then((mod) => mod.OrderConfirm)
 );
 
 export const Cart = () => {
@@ -26,8 +26,7 @@ export const Cart = () => {
         <button
           className={styles.cart__btn}
           suppressHydrationWarning={true}
-          onClick={handleOpen}
-        >
+          onClick={handleOpen}>
           <TbShoppingBag className={styles.cart__shopping} />
           <div className={styles.cart__count}>
             <span>{cartCount}</span>
@@ -35,7 +34,10 @@ export const Cart = () => {
         </button>
       </div>
       {/* {hasOpen && <OrderConfirm open={open} setOpen={setOpen} />} */}
-      <OrderConfirm open={open} onClose={() => setOpen(false)} />
+      <OrderConfirm
+        open={open}
+        onClose={() => setOpen(false)}
+      />
     </>
   );
 };

@@ -1,12 +1,12 @@
-import type { Product } from "@/entities/product/model/types";
-import { ProductDetailsContent } from "@/entities/product/ui";
-import { getApiErrorCode } from "@/shared/errors/getApiErrorCode";
-import { ErrorState, Spinner } from "@/shared/ui";
-import { ProductPurchase } from "@/widgets/ProductPurchase/ui";
-import { RelatedProducts } from "@/widgets/RelatedProducts/ui";
-import { memo } from "react";
+import type { Product } from '@/entities/product/model/types';
+import { ProductDetailsContent } from '@/entities/product/ui';
+import { getApiErrorCode } from '@/shared/errors/getApiErrorCode';
+import { ErrorState, Spinner } from '@/shared/ui';
+import { ProductPurchase } from '@/widgets/ProductPurchase/ui';
+import { RelatedProducts } from '@/widgets/RelatedProducts/ui';
+import { memo } from 'react';
 
-import styles from "./ProductDetails.module.scss";
+import styles from './ProductDetails.module.scss';
 
 type Props = {
   data: Product | undefined;
@@ -49,7 +49,10 @@ const ProductDetailsViewComponent = ({
         <ProductDetailsContent data={data} />
 
         <div className={styles.detailsSidebar}>
-          <ProductPurchase data={data} size={size} />
+          <ProductPurchase
+            data={data}
+            size={size}
+          />
           <RelatedProducts currentProductId={data._id} />
         </div>
       </>

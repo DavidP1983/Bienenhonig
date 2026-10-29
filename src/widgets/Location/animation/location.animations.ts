@@ -1,4 +1,4 @@
-import type { Variants } from "motion/react";
+import type { Variants } from 'motion/react';
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 24 },
@@ -7,7 +7,7 @@ const fadeUp: Variants = {
     y: 0,
     transition: {
       duration: 0.7,
-      ease: "easeOut",
+      ease: 'easeOut',
     },
   },
 };
@@ -18,7 +18,7 @@ const fadeIn: Variants = {
     opacity: 1,
     transition: {
       duration: 0.9,
-      ease: "easeOut",
+      ease: 'easeOut',
     },
   },
 };

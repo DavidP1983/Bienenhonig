@@ -1,3 +1,3 @@
 export const ticketKeys = {
-  all: ["tickets"] as const,
+  all: ['tickets'] as const,
 };

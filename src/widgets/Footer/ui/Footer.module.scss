@@ -1,5 +1,5 @@
-@use "./media/footer" as footerMedia;
-@use "@/shared/styles/mixins" as *;
+@use './media/footer' as footerMedia;
+@use '@/shared/styles/mixins' as *;
 
 .footer {
   position: sticky;

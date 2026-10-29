@@ -1,5 +1,5 @@
-import { useEffect, useMemo } from "react";
-import { useFilter } from "./filter.store";
+import { useEffect, useMemo } from 'react';
+import { useFilter } from './filter.store';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function debounce<T extends (...args: any[]) => any>(fn: T, delay: number) {

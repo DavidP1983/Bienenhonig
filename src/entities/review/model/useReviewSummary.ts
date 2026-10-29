@@ -1,6 +1,6 @@
-import { useQuery } from "@tanstack/react-query";
-import { reviewKeys } from "./queryKeys";
-import { reviewService } from "./review.service";
+import { useQuery } from '@tanstack/react-query';
+import { reviewKeys } from './queryKeys';
+import { reviewService } from './review.service';
 
 export const useReviewSummary = () => {
   return useQuery({

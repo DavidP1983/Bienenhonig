@@ -1,10 +1,10 @@
-"use client";
-import { Modal } from "antd";
-import { useTranslations } from "next-intl";
-import dynamic from "next/dynamic";
-import { useState } from "react";
+'use client';
+import { Modal } from 'antd';
+import { useTranslations } from 'next-intl';
+import dynamic from 'next/dynamic';
+import { useState } from 'react';
 
-import styles from "./ReviewCreateModal.module.scss";
+import styles from './ReviewCreateModal.module.scss';
 
 type ReviewCreateModalProps = {
   productId: string;
@@ -12,14 +12,14 @@ type ReviewCreateModalProps = {
 };
 
 const Form = dynamic(() =>
-  import("./ReviewCreateForm").then((mod) => mod.ReviewCreateForm),
+  import('./ReviewCreateForm').then((mod) => mod.ReviewCreateForm)
 );
 
 export const ReviewCreateModal = ({
   productId,
   resetChangePage,
 }: ReviewCreateModalProps) => {
-  const t = useTranslations("ProductReview");
+  const t = useTranslations('ProductReview');
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -28,8 +28,8 @@ export const ReviewCreateModal = ({
   return (
     <>
       <Modal
-        title={t("titleForm")}
-        closable={{ "aria-label": "Custom Close Button" }}
+        title={t('titleForm')}
+        closable={{ 'aria-label': 'Custom Close Button' }}
         open={isModalOpen}
         onCancel={closeModal}
         footer={null}
@@ -37,8 +37,7 @@ export const ReviewCreateModal = ({
         classNames={{
           header: `${styles.modalTitle}`,
           wrapper: `${styles.modalWrapper}`,
-        }}
-      >
+        }}>
         <Form
           productId={productId}
           onCancel={closeModal}
@@ -49,9 +48,8 @@ export const ReviewCreateModal = ({
       <button
         type="button"
         className={`btn ${styles.modalBtn}`}
-        onClick={() => setIsModalOpen(true)}
-      >
-        {t("addComment")}
+        onClick={() => setIsModalOpen(true)}>
+        {t('addComment')}
       </button>
     </>
   );

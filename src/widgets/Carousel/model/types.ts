@@ -1,6 +1,6 @@
-import { ComponentPropsWithRef } from "react";
+import { ComponentPropsWithRef } from 'react';
 
-export type PropType = ComponentPropsWithRef<"button">;
+export type PropType = ComponentPropsWithRef<'button'>;
 
 export type UsePrevNextButtonsType = {
   prevBtnDisabled: boolean;

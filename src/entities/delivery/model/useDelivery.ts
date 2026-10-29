@@ -1,6 +1,6 @@
-import { useQuery } from "@tanstack/react-query";
-import { deliveryService } from "./delivery.service";
-import { deliveryKeys } from "./queryKeys";
+import { useQuery } from '@tanstack/react-query';
+import { deliveryService } from './delivery.service';
+import { deliveryKeys } from './queryKeys';
 
 export const useDelivery = () => {
   return useQuery({

@@ -1,6 +1,6 @@
-import { Rate } from "antd";
+import { Rate } from 'antd';
 
-import styles from "./ReviewRating.module.scss";
+import styles from './ReviewRating.module.scss';
 
 type ReviewsProps = {
   averageRating: number;

@@ -1,6 +1,6 @@
-import { Skeleton } from "antd";
+import { Skeleton } from 'antd';
 
-import styles from "./Skeleton.module.scss";
+import styles from './Skeleton.module.scss';
 
 type Props = {
   length: number;

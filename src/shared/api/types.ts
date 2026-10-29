@@ -1,4 +1,4 @@
-export type HTTPRequestMethods = "GET" | "POST";
+export type HTTPRequestMethods = 'GET' | 'POST';
 
 interface Headers {
   [content: string]: string;

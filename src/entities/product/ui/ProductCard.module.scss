@@ -1,15 +1,17 @@
-@use "./mixins/mixins" as product;
+@use './mixins/mixins' as product;
 
 .card {
   @include product.card(column, 100%, 0, none, 330px);
+
   &:hover {
     transform: translateY(-4px);
-    box-shadow: rgba(0, 100, 0, 0.35) 0px 4px 16px;
+    box-shadow: rgb(0 100 0 / 35%) 0 4px 16px;
   }
 
   & .image {
     a {
       display: block;
+
       img {
         @include product.image(10px auto 0 auto);
       }
@@ -31,13 +33,16 @@
       margin-block-start: 10px;
       color: #000;
     }
+
     .seller {
       color: var(--text-color);
       font-family: var(--font-museoBold);
+
       span {
         font-weight: 600;
       }
     }
+
     .variants {
       display: flex;
       flex-direction: column;
@@ -49,6 +54,7 @@
         align-items: center;
       }
     }
+
     .size,
     .price,
     .discount,
@@ -69,6 +75,7 @@
       color: #0a930a;
       margin-inline-end: 30px;
     }
+
     .review {
       display: flex;
       justify-content: center;
@@ -79,9 +86,10 @@
     }
 
     .size {
-      padding: 5px 0 5px 0;
+      padding: 5px 0;
       flex-grow: 1;
     }
+
     .size,
     .review {
       @include product.link_hover;
@@ -92,12 +100,14 @@
       display: flex;
       align-items: center;
       gap: 10px;
+
       .indicator {
         width: 10px;
         height: 10px;
         border-radius: 10px;
         background-color: green;
       }
+
       .units {
         font-family: var(--font-museoMono);
         color: green;
@@ -108,33 +118,33 @@
       .indicator {
         background-color: red;
       }
+
       .units {
         color: red;
       }
     }
   }
+
   .btn {
     padding: 10px;
   }
+
   & .checkOut,
   .outOfOrder {
     display: block;
-    padding: 10px 10px;
+    padding: 10px;
     border: 2px dotted red;
     border-radius: 20px;
-    margin: 20px 10px 10px 10px;
+    margin: 20px 10px 10px;
     text-align: center;
     background: wheat;
     color: #000;
     font-family: var(--font-museoMono);
     transition: all 0.5s;
-    // &::after {
-    //   font-size: 16px;
-    //   font-family: var(--font-museoMono);
-    // }
+
     &:hover {
       color: white;
-      background: rgba(1, 145, 61, 0.962);
+      background: rgb(1 145 61 / 96.2%);
     }
 
     &:active {
@@ -143,10 +153,10 @@
   }
 
   .outOfOrder {
-    // font-size: 0px;
     border: 2px dotted black;
     background: red;
     transition: all 0.5s;
+
     &:hover {
       background: darkred;
     }
@@ -163,9 +173,11 @@
     & .image {
       place-content: center;
     }
+
     & .description {
       gap: 10px;
     }
+
     & .btn {
       width: 50%;
       justify-self: center;

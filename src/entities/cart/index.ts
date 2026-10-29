@@ -1,1 +1,1 @@
-export { useCartOrder } from "./model/cart.store";
+export { useCartOrder } from './model/cart.store';

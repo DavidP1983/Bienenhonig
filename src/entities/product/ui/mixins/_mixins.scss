@@ -1,7 +1,7 @@
 @mixin card(
   $direction: column,
   $width: 100%,
-  $gap: 0px,
+  $gap: 0,
   $maxHeight: 0,
   $minHeight: 330px
 ) {
@@ -10,9 +10,7 @@
   justify-content: space-between;
   width: $width;
   height: 100%;
-  //   max-height: $maxHeight;
-  //   min-height: $minHeight;
-  box-shadow: rgba(102, 61, 0, 0.18) 0px 3px 10px;
+  box-shadow: rgb(102 61 0 / 18%) 0 3px 10px;
   border-radius: 20px;
   transition: all 0.5s;
   gap: $gap;

@@ -1,5 +1,5 @@
-import { getVariantPrice } from "@/entities/product/lib";
-import type { Product } from "@/entities/product/model/types";
+import { getVariantPrice } from '@/entities/product/lib';
+import type { Product } from '@/entities/product/model/types';
 
 type Props = {
   size: string;
@@ -14,7 +14,7 @@ export const getSelectedItemsData = (data: Product, selectedItems: Props[]) => {
 
     const { discountDesc, quantityPrice, totalPrice } = getVariantPrice(
       variant,
-      item.quantity,
+      item.quantity
     );
 
     return [

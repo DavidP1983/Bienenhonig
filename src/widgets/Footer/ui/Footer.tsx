@@ -1,4 +1,4 @@
-import { Link } from "@/i18n/navigation";
+import { Link } from '@/i18n/navigation';
 import {
   FaFacebookF,
   FaTelegramPlane,
@@ -7,76 +7,80 @@ import {
   IoLocation,
   LuMailOpen,
   MdLanguage,
-} from "@/shared/assets/icons";
-import logo from "@/shared/assets/img/logo.png";
-import { LanguageSwitcher } from "@/shared/ui";
-import { useTranslations } from "next-intl";
-import Image from "next/image";
+} from '@/shared/assets/icons';
+import logo from '@/shared/assets/img/logo.png';
+import { LanguageSwitcher } from '@/shared/ui';
+import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 
-import styles from "./Footer.module.scss";
+import styles from './Footer.module.scss';
 
 export const Footer = () => {
-  const t = useTranslations("Footer");
+  const t = useTranslations('Footer');
   return (
     <footer className={styles.footer}>
       <div className={styles.footerContent}>
         <div className={styles.footerLogo}>
           <Link href="/">
-            <Image width={120} height={120} src={logo} alt="logo" />
+            <Image
+              width={120}
+              height={120}
+              src={logo}
+              alt="logo"
+            />
           </Link>
         </div>
         <div className={styles.footerLinks}>
-          <h2>{t("navigation")}</h2>
+          <h2>{t('navigation')}</h2>
           <ul>
             <li>
-              <Link href="/">{t("home")}</Link>
+              <Link href="/">{t('home')}</Link>
             </li>
             <li>
-              <Link href="/products">{t("products")}</Link>
+              <Link href="/products">{t('products')}</Link>
             </li>
             <li>
-              <Link href="/support">{t("support")}</Link>
+              <Link href="/support">{t('support')}</Link>
             </li>
           </ul>
         </div>
         <div className={styles.location}>
-          <h2>{t("locations")}</h2>
+          <h2>{t('locations')}</h2>
           <ul>
             <li>
               <IoLocation />
               <Link
                 href="/location/Erkrath-Hochdahl"
-                title="location address Erkrath-Hochdahl"
-              >
-                Erkrath-Hochdahl, {t("country")}
+                title="location address Erkrath-Hochdahl">
+                Erkrath-Hochdahl, {t('country')}
               </Link>
             </li>
             <li>
               <IoLocation />
               <Link
                 href="/location/Dusseldorf"
-                title="location address Düsseldorf"
-              >
-                Düsseldorf, {t("country")}
+                title="location address Düsseldorf">
+                Düsseldorf, {t('country')}
               </Link>
             </li>
           </ul>
         </div>
         <div className={styles.footerAddr}>
-          <h2>{t("address")}</h2>
+          <h2>{t('address')}</h2>
           <address>
             <p>
               <IoLocation />
-              {t("country")}, Dusseldorf
+              {t('country')}, Dusseldorf
             </p>
             <a
               href="mailto:bienenhonig.info@gmail.com"
-              rel="noopener noreferrer"
-            >
+              rel="noopener noreferrer">
               <LuMailOpen />
               bienenhonig.info@gmail.com
             </a>
-            <a href="tel:+995543956231" rel="noopener noreferrer">
+            <a
+              href="tel:+995543956231"
+              rel="noopener noreferrer">
               <FiPhone />
               +9(95) 543-956-231
             </a>
@@ -89,16 +93,14 @@ export const Footer = () => {
             href="#"
             className={styles.social}
             target="_blank"
-            rel="noopener noreferrer"
-          >
+            rel="noopener noreferrer">
             <FaFacebookF className={styles.facebook} />
           </a>
           <a
             href="#"
             className={styles.social}
             target="_blank"
-            rel="noopener noreferrer"
-          >
+            rel="noopener noreferrer">
             <FaTelegramPlane className={styles.telegram} />
           </a>
           <a
@@ -106,8 +108,7 @@ export const Footer = () => {
             className={styles.social}
             id="whatsup"
             target="_blank"
-            rel="noopener noreferrer"
-          >
+            rel="noopener noreferrer">
             <FaWhatsapp className={styles.whatsapp} />
           </a>
         </div>
@@ -118,7 +119,7 @@ export const Footer = () => {
         </div>
       </div>
       <div className={styles.rights}>
-        Copyright &copy;2025- Bienenhonig. {t("rights")}
+        Copyright &copy;2025- Bienenhonig. {t('rights')}
       </div>
     </footer>
   );

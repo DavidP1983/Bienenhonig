@@ -1,6 +1,6 @@
-"use client";
-import { ErrorState } from "@/shared/ui/ErrorState";
-import { useRouter } from "next/navigation";
+'use client';
+import { ErrorState } from '@/shared/ui/ErrorState';
+import { useRouter } from 'next/navigation';
 
 export default function ErrorWrapper() {
   const router = useRouter();

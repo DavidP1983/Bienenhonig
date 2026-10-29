@@ -1,5 +1,5 @@
-import { Product } from "@/entities/product/model/types";
-import { useMemo, useState } from "react";
+import { Product } from '@/entities/product/model/types';
+import { useMemo, useState } from 'react';
 
 const DEFAULT_PAGE_SIZE = 4;
 

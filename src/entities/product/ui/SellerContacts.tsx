@@ -3,11 +3,11 @@ import {
   FaTelegramPlane,
   FaWhatsapp,
   TfiEmail,
-} from "@/shared/assets/icons";
-import { useTranslations } from "next-intl";
-import type { SellerContact } from "../model/types";
+} from '@/shared/assets/icons';
+import { useTranslations } from 'next-intl';
+import type { SellerContact } from '../model/types';
 
-import styles from "./SellerContacts.module.scss";
+import styles from './SellerContacts.module.scss';
 
 type SellerContactProps = {
   contacts: SellerContact[];
@@ -33,16 +33,16 @@ const contactIcons = {
 };
 
 export const SellerContacts = ({ contacts }: SellerContactProps) => {
-  const t = useTranslations("SellerContacts");
+  const t = useTranslations('SellerContacts');
 
   if (contacts.length === 0) return null;
 
   return (
     <div className={styles.contacts}>
       <h2 className={`title ${styles.contactsTitle}`}>
-        {t("questions")}
+        {t('questions')}
         <br />
-        {t("contactUs")}
+        {t('contactUs')}
       </h2>
 
       <ul className={styles.media}>
@@ -50,7 +50,7 @@ export const SellerContacts = ({ contacts }: SellerContactProps) => {
           const { icon: Icon, style } = contactIcons[contact.type];
 
           const href =
-            contact.type === "email"
+            contact.type === 'email'
               ? `mailto:${contact.value}`
               : contact.value;
 
@@ -59,12 +59,11 @@ export const SellerContacts = ({ contacts }: SellerContactProps) => {
               <a
                 href={href}
                 className={style}
-                target={contact.type === "email" ? undefined : "_blank"}
+                target={contact.type === 'email' ? undefined : '_blank'}
                 rel={
-                  contact.type === "email" ? undefined : "noopener noreferrer"
+                  contact.type === 'email' ? undefined : 'noopener noreferrer'
                 }
-                aria-label={contact.type}
-              >
+                aria-label={contact.type}>
                 <Icon />
               </a>
             </li>

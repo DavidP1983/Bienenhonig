@@ -1,17 +1,17 @@
-"use client";
-import { useCartOrder } from "@/entities/cart";
-import type { ICartOrder } from "@/entities/cart/model/types";
-import { useDelivery } from "@/entities/delivery/model/useDelivery";
-import { useRouter } from "@/i18n/navigation";
-import { sadBee } from "@/shared/assets/img";
-import { calculateOrderSummary } from "@/shared/lib";
-import { OrderSummary, PurchaseItem, ReusableDrawer } from "@/shared/ui";
-import { Button } from "@/shared/ui/Button";
-import { useTranslations } from "next-intl";
-import Image from "next/image";
-import { useShallow } from "zustand/react/shallow";
+'use client';
+import { useCartOrder } from '@/entities/cart';
+import type { ICartOrder } from '@/entities/cart/model/types';
+import { useDelivery } from '@/entities/delivery/model/useDelivery';
+import { useRouter } from '@/i18n/navigation';
+import { sadBee } from '@/shared/assets/img';
+import { calculateOrderSummary } from '@/shared/lib';
+import { OrderSummary, PurchaseItem, ReusableDrawer } from '@/shared/ui';
+import { Button } from '@/shared/ui/Button';
+import { useTranslations } from 'next-intl';
+import Image from 'next/image';
+import { useShallow } from 'zustand/react/shallow';
 
-import styles from "./OrderConfirm.module.scss";
+import styles from './OrderConfirm.module.scss';
 
 interface OrderConfirmProps {
   open: boolean;
@@ -19,7 +19,7 @@ interface OrderConfirmProps {
 }
 
 export const OrderConfirm = ({ open, onClose }: OrderConfirmProps) => {
-  const t = useTranslations("OrderConfirmation");
+  const t = useTranslations('OrderConfirmation');
 
   const router = useRouter();
   const { data, isPending, isError, refetch } = useDelivery();
@@ -28,7 +28,7 @@ export const OrderConfirm = ({ open, onClose }: OrderConfirmProps) => {
     useShallow((state) => ({
       cartOrder: state.cartOrder,
       removeOrder: state.removeOrder,
-    })),
+    }))
   );
 
   /* Расчет итоговой цены, доставки */
@@ -48,8 +48,13 @@ export const OrderConfirm = ({ open, onClose }: OrderConfirmProps) => {
     if (cartOrder.length === 0) {
       return (
         <div className={styles.noData}>
-          {t("emptyOrders")}
-          <Image src={sadBee} alt="sadBee" width={200} height={200} />
+          {t('emptyOrders')}
+          <Image
+            src={sadBee}
+            alt="sadBee"
+            width={200}
+            height={200}
+          />
         </div>
       );
     }
@@ -79,11 +84,11 @@ export const OrderConfirm = ({ open, onClose }: OrderConfirmProps) => {
     <ReusableDrawer
       title={
         <p>
-          {t("title")}
+          {t('title')}
           <br />
           {cartOrder.length
-            ? t("cartCount", { count: cartOrder.length })
-            : t("cartEmpty")}
+            ? t('cartCount', { count: cartOrder.length })
+            : t('cartEmpty')}
         </p>
       }
       open={open}
@@ -95,8 +100,7 @@ export const OrderConfirm = ({ open, onClose }: OrderConfirmProps) => {
         header: `${styles.drawerTitle}`,
         content: `${styles.drawerClose}`,
       }}
-      width={500}
-    >
+      width={500}>
       {order}
       {cartOrder.length > 0 && (
         <OrderSummary
@@ -113,16 +117,15 @@ export const OrderConfirm = ({ open, onClose }: OrderConfirmProps) => {
       {
         <Button
           props={{
-            type: "primary",
+            type: 'primary',
             onClick: () => {
               onClose();
-              router.push("/checkout");
+              router.push('/checkout');
             },
             disabled: disabledBtn,
           }}
-          className={styles.btnConfirmOrder}
-        >
-          {t("checkout")}
+          className={styles.btnConfirmOrder}>
+          {t('checkout')}
         </Button>
       }
     </ReusableDrawer>

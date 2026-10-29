@@ -1,5 +1,5 @@
-import { Modal } from "antd";
-import type { ReactNode } from "react";
+import { Modal } from 'antd';
+import type { ReactNode } from 'react';
 
 type ResultModalProps = {
   open: boolean;
@@ -23,8 +23,7 @@ export const ResultModal = ({
       open={open}
       closable={closable}
       footer={null}
-      onCancel={onClose}
-    >
+      onCancel={onClose}>
       {children}
     </Modal>
   );

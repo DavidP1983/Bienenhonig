@@ -1,514 +1,510 @@
 {
-    "MainLayoutMetadata": {
-        "title": "Bienenhonig - Pure Organic Honey",
-        "description": "Discover premium honey products directly from Germany."
+  "MainLayoutMetadata": {
+    "title": "Bienenhonig - Pure Organic Honey",
+    "description": "Discover premium honey products directly from Germany."
+  },
+  "HomeMetadata": {
+    "title": "Pure Raw and Organic Artisan Honey - Direct From the Hive to You",
+    "description": "Pure raw organic premium honey, honeycomb, bee pollen and bee skincare from artisan beekeepers. Unpasteurised and natural, on sale from Europe | Germany",
+    "keywords": [
+      "raw honey",
+      "organic honey",
+      "artisan honey",
+      "honeycomb",
+      "bee products",
+      "bee pollen",
+      "natural skincare",
+      "Germany honey"
+    ],
+    "openGraphTitle": "Pure Raw and Organic Artisan Honey",
+    "openGraphDescription": "Pure raw organic premium honey, honeycomb, bee pollen and bee skincare from artisan beekeepers.",
+    "imageAlt": "Organic honey with honeycomb"
+  },
+  "ErrorDetails": {
+    "title": "Something went wrong!",
+    "btnDescTry": "Try again",
+    "btnDescBack": "Return back",
+    "INVALID_PRODUCT_ID": "Invalid product ID.",
+    "INVALID_PRODUCT_LIMIT": "The quantity of products must be between 1 and 10.",
+    "PRODUCT_NOT_FOUND": "Product not found.",
+    "INVALID_PRODUCT_SIZE": "Invalid product size.",
+    "PRODUCT_VARIANT_NOT_FOUND": "Product variant not found.",
+    "PRODUCTS_FETCH_FAILED": "Failed to fetch products.",
+    "PRODUCT_FETCH_FAILED": "Failed to fetch product.",
+    "CATEGORIES_FETCH_FAILED": "Failed to fetch categories",
+    "RELATED_PRODUCTS_FETCH_FAILED": "Failed to fetch related products.",
+    "REVIEW_RATING_SUMMARY_FETCH_FAILED": "Failed to load review ratings.",
+    "REVIEW_PRODUCT_ID_REQUIRED": "Product ID is required.",
+    "INVALID_REVIEW_PAGINATION": "Invalid review pagination parameters.",
+    "PRODUCT_REVIEWS_FETCH_FAILED": "Failed to load product reviews.",
+    "INVALID_REVIEW_DATA": "Please check that all review fields are filled in correctly.",
+    "REVIEW_CREATE_FAILED": "Failed to submit your review.",
+    "INVALID_DELIVERY_PRICE_CONFIG": "Invalid delivery price configuration.",
+    "IDEMPOTENCY_KEY_REQUIRED": "Unable to process your order. Please try again.",
+    "VALIDATION_ERROR": "Please check the submitted data.",
+    "INTERNAL_SERVER_ERROR": "An internal server error occurred.",
+    "ORDER_CREATION_FAILED": "Failed to create your order.",
+    "IDEMPOTENCY_KEY_REUSED": "Your order could not be processed. Please start a new checkout.",
+    "PRODUCT_UNAVAILABLE": "This product is no longer available.",
+    "VARIANT_NOT_FOUND": "The selected product size is unavailable.",
+    "INSUFFICIENT_STOCK": "There is not enough stock for the selected product and size.",
+    "SELLER_EMAIL_MISSING": "The order cannot be processed because the seller's contact information is unavailable.",
+    "EMAIL_SENDING_FAILED": "The email could not be sent. Please try again later.",
+    "TICKET_CREATION_FAILED": "Failed to create the ticket.",
+    "ORDER_NOT_FOUND": "We couldn't verify your order. Please check your order number and email address.",
+    "NETWORK_ERROR": "Network error.",
+    "EMPTY_RESPONSE": "The server returned no data.",
+    "SERVER_ERROR": "Server error.",
+    "UNKNOWN_ERROR": "Something went wrong."
+  },
+  "NotFound": {
+    "title": "Page not found: 404",
+    "reason": "Could not find requested resource",
+    "btn": "Back Home"
+  },
+  "Hero": {
+    "title": "Welcome to the World",
+    "subtitle": "of",
+    "words": ["Honey", "Bees", "And more..."]
+  },
+  "About": {
+    "author": {
+      "title": "About Our Apiary",
+      "text": "Our story began with a simple love for bees, nature, and honest work. We believe that good honey starts with healthy bees and a clean environment. Every jar is made with care, bringing the natural taste and warmth of our apiary to your table."
     },
-    "HomeMetadata": {
-        "title": "Pure Raw and Organic Artisan Honey - Direct From the Hive to You",
-        "description": "Pure raw organic premium honey, honeycomb, bee pollen and bee skincare from artisan beekeepers. Unpasteurised and natural, on sale from Europe | Germany",
-        "keywords": [
-            "raw honey",
-            "organic honey",
-            "artisan honey",
-            "honeycomb",
-            "bee products",
-            "bee pollen",
-            "natural skincare",
-            "Germany honey"
-        ],
-        "openGraphTitle": "Pure Raw and Organic Artisan Honey",
-        "openGraphDescription": "Pure raw organic premium honey, honeycomb, bee pollen and bee skincare from artisan beekeepers.",
-        "imageAlt": "Organic honey with honeycomb"
-    },
-    "ErrorDetails": {
-        "title": "Something went wrong!",
-        "btnDescTry": "Try again",
-        "btnDescBack": "Return back",
-        "INVALID_PRODUCT_ID": "Invalid product ID.",
-        "INVALID_PRODUCT_LIMIT": "The quantity of products must be between 1 and 10.",
-        "PRODUCT_NOT_FOUND": "Product not found.",
-        "INVALID_PRODUCT_SIZE": "Invalid product size.",
-        "PRODUCT_VARIANT_NOT_FOUND": "Product variant not found.",
-        "PRODUCTS_FETCH_FAILED": "Failed to fetch products.",
-        "PRODUCT_FETCH_FAILED": "Failed to fetch product.",
-        "CATEGORIES_FETCH_FAILED": "Failed to fetch categories",
-        "RELATED_PRODUCTS_FETCH_FAILED": "Failed to fetch related products.",
-        "REVIEW_RATING_SUMMARY_FETCH_FAILED": "Failed to load review ratings.",
-        "REVIEW_PRODUCT_ID_REQUIRED": "Product ID is required.",
-        "INVALID_REVIEW_PAGINATION": "Invalid review pagination parameters.",
-        "PRODUCT_REVIEWS_FETCH_FAILED": "Failed to load product reviews.",
-        "INVALID_REVIEW_DATA": "Please check that all review fields are filled in correctly.",
-        "REVIEW_CREATE_FAILED": "Failed to submit your review.",
-        "INVALID_DELIVERY_PRICE_CONFIG": "Invalid delivery price configuration.",
-        "IDEMPOTENCY_KEY_REQUIRED": "Unable to process your order. Please try again.",
-        "VALIDATION_ERROR": "Please check the submitted data.",
-        "INTERNAL_SERVER_ERROR": "An internal server error occurred.",
-        "ORDER_CREATION_FAILED": "Failed to create your order.",
-        "IDEMPOTENCY_KEY_REUSED": "Your order could not be processed. Please start a new checkout.",
-        "PRODUCT_UNAVAILABLE": "This product is no longer available.",
-        "VARIANT_NOT_FOUND": "The selected product size is unavailable.",
-        "INSUFFICIENT_STOCK": "There is not enough stock for the selected product and size.",
-        "SELLER_EMAIL_MISSING": "The order cannot be processed because the seller's contact information is unavailable.",
-        "EMAIL_SENDING_FAILED": "The email could not be sent. Please try again later.",
-        "TICKET_CREATION_FAILED": "Failed to create the ticket.",
-        "ORDER_NOT_FOUND": "We couldn't verify your order. Please check your order number and email address.",
-        "NETWORK_ERROR": "Network error.",
-        "EMPTY_RESPONSE": "The server returned no data.",
-        "SERVER_ERROR": "Server error.",
-        "UNKNOWN_ERROR": "Something went wrong."
-    },
-    "NotFound": {
-        "title": "Page not found: 404",
-        "reason": "Could not find requested resource",
-        "btn": "Back Home"
-    },
-    "Hero": {
-        "title": "Welcome to the World",
-        "subtitle": "of",
-        "words": [
-            "Honey",
-            "Bees",
-            "And more..."
-        ]
-    },
-    "About": {
-        "author": {
-            "title": "About Our Apiary",
-            "text": "Our story began with a simple love for bees, nature, and honest work. We believe that good honey starts with healthy bees and a clean environment. Every jar is made with care, bringing the natural taste and warmth of our apiary to your table."
-        },
-        "products": {
-            "title": "What We Offer",
-            "text": "We offer natural honey and carefully selected bee products made with quality and attention to detail. From classic honey to other products from our apiary, everything is prepared to preserve its natural taste and benefits."
-        }
-    },
-    "Carousel": {
-        "title": "Gallery"
-    },
-    "Navbar": {
-        "home": "Home",
-        "products": "Products",
-        "support": "Support",
-        "homeSubtitle": "Back home",
-        "productsSubtitle": "Products",
-        "supportSubtitle": "Support"
-    },
-    "Footer": {
-        "navigation": "Navigation",
-        "home": "Home",
-        "products": "Products",
-        "support": "Support",
-        "locations": "Locations",
-        "address": "Address",
-        "country": "Germany",
-        "rights": "All rights reserved."
-    },
-    "LocationMetadata": {
-        "title": "Visit Our Location in {city}",
-        "description": "Visit us to experience the best raw organic honey and artisan bee products directly from our location in Germany.",
-        "openGraphTitle": "Visit Our Location",
-        "openGraphDescription": "Come visit {city} in Germany for the finest raw honey and bee products.",
-        "imageAlt": "Our artisan honey store in Germany",
-        "keywords": [
-            "visit Bienenhonig",
-            "organic honey location",
-            "artisan honey shop",
-            "Germany honey store",
-            "buy raw honey",
-            "honeycomb products Germany",
-            "bee pollen store"
-        ]
-    },
-    "Locations": {
-        "1": {
-            "title": "Rape",
-            "description": "This region is known for its clean air, rich landscapes, and diverse wildflowers. Warm summers and long sunny days create ideal conditions for bees to gather nectar from a wide variety of plants. The result is honey with a distinctive character, delicate aroma, and naturally rich flavor.",
-            "info": "Our honey is harvested in the picturesque foothills of Erkrath-Hochdahl. Here, nature offers the purest and most fragrant flowers."
-        },
-        "2": {
-            "title": "Clover",
-            "description": "For generations, beekeeping has been an important part of life in this region. Local knowledge, traditional methods, and respect for nature are carefully passed from one generation to the next. This connection between people, bees, and the land gives the honey its authentic character and unique sense of place.",
-            "info": "Our honey is harvested in the picturesque surroundings of Düsseldorf, where nature offers fragrant flowers and diverse plants."
-        },
-        "3": {
-            "title": "Linden",
-            "description": "The natural environment plays an important role in the quality of our honey. Far from busy cities and intensive agriculture, the bees can collect nectar from naturally growing flowers and plants. Every jar reflects the landscape where it was produced — pure, natural, and full of the character of the region.",
-            "info": "Our honey is harvested in the picturesque surroundings of Hubbelrath, where nature offers fragrant flowers and diverse plants."
-        }
-    },
-    "LocationHero": {
-        "titlePrefix": "Our",
-        "titleSuffix": "Honey from the Heart of Nature",
-        "country": "Germany"
-    },
-    "LocationReason": {
-        "title": "Why this region?",
-        "linkTitle": "Try our honey"
-    },
-    "LocationGallery": {
-        "title": "Location Gallery"
-    },
-    "LocationAccordion": {
-        "title": "Recipes & Tips",
-        "recipes": {
-            "label": "Recipes",
-            "description": "Discover simple and delicious ways to use our raw honey in everyday cooking. From classic honey cakes and homemade granola to sauces, marinades, and warm drinks, these recipes help you enjoy the natural flavor of our honey."
-        },
-        "opinions": {
-            "label": "Opinions",
-            "description": "Our customers appreciate the natural taste, rich aroma, and quality of our honey. We believe that good honey should speak for itself, which is why we carefully preserve its natural character from the hive to your table."
-        },
-        "books": {
-            "label": "Books",
-            "description": "Explore books and useful resources about bees, beekeeping, honey production, and the fascinating world of pollinators. They are a great way to learn more about where our honey comes from and why bees are so important to nature."
-        }
-    },
-    "ProductsMetadata": {
-        "title": "Our Products - Pure Raw and Organic Honey",
-        "description": "Explore our wide selection of pure raw organic honey, honeycomb, and bee products from artisan beekeepers in Germany.",
-        "keywords": [
-            "raw honey products",
-            "organic honey selection",
-            "artisan honey Germany",
-            "bee products",
-            "honeycomb",
-            "clover honey",
-            "linden honey",
-            "rape honey",
-            "pure honey",
-            "bee",
-            "propolis"
-        ],
-        "openGraphTitle": "Explore Our Honey Products",
-        "openGraphDescription": "Discover our premium selection of raw organic honey and bee products crafted by artisan beekeepers.",
-        "imageAlt": "A variety of honey jars and bee products"
-    },
-    "ProductsPage": {
-        "title": "All Products"
-    },
-    "Products": {
-        "showingItems": "Showing {showingItems} – {showingPerPage} of {total} items",
-        "filter": "Filter"
-    },
-    "ProductFilter": {
-        "searchByArticle": "Search by Article",
-        "filterByCategory": "Filter by Category",
-        "sortBy": "Sort by",
-        "searchPlaceholder": "Search by article name...",
-        "sortPlaceholder": "Sort by",
-        "sortAlphabetic": "Alphabetically, A–Z",
-        "sortPriceLowHigh": "Price: low to high",
-        "sortPriceHighLow": "Price: high to low",
-        "sortAriaLabel": "Sort products",
-        "notfoundCategory": "No categories found."
-    },
-    "ProductMobileFilter": {
-        "title": "Filters",
-        "reset": "Reset",
-        "showResults": "Show {count} results"
-    },
-    "ProductCard": {
-        "discount": "Discount",
-        "inStock": "In stock",
-        "outOfStock": "Out of stock",
-        "reviews": "{count, plural, one {# review} other {# reviews}}",
-        "checkout": "View product",
-        "seller": "Sold by",
-        "noData": "No data to display for this request"
-    },
-    "ProductDetailsMetadata": {
-        "title": "Product Details: {title}",
-        "description": "Discover {title} and explore our selection of honey and bee products from artisan beekeepers in Germany.",
-        "keywords": [
-            "raw honey products",
-            "organic honey",
-            "artisan honey Germany",
-            "bee products",
-            "honeycomb",
-            "clover honey",
-            "linden honey",
-            "rape honey",
-            "pure honey",
-            "bees",
-            "propolis"
-        ],
-        "openGraphTitle": "Explore Our Honey Products",
-        "openGraphDescription": "Discover our selection of raw honey and bee products from artisan beekeepers.",
-        "fallbackTitle": "Product Details | Bienenhonig",
-        "fallbackDescription": "Explore our honey and bee products."
-    },
-    "ProductDetailsContent": {
-        "zoom": "Roll over image to zoom in",
-        "title": "Description",
-        "producer": "Producer",
-        "color": "Color",
-        "origin": "Place of Origin",
-        "readMore": "Read more...",
-        "readLess": "Read less...",
-        "disclaimer": "*Product photo is representative of this product. Honey color and texture may vary depending on the season and level of crystallization.\nPlease check the product title and description for accurate contents.\nAccurate Best before and Batch date will be printed on each jar as indicated in photo. Those shown are for visual purposes only.*"
-    },
-    "SellerContacts": {
-        "questions": "Any Questions?",
-        "contactUs": "Contact us"
-    },
-    "ProductPurchase": {
-        "unavailableTitle": "Product unavailable",
-        "unavailableDescription": "Sorry, this product is currently unavailable. It may be out of stock or no longer offered.",
-        "propose": "What can you do?",
-        "try": "Try again later or explore other available products.",
-        "emptySelection": "Please select at least one item",
-        "cartAddSuccess": "Products added to cart",
-        "inStock": "In stock",
-        "outOfStock": "Out of stock",
-        "quantityDiscount": "{discount}% off for {minQuantity} items",
-        "selectSizeAndQnt": " Select size and quantity",
-        "quantity": "Quantity",
-        "selectedVariants": "Selected variants",
-        "addToCart": "Add to cart",
-        "relatedProductTitle": "You might also like",
-        "relatedProductPrice": "From"
-    },
-    "PurchaseItem": {
-        "quantityDiscount": "Discount {discount}% off for {minQuantity} items",
-        "discount": "Discount {discount}%",
-        "seller": "Sold by",
-        "perUnit": "per unit",
-        "was": "Was",
-        "removeConfirmTitle": "Remove this item?",
-        "removeConfirmDesc": "Are you sure you want to remove this item?",
-        "okText": "Yes",
-        "cancelText": "No",
-        "total": "Total"
-    },
-    "ProductReview": {
-        "title": "Reviews",
-        "totalReviews": "Total Reviews",
-        "notRated": "not rated yet",
-        "noReview": "Be the first to leave a comment",
-        "addComment": "Add your comment",
-        "titleForm": "Оценка товара"
-    },
-    "ProductReviewModal": {
-        "successMessage": "Review submitted successfully!",
-        "name": "Name",
-        "namePlaceholder": "Your name",
-        "nameRequired": "Please enter your name",
-        "city": "City",
-        "cityPlaceholder": "Your city",
-        "cityRequired": "Please enter your city",
-        "max50": "Maximum 50 characters",
-        "rating": "Rating",
-        "ratingPlaceholder": "Select a rating",
-        "ratingRequired": "Please select a rating",
-        "ratingRange": "Rating must be between 1 and 5",
-        "ratingPoor": "1 — Poor",
-        "ratingFair": "2 — Fair",
-        "ratingGood": "3 — Good",
-        "ratingVeryGood": "4 — Very good",
-        "ratingExcellent": "5 — Excellent",
-        "title": "Title",
-        "titlePlaceholder": "Select a title",
-        "titleBadHoney": "Bad Honey",
-        "titleGoodHoney": "Good Honey",
-        "titleExcellentHoney": "Excellent Honey",
-        "comment": "Comment",
-        "commentPlaceholder": "Leave your comment",
-        "commentRequired": "Please enter your comment",
-        "commentMin": "Comment must contain at least 10 characters",
-        "max1000": "Maximum 1000 characters",
-        "submitError": "Failed to submit review",
-        "submit": "Submit",
-        "cancel": "Cancel"
-    },
-    "OrderConfirmation": {
-        "emptyOrders": "You haven't placed any orders yet.",
-        "title": "Order confirmation",
-        "cartCount": "Cart: {count} items",
-        "cartEmpty": "Cart: is empty",
-        "checkout": "Checkout",
-        "calculating": "Calculating order total...",
-        "calculationError": "Unable to calculate total.",
-        "tryAgain": "Try again",
-        "subtotal": "Subtotal",
-        "shipping": "Shipping",
-        "total": "Total"
-    },
-    "CheckoutMetadata": {
-        "checkoutTitle": "Checkout | Page"
-    },
-    "CheckoutPage": {
-        "loading": "Loading your order...",
-        "submitted": "Your order has been submitted.",
-        "title": "Complete Your Order",
-        "details": "Fill in your contact details to place your order.",
-        "shippingDetails": "Shipping Details",
-        "orderSummary": "Order Summary"
-    },
-    "CheckoutForm": {
-        "fields": {
-            "name": {
-                "label": "Name",
-                "placeholder": "Enter your name",
-                "required": "Please enter your name"
-            },
-            "surname": {
-                "label": "Surname",
-                "placeholder": "Enter your surname",
-                "required": "Please enter your surname"
-            },
-            "email": {
-                "label": "Email",
-                "placeholder": "Enter your email",
-                "required": "Please enter your email",
-                "invalid": "Please enter a valid email address"
-            },
-            "phone": {
-                "label": "Phone",
-                "placeholder": "Enter your phone number"
-            },
-            "country": {
-                "label": "Country",
-                "placeholder": "Enter your country",
-                "required": "Please enter your country"
-            },
-            "city": {
-                "label": "City",
-                "placeholder": "Enter your city",
-                "required": "Please enter your city"
-            },
-            "street": {
-                "label": "Street address",
-                "placeholder": "Enter your street address",
-                "required": "Please enter your street address"
-            },
-            "apartment": {
-                "label": "Apartment",
-                "placeholder": "Apartment, suite, etc. (optional)"
-            },
-            "postalCode": {
-                "label": "Postal code",
-                "placeholder": "Enter postal code (optional)"
-            },
-            "comment": {
-                "label": "Comment",
-                "placeholder": "Add a comment (optional)"
-            }
-        },
-        "placeOrder": {
-            "placingOrder": "Placing order...",
-            "placeOrder": "Place order"
-        },
-        "createOrder": {
-            "createFailedTitle": "Failed to create order",
-            "tryAgain": "Пожалуйста, попробуйте позже."
-        }
-    },
-    "OrderConfirmResult": {
-        "successTitle": "Order created successfully",
-        "orderNumber": "Your order number is",
-        "subTitle": "You will receive an order confirmation email shortly.",
-        "continueShopping": "Continue shopping"
-    },
-    "SupportMate": {
-        "supportTitle": "Support | Honey Land"
-    },
-    "SupportHero": {
-        "customCare": "CUSTOM CARE",
-        "title": "How can we help?",
-        "description": "We're here to help with your orders, delivery, returns, and more."
-    },
-    "SupportCategories": {
-        "title": "What do you need help with?",
-        "categories": {
-            "orders": {
-                "title": "Orders",
-                "description": "Order status and changes"
-            },
-            "delivery": {
-                "title": "Delivery",
-                "description": "Shipping and tracking"
-            },
-            "returns": {
-                "title": "Returns",
-                "description": "Returns and refunds"
-            },
-            "payments": {
-                "title": "Payments",
-                "description": "Payments and discounts"
-            }
-        }
-    },
-    "SupportContactForm": {
-        "successTitle": "Your request has been registered successfully",
-        "ticketNumber": "Ticket number",
-        "successSubtitle": "Your support request has been registered. Our team will review it shortly.",
-        "orderNumber": "Order number",
-        "orderTotal": "Order total",
-        "status": "Status",
-        "reviewMessage": "Our support team will review your request.",
-        "formTitle": "Still need help?",
-        "formDescription": "Send us a message and our support team will get back to you.",
-        "comment": {
-            "label": "Comment",
-            "placeholder": "Describe how we can help..."
-        },
-        "sendingMessage": "Sending message...",
-        "sendMessage": "Send message",
-        "fields": {
-            "email": {
-                "label": "Email",
-                "placeholder": "you@example.com",
-                "message": "Enter your email"
-            },
-            "orderNumber": {
-                "label": "Order number",
-                "placeholder": "ORD-3CC427D8",
-                "message": "Enter your order number"
-            },
-            "subject": {
-                "label": "Subject",
-                "placeholder": "Select a topic",
-                "message": "Enter a subject"
-            }
-        }
-    },
-    "CreateTicket": {
-        "emailFailedTitle": "Ticket created, but email delivery failed",
-        "emailFailedDescription": "Please submit the form again to retry sending the failed email.",
-        "createFailedTitle": "Failed to create ticket",
-        "tryAgain": "Please try again later."
-    },
-    "SupportFAQ": {
-        "orders": {
-            "trackOrder": {
-                "question": "How can I track my order?",
-                "answer": "You can check your order status in your account."
-            },
-            "cancelOrder": {
-                "question": "Can I cancel my order?",
-                "answer": "Contact our support team to request an order cancellation."
-            }
-        },
-        "delivery": {
-            "deliveryTime": {
-                "question": "How long does delivery take?",
-                "answer": "Delivery times depend on your location."
-            },
-            "deliveryCost": {
-                "question": "How much does delivery cost?",
-                "answer": "The delivery cost is shown during checkout."
-            }
-        },
-        "returns": {
-            "returnProduct": {
-                "question": "How can I return a product?",
-                "answer": "Contact our support team to start a return."
-            }
-        },
-        "payments": {
-            "paymentMethods": {
-                "question": "Which payment methods are accepted?",
-                "answer": "Available payment methods are displayed during checkout."
-            }
-        }
+    "products": {
+      "title": "What We Offer",
+      "text": "We offer natural honey and carefully selected bee products made with quality and attention to detail. From classic honey to other products from our apiary, everything is prepared to preserve its natural taste and benefits."
     }
+  },
+  "Carousel": {
+    "title": "Gallery"
+  },
+  "Navbar": {
+    "home": "Home",
+    "products": "Products",
+    "support": "Support",
+    "homeSubtitle": "Back home",
+    "productsSubtitle": "Products",
+    "supportSubtitle": "Support"
+  },
+  "Footer": {
+    "navigation": "Navigation",
+    "home": "Home",
+    "products": "Products",
+    "support": "Support",
+    "locations": "Locations",
+    "address": "Address",
+    "country": "Germany",
+    "rights": "All rights reserved."
+  },
+  "LocationMetadata": {
+    "title": "Visit Our Location in {city}",
+    "description": "Visit us to experience the best raw organic honey and artisan bee products directly from our location in Germany.",
+    "openGraphTitle": "Visit Our Location",
+    "openGraphDescription": "Come visit {city} in Germany for the finest raw honey and bee products.",
+    "imageAlt": "Our artisan honey store in Germany",
+    "keywords": [
+      "visit Bienenhonig",
+      "organic honey location",
+      "artisan honey shop",
+      "Germany honey store",
+      "buy raw honey",
+      "honeycomb products Germany",
+      "bee pollen store"
+    ]
+  },
+  "Locations": {
+    "1": {
+      "title": "Rape",
+      "description": "This region is known for its clean air, rich landscapes, and diverse wildflowers. Warm summers and long sunny days create ideal conditions for bees to gather nectar from a wide variety of plants. The result is honey with a distinctive character, delicate aroma, and naturally rich flavor.",
+      "info": "Our honey is harvested in the picturesque foothills of Erkrath-Hochdahl. Here, nature offers the purest and most fragrant flowers."
+    },
+    "2": {
+      "title": "Clover",
+      "description": "For generations, beekeeping has been an important part of life in this region. Local knowledge, traditional methods, and respect for nature are carefully passed from one generation to the next. This connection between people, bees, and the land gives the honey its authentic character and unique sense of place.",
+      "info": "Our honey is harvested in the picturesque surroundings of Düsseldorf, where nature offers fragrant flowers and diverse plants."
+    },
+    "3": {
+      "title": "Linden",
+      "description": "The natural environment plays an important role in the quality of our honey. Far from busy cities and intensive agriculture, the bees can collect nectar from naturally growing flowers and plants. Every jar reflects the landscape where it was produced — pure, natural, and full of the character of the region.",
+      "info": "Our honey is harvested in the picturesque surroundings of Hubbelrath, where nature offers fragrant flowers and diverse plants."
+    }
+  },
+  "LocationHero": {
+    "titlePrefix": "Our",
+    "titleSuffix": "Honey from the Heart of Nature",
+    "country": "Germany"
+  },
+  "LocationReason": {
+    "title": "Why this region?",
+    "linkTitle": "Try our honey"
+  },
+  "LocationGallery": {
+    "title": "Location Gallery"
+  },
+  "LocationAccordion": {
+    "title": "Recipes & Tips",
+    "recipes": {
+      "label": "Recipes",
+      "description": "Discover simple and delicious ways to use our raw honey in everyday cooking. From classic honey cakes and homemade granola to sauces, marinades, and warm drinks, these recipes help you enjoy the natural flavor of our honey."
+    },
+    "opinions": {
+      "label": "Opinions",
+      "description": "Our customers appreciate the natural taste, rich aroma, and quality of our honey. We believe that good honey should speak for itself, which is why we carefully preserve its natural character from the hive to your table."
+    },
+    "books": {
+      "label": "Books",
+      "description": "Explore books and useful resources about bees, beekeeping, honey production, and the fascinating world of pollinators. They are a great way to learn more about where our honey comes from and why bees are so important to nature."
+    }
+  },
+  "ProductsMetadata": {
+    "title": "Our Products - Pure Raw and Organic Honey",
+    "description": "Explore our wide selection of pure raw organic honey, honeycomb, and bee products from artisan beekeepers in Germany.",
+    "keywords": [
+      "raw honey products",
+      "organic honey selection",
+      "artisan honey Germany",
+      "bee products",
+      "honeycomb",
+      "clover honey",
+      "linden honey",
+      "rape honey",
+      "pure honey",
+      "bee",
+      "propolis"
+    ],
+    "openGraphTitle": "Explore Our Honey Products",
+    "openGraphDescription": "Discover our premium selection of raw organic honey and bee products crafted by artisan beekeepers.",
+    "imageAlt": "A variety of honey jars and bee products"
+  },
+  "ProductsPage": {
+    "title": "All Products"
+  },
+  "Products": {
+    "showingItems": "Showing {showingItems} – {showingPerPage} of {total} items",
+    "filter": "Filter"
+  },
+  "ProductFilter": {
+    "searchByArticle": "Search by Article",
+    "filterByCategory": "Filter by Category",
+    "sortBy": "Sort by",
+    "searchPlaceholder": "Search by article name...",
+    "sortPlaceholder": "Sort by",
+    "sortAlphabetic": "Alphabetically, A–Z",
+    "sortPriceLowHigh": "Price: low to high",
+    "sortPriceHighLow": "Price: high to low",
+    "sortAriaLabel": "Sort products",
+    "notfoundCategory": "No categories found."
+  },
+  "ProductMobileFilter": {
+    "title": "Filters",
+    "reset": "Reset",
+    "showResults": "Show {count} results"
+  },
+  "ProductCard": {
+    "discount": "Discount",
+    "inStock": "In stock",
+    "outOfStock": "Out of stock",
+    "reviews": "{count, plural, one {# review} other {# reviews}}",
+    "checkout": "View product",
+    "seller": "Sold by",
+    "noData": "No data to display for this request"
+  },
+  "ProductDetailsMetadata": {
+    "title": "Product Details: {title}",
+    "description": "Discover {title} and explore our selection of honey and bee products from artisan beekeepers in Germany.",
+    "keywords": [
+      "raw honey products",
+      "organic honey",
+      "artisan honey Germany",
+      "bee products",
+      "honeycomb",
+      "clover honey",
+      "linden honey",
+      "rape honey",
+      "pure honey",
+      "bees",
+      "propolis"
+    ],
+    "openGraphTitle": "Explore Our Honey Products",
+    "openGraphDescription": "Discover our selection of raw honey and bee products from artisan beekeepers.",
+    "fallbackTitle": "Product Details | Bienenhonig",
+    "fallbackDescription": "Explore our honey and bee products."
+  },
+  "ProductDetailsContent": {
+    "zoom": "Roll over image to zoom in",
+    "title": "Description",
+    "producer": "Producer",
+    "color": "Color",
+    "origin": "Place of Origin",
+    "readMore": "Read more...",
+    "readLess": "Read less...",
+    "disclaimer": "*Product photo is representative of this product. Honey color and texture may vary depending on the season and level of crystallization.\nPlease check the product title and description for accurate contents.\nAccurate Best before and Batch date will be printed on each jar as indicated in photo. Those shown are for visual purposes only.*"
+  },
+  "SellerContacts": {
+    "questions": "Any Questions?",
+    "contactUs": "Contact us"
+  },
+  "ProductPurchase": {
+    "unavailableTitle": "Product unavailable",
+    "unavailableDescription": "Sorry, this product is currently unavailable. It may be out of stock or no longer offered.",
+    "propose": "What can you do?",
+    "try": "Try again later or explore other available products.",
+    "emptySelection": "Please select at least one item",
+    "cartAddSuccess": "Products added to cart",
+    "inStock": "In stock",
+    "outOfStock": "Out of stock",
+    "quantityDiscount": "{discount}% off for {minQuantity} items",
+    "selectSizeAndQnt": " Select size and quantity",
+    "quantity": "Quantity",
+    "selectedVariants": "Selected variants",
+    "addToCart": "Add to cart",
+    "relatedProductTitle": "You might also like",
+    "relatedProductPrice": "From"
+  },
+  "PurchaseItem": {
+    "quantityDiscount": "Discount {discount}% off for {minQuantity} items",
+    "discount": "Discount {discount}%",
+    "seller": "Sold by",
+    "perUnit": "per unit",
+    "was": "Was",
+    "removeConfirmTitle": "Remove this item?",
+    "removeConfirmDesc": "Are you sure you want to remove this item?",
+    "okText": "Yes",
+    "cancelText": "No",
+    "total": "Total"
+  },
+  "ProductReview": {
+    "title": "Reviews",
+    "totalReviews": "Total Reviews",
+    "notRated": "not rated yet",
+    "noReview": "Be the first to leave a comment",
+    "addComment": "Add your comment",
+    "titleForm": "Оценка товара"
+  },
+  "ProductReviewModal": {
+    "successMessage": "Review submitted successfully!",
+    "name": "Name",
+    "namePlaceholder": "Your name",
+    "nameRequired": "Please enter your name",
+    "city": "City",
+    "cityPlaceholder": "Your city",
+    "cityRequired": "Please enter your city",
+    "max50": "Maximum 50 characters",
+    "rating": "Rating",
+    "ratingPlaceholder": "Select a rating",
+    "ratingRequired": "Please select a rating",
+    "ratingRange": "Rating must be between 1 and 5",
+    "ratingPoor": "1 — Poor",
+    "ratingFair": "2 — Fair",
+    "ratingGood": "3 — Good",
+    "ratingVeryGood": "4 — Very good",
+    "ratingExcellent": "5 — Excellent",
+    "title": "Title",
+    "titlePlaceholder": "Select a title",
+    "titleBadHoney": "Bad Honey",
+    "titleGoodHoney": "Good Honey",
+    "titleExcellentHoney": "Excellent Honey",
+    "comment": "Comment",
+    "commentPlaceholder": "Leave your comment",
+    "commentRequired": "Please enter your comment",
+    "commentMin": "Comment must contain at least 10 characters",
+    "max1000": "Maximum 1000 characters",
+    "submitError": "Failed to submit review",
+    "submit": "Submit",
+    "cancel": "Cancel"
+  },
+  "OrderConfirmation": {
+    "emptyOrders": "You haven't placed any orders yet.",
+    "title": "Order confirmation",
+    "cartCount": "Cart: {count} items",
+    "cartEmpty": "Cart: is empty",
+    "checkout": "Checkout",
+    "calculating": "Calculating order total...",
+    "calculationError": "Unable to calculate total.",
+    "tryAgain": "Try again",
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "total": "Total"
+  },
+  "CheckoutMetadata": {
+    "checkoutTitle": "Checkout | Page"
+  },
+  "CheckoutPage": {
+    "loading": "Loading your order...",
+    "submitted": "Your order has been submitted.",
+    "title": "Complete Your Order",
+    "details": "Fill in your contact details to place your order.",
+    "shippingDetails": "Shipping Details",
+    "orderSummary": "Order Summary"
+  },
+  "CheckoutForm": {
+    "fields": {
+      "name": {
+        "label": "Name",
+        "placeholder": "Enter your name",
+        "required": "Please enter your name"
+      },
+      "surname": {
+        "label": "Surname",
+        "placeholder": "Enter your surname",
+        "required": "Please enter your surname"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "Enter your email",
+        "required": "Please enter your email",
+        "invalid": "Please enter a valid email address"
+      },
+      "phone": {
+        "label": "Phone",
+        "placeholder": "Enter your phone number"
+      },
+      "country": {
+        "label": "Country",
+        "placeholder": "Enter your country",
+        "required": "Please enter your country"
+      },
+      "city": {
+        "label": "City",
+        "placeholder": "Enter your city",
+        "required": "Please enter your city"
+      },
+      "street": {
+        "label": "Street address",
+        "placeholder": "Enter your street address",
+        "required": "Please enter your street address"
+      },
+      "apartment": {
+        "label": "Apartment",
+        "placeholder": "Apartment, suite, etc. (optional)"
+      },
+      "postalCode": {
+        "label": "Postal code",
+        "placeholder": "Enter postal code (optional)"
+      },
+      "comment": {
+        "label": "Comment",
+        "placeholder": "Add a comment (optional)"
+      }
+    },
+    "placeOrder": {
+      "placingOrder": "Placing order...",
+      "placeOrder": "Place order"
+    },
+    "createOrder": {
+      "createFailedTitle": "Failed to create order",
+      "tryAgain": "Пожалуйста, попробуйте позже."
+    }
+  },
+  "OrderConfirmResult": {
+    "successTitle": "Order created successfully",
+    "orderNumber": "Your order number is",
+    "subTitle": "You will receive an order confirmation email shortly.",
+    "continueShopping": "Continue shopping"
+  },
+  "SupportMate": {
+    "supportTitle": "Support | Honey Land"
+  },
+  "SupportHero": {
+    "customCare": "CUSTOM CARE",
+    "title": "How can we help?",
+    "description": "We're here to help with your orders, delivery, returns, and more."
+  },
+  "SupportCategories": {
+    "title": "What do you need help with?",
+    "categories": {
+      "orders": {
+        "title": "Orders",
+        "description": "Order status and changes"
+      },
+      "delivery": {
+        "title": "Delivery",
+        "description": "Shipping and tracking"
+      },
+      "returns": {
+        "title": "Returns",
+        "description": "Returns and refunds"
+      },
+      "payments": {
+        "title": "Payments",
+        "description": "Payments and discounts"
+      }
+    }
+  },
+  "SupportContactForm": {
+    "successTitle": "Your request has been registered successfully",
+    "ticketNumber": "Ticket number",
+    "successSubtitle": "Your support request has been registered. Our team will review it shortly.",
+    "orderNumber": "Order number",
+    "orderTotal": "Order total",
+    "status": "Status",
+    "reviewMessage": "Our support team will review your request.",
+    "formTitle": "Still need help?",
+    "formDescription": "Send us a message and our support team will get back to you.",
+    "comment": {
+      "label": "Comment",
+      "placeholder": "Describe how we can help..."
+    },
+    "sendingMessage": "Sending message...",
+    "sendMessage": "Send message",
+    "fields": {
+      "email": {
+        "label": "Email",
+        "placeholder": "you@example.com",
+        "message": "Enter your email"
+      },
+      "orderNumber": {
+        "label": "Order number",
+        "placeholder": "ORD-3CC427D8",
+        "message": "Enter your order number"
+      },
+      "subject": {
+        "label": "Subject",
+        "placeholder": "Select a topic",
+        "message": "Enter a subject"
+      }
+    }
+  },
+  "CreateTicket": {
+    "emailFailedTitle": "Ticket created, but email delivery failed",
+    "emailFailedDescription": "Please submit the form again to retry sending the failed email.",
+    "createFailedTitle": "Failed to create ticket",
+    "tryAgain": "Please try again later."
+  },
+  "SupportFAQ": {
+    "orders": {
+      "trackOrder": {
+        "question": "How can I track my order?",
+        "answer": "You can check your order status in your account."
+      },
+      "cancelOrder": {
+        "question": "Can I cancel my order?",
+        "answer": "Contact our support team to request an order cancellation."
+      }
+    },
+    "delivery": {
+      "deliveryTime": {
+        "question": "How long does delivery take?",
+        "answer": "Delivery times depend on your location."
+      },
+      "deliveryCost": {
+        "question": "How much does delivery cost?",
+        "answer": "The delivery cost is shown during checkout."
+      }
+    },
+    "returns": {
+      "returnProduct": {
+        "question": "How can I return a product?",
+        "answer": "Contact our support team to start a return."
+      }
+    },
+    "payments": {
+      "paymentMethods": {
+        "question": "Which payment methods are accepted?",
+        "answer": "Available payment methods are displayed during checkout."
+      }
+    }
+  }
 }

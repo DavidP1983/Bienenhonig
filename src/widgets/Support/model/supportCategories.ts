@@ -3,27 +3,27 @@ import {
   GoCreditCard,
   GoPackage,
   LuTruck,
-} from "@/shared/assets/icons";
+} from '@/shared/assets/icons';
 
 export const supportCategories = [
   {
-    id: "orders",
+    id: 'orders',
     icon: GoPackage,
-    faqId: "orders",
+    faqId: 'orders',
   },
   {
-    id: "delivery",
+    id: 'delivery',
     icon: LuTruck,
-    faqId: "delivery",
+    faqId: 'delivery',
   },
   {
-    id: "returns",
+    id: 'returns',
     icon: FiRefreshCw,
-    faqId: "returns",
+    faqId: 'returns',
   },
   {
-    id: "payments",
+    id: 'payments',
     icon: GoCreditCard,
-    faqId: "payments",
+    faqId: 'payments',
   },
 ] as const;

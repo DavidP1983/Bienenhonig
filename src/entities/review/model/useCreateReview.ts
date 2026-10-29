@@ -1,7 +1,7 @@
-"use client";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { reviewKeys } from "./queryKeys";
-import { reviewService } from "./review.service";
+'use client';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { reviewKeys } from './queryKeys';
+import { reviewService } from './review.service';
 
 export const useCreateReview = (productId: string) => {
   const queryClient = useQueryClient();

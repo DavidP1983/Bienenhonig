@@ -1,11 +1,11 @@
-import { ReviewRating } from "@/shared/ui";
-import { Pagination } from "antd";
-import { useTranslations } from "next-intl";
-import type { ReactNode } from "react";
-import type { Review } from "../model/type";
-import { ReviewsList } from "./ReviewsList";
+import { ReviewRating } from '@/shared/ui';
+import { Pagination } from 'antd';
+import { useTranslations } from 'next-intl';
+import type { ReactNode } from 'react';
+import type { Review } from '../model/type';
+import { ReviewsList } from './ReviewsList';
 
-import styles from "./ReviewsSection.module.scss";
+import styles from './ReviewsSection.module.scss';
 
 type ReviewsSectionProps = {
   reviews: Review[];
@@ -26,21 +26,21 @@ export const ReviewsSection = ({
   averageRating,
   children,
 }: ReviewsSectionProps) => {
-  const t = useTranslations("ProductReview");
+  const t = useTranslations('ProductReview');
 
   return (
     <>
       <div className={styles.reviews__total}>
         <div className={styles.reviews__rating}>
           <div className={styles.reviews__ratingValue}>
-            {total > 0 ? averageRating : t("notRated")}
+            {total > 0 ? averageRating : t('notRated')}
           </div>
 
           <ReviewRating averageRating={averageRating} />
         </div>
 
         <div className={styles.reviews__count}>
-          {t("totalReviews")} ({total})
+          {t('totalReviews')} ({total})
         </div>
       </div>
       {children}

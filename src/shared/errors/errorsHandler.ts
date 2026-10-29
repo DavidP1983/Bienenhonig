@@ -1,19 +1,19 @@
-import { match } from "ts-pattern";
-import { ApiError } from "./ApiError";
-import { AppError } from "./AppError";
+import { match } from 'ts-pattern';
+import { ApiError } from './ApiError';
+import { AppError } from './AppError';
 
 export const errorsHandler = (error: unknown): string => {
   if (error instanceof ApiError) {
     return match(error.type)
-      .with("EMPTY_RESPONSE", () => "The server returned no data")
-      .with("NETWORK_ERROR", () => "Network error")
-      .with("HTTP_ERROR", () => {
+      .with('EMPTY_RESPONSE', () => 'The server returned no data')
+      .with('NETWORK_ERROR', () => 'Network error')
+      .with('HTTP_ERROR', () => {
         return match(error.status)
           .with(404, () => error.message)
           .with(400, () => error.message)
           .with(409, () => error.message)
-          .with(500, () => "Server Error")
-          .otherwise(() => "Something went wrong");
+          .with(500, () => 'Server Error')
+          .otherwise(() => 'Something went wrong');
       })
       .exhaustive();
   }
@@ -22,5 +22,5 @@ export const errorsHandler = (error: unknown): string => {
     return error.message;
   }
 
-  return "Something went wrong";
+  return 'Something went wrong';
 };
