@@ -2,7 +2,8 @@
   padding: 32px;
   background-color: #fffdf7;
   border-radius: 14px;
-  box-shadow: 0 8px 28px rgba(80, 60, 20, 0.08);
+  box-shadow: 0 8px 28px rgb(80 60 20 / 8%);
+
   &__title,
   &__desc {
     margin-top: 20px;
@@ -33,6 +34,7 @@
   strong {
     margin-left: 8px;
   }
+
   .label {
     display: inline-block;
     background: #19b32aa6;
@@ -41,8 +43,10 @@
     padding: 2px 5px;
     border-radius: 7px;
   }
+
   :global(.ant-space-item) {
     width: 100%;
+
     .desc {
       text-align: center;
     }

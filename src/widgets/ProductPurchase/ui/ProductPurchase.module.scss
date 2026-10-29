@@ -6,6 +6,7 @@
   flex-direction: column;
   gap: 20px;
   align-self: start;
+
   @include product-details-wrapper;
 
   &__title {
@@ -13,11 +14,13 @@
     font-size: 20px;
     color: var(--text-black);
   }
+
   &__select {
     font-family: var(--font-museoMono);
     color: var(--text-black);
     opacity: 0.5;
   }
+
   &__btn {
     width: 100%;
     display: flex;
@@ -44,6 +47,7 @@
         opacity: 0.5;
         cursor: not-allowed;
       }
+
       .stock {
         font-family: var(--font-museoMono);
         font-size: 13px;
@@ -51,15 +55,18 @@
         &.inStock {
           color: #03a703;
         }
+
         &.outStock {
           color: #771a1a;
         }
       }
     }
+
     & .active {
       background-color: #aedcbe;
       border: 1px solid #03a703;
     }
+
     & .desc {
       display: flex;
       flex-direction: column;
@@ -87,10 +94,12 @@
         .originalPrice {
           color: var(--text-color);
         }
+
         .quantityDiscount {
           font-size: 14px;
           font-family: var(--font-museoSans);
         }
+
         .discountDesc {
           width: 100%;
           display: flex;
@@ -104,6 +113,7 @@
             color: #665050c4;
             font-family: var(--font-museoSans);
           }
+
           span {
             display: block;
             background-color: #03ac03c2;
@@ -117,6 +127,7 @@
       }
     }
   }
+
   &__quantityControls {
     margin-top: 20px;
     display: flex;
@@ -127,12 +138,14 @@
       font-family: var(--font-museoMono);
       color: var(--text-black);
     }
+
     & .control {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 7px;
     }
+
     & .max,
     .min {
       width: 34px;
@@ -174,6 +187,7 @@
         outline-offset: 3px;
       }
     }
+
     & .counter {
       width: 36px;
       padding: 0;
@@ -187,17 +201,20 @@
       font-variant-numeric: tabular-nums;
     }
   }
+
   & .divider {
     width: 100%;
     color: black;
     border: 1px solid var(--text-black);
     opacity: 0.2;
   }
+
   & .notice {
     color: var(--text-black);
     font-family: var(--font-museoMono);
     font-size: 17px;
   }
+
   & .addToCart {
     display: flex;
     align-items: center;
@@ -215,11 +232,13 @@
     transition:
       background-color 0.2s ease,
       transform 0.15s ease;
+
     svg {
       width: 19px;
       height: 19px;
       flex-shrink: 0;
     }
+
     &:focus {
       outline: none;
     }
@@ -232,6 +251,7 @@
     &:active {
       transform: scale(0.99);
     }
+
     &:disabled {
       background-color: #f8fafc;
       opacity: 0.5;

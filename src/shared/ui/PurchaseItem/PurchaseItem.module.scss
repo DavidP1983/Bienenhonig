@@ -3,10 +3,10 @@
   grid-template-columns: minmax(0, 1fr) auto auto;
   align-items: center;
   gap: 16px;
-  padding: 16px 16px;
+  padding: 16px;
   border: 1px solid #e5e7eb;
   border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+  box-shadow: 0 2px 8px rgb(15 23 42 / 5%);
 }
 
 .desc {
@@ -21,6 +21,7 @@
     height: 50%;
     border-radius: 22px;
     border: 1px dotted red;
+
     img {
       display: block;
       border-radius: 20px;
@@ -39,6 +40,7 @@
     font-size: 17px;
     font-family: var(--font-museoMono);
     color: var(--text-black);
+
     span {
       color: #9b6708;
     }
@@ -50,12 +52,14 @@
     font-family: var(--font-museoSans);
     line-height: 1.4;
   }
+
   & .units {
     color: #3a4451;
     font-size: 13px;
     font-family: var(--font-museoSans);
     line-height: 1.4;
   }
+
   & .discount {
     font-family: var(--font-museoSans);
     color: #15803d;
@@ -75,6 +79,7 @@
     font-family: var(--font-museoSans);
     font-variant-numeric: tabular-nums;
   }
+
   & .quantityPrice {
     color: #3a4451;
     font-size: 12px;
@@ -109,6 +114,7 @@
     border-color: #fee2e2;
     color: #dc2626;
   }
+
   &:focus-visible {
     outline: 2px solid #94a3b8;
     outline-offset: 2px;

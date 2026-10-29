@@ -3,6 +3,7 @@
   min-height: 150px;
   padding: 50px 0;
   text-align: center;
+
   & .title {
     font-size: 80px;
     letter-spacing: 8px;
@@ -12,12 +13,13 @@
     background-clip: text;
     -webkit-text-stroke: 6px transparent;
   }
+
   & .gallery {
     margin-top: 50px;
   }
 }
 
-@media (max-width: 475px) and (min-width: 321px) {
+@media (width <= 475px) and (width >= 321px) {
   .carousel {
     & .title {
       font-size: 60px;

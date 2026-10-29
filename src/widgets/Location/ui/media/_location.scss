@@ -1,5 +1,5 @@
 @mixin location-query {
-  @media (max-width: 992px) {
+  @media (width <= 992px) {
     .sectionlocation {
       .location {
         .title {
@@ -8,6 +8,7 @@
           }
         }
       }
+
       .gellery {
         .title {
           font-size: 70px;
@@ -16,50 +17,59 @@
     }
   }
 
-  @media (max-width: 768px) {
+  @media (width <= 768px) {
     .sectionlocation {
       .location {
         margin-top: 100px;
+
         .title {
           h1 {
             font-size: 20px;
           }
         }
       }
+
       .reason {
-        padding: 20px 0 20px 0;
+        padding: 20px 0;
+
         .desc {
           width: 100%;
         }
+
         .article {
           column-count: 1;
         }
       }
+
       .gellery {
-        padding: 20px 0 20px 0;
+        padding: 20px 0;
       }
     }
   }
 
-  @media (max-width: 695px) and (min-width: 567px) {
+  @media (width <= 695px) and (width >= 567px) {
     .sectionlocation {
       .location {
         .title {
           h1 {
             font-size: 18px;
           }
+
           span {
             font-size: 30px;
           }
         }
+
         .desc {
           width: 500px;
         }
       }
+
       .gellery {
         .title {
           font-size: 60px;
         }
+
         .gellerycontainer {
           grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         }
@@ -67,7 +77,7 @@
     }
   }
 
-  @media (max-width: 613px) and (min-width: 567px) {
+  @media (width <= 613px) and (width >= 567px) {
     .sectionlocation {
       .location {
         .title {
@@ -76,6 +86,7 @@
           }
         }
       }
+
       .gellery {
         .title {
           font-size: 50px;
@@ -84,32 +95,37 @@
     }
   }
 
-  @media (max-width: 576px) {
+  @media (width <= 576px) {
     .sectionlocation {
       .location {
         .title {
           h1 {
             font-size: 16px;
           }
+
           div {
             margin-top: 4px;
           }
+
           span {
             font-size: 20px;
           }
         }
+
         .desc {
           width: 430px;
         }
       }
+
       .reason {
-        padding: 20px 0 20px 0;
+        padding: 20px 0;
       }
 
       .gellery {
         .title {
           font-size: 50px;
         }
+
         .gellerycontainer {
           grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         }
@@ -117,7 +133,7 @@
     }
   }
 
-  @media (max-width: 550px) and (min-width: 321px) {
+  @media (width <= 550px) and (width >= 321px) {
     .sectionlocation {
       .gellery {
         .gellerycontainer {
@@ -125,6 +141,7 @@
           flex-direction: column;
           align-items: center;
           justify-content: center;
+
           .items {
             width: 75%;
           }
@@ -133,20 +150,24 @@
     }
   }
 
-  @media (max-width: 500px) and (min-width: 321px) {
+  @media (width <= 500px) and (width >= 321px) {
     .sectionlocation {
       .location {
         .title {
           flex-direction: column;
+
           h1 {
             font-size: 20px;
           }
+
           #line1 {
             align-self: flex-start;
           }
+
           #line2 {
             align-self: flex-end;
           }
+
           span {
             font-size: 28px;
           }
@@ -155,7 +176,7 @@
     }
   }
 
-  @media (max-width: 475px) and (min-width: 321px) {
+  @media (width <= 475px) and (width >= 321px) {
     .sectionlocation {
       .location {
         .title {
@@ -163,17 +184,21 @@
             font-size: 17px;
           }
         }
+
         .addr {
           font-size: 16px;
+
           .clover {
             width: 80px;
             height: 80px;
           }
         }
+
         .desc {
           width: 350px;
         }
       }
+
       .gellery {
         .title {
           font-size: 35px;
@@ -182,7 +207,7 @@
     }
   }
 
-  @media (max-width: 391px) and (min-width: 321px) {
+  @media (width <= 391px) and (width >= 321px) {
     .sectionlocation {
       .location {
         .title {
@@ -190,19 +215,23 @@
             font-size: 15px;
           }
         }
+
         .addr {
           flex-direction: column;
         }
+
         .desc {
           width: 300px;
           text-align: start;
         }
       }
+
       .reason {
         .title {
           font-size: 37px;
         }
       }
+
       .gellery {
         .gellerycontainer {
           .items {
@@ -210,6 +239,7 @@
           }
         }
       }
+
       .accordion {
         .title {
           font-size: 30px;

@@ -1,13 +1,15 @@
 @mixin cart-query {
-  @media (max-width: 768px) {
+  @media (width <= 768px) {
     .header {
       height: 100px;
       width: 100vw;
+
       .desktopNav,
       .circle,
       .logo {
         display: none;
       }
+
       .mobileNav {
         display: block;
         position: absolute;
@@ -22,7 +24,7 @@
     }
   }
 
-  @media (max-width: 768px) and (min-width: 657px) {
+  @media (width <= 768px) and (width >= 657px) {
     .cart {
       position: fixed;
       top: 22%;
@@ -30,7 +32,7 @@
     }
   }
 
-  @media (max-width: 656px) and (min-width: 577px) {
+  @media (width <= 656px) and (width >= 577px) {
     .cart {
       position: fixed;
       top: 22%;
@@ -38,7 +40,7 @@
     }
   }
 
-  @media (max-width: 576px) {
+  @media (width <= 576px) {
     .cart {
       position: fixed;
       top: 22%;

@@ -1,5 +1,6 @@
 @mixin container($display: grid) {
   display: $display;
+
   @if $display == grid {
     grid-template-columns: repeat(auto-fit, minmax(299px, 1fr));
     justify-content: center;
@@ -8,7 +9,6 @@
     grid-auto-rows: minmax(100px, auto);
     gap: 20px;
   } @else {
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
   }
 }

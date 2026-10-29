@@ -7,6 +7,7 @@
     font-size: 30px;
     margin-bottom: 16px;
   }
+
   & .media {
     display: flex;
     align-items: center;
@@ -23,6 +24,7 @@
       &:hover {
         @include hover-glow;
       }
+
       &.facebook:hover {
         @include social-hover(#1877f2);
       }
@@ -30,9 +32,11 @@
       &.telegram:hover {
         @include social-hover(#229ed9);
       }
+
       &.whatsapp:hover {
         @include social-hover(#25d366);
       }
+
       &.email:hover {
         @include social-hover(#64748b);
       }

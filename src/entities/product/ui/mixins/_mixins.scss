@@ -26,7 +26,7 @@
   border: 2px dotted #000;
 }
 
-@mixin link_hover {
+@mixin link-hover {
   &:hover,
   &:active {
     color: white;

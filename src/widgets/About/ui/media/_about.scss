@@ -1,5 +1,5 @@
 @mixin about-query {
-  @media (max-width: 992px) {
+  @media (width <= 992px) {
     .content {
       padding-top: 70px;
       grid-template-columns: minmax(0, 1fr);
@@ -10,12 +10,13 @@
     }
   }
 
-  @media (max-width: 768px) {
+  @media (width <= 768px) {
     .content {
       padding-top: 70px;
       grid-template-columns: repeat(auto-fit, minmax(100px, 400px));
       grid-template-rows: repeat(2, minmax(100px, auto));
     }
+
     .item {
       grid-template-columns: minmax(0, 1fr);
       gap: 20px;

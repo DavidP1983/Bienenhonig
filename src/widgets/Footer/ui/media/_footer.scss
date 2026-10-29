@@ -1,15 +1,17 @@
 @mixin footer-query {
-  @media (max-width: 992px) and (min-width: 768px) {
+  @media (width <= 992px) and (width >= 768px) {
     .footer {
       .footerContent {
         padding: 10px 40px;
       }
+
       .footerLinks,
       .footerAddr,
       .location {
         h2 {
           font-size: 20px;
         }
+
         ul,
         address {
           li a {
@@ -17,19 +19,21 @@
           }
         }
       }
+
       .footerAddr {
         a,
         p {
           font-family: var(--font-museoSans);
         }
       }
+
       .footerLogo {
         display: none;
       }
     }
   }
 
-  @media (max-width: 768px) and (min-width: 475px) {
+  @media (width <= 768px) and (width >= 475px) {
     .footer {
       .footerContent {
         display: grid;
@@ -43,6 +47,7 @@
         h2 {
           font-size: 20px;
         }
+
         ul,
         address {
           li a {
@@ -50,26 +55,29 @@
           }
         }
       }
+
       .footerAddr {
         a,
         p {
           font-family: var(--font-museoSans);
         }
       }
+
       .footerLogo {
         display: none;
       }
     }
   }
 
-  @media (max-width: 475px) and (min-width: 321px) {
+  @media (width <= 475px) and (width >= 321px) {
     .footer {
       .footerContent {
-        padding: 10px 0px;
+        padding: 10px 0;
         flex-direction: column;
         place-items: center;
         gap: 20px;
       }
+
       .footerBottom {
         padding: 20px 0;
         grid-template-columns: 1fr;
@@ -91,9 +99,11 @@
       .footerAddr,
       .location {
         width: 235px;
+
         h2 {
           font-size: 20px;
         }
+
         ul,
         address {
           li a {
@@ -101,18 +111,22 @@
           }
         }
       }
+
       .footerAddr {
         width: inherit;
+
         a,
         p {
           font-family: var(--font-museoSans);
         }
       }
+
       .footerLogo {
         display: none;
       }
     }
   }
+
   .rights {
     font-size: 14px;
   }

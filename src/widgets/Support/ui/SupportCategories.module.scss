@@ -34,20 +34,24 @@
         border: none;
         background: none;
         cursor: pointer;
+
         svg {
           color: blue;
           display: block;
         }
+
         p {
           color: #7d7474;
         }
       }
+
       &:hover {
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+        box-shadow: 0 4px 12px rgb(0 0 0 / 12%);
         transform: translateY(-2px);
       }
+
       &.active {
-        box-shadow: 0 4px 12px rgba(174, 6, 6, 0.711);
+        box-shadow: 0 4px 12px rgb(174 6 6 / 71.1%);
       }
     }
   }

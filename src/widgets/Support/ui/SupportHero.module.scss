@@ -22,12 +22,14 @@
       font-size: 25px;
     }
   }
+
   &__title,
   &__desc {
     font-size: 25px;
     color: var(--text-color);
     font-family: var(--font-museoSans);
   }
+
   &__desc {
     font-size: 16px;
     color: #625d5d;

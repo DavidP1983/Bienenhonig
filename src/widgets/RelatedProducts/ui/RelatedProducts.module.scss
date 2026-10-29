@@ -14,6 +14,7 @@
   &__item {
     border-top: 1px solid #e5e5e5;
   }
+
   &__link {
     display: grid;
     grid-template-columns: 80px minmax(0, 1fr) 16px;
@@ -28,11 +29,13 @@
     &:hover {
       background-color: #bdbab4b3;
     }
+
     &:focus-visible {
       outline: 2px solid #c88b24;
       outline-offset: 3px;
     }
   }
+
   &__image {
     width: 100%;
     aspect-ratio: 1;
@@ -44,9 +47,11 @@
       object-fit: cover;
     }
   }
+
   &__content {
     min-width: 0;
   }
+
   &__name {
     margin: 0;
     font-size: 0.95rem;
@@ -54,17 +59,20 @@
     line-height: 1.4;
     overflow-wrap: anywhere;
   }
+
   &__price {
     margin: 6px 0 0;
     color: #8b6628;
     font-family: var(--font-museoMono);
     font-size: 0.95rem;
   }
+
   &__arrow {
     color: #8a8176;
     font-size: 1.25rem;
     transition: transform 0.2s ease;
   }
+
   &__link:hover &__arrow {
     transform: translateX(3px);
   }

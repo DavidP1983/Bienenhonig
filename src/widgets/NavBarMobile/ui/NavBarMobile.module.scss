@@ -41,9 +41,10 @@
     padding: 10px;
     margin: 0;
     list-style: none;
-    box-shadow: 0px 0px 30px rgb(171 86 42 / 78%);
+    box-shadow: 0 0 30px rgb(171 86 42 / 78%);
     border-radius: 20px;
     cursor: pointer;
+
     a {
       display: flex;
       justify-content: center;
@@ -54,6 +55,7 @@
       font-size: 20px;
       font-family: var(--font-museoBold);
     }
+
     img {
       width: 70px;
       height: 70px;
@@ -63,8 +65,7 @@
   .toggleContainer {
     outline: none;
     border: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
+    user-select: none;
     cursor: pointer;
     position: absolute;
     top: 18px;
@@ -81,7 +82,7 @@
   }
 }
 
-@media (max-width: 350px) and (min-width: 321px) {
+@media (width <= 350px) and (width >= 321px) {
   .list {
     left: -8%;
   }

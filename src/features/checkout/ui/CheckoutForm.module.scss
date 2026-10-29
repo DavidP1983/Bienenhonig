@@ -11,12 +11,15 @@
     color: var(--text-black);
     font-family: var(--font-museoSans);
   }
+
   & [data-id='input'] {
     padding: 11px;
   }
+
   &__btnCover {
     margin-bottom: 0;
   }
+
   &__btn {
     padding: 20px 15px;
   }

@@ -1,5 +1,5 @@
 .reviewList {
-  padding: 40px 40px;
+  padding: 40px;
   width: 100%;
 
   & .list {
@@ -14,6 +14,7 @@
   & .item {
     min-width: 0;
   }
+
   & .card {
     padding: 20px;
     background-color: #fffdf7;
@@ -76,9 +77,11 @@
     overflow-wrap: anywhere;
   }
 }
+
 .noReview {
   text-align: center;
   padding: 20px 0;
+
   p {
     font-size: 30px;
     font-family: var(--font-museoSans);

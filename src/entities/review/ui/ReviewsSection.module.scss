@@ -9,21 +9,25 @@
     gap: 20px;
     border-bottom: 1px solid #eee;
   }
+
   &__rating {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
   }
+
   &__ratingValue,
   &__count {
     color: var(--text-black);
     font-family: var(--font-museoBold);
     font-size: 16px;
   }
+
   &__ratingValue {
     margin-top: 4px;
   }
+
   &__pagination {
     justify-content: center;
   }

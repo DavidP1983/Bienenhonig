@@ -1,7 +1,7 @@
 .filters {
   overflow-y: auto;
   top: 20px;
-  border: 1px dotted rgb(113, 6, 6);
+  border: 1px dotted rgb(113 6 6);
   padding: 20px 10px;
   flex-direction: column;
   gap: 18px;
@@ -13,6 +13,7 @@
     height: 1px;
     border: 1px solid red;
   }
+
   & .title {
     text-align: center;
     font-size: 20px;

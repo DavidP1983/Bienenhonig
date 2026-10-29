@@ -9,6 +9,7 @@
   font-size: 20px;
   color: var(--text-black);
   font-family: var(--font-museoMono);
+
   img {
     width: 50%;
     height: 50%;
@@ -31,6 +32,7 @@
 
 .drawerTitle {
   text-align: center;
+
   p {
     color: #ffa500;
     font-size: 25px;
@@ -40,8 +42,8 @@
 
 .drawerClose {
   border-radius: 20px;
-  border-top-right-radius: 0px;
-  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
   color: #ffa500;
 }
 

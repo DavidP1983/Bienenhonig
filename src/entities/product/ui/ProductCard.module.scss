@@ -92,7 +92,7 @@
 
     .size,
     .review {
-      @include product.link_hover;
+      @include product.link-hover;
     }
 
     & .inStock,

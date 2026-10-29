@@ -5,6 +5,7 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
+
   & .title,
   .subtitle {
     font-family: var(--font-museoBold);
@@ -14,10 +15,12 @@
       0 -2px 1px #fff;
     color: #5d5719;
   }
+
   & .subtitle {
     margin: 0 auto;
     display: flex;
     gap: 30px;
+
     & .words {
       overflow: hidden;
       background-color: inherit;
@@ -26,20 +29,19 @@
       display: grid;
       grid-template-columns: 1fr;
       grid-template-rows: 1fr;
-      grid-column-gap: 0px;
-      grid-row-gap: 0px;
-      align-items: start;
-      justify-items: start;
+      gap: 0;
+      place-items: start start;
       color: #fffffe;
       text-shadow: none;
     }
+
     & .words > * {
       grid-area: 1/1/2/2;
     }
   }
 }
 
-@media (max-width: 475px) and (min-width: 321px) {
+@media (width <= 475px) and (width >= 321px) {
   .maintitle {
     & .title,
     .subtitle {
