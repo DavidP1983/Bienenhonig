@@ -1,0 +1,1 @@
+export { useProductPagination } from "./useProductPagination";

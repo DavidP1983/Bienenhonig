@@ -1,0 +1,50 @@
+.supportForm {
+  padding: 32px;
+  background-color: #fffdf7;
+  border-radius: 14px;
+  box-shadow: 0 8px 28px rgba(80, 60, 20, 0.08);
+  &__title,
+  &__desc {
+    margin-top: 20px;
+    color: var(--text-black);
+    font-family: var(--font-museoMono);
+    font-size: 20px;
+  }
+
+  &__desc {
+    color: #7d7474;
+    font-size: 15px;
+    font-family: var(--font-museoSans);
+  }
+
+  &__form {
+    margin-top: 20px;
+
+    & .input,
+    & .btn {
+      height: 45px;
+    }
+  }
+}
+
+.space {
+  align-items: flex-start;
+
+  strong {
+    margin-left: 8px;
+  }
+  .label {
+    display: inline-block;
+    background: #19b32aa6;
+    margin-left: 8px;
+    padding: 1;
+    padding: 2px 5px;
+    border-radius: 7px;
+  }
+  :global(.ant-space-item) {
+    width: 100%;
+    .desc {
+      text-align: center;
+    }
+  }
+}

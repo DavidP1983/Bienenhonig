@@ -1,0 +1,15 @@
+.selectFilter {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  .selectContainer {
+    width: 100%;
+
+    :global(.ant-space-item),
+    .select {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,119 @@
+@mixin footer-query {
+  @media (max-width: 992px) and (min-width: 768px) {
+    .footer {
+      .footerContent {
+        padding: 10px 40px;
+      }
+      .footerLinks,
+      .footerAddr,
+      .location {
+        h2 {
+          font-size: 20px;
+        }
+        ul,
+        address {
+          li a {
+            font-family: var(--font-museoSans);
+          }
+        }
+      }
+      .footerAddr {
+        a,
+        p {
+          font-family: var(--font-museoSans);
+        }
+      }
+      .footerLogo {
+        display: none;
+      }
+    }
+  }
+
+  @media (max-width: 768px) and (min-width: 475px) {
+    .footer {
+      .footerContent {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+
+      .footerLinks,
+      .footerAddr,
+      .location {
+        h2 {
+          font-size: 20px;
+        }
+        ul,
+        address {
+          li a {
+            font-family: var(--font-museoSans);
+          }
+        }
+      }
+      .footerAddr {
+        a,
+        p {
+          font-family: var(--font-museoSans);
+        }
+      }
+      .footerLogo {
+        display: none;
+      }
+    }
+  }
+
+  @media (max-width: 475px) and (min-width: 321px) {
+    .footer {
+      .footerContent {
+        padding: 10px 0px;
+        flex-direction: column;
+        place-items: center;
+        gap: 20px;
+      }
+      .footerBottom {
+        padding: 20px 0;
+        grid-template-columns: 1fr;
+        gap: 20px;
+
+        & .socialItems {
+          grid-column: 1;
+          justify-self: center;
+          gap: 30px;
+        }
+
+        & .languageSwitcher {
+          grid-column: 1;
+          justify-self: center;
+        }
+      }
+
+      .footerLinks,
+      .footerAddr,
+      .location {
+        width: 235px;
+        h2 {
+          font-size: 20px;
+        }
+        ul,
+        address {
+          li a {
+            font-family: var(--font-museoSans);
+          }
+        }
+      }
+      .footerAddr {
+        width: inherit;
+        a,
+        p {
+          font-family: var(--font-museoSans);
+        }
+      }
+      .footerLogo {
+        display: none;
+      }
+    }
+  }
+  .rights {
+    font-size: 14px;
+  }
+}

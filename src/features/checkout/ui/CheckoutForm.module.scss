@@ -1,0 +1,23 @@
+.checkoutForm {
+  margin-top: 20px;
+  padding: 30px 20px;
+  width: 100%;
+  background-color: #fffaf0;
+  border-radius: 20px;
+  border: 1px solid #e8e8e8;
+  box-shadow: 0 4px 20px rgb(0 0 0 / 8%);
+
+  :global(.ant-form-item-label > label) {
+    color: var(--text-black);
+    font-family: var(--font-museoSans);
+  }
+  & [data-id="input"] {
+    padding: 11px;
+  }
+  &__btnCover {
+    margin-bottom: 0;
+  }
+  &__btn {
+    padding: 20px 15px;
+  }
+}

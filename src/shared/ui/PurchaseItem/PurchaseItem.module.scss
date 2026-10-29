@@ -1,0 +1,116 @@
+.item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+}
+
+.desc {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  min-width: 0;
+
+  & .image {
+    width: 50%;
+    height: 50%;
+    border-radius: 22px;
+    border: 1px dotted red;
+    img {
+      display: block;
+      border-radius: 20px;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  & .seller {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 17px;
+    font-family: var(--font-museoMono);
+    color: var(--text-black);
+    span {
+      color: #9b6708;
+    }
+  }
+
+  strong {
+    color: #1f2937;
+    font-size: 15px;
+    font-family: var(--font-museoSans);
+    line-height: 1.4;
+  }
+  & .units {
+    color: #3a4451;
+    font-size: 13px;
+    font-family: var(--font-museoSans);
+    line-height: 1.4;
+  }
+  & .discount {
+    font-family: var(--font-museoSans);
+    color: #15803d;
+  }
+}
+
+.price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  white-space: nowrap;
+
+  strong {
+    color: #111827;
+    font-size: 16px;
+    font-family: var(--font-museoSans);
+    font-variant-numeric: tabular-nums;
+  }
+  & .quantityPrice {
+    color: #3a4451;
+    font-size: 12px;
+    font-family: var(--font-museoSans);
+    text-decoration: line-through;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+.remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  background-color: transparent;
+  color: #7c0c0c;
+  font-size: 21px;
+  font-weight: 300;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+
+  &:hover {
+    background-color: #fef2f2;
+    border-color: #fee2e2;
+    color: #dc2626;
+  }
+  &:focus-visible {
+    outline: 2px solid #94a3b8;
+    outline-offset: 2px;
+  }
+}

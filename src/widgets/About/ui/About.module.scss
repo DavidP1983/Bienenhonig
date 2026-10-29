@@ -1,0 +1,73 @@
+@use "./media/about" as aboutMedia;
+
+.content {
+  padding-top: 115px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(243px, auto) minmax(312px, auto);
+  grid-auto-rows: minmax(237px, auto);
+  row-gap: 40px;
+  justify-content: center;
+}
+.item {
+  display: grid;
+  grid-template-columns: 400px minmax(0, 570px);
+  column-gap: 70px;
+  align-items: start;
+}
+.image {
+  height: 100%;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  border-radius: 20px;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 1;
+    border-radius: 20px;
+  }
+}
+
+.title {
+  font-family: var(--font-museoBold);
+  font-size: 23px;
+  color: #fff;
+  line-height: 24px;
+  text-align: start;
+}
+
+.subtitle {
+  font-family: var(--font-museoBold);
+  font-size: 48px;
+  line-height: 60px;
+  color: #fff;
+}
+
+.text {
+  font-family: var(--font-museoSans);
+  font-size: 14px;
+  line-height: 24px;
+  color: #ffff;
+  margin-block-start: 20px;
+  margin-block-end: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  clip-path: inset(0 0 0 round 10px);
+  padding: 16px;
+  text-align: start;
+  box-sizing: border-box;
+  &::first-letter {
+    color: red;
+    font-family: var(--font-museoBold);
+    font-size: 48px;
+    font-weight: bold;
+  }
+}
+
+.divider {
+  width: 60px;
+  height: 3px;
+  margin-top: 4px;
+  background-color: red;
+}
+
+@include aboutMedia.about-query;

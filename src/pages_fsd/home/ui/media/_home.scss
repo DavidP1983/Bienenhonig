@@ -1,0 +1,33 @@
+@mixin home-query {
+  @media (max-width: 992px) {
+    .about {
+      background-size: 100% 60%;
+      margin-top: 128px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .about {
+      background-size: 100% 54%;
+      margin-top: 100px;
+    }
+  }
+
+  @media (max-width: 600px) and (min-width: 321px) {
+    .about {
+      background-size: 100% 40%;
+    }
+  }
+
+  @media (max-width: 500px) and (min-width: 321px) {
+    .about {
+      background-size: 100% 30%;
+    }
+  }
+
+  @media (max-width: 467px) and (min-width: 321px) {
+    .about {
+      background-size: 100% 25%;
+    }
+  }
+}

@@ -1,0 +1,62 @@
+@use "@/shared/styles/mixins" as *;
+
+.unavailable {
+  @include product-details-wrapper;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &__title {
+    align-self: center;
+  }
+  &__alert {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background-color: #8080804f;
+  }
+  &__package,
+  &__alertCircle {
+    display: block;
+    font-size: 25px;
+  }
+  &__alertCircle {
+    color: var(--text-black);
+  }
+  &__announcement {
+    margin-top: 20px;
+    font-size: 25px;
+    font-family: var(--font-museoMono);
+    color: var(--text-black);
+  }
+  &__desc {
+    text-align: center;
+    color: #6f6262ba;
+    font-family: var(--font-museoSans);
+  }
+  &__suggestion {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  &__icon {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+  }
+  &__try,
+  &__propose {
+    color: var(--text-black);
+    font-family: var(--font-museoSans);
+  }
+
+  &__try {
+    color: #6f6262ba;
+  }
+}

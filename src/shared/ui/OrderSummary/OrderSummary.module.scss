@@ -1,0 +1,46 @@
+@use "@/shared/styles/mixins" as *;
+
+.total {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 20px;
+  padding: 20px 0;
+  border-top: 1px solid #e5e7eb;
+
+  & > div {
+    @include purchase-total;
+  }
+
+  & > div:last-child {
+    margin-top: 4px;
+    padding-top: 16px;
+    border-top: 1px solid #e5e7eb;
+
+    .label {
+      font-size: 17px;
+      font-weight: 600;
+    }
+
+    strong {
+      font-size: 23px;
+      font-weight: 700;
+      color: #111827;
+    }
+  }
+}
+
+.spinner,
+.totalError {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  p {
+    color: #49638f;
+    font-family: var(--font-museoMono);
+  }
+}

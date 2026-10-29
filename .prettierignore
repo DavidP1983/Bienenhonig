@@ -1,0 +1,13 @@
+.git
+.svn
+.hg
+
+node_modules
+build
+coverage
+
+# framework/cache -> NextJS, Vite, Other cache
+.next
+.vercel
+dist
+out

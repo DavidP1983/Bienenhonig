@@ -1,0 +1,57 @@
+@use "@/shared/styles/mixins" as *;
+
+.checkout {
+  @include section;
+
+  &__title,
+  &__details {
+    text-align: center;
+  }
+
+  &__details {
+    margin-top: 20px;
+    color: var(--text-color);
+    font-family: var(--font-museoMono);
+    font-size: 20px;
+  }
+
+  &__blocks {
+    padding: 40px;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 20px;
+
+    & .subTitle {
+      color: var(--text-black);
+      font-family: var(--font-museoMono);
+    }
+    & .items {
+      margin-top: 20px;
+      background-color: #fffaf0;
+      padding: 20px 20px;
+      border-radius: 14px;
+      margin-top: 20px;
+    }
+
+    & .shipping,
+    & .summery {
+      width: 100%;
+    }
+  }
+
+  .noData,
+  .loading {
+    text-align: center;
+    font-size: 20px;
+    color: #2b992b;
+    font-family: var(--font-museoMono);
+  }
+
+  .loading {
+    color: #49638f;
+  }
+
+  .order {
+    @include order-list;
+  }
+}

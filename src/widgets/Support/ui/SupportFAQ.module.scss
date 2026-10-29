@@ -1,0 +1,11 @@
+.fqa {
+  padding: 28px 32px;
+  background-color: #fffaf0;
+  border-radius: 14px;
+  &__title {
+    margin-top: 20px;
+    color: var(--text-black);
+    font-family: var(--font-museoMono);
+    font-size: 20px;
+  }
+}

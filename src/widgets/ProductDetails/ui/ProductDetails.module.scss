@@ -1,0 +1,38 @@
+.detailsContainer {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(100px, 1fr) minmax(240px, 1fr)
+  );
+  grid-template-rows: minmax(200px, auto);
+  grid-auto-rows: minmax(200px, auto);
+  gap: 20px;
+  padding: 20px 0;
+
+  & .detailsSidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    min-width: 0;
+  }
+}
+
+.breadcrumb {
+  margin-top: 20px;
+
+  nav:has(:global(a)) {
+    font-family: var(--font-museoMono);
+  }
+}
+
+.reviewsContainer {
+  padding: 20px 0;
+  scroll-margin-top: 30px;
+  &__title {
+    font-size: 30px;
+  }
+}
+
+.failure {
+  position: relative;
+}

@@ -1,0 +1,38 @@
+@mixin error-query {
+  @media (max-width: 768px) {
+    .errorContent {
+      .title {
+        font-size: 25px;
+      }
+    }
+  }
+  @media (max-width: 567px) {
+    .errorContent {
+      .title {
+        display: block;
+        margin: 0 auto;
+        font-size: 25px;
+      }
+      img {
+        width: 30%;
+        height: auto;
+      }
+      .message {
+        font-size: 15px;
+      }
+    }
+  }
+
+  @media (max-width: 405px) and (min-width: 320px) {
+    .errorContent {
+      .title {
+        margin-top: 14px;
+        font-size: 20px;
+      }
+      img {
+        width: 40%;
+        height: auto;
+      }
+    }
+  }
+}

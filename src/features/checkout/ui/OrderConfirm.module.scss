@@ -1,0 +1,50 @@
+@use "@/shared/styles/mixins" as *;
+
+.order {
+  @include order-list;
+}
+
+.noData {
+  text-align: center;
+  font-size: 20px;
+  color: var(--text-black);
+  font-family: var(--font-museoMono);
+  img {
+    width: 50%;
+    height: 50%;
+  }
+}
+
+.btnConfirmOrder {
+  display: block;
+  margin-top: 40px;
+  padding: 15px;
+  line-height: normal;
+  height: auto;
+  width: 100%;
+}
+
+.drawerContent {
+  border: 1px dotted red;
+  border-radius: 20px;
+}
+
+.drawerTitle {
+  text-align: center;
+  p {
+    color: #ffa500;
+    font-size: 25px;
+    font-family: var(--font-museoBold);
+  }
+}
+
+.drawerClose {
+  border-radius: 20px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  color: #ffa500;
+}
+
+.drawerMask {
+  backdrop-filter: blur(10px);
+}

@@ -1,0 +1,119 @@
+@use "./mixins/mixins" as product;
+@use "../../../shared/styles/mixins" as *;
+
+.productSection {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(100px, 270px) minmax(240px, 1fr)
+  );
+  grid-template-rows: minmax(200px, auto);
+  grid-auto-rows: minmax(200px, auto);
+  gap: 20px;
+  padding: 30px 0 30px 0;
+  align-items: start;
+
+  /* Показ карточек в ProductContent */
+  & .grid {
+    @include product.container(grid);
+    & .card {
+      width: min(100%, 360px);
+    }
+  }
+
+  & .list {
+    @include product.container(flex);
+    flex-direction: column;
+    gap: 16px;
+
+    .card {
+      width: 100%;
+    }
+  }
+}
+
+.noData {
+  text-align: center;
+  margin-top: 30px;
+  color: #000;
+  font-family: var(--font-museoMono);
+}
+
+.spinner {
+  @include product-details-wrapper;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 420px;
+}
+
+.totalItems {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50px;
+
+  & .totalItemPerPage {
+    font-size: 20px;
+    font-family: var(--font-museoMono);
+    color: #6b330b;
+  }
+  & .mobileFilterBtn {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  .icon {
+    font-size: 20px;
+    color: var(--text-black);
+  }
+}
+
+.pagination {
+  margin-top: 50px;
+  position: sticky;
+}
+
+/* Управление показа блока фильтра */
+.filtersDesktop,
+.filtersMobile {
+  display: flex;
+  position: sticky;
+}
+
+.filtersMobile {
+  position: relative;
+}
+/* Стили Drawer на мобильном устройстве */
+.drawerTitle {
+  text-align: center;
+  p {
+    color: var(--text-black);
+    font-size: 25px;
+    font-family: var(--font-museoBold);
+  }
+}
+
+:global(.ant-drawer-body).drawerBody {
+  padding: 15px !important;
+  overflow: auto;
+}
+
+.drawerBtns {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (max-width: 767px) {
+  .totalItems {
+    .mobileFilterBtn {
+      display: flex;
+    }
+  }
+  .filtersDesktop {
+    display: none;
+  }
+}

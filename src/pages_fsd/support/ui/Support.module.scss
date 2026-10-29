@@ -1,0 +1,21 @@
+@use "@/shared/styles/mixins" as *;
+
+.support {
+  @include section;
+
+  & .divider {
+    width: 50%;
+    margin: 0 auto;
+    height: 1px;
+    background-color: #e5e7eb;
+  }
+
+  & .formFqa {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    padding: 30px;
+    background: #fff8e6;
+    border-radius: 0 0 16px 16px;
+  }
+}

@@ -1,0 +1,54 @@
+.categories {
+  padding: 30px;
+  background: #fff8e6;
+
+  &__title {
+    color: var(--text-black);
+    font-family: var(--font-museoMono);
+    font-size: 20px;
+  }
+
+  &__section {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    margin: 0;
+    padding: 24px 0;
+    color: var(--text-black);
+    font-family: var(--font-museoSans);
+
+    li {
+      padding: 12px;
+      border-radius: 20px;
+      border: 1px solid orange;
+      transition:
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+
+      button {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 10px;
+        border: none;
+        background: none;
+        cursor: pointer;
+        svg {
+          color: blue;
+          display: block;
+        }
+        p {
+          color: #7d7474;
+        }
+      }
+      &:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+        transform: translateY(-2px);
+      }
+      &.active {
+        box-shadow: 0 4px 12px rgba(174, 6, 6, 0.711);
+      }
+    }
+  }
+}

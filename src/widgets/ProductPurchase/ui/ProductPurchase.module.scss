@@ -1,0 +1,241 @@
+@use "@/shared/styles/mixins" as *;
+
+.productPurchase {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-self: start;
+  @include product-details-wrapper;
+
+  &__title {
+    align-self: flex-start;
+    font-size: 20px;
+    color: var(--text-black);
+  }
+  &__select {
+    font-family: var(--font-museoMono);
+    color: var(--text-black);
+    opacity: 0.5;
+  }
+  &__btn {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    .size {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      padding: 5px 44px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+      background: var(--background-color);
+      font-family: var(--font-museoSans);
+      color: var(--text-black);
+      font-size: 15px;
+      cursor: pointer;
+
+      &:disabled {
+        background-color: #f8fafc;
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+      .stock {
+        font-family: var(--font-museoMono);
+        font-size: 13px;
+
+        &.inStock {
+          color: #03a703;
+        }
+        &.outStock {
+          color: #771a1a;
+        }
+      }
+    }
+    & .active {
+      background-color: #aedcbe;
+      border: 1px solid #03a703;
+    }
+    & .desc {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 3px;
+
+      & .price {
+        width: 100%;
+        margin-top: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+
+        .priceDiscount,
+        .originalPrice,
+        .quantityDiscount {
+          font-size: 17px;
+          color: #0a930a;
+          font-family: var(--font-museoSans);
+        }
+
+        .originalPrice {
+          color: var(--text-color);
+        }
+        .quantityDiscount {
+          font-size: 14px;
+          font-family: var(--font-museoSans);
+        }
+        .discountDesc {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 15px;
+          color: #665050c4;
+
+          del {
+            font-size: 17px;
+            color: #665050c4;
+            font-family: var(--font-museoSans);
+          }
+          span {
+            display: block;
+            background-color: #03ac03c2;
+            padding: 2px 7px;
+            border-radius: 12px;
+            color: var(--text-color);
+            font-family: var(--font-museoSans);
+            font-size: 13px;
+          }
+        }
+      }
+    }
+  }
+  &__quantityControls {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & .label {
+      font-family: var(--font-museoMono);
+      color: var(--text-black);
+    }
+    & .control {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+    }
+    & .max,
+    .min {
+      width: 34px;
+      height: 34px;
+      padding: 0;
+      border: 1px solid #e2e8f0;
+      border-radius: 50%;
+      background-color: #fff;
+      color: var(--text-black);
+      font-family: var(--font-museoMono);
+      font-size: 20px;
+      line-height: 1;
+      cursor: pointer;
+      transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.15s ease;
+
+      &:hover:not(:disabled) {
+        background-color: #f1f5f9;
+        border-color: #cbd5e1;
+        color: #0f172a;
+      }
+
+      &:active:not(:disabled) {
+        transform: scale(0.94);
+      }
+
+      &:disabled {
+        background-color: #f8fafc;
+        border-color: #e2e8f0;
+        color: #cbd5e1;
+        cursor: not-allowed;
+      }
+
+      &:focus-visible {
+        outline: 2px solid #94a3b8;
+        outline-offset: 3px;
+      }
+    }
+    & .counter {
+      width: 36px;
+      padding: 0;
+      border: none;
+      outline: none;
+      background: transparent;
+      font-size: 18px;
+      color: var(--text-black);
+      font-family: var(--font-museoMono);
+      text-align: center;
+      font-variant-numeric: tabular-nums;
+    }
+  }
+  & .divider {
+    width: 100%;
+    color: black;
+    border: 1px solid var(--text-black);
+    opacity: 0.2;
+  }
+  & .notice {
+    color: var(--text-black);
+    font-family: var(--font-museoMono);
+    font-size: 17px;
+  }
+  & .addToCart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #1f2937;
+    font-size: 15px;
+    font-family: var(--font-museoMono);
+    line-height: 1.4;
+    border: none;
+    cursor: pointer;
+    transition:
+      background-color 0.2s ease,
+      transform 0.15s ease;
+    svg {
+      width: 19px;
+      height: 19px;
+      flex-shrink: 0;
+    }
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      outline: 2px solid #94a3b8;
+      outline-offset: 3px;
+    }
+
+    &:active {
+      transform: scale(0.99);
+    }
+    &:disabled {
+      background-color: #f8fafc;
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+}

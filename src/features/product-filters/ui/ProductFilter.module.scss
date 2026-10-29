@@ -1,0 +1,22 @@
+.filters {
+  overflow-y: auto;
+  top: 20px;
+  border: 1px dotted rgb(113, 6, 6);
+  padding: 20px 10px;
+  flex-direction: column;
+  gap: 18px;
+  border-radius: 10px;
+
+  & .divider {
+    margin: 0 auto;
+    width: 80%;
+    height: 1px;
+    border: 1px solid red;
+  }
+  & .title {
+    text-align: center;
+    font-size: 20px;
+    font-family: var(--font-museoSans);
+    color: #7d6407;
+  }
+}

@@ -1,0 +1,12 @@
+@use "@/shared/styles/mixins" as *;
+
+.purchaseItems {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+
+  & .total {
+    @include purchase-total;
+  }
+}

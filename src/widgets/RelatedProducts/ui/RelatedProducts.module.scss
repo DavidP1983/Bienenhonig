@@ -1,0 +1,71 @@
+@use "@/shared/styles/mixins" as *;
+
+.related {
+  @include product-details-wrapper;
+
+  &__title {
+    font-size: 30px;
+  }
+
+  &__list {
+    margin-top: 20px;
+  }
+
+  &__item {
+    border-top: 1px solid #e5e5e5;
+  }
+  &__link {
+    display: grid;
+    grid-template-columns: 80px minmax(0, 1fr) 16px;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 10px;
+    color: var(--text-color);
+    font-family: var(--font-museoMono);
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: #bdbab4b3;
+    }
+    &:focus-visible {
+      outline: 2px solid #c88b24;
+      outline-offset: 3px;
+    }
+  }
+  &__image {
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #f5f3ef;
+
+    img {
+      object-fit: cover;
+    }
+  }
+  &__content {
+    min-width: 0;
+  }
+  &__name {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+  }
+  &__price {
+    margin: 6px 0 0;
+    color: #8b6628;
+    font-family: var(--font-museoMono);
+    font-size: 0.95rem;
+  }
+  &__arrow {
+    color: #8a8176;
+    font-size: 1.25rem;
+    transition: transform 0.2s ease;
+  }
+  &__link:hover &__arrow {
+    transform: translateX(3px);
+  }
+}

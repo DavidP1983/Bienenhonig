@@ -1,0 +1,35 @@
+.hero {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background: #e4b335;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  gap: 20px;
+
+  &__care {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    color: var(--text-color);
+    font-family: var(--font-museoSans);
+
+    svg {
+      font-size: 25px;
+    }
+  }
+  &__title,
+  &__desc {
+    font-size: 25px;
+    color: var(--text-color);
+    font-family: var(--font-museoSans);
+  }
+  &__desc {
+    font-size: 16px;
+    color: #625d5d;
+  }
+}
