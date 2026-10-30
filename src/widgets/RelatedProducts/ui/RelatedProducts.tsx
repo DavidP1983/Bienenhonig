@@ -39,6 +39,7 @@ export const RelatedProducts = ({ currentProductId }: Props) => {
         errorCode={getApiErrorCode(error)}
         onRetry={() => refetch()}
         variant="compact"
+        showAction
       />
     );
   } else {

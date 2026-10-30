@@ -63,6 +63,7 @@ export const ProductContent = ({
           onRetry={onRetry}
           error={error}
           errorCode={getApiErrorCode(error)}
+          showAction
         />
       </div>
     );

@@ -49,6 +49,7 @@ export const Categories = () => {
         variant="compact"
         error={error}
         errorCode={getApiErrorCode(error)}
+        showAction
       />
     );
   }

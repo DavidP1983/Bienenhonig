@@ -40,6 +40,7 @@ const ProductDetailsViewComponent = ({
           onRetry={onRetry}
           error={error}
           errorCode={getApiErrorCode(error)}
+          showAction
         />
       </div>
     );
