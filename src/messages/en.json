@@ -281,7 +281,7 @@
     "notRated": "not rated yet",
     "noReview": "Be the first to leave a comment",
     "addComment": "Add your comment",
-    "titleForm": "Оценка товара"
+    "titleForm": "Rate Form"
   },
   "ProductReviewModal": {
     "successMessage": "Review submitted successfully!",
