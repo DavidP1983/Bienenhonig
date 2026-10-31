@@ -3,7 +3,7 @@ import { useCartOrder } from '@/entities/cart';
 import type { ICartOrder } from '@/entities/cart/model/types';
 import { useDelivery } from '@/entities/delivery/model/useDelivery';
 import { useRouter } from '@/i18n/navigation';
-import { sadBee } from '@/shared/assets/img';
+import sadBee from '@/shared/assets/img/error/sadBee.png';
 import { calculateOrderSummary } from '@/shared/lib';
 import { OrderSummary, PurchaseItem, ReusableDrawer } from '@/shared/ui';
 import { Button } from '@/shared/ui/Button';
@@ -67,9 +67,6 @@ export const OrderConfirm = ({ open, onClose }: OrderConfirmProps) => {
                 key={item.size}
                 item={item}
                 onRemove={() => removeOrder(item.id)}
-                image={item.image}
-                title={item.title}
-                seller={item.seller}
                 confirmRemove
               />
             ))}

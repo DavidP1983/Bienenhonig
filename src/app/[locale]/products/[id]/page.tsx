@@ -35,10 +35,17 @@ export const generateMetadata = async ({
   try {
     const data = await productService.getProductById(id);
 
+    const { publicId, format, alt } = data.images?.[0];
     const title = t('title', { title: data.title });
     const description = t('description', { title: data.title });
     const productUrl = `https://bienenhonig.vercel.app/${locale}/products/${id}`;
-    const images = data.images?.[0];
+
+    const CLOUDINARY_BASE_URL =
+      'https://res.cloudinary.com/dmrsemgsn/image/upload';
+    const transformations = ['f_auto', 'q_auto'];
+    const images = data.images?.[0]
+      ? `${CLOUDINARY_BASE_URL}/${transformations.join(',')}/${publicId}.${format}`
+      : undefined;
 
     return {
       title,
@@ -50,7 +57,7 @@ export const generateMetadata = async ({
         url: productUrl,
         siteName: 'Bienenhonig',
         ...(images && {
-          images: [{ url: images, alt: data.title }],
+          images: [{ url: images, alt: alt ?? data.title }],
         }),
         locale: locale === 'ru' ? 'ru_RU' : 'en_US',
         type: 'website',
@@ -60,7 +67,7 @@ export const generateMetadata = async ({
         title: t('openGraphTitle'),
         description: t('openGraphDescription'),
         ...(images && {
-          images: [{ url: images, alt: data.title }],
+          images: [{ url: images, alt: alt ?? data.title }],
         }),
         site: productUrl,
       },

@@ -63,11 +63,6 @@ const nextConfig = {
         hostname: 'www.sansilfarma.com.br',
         pathname: '/BACKOFFICE/**',
       },
-      // {
-      //   protocol: "https",
-      //   hostname: "pchelosila.ru",
-      //   pathname: "/wa-data/**",
-      // },
       {
         protocol: 'https',
         hostname: 'pchelosila.ru',
@@ -83,4 +78,3 @@ const nextConfig = {
 };
 const withNextIntl = createNextIntlPlugin();
 export default withNextIntl(nextConfig);
-// export default nextConfig;

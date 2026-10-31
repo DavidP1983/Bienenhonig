@@ -1,24 +1,26 @@
 import { Link } from '@/i18n/navigation';
-import Image from 'next/image';
+import type { CloudinaryImage } from '@/shared/types/types';
+import { ProductImage } from '../ProductImage/ProductImage';
 
 type NavigationProps = {
   title: string;
   subtitle: string;
   path: string;
-  url: string;
+  url: CloudinaryImage;
 };
 
-export const NavBarItem = ({ title, path, url }: NavigationProps) => {
+export const NavBarItem = ({ title, ...props }: NavigationProps) => {
+  const { path, url } = props;
   return (
     <>
       <Link href={path}>
         {title}
-        <Image
-          src={url}
+        <ProductImage
+          image={url}
           alt={`${title} Page`}
-          priority={true}
           width={384}
           height={384}
+          priority
         />
       </Link>
     </>

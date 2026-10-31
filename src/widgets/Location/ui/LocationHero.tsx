@@ -1,18 +1,25 @@
-import type { LocationType } from '@/entities/location/model/type';
 import { IoLocation } from '@/shared/assets/icons';
+import type { CloudinaryImage } from '@/shared/types/types';
+import { ProductImage } from '@/shared/ui/ProductImage/ProductImage';
 import * as motion from 'motion/react-client';
 import { useTranslations } from 'next-intl';
-import Image from 'next/image';
 import { fadeIn, fadeUp } from '../animation/location.animations';
 
 import styles from './Location.module.scss';
 
+type LocationHeroProps = {
+  city: string;
+  info: string;
+  title: string;
+  galleryImage: CloudinaryImage[];
+};
+
 export const LocationHero = ({
   title,
   city,
-  srcURI,
+  galleryImage,
   info,
-}: Partial<LocationType>) => {
+}: LocationHeroProps) => {
   const t = useTranslations('LocationHero');
 
   return (
@@ -58,13 +65,12 @@ export const LocationHero = ({
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}>
-          <Image
-            src={srcURI ?? ''}
-            alt={title ?? 'unknown'}
-            title={title}
+          <ProductImage
+            style={styles.clover}
+            image={galleryImage[0]}
             width={250}
             height={150}
-            className={styles.clover}
+            priority
           />
         </motion.div>
       </motion.div>

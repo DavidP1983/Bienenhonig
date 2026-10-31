@@ -1,4 +1,4 @@
-import { urls } from '@/shared/assets/img';
+import { HomeImages } from '@/shared/assets/img/home';
 import type { NavigationType } from './types';
 
 export const navigation: NavigationType[] = [
@@ -6,21 +6,21 @@ export const navigation: NavigationType[] = [
     id: 1,
     translationKey: 'home',
     path: '/',
-    url: urls.home,
+    url: HomeImages.home,
     subtitleKey: 'homeSubtitle',
   },
   {
     id: 2,
     translationKey: 'products',
     path: '/products',
-    url: urls.products,
+    url: HomeImages.products,
     subtitleKey: 'productsSubtitle',
   },
   {
     id: 3,
     translationKey: 'support',
     path: '/support',
-    url: urls.support,
+    url: HomeImages.support,
     subtitleKey: 'supportSubtitle',
   },
 ];

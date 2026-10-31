@@ -3,8 +3,8 @@ import { Link } from '@/i18n/navigation';
 import { IoIosArrowForward } from '@/shared/assets/icons';
 import { getApiErrorCode } from '@/shared/errors/getApiErrorCode';
 import { ErrorState, SkeletonJSX } from '@/shared/ui';
+import { ProductImage } from '@/shared/ui/ProductImage/ProductImage';
 import { useTranslations } from 'next-intl';
-import Image from 'next/image';
 
 import styles from './RelatedProducts.module.scss';
 
@@ -53,15 +53,12 @@ export const RelatedProducts = ({ currentProductId }: Props) => {
               href={`/products/${product._id}`}
               className={styles.related__link}>
               <div className={styles.related__image}>
-                {product.images[0] && (
-                  <Image
-                    src={product.images[0]}
-                    alt={product.title}
-                    width={80}
-                    height={80}
-                    sizes="80px"
-                  />
-                )}
+                <ProductImage
+                  image={product.images?.[0]}
+                  width={80}
+                  height={80}
+                  sizes="80px"
+                />
               </div>
 
               <div className={styles.related__content}>

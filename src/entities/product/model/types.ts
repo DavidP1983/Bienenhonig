@@ -1,3 +1,5 @@
+import { CloudinaryImage } from '@/shared/types/types';
+
 type Description = {
   producer: string;
   color: string;
@@ -42,7 +44,7 @@ export interface Product {
   title: string;
   slug: string;
   description: Description;
-  images: string[];
+  images: CloudinaryImage[];
   variants: Variants[];
   discountPercent: DiscountPercent;
   quantityDiscount?: QuantityDiscount;

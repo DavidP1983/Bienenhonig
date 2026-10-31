@@ -1,9 +1,9 @@
 import type { ReviewSummery } from '@/entities/review/model/type';
 import { Link } from '@/i18n/navigation';
 import { ReviewRating } from '@/shared/ui';
+import { ProductImage } from '@/shared/ui/ProductImage/ProductImage';
 import type { ViewMode } from '@/widgets/Products/ui/Products';
 import { useTranslations } from 'next-intl';
-import Image from 'next/image';
 import type { Product } from '../model/types';
 
 import styles from './ProductCard.module.scss';
@@ -27,12 +27,11 @@ export const ProductCard = ({ product, reviewSummary, viewMode }: Props) => {
     <div className={`${styles.card} ${viewCardMode}`}>
       <div className={styles.image}>
         <Link href={productUrl}>
-          <Image
-            src={product.images[0]}
+          <ProductImage
+            image={product.images?.[0]}
             width={200}
             height={200}
             sizes="200px"
-            alt={product.title}
           />
         </Link>
       </div>

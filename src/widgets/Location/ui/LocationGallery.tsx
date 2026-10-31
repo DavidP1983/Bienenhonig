@@ -1,20 +1,24 @@
 'use client';
-import type { LocationType } from '@/entities/location/model/type';
+import type { CloudinaryImage } from '@/shared/types/types';
 import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useTranslations } from 'next-intl';
-import Image from 'next/image';
 import { useRef } from 'react';
 import { Video } from './Video';
 
+import { ProductImage } from '@/shared/ui/ProductImage/ProductImage';
 import styles from './Location.module.scss';
 
-export const LocationGallery = ({
-  gelleryImage,
-  city,
-}: Partial<LocationType>) => {
+type LocationGalleryProps = {
+  galleryImage: CloudinaryImage[];
+};
+
+export const LocationGallery = ({ galleryImage }: LocationGalleryProps) => {
   const t = useTranslations('LocationGallery');
+
+  const updatedGallery = galleryImage.slice(1);
+
   const container = useRef(null);
   gsap.registerPlugin(ScrollTrigger);
 
@@ -60,33 +64,17 @@ export const LocationGallery = ({
       ref={container}>
       <h2 className={`title ${styles.title}`}>{t('title')}</h2>
       <div className={styles.gellerycontainer}>
-        <div className={`box ${styles.items}`}>
-          <Image
-            src={gelleryImage?.img1 ?? ''}
-            alt={`photo of location ${city}`}
-            title={city}
-            width={800}
-            height={600}
-          />
-        </div>
-        <div className={`box ${styles.items}`}>
-          <Image
-            src={gelleryImage?.img2 ?? ''}
-            alt={`photo of location ${city}`}
-            title={city}
-            width={800}
-            height={600}
-          />
-        </div>
-        <div className={`box ${styles.items}`}>
-          <Image
-            src={gelleryImage?.img3 ?? ''}
-            alt={`photo of location ${city}`}
-            title={city}
-            width={800}
-            height={490}
-          />
-        </div>
+        {updatedGallery.map((item) => (
+          <div
+            className={`box ${styles.items}`}
+            key={item.publicId}>
+            <ProductImage
+              image={item}
+              width={800}
+              height={600}
+            />
+          </div>
+        ))}
         <div
           className={`box ${styles.items}`}
           id={styles.video}>

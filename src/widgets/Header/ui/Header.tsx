@@ -1,5 +1,5 @@
 'use client';
-import logo from '@/shared/assets/img/logo.png';
+import logo from '@/shared/assets/img/logo/logo.png';
 import { headerAnimation } from '@/widgets/Header/lib/headerAnimation';
 import { NavBarMobile } from '@/widgets/NavBarMobile/ui';
 import { useGSAP } from '@gsap/react';

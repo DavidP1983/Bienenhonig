@@ -11,10 +11,9 @@ import styles from './Location.module.scss';
 export const Location = ({
   title,
   city,
-  srcURI,
   info,
   description,
-  gelleryImage,
+  galleryImage,
 }: LocationType) => {
   const t = useTranslations('LocationAccordion');
   const accordionItems = getAccordionItems(t);
@@ -25,14 +24,11 @@ export const Location = ({
         <LocationHero
           city={city}
           info={info}
-          srcURI={srcURI}
+          galleryImage={galleryImage}
           title={title}
         />
         <LocationReason description={description} />
-        <LocationGallery
-          gelleryImage={gelleryImage}
-          city={city}
-        />
+        <LocationGallery galleryImage={galleryImage} />
         <section className={styles.accordion}>
           <h2 className={styles.title}>{t('title')}</h2>
           <div>

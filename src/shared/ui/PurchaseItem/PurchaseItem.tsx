@@ -1,17 +1,14 @@
 import type { ICartOrder } from '@/entities/cart/model/types';
-import { SelectedItemDescription } from '@/widgets/ProductPurchase/model/types';
+import type { SelectedItemDescription } from '@/widgets/ProductPurchase/model/types';
 import { Popconfirm } from 'antd';
 import { motion } from 'motion/react';
 import { useTranslations } from 'next-intl';
-import Image from 'next/image';
+import { ProductImage } from '../ProductImage/ProductImage';
 
 import styles from './PurchaseItem.module.scss';
 
 type PurchaseItemProps = {
   item: SelectedItemDescription | ICartOrder;
-  title?: string;
-  image?: string;
-  seller?: string;
   onRemove?: () => void;
   confirmRemove?: boolean;
 };
@@ -19,15 +16,13 @@ type PurchaseItemProps = {
 export const PurchaseItem = ({
   item,
   onRemove,
-  title,
-  seller,
-  image,
   confirmRemove = false,
 }: PurchaseItemProps) => {
   const t = useTranslations('PurchaseItem');
 
   const { discount, discountType, isActive } = item.discountDesc;
   const { variant, size, quantity, totalPrice, quantityPrice } = item;
+  const isCartOrder = 'image' in item;
 
   const showDiscount =
     discount > 0 &&
@@ -63,21 +58,19 @@ export const PurchaseItem = ({
         ease: 'easeInOut',
       }}>
       <div className={styles.desc}>
-        {image && (
-          <Image
-            src={image}
-            alt={title ?? ''}
+        {isCartOrder && (
+          <ProductImage
+            style={styles.image}
+            image={item.image?.[0]}
             width={200}
             height={200}
-            className={styles.image}
           />
         )}
-
         <div className={styles.seller}>
-          {title && <strong>{title}</strong>}
-          {seller && (
+          {isCartOrder && <strong>{item.title}</strong>}
+          {isCartOrder && (
             <span>
-              {t('seller')}: {seller}
+              {t('seller')}: {item.seller}
             </span>
           )}
         </div>

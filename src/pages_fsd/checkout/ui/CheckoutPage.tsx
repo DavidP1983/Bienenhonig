@@ -39,9 +39,6 @@ export const CheckoutPage = () => {
               <PurchaseItem
                 key={item.id}
                 item={item}
-                image={item.image}
-                title={item.title}
-                seller={item.seller}
                 confirmRemove={false}
               />
             ))}

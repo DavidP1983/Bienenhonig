@@ -21,7 +21,7 @@ export async function generateMetadata({
     namespace: 'ProductsMetadata',
   });
 
-  const siteUrl = 'https://bienenhonig.vercel.app/products';
+  const siteUrl = `https://bienenhonig.vercel.app`;
 
   return {
     title: t('title'),

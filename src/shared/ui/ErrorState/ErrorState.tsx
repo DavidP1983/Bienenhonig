@@ -1,6 +1,6 @@
 'use client';
 import { useRouter } from '@/i18n/navigation';
-import { sadBee } from '@/shared/assets/img';
+import sadBee from '@/shared/assets/img/error/sadBee.png';
 import { errorsHandler } from '@/shared/errors/errorsHandler';
 import { isErrorTranslationKey } from '@/shared/errors/isErrorTranslationKey';
 import { useTranslations } from 'next-intl';

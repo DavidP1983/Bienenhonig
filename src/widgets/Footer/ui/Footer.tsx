@@ -8,7 +8,7 @@ import {
   LuMailOpen,
   MdLanguage,
 } from '@/shared/assets/icons';
-import logo from '@/shared/assets/img/logo.png';
+import logo from '@/shared/assets/img/logo/logo.png';
 import { LanguageSwitcher } from '@/shared/ui';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';

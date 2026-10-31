@@ -1,7 +1,7 @@
+import { ProductImage } from '@/shared/ui/ProductImage/ProductImage';
 import * as motion from 'motion/react-client';
 import { useTranslations } from 'next-intl';
-import Image from 'next/image';
-import { aboutContent } from '../model/constants';
+import { aboutContent } from '../config/aboutContent';
 
 import styles from './About.module.scss';
 
@@ -16,13 +16,12 @@ export const About = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 1, ease: 'easeOut' }}>
         <div className={styles.image}>
-          <Image
-            id="passika"
-            src={aboutContent.author.image}
-            alt="passika"
-            priority
+          <ProductImage
+            image={aboutContent.author.image}
+            alt={aboutContent.author.image.alt}
             width={400}
             height={400}
+            priority
           />
         </div>
         <div>
@@ -39,10 +38,9 @@ export const About = () => {
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.7, ease: 'easeOut' }}>
         <div className={styles.image}>
-          <Image
-            id={styles.propose}
-            src={aboutContent.products.image}
-            alt="propose"
+          <ProductImage
+            image={aboutContent.products.image}
+            alt={aboutContent.products.image.alt}
             width={400}
             height={400}
             priority

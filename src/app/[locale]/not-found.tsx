@@ -1,5 +1,5 @@
 import { Link } from '@/i18n/navigation';
-import { sadBee } from '@/shared/assets/img';
+import sadBee from '@/shared/assets/img/error/sadBee.png';
 import { getTranslations } from 'next-intl/server';
 import Image from 'next/image';
 

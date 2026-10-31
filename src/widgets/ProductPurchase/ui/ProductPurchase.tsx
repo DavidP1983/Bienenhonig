@@ -57,7 +57,7 @@ export const ProductPurchase = ({ data, size }: ProductPurchaseProps) => {
       productId: data._id,
       sellerId: data.sellerId,
       seller: data.sellerName,
-      image: data.images[0] ?? '',
+      image: data.images,
       title: data.title,
     }));
 

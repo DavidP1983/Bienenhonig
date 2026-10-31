@@ -1,7 +1,7 @@
 'use client';
 import { Cart } from '@/features/checkout/ui/Cart';
 import { navigation } from '@/shared/config/navigation';
-import { NavBarItem } from '@/shared/ui/NavBarItem';
+import { NavBarItem } from '@/shared/ui';
 import { useTranslations } from 'next-intl';
 import { usePathname } from 'next/navigation';
 

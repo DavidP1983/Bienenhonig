@@ -1,6 +1,4 @@
-interface Gellery {
-  [key: string]: string;
-}
+import { CloudinaryImage } from '@/shared/types/types';
 
 export interface LocationType {
   id: number;
@@ -9,6 +7,5 @@ export interface LocationType {
   description: string;
   info: string;
   city: string;
-  srcURI: string;
-  gelleryImage: Gellery;
+  galleryImage: CloudinaryImage[];
 }

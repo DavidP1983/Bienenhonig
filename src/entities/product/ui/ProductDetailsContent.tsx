@@ -1,5 +1,6 @@
 'use client';
 import { TbZoomScan } from '@/shared/assets/icons';
+import { getImageUrl } from '@/shared/lib/getImageUrl';
 import { useTranslations } from 'next-intl';
 import { useEffect, useRef, useState } from 'react';
 import { SellerContacts } from '.';
@@ -15,9 +16,12 @@ type ProductDetailsProps = {
 export const ProductDetailsContent = ({ data }: ProductDetailsProps) => {
   const t = useTranslations('ProductDetailsContent');
 
+  const images = data.images?.length
+    ? getImageUrl(data.images?.[0])
+    : '/placeholder-image.jpg';
+
   const [isOpen, setIsOpen] = useState(false);
   const [readMoreButton, setReadMoreButton] = useState(false);
-
   const contentRef = useRef<HTMLParagraphElement>(null);
 
   useEffect(() => {
@@ -45,7 +49,7 @@ export const ProductDetailsContent = ({ data }: ProductDetailsProps) => {
   return (
     <div className={styles.detailsContent}>
       <div className={styles.detailsContent__gallery}>
-        <ProductImageMagnifier imageSrc={data.images[0]} />
+        <ProductImageMagnifier imageSrc={images} />
         <span>
           <TbZoomScan />
           {t('zoom')}
