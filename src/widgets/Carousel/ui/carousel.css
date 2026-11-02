@@ -135,6 +135,20 @@
   }
 }
 
+@media (width >=321px) and (width <=576px) {
+  .embla__controls {
+    grid-template-columns: 1fr;
+  }
+
+  .embla__button.embla__button--next {
+    place-self: flex-end;
+  }
+
+  .embla__dots {
+    display: none;
+  }
+}
+
 @media (width <=405px) and (width >=321px) {
   .embla__controls {
     grid-template-columns: 300px;
