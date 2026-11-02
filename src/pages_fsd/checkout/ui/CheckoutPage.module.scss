@@ -55,3 +55,38 @@
     @include order-list;
   }
 }
+
+@media (width <= 992px) {
+  .checkout {
+    &__blocks {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+  }
+}
+
+@media (width <= 768px) {
+  .checkout {
+    margin-top: 100px;
+
+    &__blocks {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    & .shipping,
+    & .summery {
+      text-align: center;
+    }
+  }
+}
+
+@media (width <= 576px) {
+  .checkout {
+    &__title {
+      font-size: 30px;
+    }
+
+    &__blocks {
+      padding: 40px 0;
+    }
+  }
+}

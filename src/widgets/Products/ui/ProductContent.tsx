@@ -8,7 +8,7 @@ import { AnimatePresence } from 'motion/react';
 import * as motion from 'motion/react-client';
 import { useTranslations } from 'next-intl';
 import { useMemo } from 'react';
-import type { ViewMode } from './Products';
+import type { ViewMode } from '../model/types';
 
 import styles from './Products.module.scss';
 

@@ -1,5 +1,5 @@
 import { FaGripHorizontal, FaList } from '@/shared/assets/icons';
-import type { ViewMode } from './Products';
+import type { ViewMode } from '../model/types';
 
 import styles from './ProductViewToggle.module.scss';
 

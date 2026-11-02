@@ -2,7 +2,7 @@ import type { ReviewSummery } from '@/entities/review/model/type';
 import { Link } from '@/i18n/navigation';
 import { ReviewRating } from '@/shared/ui';
 import { ProductImage } from '@/shared/ui/ProductImage/ProductImage';
-import type { ViewMode } from '@/widgets/Products/ui/Products';
+import type { ViewMode } from '@/widgets/Products/model/types';
 import { useTranslations } from 'next-intl';
 import type { Product } from '../model/types';
 
@@ -24,7 +24,7 @@ export const ProductCard = ({ product, reviewSummary, viewMode }: Props) => {
   const viewCardMode = viewMode === 'list' ? styles.horizontal : '';
 
   return (
-    <div className={`${styles.card} ${viewCardMode}`}>
+    <div className={`${styles.cardItem} ${viewCardMode}`}>
       <div className={styles.image}>
         <Link href={productUrl}>
           <ProductImage

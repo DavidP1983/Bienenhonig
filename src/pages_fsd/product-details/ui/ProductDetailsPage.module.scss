@@ -1,8 +1,27 @@
+@use '@/shared/styles/mixins' as *;
+
 .details {
-  min-height: calc(100vh - 30px);
+  @include section;
+
   padding: 30px 20px;
   margin-top: 187px;
   position: relative;
-  z-index: 2;
-  background: linear-gradient(135deg, #fc0, #ffa500);
+}
+
+@media (width <= 992px) {
+  .details {
+    margin-top: 140px;
+  }
+}
+
+@media (width <= 768px) {
+  .details {
+    margin-top: 100px;
+  }
+}
+
+@media (width >= 321px) and (width <= 500px) {
+  .details {
+    padding: 30px 0;
+  }
 }

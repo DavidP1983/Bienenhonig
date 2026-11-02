@@ -1,5 +1,6 @@
 @use './mixins/mixins' as product;
 @use '../../../shared/styles/mixins' as *;
+@use './media/products' as productsMedia;
 
 .productSection {
   display: grid;
@@ -50,31 +51,6 @@
   min-height: 420px;
 }
 
-.totalItems {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 50px;
-
-  & .totalItemPerPage {
-    font-size: 20px;
-    font-family: var(--font-museoMono);
-    color: #6b330b;
-  }
-
-  & .mobileFilterBtn {
-    display: none;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .icon {
-    font-size: 20px;
-    color: var(--text-black);
-  }
-}
-
 .pagination {
   margin-top: 50px;
   position: sticky;
@@ -114,14 +90,4 @@
   align-items: center;
 }
 
-@media (width <= 767px) {
-  .totalItems {
-    .mobileFilterBtn {
-      display: flex;
-    }
-  }
-
-  .filtersDesktop {
-    display: none;
-  }
-}
+@include productsMedia.products-query;

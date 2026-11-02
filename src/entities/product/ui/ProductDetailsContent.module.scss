@@ -129,3 +129,29 @@
     }
   }
 }
+
+@media (width <= 992px) {
+  .detailsContent {
+    &__gallery {
+      span {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media (width >= 321px) and (width <= 500px) {
+  .detailsContent {
+    & .attributes {
+      .producer,
+      .color,
+      .origin {
+        grid-template-columns: 1fr;
+      }
+
+      dt {
+        text-align: center;
+      }
+    }
+  }
+}

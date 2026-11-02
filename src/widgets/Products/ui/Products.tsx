@@ -9,21 +9,16 @@ import {
 import { ProductFilter } from '@/features/product-filters/ui';
 import { useProductPagination } from '@/features/product-pagination/model';
 import { ProductPagination } from '@/features/product-pagination/ui';
-import { BsSliders2 } from '@/shared/assets/icons';
-import { Button, ErrorBoundary } from '@/shared/ui';
-import { useTranslations } from 'next-intl';
+import { ErrorBoundary } from '@/shared/ui';
 import { useEffect, useState } from 'react';
 import { useShallow } from 'zustand/react/shallow';
 import { ProductContent } from '.';
-import { ProductViewToggle } from './ProductViewToggle';
+import type { ViewMode } from '../model/types';
+import { ProductToolBar } from './ProductToolBar';
 
 import styles from './Products.module.scss';
 
-export type ViewMode = 'grid' | 'list';
-
 export const Products = () => {
-  const t = useTranslations('Products');
-
   const [filterOpen, setFilterOpen] = useState(false);
   const [shouldLoadMobileFilter, setShouldLoadMobileFilter] = useState(false);
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
@@ -52,9 +47,6 @@ export const Products = () => {
 
   const { paginatedData, page, pageSize, setPage, setPageSize, total } =
     useProductPagination(filteredData);
-
-  const showingItems = total === 0 ? 0 : (page - 1) * pageSize + 1;
-  const showingPerPage = Math.min(page * pageSize, total);
 
   /* Reset the page when filters change */
   useEffect(() => {
@@ -88,30 +80,15 @@ export const Products = () => {
 
   return (
     <>
-      <div className={styles.totalItems}>
-        <p className={styles.totalItemPerPage}>
-          {t('showingItems', {
-            showingItems,
-            showingPerPage,
-            total,
-          })}
-        </p>
-        <ProductViewToggle
-          viewMode={viewMode}
-          onChangeViewMode={handleViewModeChange}
-        />
-        <div className={styles.mobileFilterBtn}>
-          <Button
-            icon={<BsSliders2 className={styles.icon} />}
-            props={{
-              type: 'default',
-              onClick: openMobileFilters,
-            }}>
-            {t('filter')}
-          </Button>
-        </div>
-      </div>
-      <section className={styles.productSection}>
+      <ProductToolBar
+        page={page}
+        pageSize={pageSize}
+        total={total}
+        viewMode={viewMode}
+        onChangeViewMode={handleViewModeChange}
+        openMobileFilters={openMobileFilters}
+      />
+      <div className={styles.productSection}>
         <ProductFilter className={styles.filtersDesktop} />
 
         <div>
@@ -136,7 +113,7 @@ export const Products = () => {
             />
           </div>
         </div>
-      </section>
+      </div>
 
       {shouldLoadMobileFilter && (
         <MobileProductFilter

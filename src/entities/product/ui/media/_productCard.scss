@@ -1,0 +1,53 @@
+@use '../mixins/mixins' as productCard;
+
+@mixin product-card-query {
+  @media (width <= 992px) {
+    .cardItem {
+      &.horizontal {
+        @include productCard.card(column, 100%, 0, none, 330px);
+
+        .description {
+          gap: 20px;
+        }
+
+        .variants {
+          gap: 20px;
+        }
+
+        & .btn {
+          width: fit-content;
+          align-self: center;
+        }
+      }
+    }
+  }
+
+  @media (width <= 768px) {
+    .cardItem {
+      &.horizontal {
+        display: grid;
+      }
+    }
+  }
+
+  @media (width <= 576px) {
+    .cardItem {
+      &.horizontal {
+        @include productCard.card(column, 100%, 0, none, 330px);
+
+        .description {
+          gap: 20px;
+        }
+
+        .variants {
+          gap: 20px;
+        }
+
+        & .btn {
+          width: fit-content;
+          align-self: center;
+        }
+      }
+    }
+  }
+}

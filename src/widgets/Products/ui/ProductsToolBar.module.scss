@@ -1,0 +1,36 @@
+@use './media/products' as productsMedia;
+
+.toolBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50px;
+
+  &__totalItemPerPage {
+    font-size: 20px;
+    font-family: var(--font-museoMono);
+    color: #6b330b;
+  }
+
+  &__controller {
+    display: flex;
+  }
+
+  &__mobileFilter {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__btn {
+    height: 45px;
+  }
+
+  &__icon {
+    font-size: 20px;
+    color: var(--text-black);
+  }
+}
+
+@include productsMedia.products-query;

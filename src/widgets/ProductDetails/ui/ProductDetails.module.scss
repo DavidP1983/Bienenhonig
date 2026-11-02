@@ -37,3 +37,13 @@
 .failure {
   position: relative;
 }
+
+@media (width <= 768px) {
+  .detailsContainer {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .detailsSidebar {
+    order: -1;
+  }
+}

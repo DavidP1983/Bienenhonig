@@ -35,3 +35,11 @@
     color: #625d5d;
   }
 }
+
+@media (width <= 576px) {
+  .hero {
+    &__desc {
+      text-align: center;
+    }
+  }
+}

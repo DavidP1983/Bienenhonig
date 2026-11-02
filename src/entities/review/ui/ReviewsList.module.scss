@@ -88,3 +88,9 @@
     color: var(--text-color);
   }
 }
+
+@media (width <= 576px) {
+  .reviewList {
+    padding: 40px 10px;
+  }
+}

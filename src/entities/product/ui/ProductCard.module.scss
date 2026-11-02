@@ -1,6 +1,7 @@
 @use './mixins/mixins' as product;
+@use './media/productCard' as productCardMedia;
 
-.card {
+.cardItem {
   @include product.card(column, 100%, 0, none, 330px);
 
   &:hover {
@@ -187,3 +188,5 @@
     }
   }
 }
+
+@include productCardMedia.product-card-query;

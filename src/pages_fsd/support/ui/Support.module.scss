@@ -19,3 +19,21 @@
     border-radius: 0 0 16px 16px;
   }
 }
+
+@media (width <= 768px) {
+  .support {
+    margin-top: 100px;
+
+    & .formFqa {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+}
+
+@media (width <= 576px) {
+  .support {
+    & .formFqa {
+      padding: 30px 10px;
+    }
+  }
+}

@@ -1,3 +1,4 @@
+@use '../media/productPurchase' as ProductPurchaseMedia;
 @use '@/shared/styles/mixins' as *;
 
 .productPurchase {
@@ -110,7 +111,7 @@
 
           del {
             font-size: 17px;
-            color: #665050c4;
+            color: #704214;
             font-family: var(--font-museoSans);
           }
 
@@ -259,3 +260,5 @@
     }
   }
 }
+
+@include ProductPurchaseMedia.product-purchase-query;

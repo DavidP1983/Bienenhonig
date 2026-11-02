@@ -1,3 +1,5 @@
+@use './media/products' as productsMedia;
+
 .viewToggle {
   display: flex;
   align-items: center;
@@ -43,3 +45,5 @@
     }
   }
 }
+
+@include productsMedia.products-query;

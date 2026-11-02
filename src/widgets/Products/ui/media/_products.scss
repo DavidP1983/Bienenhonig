@@ -1,0 +1,48 @@
+@use '../mixins/mixins' as product;
+
+@mixin products-query {
+  @media (width <= 768px) {
+    .productSection {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .toolBar {
+      flex-direction: column;
+      gap: 20px;
+
+      &__mobileFilter {
+        display: flex;
+      }
+
+      &__controller {
+        margin-top: 20px;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    .filtersDesktop {
+      display: none;
+    }
+  }
+
+  @media (width <= 576px) {
+    .productSection {
+      & .list {
+        @include product.container(flex);
+
+        flex-direction: column;
+        gap: 16px;
+
+        .card {
+          width: 100%;
+        }
+      }
+    }
+
+    .viewToggle {
+      display: none;
+    }
+  }
+}

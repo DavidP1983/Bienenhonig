@@ -77,3 +77,11 @@
     transform: translateX(3px);
   }
 }
+
+@media (width <= 992px) {
+  .related {
+    &__title {
+      font-size: 30px;
+    }
+  }
+}

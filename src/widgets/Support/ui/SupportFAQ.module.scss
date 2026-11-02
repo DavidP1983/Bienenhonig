@@ -10,3 +10,13 @@
     font-size: 20px;
   }
 }
+
+@media (width <= 576px) {
+  .fqa {
+    padding: 28px 0;
+
+    &__title {
+      text-align: center;
+    }
+  }
+}
