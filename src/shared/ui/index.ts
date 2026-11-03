@@ -14,4 +14,5 @@ export { ReviewRating } from './ReviewRating/index';
 export { ScrollToTop } from './ScrollToTop/index';
 export { SkeletonJSX } from './Skeleton/index';
 export { Spinner } from './Spinner/index';
+export { UndoNotification } from './UndoNotification/index';
 export { ErrorBoundary } from './errorBoundary/index';

@@ -18,6 +18,10 @@
     background: #fff8e6;
     border-radius: 0 0 16px 16px;
   }
+
+  & .faqAnchor {
+    scroll-margin-top: 200px;
+  }
 }
 
 @media (width <= 768px) {

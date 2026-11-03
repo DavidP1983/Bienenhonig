@@ -324,7 +324,10 @@
     "tryAgain": "Попробовать снова",
     "subtotal": "Промежуточный итог",
     "shipping": "Доставка",
-    "total": "Итого"
+    "total": "Итого",
+    "itemRemoved": "{count, plural, one {Удалён # товар} few {Удалено # товара} many {Удалено # товаров} other {Удалено # товара}}",
+    "undoDescription": "Восстановить удалённые товары",
+    "undo": "Отменить"
   },
   "CheckoutMetadata": {
     "checkoutTitle": "Оформление заказа | Страница"

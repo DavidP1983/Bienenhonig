@@ -5,11 +5,19 @@ import { useDelivery } from '@/entities/delivery/model/useDelivery';
 import { useRouter } from '@/i18n/navigation';
 import sadBee from '@/shared/assets/img/error/sadBee.png';
 import { calculateOrderSummary } from '@/shared/lib';
-import { OrderSummary, PurchaseItem, ReusableDrawer } from '@/shared/ui';
+import {
+  OrderSummary,
+  PurchaseItem,
+  ReusableDrawer,
+  UndoNotification,
+} from '@/shared/ui';
 import { Button } from '@/shared/ui/Button';
+import { message } from 'antd';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
+import { useEffect } from 'react';
 import { useShallow } from 'zustand/react/shallow';
+import { useUndoDelete } from '../model/useUndoDelete';
 
 import styles from './OrderConfirm.module.scss';
 
@@ -22,6 +30,7 @@ export const OrderConfirm = ({ open, onClose }: OrderConfirmProps) => {
   const t = useTranslations('OrderConfirmation');
 
   const router = useRouter();
+
   const { data, isPending, isError, refetch } = useDelivery();
 
   const { cartOrder, removeOrder } = useCartOrder(
@@ -31,21 +40,53 @@ export const OrderConfirm = ({ open, onClose }: OrderConfirmProps) => {
     }))
   );
 
+  const {
+    visibleCartOrder,
+    pendingDeletes,
+    handleUndo,
+    handleRemoveOrder,
+    handleComplete,
+  } = useUndoDelete({ cartOrder, removeOrder });
+
+  /* Эффект для вызова сообщения */
+  useEffect(() => {
+    if (!pendingDeletes.length) {
+      message.destroy('undo-key');
+      return;
+    }
+
+    message.open({
+      key: 'undo-key',
+      className: styles.messageUndo,
+      content: (
+        <UndoNotification
+          undoBtnText={t('undo')}
+          text={t('itemRemoved', { count: pendingDeletes.length })}
+          resetKey={pendingDeletes.length}
+          onUndo={handleUndo}
+          onComplete={handleComplete}
+        />
+      ),
+      duration: 0,
+    });
+  }, [pendingDeletes.length, message, handleUndo, handleComplete, t]);
+
   /* Расчет итоговой цены, доставки */
   const deliveryPrice = data?.deliveryPrice;
   const { productsTotal, deliveryTotal, grandTotal } = calculateOrderSummary({
-    cartOrder,
+    cartOrder: visibleCartOrder,
     deliveryPrice,
   });
 
   /* Этапы загрузки цены доставки */
   const isDeliveryLoading = isPending;
   const isDeliveryError = isError || deliveryPrice === undefined;
-  const disabledBtn = !cartOrder.length || isDeliveryLoading || isDeliveryError;
+  const disabledBtn =
+    !visibleCartOrder.length || isDeliveryLoading || isDeliveryError;
 
   /* Список заказа */
-  const renderOrder = (cartOrder: ICartOrder[]) => {
-    if (cartOrder.length === 0) {
+  const renderOrder = (items: ICartOrder[]) => {
+    if (!items.length) {
       return (
         <div className={styles.noData}>
           {t('emptyOrders')}
@@ -59,23 +100,20 @@ export const OrderConfirm = ({ open, onClose }: OrderConfirmProps) => {
       );
     }
     return (
-      <>
-        <ul className={styles.order}>
-          {cartOrder &&
-            cartOrder.map((item) => (
-              <PurchaseItem
-                key={item.size}
-                item={item}
-                onRemove={() => removeOrder(item.id)}
-                confirmRemove
-              />
-            ))}
-        </ul>
-      </>
+      <ul className={styles.order}>
+        {items.map((item) => (
+          <PurchaseItem
+            key={item.id}
+            item={item}
+            onRemove={() => handleRemoveOrder(item.id)}
+            confirmRemove
+          />
+        ))}
+      </ul>
     );
   };
 
-  const order = renderOrder(cartOrder);
+  const order = renderOrder(visibleCartOrder);
 
   return (
     <ReusableDrawer
@@ -83,8 +121,8 @@ export const OrderConfirm = ({ open, onClose }: OrderConfirmProps) => {
         <p>
           {t('title')}
           <br />
-          {cartOrder.length
-            ? t('cartCount', { count: cartOrder.length })
+          {visibleCartOrder.length
+            ? t('cartCount', { count: visibleCartOrder.length })
             : t('cartEmpty')}
         </p>
       }
@@ -99,7 +137,7 @@ export const OrderConfirm = ({ open, onClose }: OrderConfirmProps) => {
       }}
       width={500}>
       {order}
-      {cartOrder.length > 0 && (
+      {visibleCartOrder.length > 0 && (
         <OrderSummary
           isPending={isPending}
           isError={isError}
@@ -110,7 +148,6 @@ export const OrderConfirm = ({ open, onClose }: OrderConfirmProps) => {
           grandTotal={grandTotal}
         />
       )}
-
       {
         <Button
           props={{

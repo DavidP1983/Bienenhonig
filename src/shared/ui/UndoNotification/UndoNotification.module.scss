@@ -1,0 +1,17 @@
+.undoNotification {
+  margin: 20px auto;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #0a57d4;
+  border-radius: 20px;
+  width: 100%;
+  padding: 10px;
+  background: #ffff;
+
+  &__progress {
+    & :global(.ant-progress-inner) {
+      width: 40px !important;
+      height: 40px !important;
+    }
+  }
+}

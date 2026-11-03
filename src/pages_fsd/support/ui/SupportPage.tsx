@@ -6,15 +6,22 @@ import {
   SupportFAQ,
   SupportHero,
 } from '@/widgets/Support/ui';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 import styles from './Support.module.scss';
 
 export const SupportPage = () => {
   const [activeCategory, setActiveCategory] = useState<TCategory>('orders');
+  const faqRef = useRef<HTMLDivElement>(null);
 
   const handleChangeCategory = (id: TCategory) => {
+    if (id === activeCategory) return;
     setActiveCategory(id);
+
+    faqRef.current?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
   };
 
   return (
@@ -30,7 +37,12 @@ export const SupportPage = () => {
         <div className={styles.divider}></div>
         <div className={styles.formFqa}>
           <SupportContactForm />
-          <SupportFAQ activeCategory={activeCategory} />
+          <div
+            ref={faqRef}
+            className={styles.faqAnchor}
+            id="faq">
+            <SupportFAQ activeCategory={activeCategory} />
+          </div>
         </div>
       </div>
     </section>

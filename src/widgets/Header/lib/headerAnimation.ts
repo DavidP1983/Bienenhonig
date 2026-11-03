@@ -20,9 +20,6 @@ export const headerAnimation = (elem: HTMLHeadElement) => {
       // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       self.direction === -1 ? showAnim.play() : showAnim.reverse();
     },
-    onToggle: () => {
-      ScrollTrigger.refresh();
-    },
   });
 
   ScrollTrigger.refresh();

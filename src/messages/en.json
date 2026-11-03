@@ -326,7 +326,10 @@
     "tryAgain": "Try again",
     "subtotal": "Subtotal",
     "shipping": "Shipping",
-    "total": "Total"
+    "total": "Total",
+    "itemRemoved": "{count, plural, one {# item removed} other {# items removed}}",
+    "undoDescription": "Restore removed items",
+    "undo": "Undo"
   },
   "CheckoutMetadata": {
     "checkoutTitle": "Checkout | Page"
