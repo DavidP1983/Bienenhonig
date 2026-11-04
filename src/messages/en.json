@@ -52,6 +52,7 @@
     "EMAIL_SENDING_FAILED": "The email could not be sent. Please try again later.",
     "TICKET_CREATION_FAILED": "Failed to create the ticket.",
     "ORDER_NOT_FOUND": "We couldn't verify your order. Please check your order number and email address.",
+    "BESTSELLER_FETCH_FAILED": "Failed to fetch best sellers",
     "NETWORK_ERROR": "Network error.",
     "EMPTY_RESPONSE": "The server returned no data.",
     "SERVER_ERROR": "Server error.",
@@ -209,7 +210,9 @@
     "reviews": "{count, plural, one {# review} other {# reviews}}",
     "checkout": "View product",
     "seller": "Sold by",
-    "noData": "No data to display for this request"
+    "noData": "No data to display for this request",
+    "bestSeller": "Best seller",
+    "new": "NEW"
   },
   "ProductDetailsMetadata": {
     "title": "Product Details: {title}",

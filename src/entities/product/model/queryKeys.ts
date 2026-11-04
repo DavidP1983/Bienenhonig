@@ -4,4 +4,5 @@ export const productKeys = {
     [...productKeys.all, id, { size }] as const,
   related: (id: string, limit: number) =>
     [...productKeys.all, 'related', id, limit] as const,
+  bestSeller: () => [...productKeys.all, 'best-sellers'] as const,
 };

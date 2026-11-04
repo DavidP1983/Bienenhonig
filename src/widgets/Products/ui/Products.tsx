@@ -1,14 +1,16 @@
 'use client';
-import { useProducts } from '@/entities/product/model/useProducts';
+import { useBestSeller, useProducts } from '@/entities/product/model';
 import { useReviewSummary } from '@/entities/review/model/useReviewSummary';
 import { MobileProductFilter } from '@/features/mobile-filters/ui';
 import {
+  ProductFilter,
   useFilter,
   useSelectAndFilterSort,
-} from '@/features/product-filters/model';
-import { ProductFilter } from '@/features/product-filters/ui';
-import { useProductPagination } from '@/features/product-pagination/model';
-import { ProductPagination } from '@/features/product-pagination/ui';
+} from '@/features/product-filters';
+import {
+  ProductPagination,
+  useProductPagination,
+} from '@/features/product-pagination';
 import { ErrorBoundary } from '@/shared/ui';
 import { useEffect, useState } from 'react';
 import { useShallow } from 'zustand/react/shallow';
@@ -24,6 +26,7 @@ export const Products = () => {
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
 
   const { data, isPending, isError, refetch, error } = useProducts();
+  const { data: bestSeller } = useBestSeller();
   const {
     data: reviewSummery,
     isPending: isPendingReview,
@@ -53,7 +56,7 @@ export const Products = () => {
     setPage(1);
   }, [filter.select, filter.search, filter.checkbox, setPage]);
 
-  /* Сохраняем данные о показе карточек в storage, чтобы при размонтировке сохранить состояние */
+  /* Сохраняем состояние 'mode' в storage, чтобы при размонтировке сохранить их отображение */
   useEffect(() => {
     const savedMode = localStorage.getItem('products-view-mode');
 
@@ -94,7 +97,10 @@ export const Products = () => {
         <div>
           <ErrorBoundary>
             <ProductContent
-              data={paginatedData}
+              products={{
+                data: paginatedData,
+                bestSellerIds: bestSeller ?? [],
+              }}
               isPending={isPending}
               isError={isError}
               error={error}

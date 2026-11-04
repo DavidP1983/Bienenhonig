@@ -1,5 +1,7 @@
 import type { ReviewSummery } from '@/entities/review/model/type';
 import { Link } from '@/i18n/navigation';
+import { FiAward } from '@/shared/assets/icons';
+import { isNewProduct } from '@/shared/lib';
 import { ReviewRating } from '@/shared/ui';
 import { ProductImage } from '@/shared/ui/ProductImage/ProductImage';
 import type { ViewMode } from '@/widgets/Products/model/types';
@@ -12,9 +14,15 @@ type Props = {
   product: Product;
   reviewSummary: ReviewSummery | undefined;
   viewMode: ViewMode;
+  isBestSeller: boolean;
 };
 
-export const ProductCard = ({ product, reviewSummary, viewMode }: Props) => {
+export const ProductCard = ({
+  product,
+  reviewSummary,
+  viewMode,
+  isBestSeller,
+}: Props) => {
   const t = useTranslations('ProductCard');
 
   const productUrl = `/products/${product._id}`;
@@ -23,9 +31,18 @@ export const ProductCard = ({ product, reviewSummary, viewMode }: Props) => {
 
   const viewCardMode = viewMode === 'list' ? styles.horizontal : '';
 
+  const isNew = isNewProduct(product.createdAt);
+
   return (
     <div className={`${styles.cardItem} ${viewCardMode}`}>
       <div className={styles.image}>
+        {isNew && <div className={styles.newBadge}>{t('new')}</div>}
+        {isBestSeller && (
+          <div className={styles.bestSeller}>
+            <FiAward />
+            {t('bestSeller')}
+          </div>
+        )}
         <Link href={productUrl}>
           <ProductImage
             image={product.images?.[0]}

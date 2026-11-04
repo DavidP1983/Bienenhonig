@@ -19,7 +19,10 @@ type ReviewSummeryProps = {
 };
 
 type Props = {
-  data: Product[] | undefined;
+  products: {
+    data: Product[] | undefined;
+    bestSellerIds: string[];
+  };
   onRetry?: () => void;
   isPending: boolean;
   isError: boolean;
@@ -29,7 +32,7 @@ type Props = {
 };
 
 export const ProductContent = ({
-  data,
+  products,
   isPending,
   isError,
   onRetry,
@@ -39,11 +42,18 @@ export const ProductContent = ({
 }: Props) => {
   const t = useTranslations('ProductCard');
 
+  const { data, bestSellerIds } = products;
+
   /* Выбрал Map который создается один раз и для быстрого поиска карточки и его рейтинга по _id */
   const reviewSummaryMap = useMemo(
     () =>
       new Map(reviews?.reviewSummery?.map((item) => [item._id, item]) ?? []),
     [reviews.reviewSummery]
+  );
+
+  const bestSellerIdSet = useMemo(
+    () => new Set(bestSellerIds),
+    [bestSellerIds]
   );
 
   if (isPending) {
@@ -96,6 +106,7 @@ export const ProductContent = ({
               product={product}
               reviewSummary={reviewSummaryMap.get(product._id.toString())}
               viewMode={viewMode}
+              isBestSeller={bestSellerIdSet.has(product._id.toString())}
             />
           </motion.li>
         ))}

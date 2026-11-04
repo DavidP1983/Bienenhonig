@@ -14,4 +14,7 @@ export const productApi = {
     api.get<Product[]>(`/api/products/${id}/related?limit=${limit}`, {
       signal,
     }),
+
+  getBestSellerProductIds: (signal?: AbortSignal) =>
+    api.get<string[]>('/api/products/best-sellers', { signal }),
 };

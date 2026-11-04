@@ -7,7 +7,7 @@ import {
   FaTelegramPlane,
   FaWhatsapp,
 } from 'react-icons/fa';
-import { FiPhone, FiRefreshCw } from 'react-icons/fi';
+import { FiAward, FiPhone, FiRefreshCw } from 'react-icons/fi';
 import { GoCreditCard, GoPackage } from 'react-icons/go';
 import { IoIosArrowForward } from 'react-icons/io';
 import { IoAlertCircleOutline, IoLocation } from 'react-icons/io5';
@@ -26,6 +26,7 @@ export {
   FaList,
   FaTelegramPlane,
   FaWhatsapp,
+  FiAward,
   FiPhone,
   FiRefreshCw,
   GoCreditCard,
