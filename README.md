@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Honey Land 🍯
 
-## Getting Started
+Honey Land is a full-stack e-commerce application designed for selling honey and honey-related products. It provides customers with an intuitive shopping experience, allowing them to browse products, explore detailed product information, read reviews, and place orders.
 
-First, run the development server:
+The project is built as two separate applications: a frontend developed with Next.js and a backend REST API powered by Express.js.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+✨ **Features**
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Customer-facing Features**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Browse available honey products.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- View detailed product information.
 
-## Learn More
+- Search for products by article or name.
 
-To learn more about Next.js, take a look at the following resources:
+- View product prices, discounts, and availability.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Select product sizes where available.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Read product reviews and leave feedback.
 
-## Deploy on Vercel
+- Explore recipes and opinions.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- View product details such as producer and origin.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Switch between English and Russian languages.
+
+- Receive localized error messages and user-friendly error states.
+
+**Backend Features**
+
+- RESTful API built with Express.js.
+
+- MongoDB integration for data storage.
+
+- Redis integration for caching.
+
+- Product and review management.
+
+- Order creation.
+
+- Input validation using Zod.
+
+- Centralized error handling.
+
+- Idempotency key support for order requests.
+
+## 🛠️ Tech Stack
+
+**Frontend**
+
+- Next.js 14
+
+- React
+
+- TypeScript
+
+- next-intl
+
+- TanStack Query
+
+**Backend**
+
+- Node.js 22
+
+- Express.js 4
+
+- MongoDB
+
+- Upstash Redis
+
+- Zod
+
+- CORS
+
+- dotenv
