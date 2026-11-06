@@ -3,13 +3,13 @@ import Autoplay from 'embla-carousel-autoplay';
 import ClassNames from 'embla-carousel-class-names';
 import useEmblaCarousel from 'embla-carousel-react';
 import { useTranslations } from 'next-intl';
-import Image from 'next/image';
 import { DotButton, NextButton, PrevButton } from '.';
 import { useDotButton, usePrevNextButtons } from '../model';
 import { OPTIONS, SLIDES } from '../model/carousel.constants';
 
-import './carousel.css';
+import { ProductImage } from '@/shared/ui/ProductImage/ProductImage';
 import styles from './Carousel.module.scss';
+import './carousel.css';
 
 export const Carousel = () => {
   const t = useTranslations('Carousel');
@@ -38,16 +38,15 @@ export const Carousel = () => {
               className="embla__viewport"
               ref={emblaRef}>
               <div className="embla__container">
-                {SLIDES.map((index) => (
+                {SLIDES.map((item) => (
                   <div
                     className="embla__slide"
-                    key={index}>
-                    <Image
-                      className="embla__slide__img"
-                      src={`https://picsum.photos/600/350?v=${index}`}
-                      alt="Your alt text"
-                      width={600}
-                      height={350}
+                    key={item.publicId}>
+                    <ProductImage
+                      style="embla__slide__img"
+                      image={item}
+                      width={800}
+                      height={800}
                     />
                   </div>
                 ))}

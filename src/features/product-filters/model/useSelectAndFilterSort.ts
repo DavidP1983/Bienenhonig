@@ -50,9 +50,9 @@ const useCheckBoxFilter = (data: Product[], filter: CombineFilter) => {
     if (filter.checkbox.length === 0) {
       return sortedData;
     }
-    return sortedData.filter((item) =>
-      filter.checkbox.includes(item.categoryId)
-    );
+
+    const selectedCategories = new Set(filter.checkbox);
+    return sortedData.filter((item) => selectedCategories.has(item.categoryId));
   }, [sortedData, filter.checkbox]);
 
   return sortCheckBox;

@@ -3,6 +3,7 @@ import { productKeys } from '@/entities/product/model/queryKeys';
 import { Product } from '@/entities/product/model/types';
 import { ProductDetailsPage } from '@/pages_fsd/product-details/ui';
 import { ApiError } from '@/shared/errors/ApiError';
+import { serializeJsonLd } from '@/shared/lib';
 import { ErrorState } from '@/shared/ui';
 import {
   HydrationBoundary,
@@ -152,7 +153,7 @@ const ProductDetails = async ({ params, searchParams }: Props) => {
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
-              __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c'),
+              __html: serializeJsonLd(jsonLd),
             }}
           />
         </section>

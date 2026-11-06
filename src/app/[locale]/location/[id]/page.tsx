@@ -1,6 +1,7 @@
 import { data } from '@/entities/location/model/data';
 import { LocationType } from '@/entities/location/model/type';
 import { LocationPage } from '@/pages_fsd/loaction/ui';
+import { serializeJsonLd } from '@/shared/lib';
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
@@ -123,7 +124,7 @@ const Location = async ({ params }: Props) => {
       <section>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
         />
       </section>
       <LocationPage {...localizedPlace} />

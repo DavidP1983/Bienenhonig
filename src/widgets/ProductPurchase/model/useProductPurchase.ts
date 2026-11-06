@@ -92,18 +92,14 @@ export const useProductPurchase = (
 
   /*Удаление товаров из списка*/
   const removeItemFromTheList = (itemSize: string) => {
-    setSelectedItems((prev) => {
-      const updatedItems = prev.filter(
-        (selected) => selected.size !== itemSize
-      );
-
-      if (updatedItems.length === 0) {
-        setQuantity(1);
-
-        setSelectedVariant(getInitialVariant(filteredVariants, size)!);
-      }
-      return updatedItems;
-    });
+    const updatedItems = selectedItems.filter(
+      (selected) => selected.size !== itemSize
+    );
+    setSelectedItems(updatedItems);
+    if (updatedItems.length === 0) {
+      setQuantity(1);
+      setSelectedVariant(getInitialVariant(filteredVariants, size)!);
+    }
   };
 
   /* Очистка листа от выбранных товаров после их добавления в корзину */

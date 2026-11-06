@@ -69,7 +69,7 @@ export const OrderConfirm = ({ open, onClose }: OrderConfirmProps) => {
       ),
       duration: 0,
     });
-  }, [pendingDeletes.length, message, handleUndo, handleComplete, t]);
+  }, [pendingDeletes.length, handleUndo, handleComplete, t]);
 
   /* Расчет итоговой цены, доставки */
   const deliveryPrice = data?.deliveryPrice;

@@ -1,6 +1,7 @@
 import { productService } from '@/entities/product/model/product.service';
 import { productKeys } from '@/entities/product/model/queryKeys';
 import { ProductsPage } from '@/pages_fsd/products/ui';
+import { serializeJsonLd } from '@/shared/lib';
 import {
   HydrationBoundary,
   QueryClient,
@@ -99,7 +100,7 @@ const Products = async ({ params }: { params: { locale: string } }) => {
       <section>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
         />
       </section>
       <HydrationBoundary state={dehydrate(queryClient)}>

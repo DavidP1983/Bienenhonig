@@ -1,4 +1,5 @@
 import { HomePage } from '@/pages_fsd/home/ui';
+import { serializeJsonLd } from '@/shared/lib';
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 
@@ -75,7 +76,7 @@ const Home = async ({ params }: { params: { locale: string } }) => {
       <section>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
         />
       </section>
       <HomePage />

@@ -4,7 +4,7 @@
 
   --slide-height: 19rem;
   --slide-spacing: 1rem;
-  --slide-size: 70%;
+  --slide-size: 50%;
 }
 
 .embla__viewport {
@@ -135,7 +135,17 @@
   }
 }
 
+@media (width >=576px) and (width <=768px) {
+  .embla {
+    --slide-size: 56%;
+  }
+}
+
 @media (width >=321px) and (width <=576px) {
+  .embla {
+    --slide-size: 77%;
+  }
+
   .embla__controls {
     grid-template-columns: 1fr;
   }
