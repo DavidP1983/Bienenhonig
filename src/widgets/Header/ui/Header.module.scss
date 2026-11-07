@@ -103,12 +103,22 @@
       font-size: 20px;
       font-family: var(--font-museoMono);
       color: var(--text-color);
+
+      &:focus-visible {
+        outline: none;
+      }
     }
 
     &:hover,
     &.active img {
       transform: translateY(-8px);
       filter: drop-shadow(0 0 12px rgb(255 255 255 / 40%));
+    }
+
+    &:has(a:focus-visible) {
+      outline: var(--focus-outline-width) var(--focus-outline-style)
+        var(--focus-outline-color);
+      outline-offset: var(--focus-outline-offset);
     }
   }
 }

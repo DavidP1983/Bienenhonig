@@ -14,6 +14,12 @@
     border: none;
     cursor: pointer;
     position: relative;
+
+    &:focus-visible {
+      outline: var(--focus-outline-width) var(--focus-outline-style)
+        var(--focus-outline-color);
+      outline-offset: var(--focus-outline-offset);
+    }
   }
 
   &__shopping {
