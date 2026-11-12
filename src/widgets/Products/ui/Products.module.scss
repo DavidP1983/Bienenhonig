@@ -4,10 +4,7 @@
 
 .productSection {
   display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(100px, 270px) minmax(240px, 1fr)
-  );
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   grid-template-rows: minmax(200px, auto);
   grid-auto-rows: minmax(200px, auto);
   gap: 20px;
@@ -35,6 +32,12 @@
   }
 }
 
+.searchInput {
+  width: 100%;
+  max-width: 600px;
+  margin-inline: auto;
+}
+
 .noData {
   text-align: center;
   margin-top: 30px;
@@ -56,18 +59,7 @@
   position: sticky;
 }
 
-/* Управление показа блока фильтра */
-.filtersDesktop,
-.filtersMobile {
-  display: flex;
-  position: sticky;
-}
-
-.filtersMobile {
-  position: relative;
-}
-
-/* Стили Drawer на мобильном устройстве */
+/* Стили Drawer */
 .drawerTitle {
   text-align: center;
 
@@ -88,6 +80,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  p {
+    text-decoration: underline;
+  }
 }
 
 @include productsMedia.products-query;

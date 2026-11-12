@@ -1,31 +1,102 @@
 import { create } from 'zustand';
+import type {
+  CombineFilter,
+  DraftFilter,
+  IFilter,
+  SearchFilter,
+} from './types';
 
-export interface CombineFilter {
-  select: 'alphabetic' | 'L-H' | 'H-L' | '';
-  search: string;
-  checkbox: string[];
-}
+const initialFilter: CombineFilter = {
+  select: '',
+  checkbox: [],
+  minPrice: null,
+  maxPrice: null,
+};
 
-interface IFilter {
-  filter: CombineFilter;
-  handleSelect: (key: string, value: string | string[]) => void;
-  resetFilter: () => void;
-}
+const initialDraft: DraftFilter = {
+  select: '',
+  checkbox: [],
+  minPrice: null,
+  maxPrice: null,
+};
+
+const initialSearch: SearchFilter = {
+  pageSearch: '',
+};
 
 export const useFilter = create<IFilter>()((set) => ({
-  filter: { select: '', search: '', checkbox: [] },
+  search: initialSearch,
+  filter: initialFilter,
+  draft: initialDraft,
 
-  handleSelect: (key, value) =>
+  setSearch: (value: string) =>
+    set({
+      search: {
+        pageSearch: value,
+      },
+    }),
+
+  handleSelect: <K extends keyof DraftFilter>(key: K, value: DraftFilter[K]) =>
     set((state) => ({
-      filter: { ...state.filter, [key]: value },
+      draft: {
+        ...state.draft,
+        [key]: value,
+      },
     })),
 
-  resetFilter: () =>
-    set({
-      filter: {
+  applyFilter: () =>
+    set((state) => ({
+      filter: { ...state.draft },
+    })),
+
+  cancelDraft: () =>
+    set((state) => ({
+      draft: { ...state.filter },
+    })),
+
+  removeCategory: (categoryId) =>
+    set((state) => {
+      const remove = (current: CombineFilter): CombineFilter => ({
+        ...current,
+        checkbox: current.checkbox.filter((id) => id !== categoryId),
+      });
+
+      return {
+        filter: remove(state.filter),
+        draft: remove(state.draft),
+      };
+    }),
+
+  removePriceRange: () =>
+    set((state) => {
+      const remove = (current: CombineFilter): CombineFilter => ({
+        ...current,
+        minPrice: null,
+        maxPrice: null,
+      });
+
+      return {
+        filter: remove(state.filter),
+        draft: remove(state.draft),
+      };
+    }),
+
+  removeSort: () =>
+    set((state) => {
+      const remove = (current: CombineFilter): CombineFilter => ({
+        ...current,
         select: '',
-        search: '',
-        checkbox: [],
-      },
+      });
+
+      return {
+        filter: remove(state.filter),
+        draft: remove(state.draft),
+      };
+    }),
+
+  clearAllFilters: () =>
+    set({
+      filter: { ...initialFilter },
+      draft: { ...initialDraft },
     }),
 }));

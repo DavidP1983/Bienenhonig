@@ -21,12 +21,12 @@ function debounce<T extends (...args: any[]) => any>(fn: T, delay: number) {
 }
 
 export const useDebounce = () => {
-  const handleSelect = useFilter((state) => state.handleSelect);
+  const handleSearch = useFilter((state) => state.setSearch);
   const TIMEOUT = 500;
 
   const debouncedInput = useMemo(() => {
-    return debounce(handleSelect, TIMEOUT);
-  }, [handleSelect]);
+    return debounce(handleSearch, TIMEOUT);
+  }, [handleSearch]);
 
   /* Clearing during unMount */
   useEffect(() => {

@@ -20,7 +20,7 @@ export const Categories = () => {
   const { handleSelect, filter } = useFilter(
     useShallow((state) => ({
       handleSelect: state.handleSelect,
-      filter: state.filter.checkbox,
+      filter: state.draft.checkbox,
     }))
   );
 

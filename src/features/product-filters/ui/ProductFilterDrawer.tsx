@@ -3,32 +3,39 @@ import type { Styles } from '@/shared/ui/ReusableDrawer/ReusableDrawer';
 import { useTranslations } from 'next-intl';
 import type { ReactNode } from 'react';
 
-type MobileProductFilterProps = {
+type ProductFilterDrawerProps = {
   filterOpen: boolean;
   onClose: () => void;
-  resetFilter: () => void;
+  clearAllFilters: () => void;
+  applyFilter: () => void;
+  cancelDraft: () => void;
   styles: Styles;
   children: ReactNode;
   btnStyles: string;
   resultCount: number;
 };
 
-export const MobileProductFilter = ({
+export const ProductFilterDrawer = ({
   filterOpen,
   onClose,
-  resetFilter,
+  clearAllFilters,
+  applyFilter,
+  cancelDraft,
   styles,
   children,
   btnStyles,
   resultCount,
-}: MobileProductFilterProps) => {
-  const t = useTranslations('ProductMobileFilter');
+}: ProductFilterDrawerProps) => {
+  const t = useTranslations('ProductFilter');
 
   return (
     <ReusableDrawer
       title={<p>{t('title')}</p>}
       open={filterOpen}
-      onClose={onClose}
+      onClose={() => {
+        cancelDraft();
+        onClose();
+      }}
       placement="right"
       width={400}
       styles={styles}>
@@ -37,17 +44,21 @@ export const MobileProductFilter = ({
         <Button
           props={{
             type: 'default',
-            onClick: resetFilter,
+            onClick: clearAllFilters,
           }}>
           {t('reset')}
         </Button>
         <Button
           props={{
             type: 'primary',
-            onClick: onClose,
+            onClick: () => {
+              applyFilter();
+              onClose();
+            },
           }}>
-          {t('showResults', { count: resultCount })}
+          {t('apply', { count: resultCount })}
         </Button>
+        <p>{t('showResults', { count: resultCount })}</p>
       </div>
     </ReusableDrawer>
   );

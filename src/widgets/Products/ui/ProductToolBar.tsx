@@ -12,14 +12,14 @@ type ProductToolBarProps = {
   total: number;
   viewMode: ViewMode;
   onChangeViewMode: (mode: ViewMode) => void;
-  openMobileFilters: () => void;
+  openProductFilters: () => void;
 };
 
 export const ProductToolBar = ({
   page,
   pageSize,
   total,
-  openMobileFilters,
+  openProductFilters,
   onChangeViewMode,
   viewMode,
 }: ProductToolBarProps) => {
@@ -30,6 +30,23 @@ export const ProductToolBar = ({
 
   return (
     <div className={styles.toolBar}>
+      <div className={styles.toolBar__controller}>
+        <ProductViewToggle
+          viewMode={viewMode}
+          onChangeViewMode={onChangeViewMode}
+        />
+        <div className={styles.toolBar__filter}>
+          <Button
+            className={styles.toolBar__btn}
+            icon={<BsSliders2 className={styles.toolBar__icon} />}
+            props={{
+              type: 'default',
+              onClick: openProductFilters,
+            }}>
+            {t('filter')}
+          </Button>
+        </div>
+      </div>
       <p className={styles.toolBar__totalItemPerPage}>
         {t('showingItems', {
           showingItems,
@@ -37,23 +54,6 @@ export const ProductToolBar = ({
           total,
         })}
       </p>
-      <div className={styles.toolBar__controller}>
-        <ProductViewToggle
-          viewMode={viewMode}
-          onChangeViewMode={onChangeViewMode}
-        />
-        <div className={styles.toolBar__mobileFilter}>
-          <Button
-            className={styles.toolBar__btn}
-            icon={<BsSliders2 className={styles.toolBar__icon} />}
-            props={{
-              type: 'default',
-              onClick: openMobileFilters,
-            }}>
-            {t('filter')}
-          </Button>
-        </div>
-      </div>
     </div>
   );
 };

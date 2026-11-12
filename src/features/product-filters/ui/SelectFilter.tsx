@@ -1,17 +1,23 @@
 import { Select, Space } from 'antd';
-import { DefaultOptionType } from 'antd/es/select';
 import { useTranslations } from 'next-intl';
+import { useShallow } from 'zustand/react/shallow';
 import { useFilter } from '../model';
+import type { DraftFilter } from '../model/types';
 
 import styles from './SelectFilter.module.scss';
 
 export const SelectFilter = () => {
   const t = useTranslations('ProductFilter');
 
-  const handleSelect = useFilter((state) => state.handleSelect);
+  const { draft, handleSelect } = useFilter(
+    useShallow((state) => ({
+      draft: state.draft.select,
+      handleSelect: state.handleSelect,
+    }))
+  );
 
-  const handleChange = (value: string, option?: DefaultOptionType) => {
-    handleSelect(option?.title as string, value);
+  const handleChange = (value: DraftFilter['select']) => {
+    handleSelect('select', value);
   };
 
   return (
@@ -19,7 +25,8 @@ export const SelectFilter = () => {
       <Space className={styles.selectContainer}>
         <Select
           className={styles.select}
-          defaultValue={t('sortPlaceholder')}
+          placeholder={t('sortPlaceholder')}
+          value={draft || undefined}
           onChange={handleChange}
           allowClear
           title="select"
@@ -32,16 +39,15 @@ export const SelectFilter = () => {
             },
             {
               value: 'L-H',
-              label: t('sortPriceLowHigh'),
+              label: t('sortPriceLowToHigh'),
               title: 'select',
             },
             {
               value: 'H-L',
-              label: t('sortPriceHighLow'),
+              label: t('sortPriceHighToLow'),
               title: 'select',
             },
           ]}
-          placeholder={t('sortPlaceholder')}
         />
       </Space>
     </div>

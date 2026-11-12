@@ -9,3 +9,9 @@
     margin-top: 100px;
   }
 }
+
+@media (width <= 576px) {
+  .products {
+    margin-top: 80px;
+  }
+}

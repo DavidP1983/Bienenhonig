@@ -1,12 +1,16 @@
 'use client';
 import { useBestSeller, useProducts } from '@/entities/product/model';
 import { useReviewSummary } from '@/entities/review/model/useReviewSummary';
-import { MobileProductFilter } from '@/features/mobile-filters/ui';
 import {
   ProductFilter,
   useFilter,
   useSelectAndFilterSort,
 } from '@/features/product-filters';
+import {
+  AppliedFilterChips,
+  ProductFilterDrawer,
+  ProductSearch,
+} from '@/features/product-filters/ui';
 import {
   ProductPagination,
   useProductPagination,
@@ -22,39 +26,49 @@ import styles from './Products.module.scss';
 
 export const Products = () => {
   const [filterOpen, setFilterOpen] = useState(false);
-  const [shouldLoadMobileFilter, setShouldLoadMobileFilter] = useState(false);
+  const [shouldLoadProductFilter, setShouldLoadProductFilter] = useState(false);
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
 
   const { data, isPending, isError, refetch, error } = useProducts();
   const { data: bestSeller } = useBestSeller();
   const {
-    data: reviewSummery,
+    data: reviewSummary,
     isPending: isPendingReview,
     isError: isErrorReview,
   } = useReviewSummary();
 
   const reviewData = {
-    reviewSummery,
+    reviewSummary,
     isPendingReview,
     isErrorReview,
   };
 
-  const { resetFilter, filter } = useFilter(
-    useShallow((state) => ({
-      resetFilter: state.resetFilter,
-      filter: state.filter,
-    }))
+  /* Фильтрация */
+  const { clearAllFilters, applyFilter, cancelDraft, filter, search } =
+    useFilter(
+      useShallow((state) => ({
+        filter: state.filter,
+        search: state.search,
+        clearAllFilters: state.clearAllFilters,
+        applyFilter: state.applyFilter,
+        cancelDraft: state.cancelDraft,
+      }))
+    );
+
+  const { filteredData, resultCount } = useSelectAndFilterSort(
+    data,
+    filter,
+    search
   );
 
-  const { filteredData, resultCount } = useSelectAndFilterSort(data, filter);
-
+  /* Пагинация */
   const { paginatedData, page, pageSize, setPage, setPageSize, total } =
     useProductPagination(filteredData);
 
   /* Reset the page when filters change */
   useEffect(() => {
     setPage(1);
-  }, [filter.select, filter.search, filter.checkbox, setPage]);
+  }, [filter, search]);
 
   /* Сохраняем состояние 'mode' в storage, чтобы при размонтировке сохранить их отображение */
   useEffect(() => {
@@ -71,8 +85,8 @@ export const Products = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const openMobileFilters = () => {
-    setShouldLoadMobileFilter(true);
+  const openProductFilters = () => {
+    setShouldLoadProductFilter(true);
     setFilterOpen(true);
   };
 
@@ -83,17 +97,19 @@ export const Products = () => {
 
   return (
     <>
+      <div className={styles.searchInput}>
+        <ProductSearch />
+      </div>
+      <AppliedFilterChips />
       <ProductToolBar
         page={page}
         pageSize={pageSize}
         total={total}
         viewMode={viewMode}
         onChangeViewMode={handleViewModeChange}
-        openMobileFilters={openMobileFilters}
+        openProductFilters={openProductFilters}
       />
       <div className={styles.productSection}>
-        <ProductFilter className={styles.filtersDesktop} />
-
         <div>
           <ErrorBoundary>
             <ProductContent
@@ -121,8 +137,8 @@ export const Products = () => {
         </div>
       </div>
 
-      {shouldLoadMobileFilter && (
-        <MobileProductFilter
+      {shouldLoadProductFilter && (
+        <ProductFilterDrawer
           filterOpen={filterOpen}
           onClose={() => setFilterOpen(false)}
           styles={{
@@ -130,10 +146,12 @@ export const Products = () => {
             header: `${styles.drawerTitle}`,
           }}
           btnStyles={styles.drawerBtns}
-          resetFilter={resetFilter}
+          clearAllFilters={clearAllFilters}
+          applyFilter={applyFilter}
+          cancelDraft={cancelDraft}
           resultCount={resultCount}>
-          <ProductFilter className={styles.filtersMobile} />
-        </MobileProductFilter>
+          <ProductFilter />
+        </ProductFilterDrawer>
       )}
     </>
   );

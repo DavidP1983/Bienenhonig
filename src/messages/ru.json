@@ -178,7 +178,7 @@
     "imageAlt": "Различные банки мёда и продукты пчеловодства"
   },
   "ProductsPage": {
-    "title": "Все товары"
+    "title": "Каталог товаров"
   },
   "Products": {
     "showingItems": "Показано {showingItems}–{showingPerPage} из {total} товаров",
@@ -191,15 +191,16 @@
     "searchPlaceholder": "Поиск по названию товара…",
     "sortPlaceholder": "Сортировка",
     "sortAlphabetic": "По алфавиту, А–Я",
-    "sortPriceLowHigh": "Сначала дешевле",
-    "sortPriceHighLow": "Сначала дороже",
+    "sortPriceLowToHigh": "Сначала дешевле",
+    "sortPriceHighToLow": "Сначала дороже",
     "sortAriaLabel": "Сортировка товаров",
-    "notfoundCategory": "Категории не найдены."
-  },
-  "ProductMobileFilter": {
+    "notfoundCategory": "Категории не найдены.",
     "title": "Фильтры",
     "reset": "Сброс",
-    "showResults": "Результаты: {count}"
+    "apply": "Применить фильтры",
+    "showResults": "Результаты: {count}",
+    "range": "Диапазон цен",
+    "activeFilters": "Активные фильтры"
   },
   "ProductCard": {
     "discount": "Скидка",

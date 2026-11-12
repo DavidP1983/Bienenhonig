@@ -13,7 +13,7 @@ import type { ViewMode } from '../model/types';
 import styles from './Products.module.scss';
 
 type ReviewSummeryProps = {
-  reviewSummery: ReviewSummery[] | undefined;
+  reviewSummary: ReviewSummery[] | undefined;
   isPendingReview: boolean;
   isErrorReview: boolean;
 };
@@ -47,8 +47,8 @@ export const ProductContent = ({
   /* Выбрал Map который создается один раз и для быстрого поиска карточки и его рейтинга по _id */
   const reviewSummaryMap = useMemo(
     () =>
-      new Map(reviews?.reviewSummery?.map((item) => [item._id, item]) ?? []),
-    [reviews.reviewSummery]
+      new Map(reviews?.reviewSummary?.map((item) => [item._id, item]) ?? []),
+    [reviews.reviewSummary]
   );
 
   const bestSellerIdSet = useMemo(

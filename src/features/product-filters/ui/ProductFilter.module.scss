@@ -1,23 +1,29 @@
 .filters {
-  overflow-y: auto;
-  top: 20px;
-  border: 1px dotted rgb(113 6 6);
-  padding: 20px 10px;
+  display: flex;
   flex-direction: column;
   gap: 18px;
+  overflow-y: auto;
+  top: 20px;
+  border: 1px dotted #e8e3d5;
+  padding: 12px;
   border-radius: 10px;
+  background-color: #faf9f5;
 
-  & .divider {
-    margin: 0 auto;
-    width: 80%;
-    height: 1px;
-    border: 1px solid red;
+  & .filterSection {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 12px;
+    border-radius: 8px;
+    background-color: #fff;
+    border: 1px solid #eee9dc;
   }
 
   & .title {
     text-align: center;
-    font-size: 20px;
+    font-size: 18px;
     font-family: var(--font-museoSans);
+    font-weight: 600;
     color: #7d6407;
   }
 }

@@ -1,6 +1,6 @@
 import { Product } from '@/entities/product/model/types';
 import { useMemo } from 'react';
-import { CombineFilter } from './filter.store';
+import { CombineFilter, SearchFilter } from './types';
 
 /* By Alphabetic */
 const sortByAlphabetic = (data: Product[]) => {
@@ -30,51 +30,70 @@ const Strategy = {
   'H-L': (data: Product[]) => sortByPrice(data, 'H-L'),
 };
 
-const useSelectSort = (
-  data: Product[],
-  select: 'alphabetic' | 'L-H' | 'H-L' | ''
-) => {
-  const sortedSelect = useMemo(() => {
-    if (select === '') return data;
-    return Strategy[select](data);
-  }, [data, select]);
+/* Фильтр по категориям */
+const categoriesFilter = (data: Product[], filter: CombineFilter) => {
+  if (!filter.checkbox.length) return data;
 
-  return sortedSelect;
+  const selectedCategories = new Set(filter.checkbox);
+
+  return data.filter((item) => selectedCategories.has(item.categoryId));
 };
 
-/* By CheckBox Category */
-const useCheckBoxFilter = (data: Product[], filter: CombineFilter) => {
-  const sortedData = useSelectSort(data, filter.select);
+/* Фильтр по выбору цены */
+const priceFilter = (data: Product[], filter: CombineFilter) => {
+  const { minPrice, maxPrice } = filter;
 
-  const sortCheckBox = useMemo(() => {
-    if (filter.checkbox.length === 0) {
-      return sortedData;
-    }
+  if (minPrice === null && maxPrice === null) return data;
 
-    const selectedCategories = new Set(filter.checkbox);
-    return sortedData.filter((item) => selectedCategories.has(item.categoryId));
-  }, [sortedData, filter.checkbox]);
+  return data.filter((product) =>
+    product.variants.some((variant) => {
+      const price = variant.price;
 
-  return sortCheckBox;
+      const matchesMin = minPrice === null || price >= minPrice;
+      const matchesMax = maxPrice === null || price <= maxPrice;
+
+      return matchesMin && matchesMax;
+    })
+  );
 };
 
-/* Main Filter */
+/* Сортировка */
+const sortFilter = (data: Product[], filter: CombineFilter) => {
+  if (!filter.select) return data;
+
+  return Strategy[filter.select](data);
+};
+
+const filterStrategies = [categoriesFilter, priceFilter, sortFilter];
+
+/* Search Filter */
 export const useSelectAndFilterSort = (
   data: Product[] | undefined,
-  filter: CombineFilter
+  filter: CombineFilter,
+  search: SearchFilter
 ) => {
-  const sortedData = useCheckBoxFilter(data ?? [], filter);
+  const searchData = useMemo(() => {
+    const products = data ?? [];
+    const query = search.pageSearch.trim().toLocaleLowerCase();
+
+    if (!query) return products;
+
+    return products.filter((item) =>
+      item.slug.toLocaleLowerCase().includes(query)
+    );
+  }, [data, search.pageSearch]);
 
   const filteredData = useMemo(() => {
-    return sortedData.filter((item) =>
-      item.slug.toLocaleLowerCase().includes(filter.search.toLocaleLowerCase())
+    return filterStrategies.reduce(
+      (result, applyFilter) => applyFilter(result, filter),
+      searchData
     );
-  }, [filter.search, sortedData]);
+  }, [searchData, filter]);
 
-  /* Подсчет для mobile фильтра*/
   const hasActiveFilters =
     Boolean(filter.select) ||
-    Boolean(filter.search) ||
+    Boolean(filter.minPrice) ||
+    Boolean(filter.maxPrice) ||
     filter.checkbox.length > 0;
   const resultCount = hasActiveFilters ? filteredData.length : 0;
 

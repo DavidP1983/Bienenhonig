@@ -1,7 +1,7 @@
 @use '../mixins/mixins' as product;
 
 @mixin products-query {
-  @media (width <= 768px) {
+  @media (768px <= width <= 992px) {
     .productSection {
       grid-template-columns: minmax(0, 1fr);
     }
@@ -10,20 +10,12 @@
       flex-direction: column;
       gap: 20px;
 
-      &__mobileFilter {
-        display: flex;
-      }
-
       &__controller {
         margin-top: 20px;
         width: 100%;
         justify-content: space-between;
         align-items: center;
       }
-    }
-
-    .filtersDesktop {
-      display: none;
     }
   }
 
@@ -43,6 +35,16 @@
 
     .viewToggle {
       display: none;
+    }
+
+    .toolBar {
+      &__controller {
+        justify-content: center;
+      }
+
+      &__btn {
+        height: 35px;
+      }
     }
   }
 }

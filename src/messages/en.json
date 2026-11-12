@@ -180,7 +180,7 @@
     "imageAlt": "A variety of honey jars and bee products"
   },
   "ProductsPage": {
-    "title": "All Products"
+    "title": "Product Catalog"
   },
   "Products": {
     "showingItems": "Showing {showingItems} – {showingPerPage} of {total} items",
@@ -193,15 +193,16 @@
     "searchPlaceholder": "Search by article name...",
     "sortPlaceholder": "Sort by",
     "sortAlphabetic": "Alphabetically, A–Z",
-    "sortPriceLowHigh": "Price: low to high",
-    "sortPriceHighLow": "Price: high to low",
+    "sortPriceLowToHigh": "Price: low to high",
+    "sortPriceHighToLow": "Price: high to low",
     "sortAriaLabel": "Sort products",
-    "notfoundCategory": "No categories found."
-  },
-  "ProductMobileFilter": {
+    "notfoundCategory": "No categories found.",
     "title": "Filters",
     "reset": "Reset",
-    "showResults": "Show {count} results"
+    "apply": "Apply filters",
+    "showResults": "Show {count} results",
+    "range": "Price Range",
+    "activeFilters": "Active filters"
   },
   "ProductCard": {
     "discount": "Discount",

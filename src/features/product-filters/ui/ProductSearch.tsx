@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 import { useDebounce } from '../model/useDebounce';
 
-export const InputSearch = () => {
+export const ProductSearch = () => {
   const t = useTranslations('ProductFilter');
 
   const [searchValue, setSearchValue] = useState('');
@@ -21,10 +21,9 @@ export const InputSearch = () => {
   );
 
   const onSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const key = e.target.getAttribute('name') as string;
     const value = e.target.value;
     setSearchValue(value);
-    debouncedInput(key, value);
+    debouncedInput(value);
   };
 
   return (
