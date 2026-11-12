@@ -68,7 +68,7 @@ export const Products = () => {
   /* Reset the page when filters change */
   useEffect(() => {
     setPage(1);
-  }, [filter, search]);
+  }, [filter, search, setPage]);
 
   /* Сохраняем состояние 'mode' в storage, чтобы при размонтировке сохранить их отображение */
   useEffect(() => {

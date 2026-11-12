@@ -1,13 +1,90 @@
+import type { Category } from '@/entities/category/model/type';
 import { useCategories } from '@/entities/category/model/useCategory';
+import { Button } from '@/shared/ui';
 import { Tag } from 'antd';
 import { useLocale, useTranslations } from 'next-intl';
+import { useMemo } from 'react';
 import { useShallow } from 'zustand/react/shallow';
 import { useFilter } from '..';
 
 type Locale = 'en' | 'ru';
 
-import { Button } from '@/shared/ui';
 import styles from './AppliedFilterChips.module.scss';
+
+interface CategoryChipsProps {
+  categoryIds: string[];
+  categories: Category[] | undefined;
+  locale: Locale;
+  onRemove: (id: string) => void;
+}
+
+const CategoryChips = ({
+  categoryIds,
+  categories,
+  locale,
+  onRemove,
+}: CategoryChipsProps) => (
+  <>
+    {categoryIds.map((categoryId) => {
+      const category = categories?.find((item) => item._id === categoryId);
+
+      return (
+        <Tag
+          key={categoryId}
+          closable
+          onClose={() => onRemove(categoryId)}>
+          {category?.name[locale] ?? categoryId}
+        </Tag>
+      );
+    })}
+  </>
+);
+
+interface PriceChipProps {
+  minPrice: number | null;
+  maxPrice: number | null;
+  formatPrice: (price: number) => string;
+  onRemove: () => void;
+}
+
+const PriceChip = ({
+  minPrice,
+  maxPrice,
+  formatPrice,
+  onRemove,
+}: PriceChipProps) => (
+  <Tag
+    closable
+    onClose={onRemove}>
+    {minPrice !== null && formatPrice(minPrice)}
+    {minPrice !== null && maxPrice !== null && ' – '}
+    {minPrice === null && '≤ '}
+    {maxPrice !== null && formatPrice(maxPrice)}
+    {maxPrice === null && ' ≥'}
+  </Tag>
+);
+
+interface SortChipProps {
+  value: string;
+  t: ReturnType<typeof useTranslations>;
+  onRemove: () => void;
+}
+
+const SortChip = ({ value, t, onRemove }: SortChipProps) => {
+  const labels: Record<string, string> = {
+    alphabetic: t('sortAlphabetic'),
+    'L-H': t('sortPriceLowToHigh'),
+    'H-L': t('sortPriceHighToLow'),
+  };
+
+  return (
+    <Tag
+      closable
+      onClose={onRemove}>
+      {labels[value]}
+    </Tag>
+  );
+};
 
 export const AppliedFilterChips = () => {
   const t = useTranslations('ProductFilter');
@@ -37,59 +114,54 @@ export const AppliedFilterChips = () => {
   const hasActiveFilters =
     checkbox.length > 0 || hasPriceFilter || Boolean(select);
 
-  const formatPrice = (price: number) =>
-    new Intl.NumberFormat(locale, {
-      style: 'currency',
-      currency: 'EUR',
-      maximumFractionDigits: 2,
-    }).format(price);
-
-  if (!hasActiveFilters) return null;
+  const numberFormatter = useMemo(
+    () =>
+      new Intl.NumberFormat(locale, {
+        style: 'currency',
+        currency: 'EUR',
+        maximumFractionDigits: 2,
+      }),
+    [locale]
+  );
+  const formatPrice = (price: number) => numberFormatter.format(price);
 
   return (
-    <div className={styles.chips}>
-      <h2 className={styles.chips__title}>{t('activeFilters')}</h2>
-      <div className={styles.chips__list}>
-        {checkbox.map((categoryId) => {
-          const category = categories?.find((item) => item._id === categoryId);
+    <div
+      className={styles.chips}
+      data-empty={!hasActiveFilters}>
+      <div className={styles.chips__content}>
+        <h2 className={styles.chips__title}>{t('activeFilters')}</h2>
+        <div className={styles.chips__list}>
+          <CategoryChips
+            categoryIds={checkbox}
+            categories={categories}
+            locale={locale}
+            onRemove={removeCategory}
+          />
 
-          return (
-            <Tag
-              key={categoryId}
-              closable
-              onClose={() => removeCategory(categoryId)}>
-              {category?.name[locale] ?? categoryId}
-            </Tag>
-          );
-        })}
+          {hasPriceFilter && (
+            <PriceChip
+              minPrice={minPrice}
+              maxPrice={maxPrice}
+              formatPrice={formatPrice}
+              onRemove={removePriceRange}
+            />
+          )}
 
-        {hasPriceFilter && (
-          <Tag
-            closable
-            onClose={removePriceRange}>
-            {minPrice !== null && formatPrice(minPrice)}
-            {minPrice !== null && maxPrice !== null && ' – '}
-            {minPrice === null && '≤ '}
-            {maxPrice !== null && formatPrice(maxPrice)}
-            {maxPrice === null && ' ≥'}
-          </Tag>
-        )}
-
-        {select && (
-          <Tag
-            closable
-            onClose={removeSort}>
-            {select === 'alphabetic' && t('sortAlphabetic')}
-            {select === 'L-H' && t('sortPriceLowToHigh')}
-            {select === 'H-L' && t('sortPriceHighToLow')}
-          </Tag>
-        )}
+          {select && (
+            <SortChip
+              value={select}
+              t={t}
+              onRemove={removeSort}
+            />
+          )}
+        </div>
+        <Button
+          className={styles.chips__reset}
+          props={{ type: 'link', onClick: clearAllFilters }}>
+          {t('reset')}
+        </Button>
       </div>
-      <Button
-        className={styles.chips__reset}
-        props={{ type: 'link', onClick: clearAllFilters }}>
-        {t('reset')}
-      </Button>
     </div>
   );
 };
