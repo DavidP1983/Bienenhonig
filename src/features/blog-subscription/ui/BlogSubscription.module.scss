@@ -1,0 +1,81 @@
+@use '../media/subscription' as footerSubscriptionMedia;
+
+.footerSubscribe {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1340px;
+  margin: 10px auto 0;
+  padding: 30px 50px;
+  position: relative;
+  border: none;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    left: 5%;
+    width: 90%;
+    height: 1px;
+    background: rgb(228 201 155 / 25%);
+  }
+
+  &::before {
+    top: 0;
+  }
+
+  &::after {
+    bottom: 0;
+  }
+
+  .subscribeText {
+    flex: 1;
+
+    h2 {
+      color: #f5d89a;
+      font-family: var(--font-museoBold);
+      font-size: 21px;
+      margin-bottom: 8px;
+    }
+
+    p {
+      color: #e4c99b;
+      font-size: 14px;
+    }
+  }
+
+  .subscribeForm {
+    display: flex;
+    align-items: center;
+    max-width: 460px;
+    flex-shrink: 0;
+    gap: 10px;
+    width: min(100%, 460px);
+
+    .input {
+      flex: 1;
+      min-width: 0;
+      padding: 13px 16px;
+      border: 1px solid #d6b978;
+      border-radius: 4px;
+      background: #fff8e8;
+      color: #593408;
+      outline: none;
+    }
+
+    .subscribe {
+      height: auto;
+      flex-shrink: 0;
+      padding: 13px 22px;
+      border: 0;
+      border-radius: 4px;
+      background: #d6a64b;
+      color: #3d2608;
+      font-family: var(--font-museoBold);
+      cursor: pointer;
+    }
+  }
+}
+
+@include footerSubscriptionMedia.footer-subscription;

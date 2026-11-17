@@ -93,9 +93,14 @@
     "home": "Главная",
     "products": "Товары",
     "support": "Поддержка",
-    "locations": "Наши адреса",
+    "locations": "Локации",
     "address": "Адрес",
     "country": "Германия",
+    "subscribeTitle": "Будьте первыми в курсе новинок",
+    "subscribeDescription": "Оставьте свою электронную почту, чтобы узнавать о поступлении новых продуктов",
+    "emailPlaceholder": "Ваша электронная почта",
+    "subscribe": "Подписаться",
+    "language": "Языки",
     "rights": "Все права защищены."
   },
   "LocationMetadata": {

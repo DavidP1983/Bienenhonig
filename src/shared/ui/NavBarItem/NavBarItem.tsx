@@ -1,28 +1,20 @@
 import { Link } from '@/i18n/navigation';
 import type { CloudinaryImage } from '@/shared/types/types';
-import { ProductImage } from '../ProductImage/ProductImage';
 
 type NavigationProps = {
   title: string;
-  subtitle: string;
   path: string;
   url: CloudinaryImage;
+  isActive: boolean;
 };
 
 export const NavBarItem = ({ title, ...props }: NavigationProps) => {
-  const { path, url } = props;
+  const { path, isActive } = props;
   return (
-    <>
-      <Link href={path}>
-        {title}
-        <ProductImage
-          image={url}
-          alt={`${title} Page`}
-          width={384}
-          height={384}
-          priority
-        />
-      </Link>
-    </>
+    <Link
+      href={path}
+      aria-current={isActive ? 'page' : undefined}>
+      {title}
+    </Link>
   );
 };

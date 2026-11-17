@@ -1,0 +1,89 @@
+@mixin footer-subscription {
+  @media (width >= 769px) and (width <= 1024px) {
+    .footerSubscribe {
+      gap: 25px;
+      padding: 30px;
+
+      .subscribeText {
+        h2 {
+          font-size: 19px;
+        }
+
+        p {
+          font-size: 13px;
+        }
+      }
+
+      .subscribeForm {
+        max-width: 420px;
+      }
+    }
+  }
+
+  @media (width >= 481px) and (width <= 768px) {
+    .footerSubscribe {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 30px;
+
+      .subscribeText {
+        flex: unset;
+      }
+
+      .subscribeForm {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+  }
+
+  @media (width <= 480px) {
+    .footerSubscribe {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      padding: 28px 20px;
+      text-align: center;
+
+      .subscribeText {
+        flex: unset;
+
+        h2 {
+          font-size: 19px;
+        }
+
+        p {
+          font-size: 13px;
+        }
+      }
+
+      .subscribeForm {
+        flex-direction: column;
+        width: 100%;
+        max-width: 100%;
+        gap: 12px;
+
+        input {
+          width: 100%;
+        }
+
+        .subscribe {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  @media (width <= 360px) {
+    .footerSubscribe {
+      padding: 25px 15px;
+
+      .subscribeForm {
+        .subscribe {
+          padding: 12px 15px;
+        }
+      }
+    }
+  }
+}

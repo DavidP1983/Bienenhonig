@@ -139,11 +139,19 @@
   .embla {
     --slide-size: 56%;
   }
+
+  .embla__buttons {
+    margin: 0;
+  }
 }
 
 @media (width >=321px) and (width <=576px) {
   .embla {
     --slide-size: 77%;
+  }
+
+  .embla__buttons {
+    margin: 0;
   }
 
   .embla__controls {
@@ -163,6 +171,10 @@
   .embla__controls {
     grid-template-columns: 300px;
     justify-content: center;
+  }
+
+  .embla__buttons {
+    margin: 0;
   }
 
   .embla__buttons {

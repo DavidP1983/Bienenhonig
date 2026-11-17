@@ -1,5 +1,5 @@
 .maintitle {
-  margin-top: 30px;
+  margin-top: 137px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,11 +9,11 @@
   & .title,
   .subtitle {
     font-family: var(--font-museoBold);
-    font-size: 40px;
-    text-shadow:
-      0 13.36px 8.896px #5a541a,
-      0 -2px 1px #fff;
-    color: #5d5719;
+    font-size: 42px;
+    text-shadow: 0 2px 4px rgb(70 40 10 / 25%);
+    color: #fff0c2;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
   }
 
   & .subtitle {
@@ -31,7 +31,8 @@
       grid-template-rows: 1fr;
       gap: 0;
       place-items: start start;
-      color: #fffffe;
+      color: #fff0c2;
+      font-size: 40px;
       text-shadow: none;
     }
 

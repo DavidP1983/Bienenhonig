@@ -1,52 +1,9 @@
 @mixin header-query {
-  @media (width <= 1200px) {
-    .header {
-      & .logo {
-        width: 120px;
-        height: 120px;
-
-        & a {
-          top: 20%;
-          left: 20%;
-        }
-      }
-
-      & .circle {
-        top: 11px;
-        left: 21px;
-        width: 80px;
-      }
-    }
-  }
-
   @media (width <= 992px) {
     .header {
-      padding: 13px 0;
-
-      .circle {
-        top: 6px;
-      }
-
-      .desktopNav {
-        .navbar {
-          gap: 60px;
-        }
-      }
-
       .logo {
         a {
-          top: 19%;
-          left: 19%;
-        }
-      }
-
-      .active,
-      .links {
-        width: 130px;
-
-        & img {
-          width: 50%;
-          height: 50%;
+          font-size: 20px;
         }
       }
     }
@@ -55,53 +12,29 @@
   @media (width <= 768px) {
     .header {
       height: 100px;
-      width: 100vw;
+      padding: 0;
+
+      .container {
+        width: calc(100% - 40px);
+        height: 100%;
+        margin: 0;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+      }
 
       .desktopNav,
-      .circle,
       .logo {
         display: none;
       }
 
       .mobileNav {
-        display: block;
-        position: absolute;
-        top: -2px;
-        left: -2px;
+        display: flex;
       }
-    }
 
-    .cart {
-      top: 6%;
-      right: -40%;
-    }
-  }
-
-  @media (width <= 768px) and (width >= 657px) {
-    .cart {
-      position: fixed;
-      top: 22%;
-      right: 8%;
-    }
-  }
-
-  @media (width <= 656px) and (width >= 577px) {
-    .cart {
-      position: fixed;
-      top: 22%;
-      right: 8%;
-    }
-  }
-
-  @media (width <= 576px) {
-    .header {
-      width: 100vw;
-    }
-
-    .cart {
-      position: fixed;
-      top: 22%;
-      right: 8%;
+      .cart {
+        position: absolute;
+        top: 27px;
+      }
     }
   }
 }

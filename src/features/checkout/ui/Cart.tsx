@@ -22,17 +22,19 @@ export const Cart = () => {
 
   return (
     <>
-      <div className={styles.cart}>
-        <button
-          className={styles.cart__btn}
-          suppressHydrationWarning={true}
-          onClick={handleOpen}>
-          <TbShoppingBag className={styles.cart__shopping} />
-          <div className={styles.cart__count}>
-            <span>{cartCount}</span>
-          </div>
-        </button>
-      </div>
+      <button
+        className={styles.btn}
+        onClick={handleOpen}
+        aria-label={`Cart, ${cartCount} Article`}
+        aria-haspopup="dialog"
+        aria-expanded={open}>
+        <TbShoppingBag className={styles.shopping} />
+        <span
+          className={styles.count}
+          aria-hidden="true">
+          {cartCount}
+        </span>
+      </button>
       {/* {hasOpen && <OrderConfirm open={open} setOpen={setOpen} />} */}
       <OrderConfirm
         open={open}

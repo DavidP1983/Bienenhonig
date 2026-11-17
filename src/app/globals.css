@@ -5,7 +5,12 @@
   --text-color: #fff;
   --text-black: #000;
   --text-orange: #663d00;
-  --gradient-primary: linear-gradient(135deg, #fc0, #ffa500);
+  --gradient-primary: linear-gradient(
+    135deg,
+    #ffa500 0%,
+    #fc0 50%,
+    #ffa500 100%
+  );
   --z-index-overlay: 2;
   --focus-outline-width: 2px;
   --focus-outline-style: solid;
@@ -97,11 +102,9 @@
   }
 }
 
-html,
-body {
-  /* для эффекта с footer и model */
-  scrollbar-gutter: stable;
-  width: 100vw;
+html {
+  /* scrollbar-gutter: stable; */
+  width: 100dvw;
 }
 
 @media (prefers-reduced-motion: no-preference) {

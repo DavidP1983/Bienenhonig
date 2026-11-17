@@ -1,13 +1,15 @@
-@use './media/home' as homeMedia;
-
 .about {
   position: relative;
-  min-height: 500px;
-  padding: 10px 0;
+  min-height: 100dvh;
+  padding: 10px 0 30px;
   text-align: center;
-  background: url('/pngwing.webp') right top no-repeat;
-  background-size: 100% 90%;
-  margin-top: 149px;
+  background-image: url('/photo.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
-@include homeMedia.home-query;
+@media (width <= 768px) {
+  .about {
+    background-position: center;
+  }
+}

@@ -97,6 +97,11 @@
     "locations": "Locations",
     "address": "Address",
     "country": "Germany",
+    "subscribeTitle": "Stay up to date",
+    "subscribeDescription": "Subscribe to receive updates about our new honey products",
+    "emailPlaceholder": "Enter your email address",
+    "subscribe": "Subscribe",
+    "language": "Language",
     "rights": "All rights reserved."
   },
   "LocationMetadata": {

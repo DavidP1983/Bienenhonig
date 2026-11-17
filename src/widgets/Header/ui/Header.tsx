@@ -1,9 +1,8 @@
 'use client';
-import logo from '@/shared/assets/img/logo/logo.png';
+import { Cart } from '@/features/checkout/ui/Cart';
 import { headerAnimation } from '@/widgets/Header/lib/headerAnimation';
 import { NavBarMobile } from '@/widgets/NavBarMobile/ui';
 import { useGSAP } from '@gsap/react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { useRef } from 'react';
 import { Navbar } from './NavBar';
@@ -23,36 +22,19 @@ export const Header = () => {
     <header
       className={styles.header}
       ref={myRef}>
-      <div>
-        <svg
-          className={styles.circle}
-          viewBox="0 0 100 100">
-          <path
-            id="circle"
-            d="M 0,50 a 50,50 0 1,1 0,1 z"
-          />
-          <text>
-            <textPath xlinkHref="#circle">raw honey</textPath>
-          </text>
-        </svg>
-      </div>
-
-      <div className={styles.logo}>
-        <Link href="/">
-          <Image
-            src={logo}
-            alt="logo"
-            width={110}
-            height={110}
-            priority
-          />
-        </Link>
-      </div>
-      <div className={styles.desktopNav}>
-        <Navbar />
-      </div>
-      <div className={styles.mobileNav}>
-        <NavBarMobile />
+      <div className={styles.container}>
+        <div className={styles.logo}>
+          <Link href="/">Bienenhonig</Link>
+        </div>
+        <div className={styles.desktopNav}>
+          <Navbar />
+        </div>
+        <div className={styles.mobileNav}>
+          <NavBarMobile />
+        </div>
+        <div className={styles.cart}>
+          <Cart />
+        </div>
       </div>
     </header>
   );

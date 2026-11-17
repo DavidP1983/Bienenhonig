@@ -1,5 +1,4 @@
 'use client';
-import { Cart } from '@/features/checkout/ui/Cart';
 import * as motion from 'motion/react-client';
 import { useEffect, useRef, useState } from 'react';
 import { useDimensions } from '../hooks/useDimensions';
@@ -15,10 +14,14 @@ export function NavBarMobile() {
   const { height } = useDimensions(containerRef);
 
   useEffect(() => {
-    document.body.style.overflow = isOpen ? 'hidden' : '';
+    if (!isOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+
+    document.body.style.overflow = 'hidden';
 
     return () => {
-      document.body.style.overflow = '';
+      document.body.style.overflow = previousOverflow;
     };
   }, [isOpen]);
 
@@ -26,6 +29,7 @@ export function NavBarMobile() {
     <div>
       <div className={`${styles.container} ${isOpen ? styles.open : ''}`}>
         <motion.nav
+          aria-label="Mobile Navigation"
           initial={false}
           animate={isOpen ? 'open' : 'closed'}
           custom={height}
@@ -48,7 +52,6 @@ export function NavBarMobile() {
           <Navigation toggle={() => setIsOpen(!isOpen)} />
           <MenuToggle toggle={() => setIsOpen(!isOpen)} />
         </motion.nav>
-        <Cart />
       </div>
     </div>
   );

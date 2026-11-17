@@ -37,7 +37,7 @@ export const ProductFilterDrawer = ({
         onClose();
       }}
       placement="right"
-      width={400}
+      width={500}
       styles={styles}>
       {children}
       <div className={btnStyles}>

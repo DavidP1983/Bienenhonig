@@ -1,47 +1,47 @@
-@use './media/cart' as CartMedia;
+.btn {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f5e8ce;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition:
+    color 0.3s ease,
+    filter 0.3s ease;
 
-.cart {
-  position: absolute;
-  top: 13px;
-  right: 10%;
-  width: 35px;
-  height: 35px;
-
-  &__btn {
-    width: 80%;
-    color: var(--text-color);
-    background: inherit;
-    border: none;
-    cursor: pointer;
-    position: relative;
-
-    &:focus-visible {
-      outline: var(--focus-outline-width) var(--focus-outline-style)
-        var(--focus-outline-color);
-      outline-offset: var(--focus-outline-offset);
-    }
+  &:hover {
+    color: #ffd166;
+    filter: drop-shadow(0 0 6px rgb(255 209 102 / 45%));
   }
 
-  &__shopping {
-    width: 100%;
-    height: 100%;
-  }
-
-  &__count {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: -15px;
-    left: 19px;
-    font-size: 19px;
-    color: red;
-    font-weight: 700;
-    width: 25px;
-    height: 25px;
-    border-radius: 100%;
-    background: white;
+  &:focus-visible {
+    outline: var(--focus-outline-width) var(--focus-outline-style)
+      var(--focus-outline-color);
+    outline-offset: var(--focus-outline-offset);
   }
 }
 
-@include CartMedia.cart-query;
+.shopping {
+  width: 100%;
+  height: 100%;
+}
+
+.count {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -15px;
+  left: 19px;
+  font-size: 19px;
+  color: red;
+  font-weight: 700;
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+  background: white;
+}

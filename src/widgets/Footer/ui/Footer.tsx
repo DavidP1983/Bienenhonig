@@ -1,3 +1,4 @@
+import { BlogSubscription } from '@/features/blog-subscription/ui';
 import { Link } from '@/i18n/navigation';
 import {
   FaFacebookF,
@@ -8,7 +9,7 @@ import {
   LuMailOpen,
   MdLanguage,
 } from '@/shared/assets/icons';
-import logo from '@/shared/assets/img/logo/logo.png';
+import logo from '@/shared/assets/img/logo/brand.webp';
 import { LanguageSwitcher } from '@/shared/ui';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
@@ -21,13 +22,19 @@ export const Footer = () => {
     <footer className={styles.footer}>
       <div className={styles.footerContent}>
         <div className={styles.footerLogo}>
-          <Link href="/">
+          <Link
+            href="/"
+            aria-label="Bienenhonig — home"
+            className={styles.brand}>
             <Image
               width={120}
               height={120}
               src={logo}
-              alt="logo"
+              alt="Bienenhonig"
             />
+            <span className={styles.brandName}>Bienenhonig</span>
+            <span className={styles.brandLine} />
+            <span className={styles.brandTagline}>Natural Honey</span>
           </Link>
         </div>
         <div className={styles.footerLinks}>
@@ -87,10 +94,14 @@ export const Footer = () => {
           </address>
         </div>
       </div>
+
+      <BlogSubscription />
+
       <div className={styles.footerBottom}>
         <div className={styles.socialItems}>
           <a
             href="#"
+            aria-label="Facebook"
             className={styles.social}
             target="_blank"
             rel="noopener noreferrer">
@@ -98,6 +109,7 @@ export const Footer = () => {
           </a>
           <a
             href="#"
+            aria-label="Telegram"
             className={styles.social}
             target="_blank"
             rel="noopener noreferrer">
@@ -105,6 +117,7 @@ export const Footer = () => {
           </a>
           <a
             href="#"
+            aria-label="WhatsApp"
             className={styles.social}
             id="whatsup"
             target="_blank"
@@ -114,6 +127,7 @@ export const Footer = () => {
         </div>
 
         <div className={styles.languageSwitcher}>
+          <span className={styles.switcherTitle}>{t('language')}</span>
           <MdLanguage className={styles.iconLanguage} />
           <LanguageSwitcher />
         </div>
