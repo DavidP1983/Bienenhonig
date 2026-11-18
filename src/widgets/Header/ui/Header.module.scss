@@ -40,11 +40,17 @@
     display: none;
   }
 
-  & .cart {
-    width: 35px;
-    height: 35px;
+  & .actions {
+    padding: 0 25px;
     position: relative;
     place-self: center flex-end;
+
+    &__container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+    }
   }
 
   & .navbar {

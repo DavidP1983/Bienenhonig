@@ -53,6 +53,8 @@
     "TICKET_CREATION_FAILED": "Не удалось создать обращение.",
     "ORDER_NOT_FOUND": "Не удалось подтвердить заказ. Проверьте номер заказа и адрес электронной почты.",
     "BESTSELLER_FETCH_FAILED": "Не удалось загрузить самые продаваемые товары",
+    "PRODUCTS_NOT_SELECTED": "Пожалуйста, выберите хотя бы один товар.",
+    "INVALID_PRODUCT_IDS": "Некоторые выбранные товары не найдены.",
     "NETWORK_ERROR": "Ошибка сети.",
     "EMPTY_RESPONSE": "Сервер не вернул данные.",
     "SERVER_ERROR": "Ошибка сервера.",
@@ -217,6 +219,14 @@
     "noData": "Нет данных для отображения",
     "bestSeller": "Хит продаж",
     "new": "Новинка"
+  },
+  "Wishlist": {
+    "title": "Избранное",
+    "wishlistCount": "Сохранено товаров: {count}",
+    "wishlistEmpty": "Список избранного пуст",
+    "removeFromWishlist": "удалить из списка сохраненных",
+    "addToWishlist": "добавить в список сохраненных",
+    "clear": "Очистить список"
   },
   "ProductDetailsMetadata": {
     "title": "Информация о товаре: {title}",

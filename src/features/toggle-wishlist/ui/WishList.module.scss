@@ -1,0 +1,13 @@
+@use '@/shared/styles/mixins' as *;
+
+.btn {
+  @include header-actions;
+}
+
+.wishlistIcon {
+  @include header-action-icon;
+}
+
+.count {
+  @include header-action-count;
+}

@@ -1,5 +1,6 @@
 'use client';
 import { Cart } from '@/features/checkout/ui/Cart';
+import { Wishlist } from '@/features/toggle-wishlist/ui/WishList';
 import { headerAnimation } from '@/widgets/Header/lib/headerAnimation';
 import { NavBarMobile } from '@/widgets/NavBarMobile/ui';
 import { useGSAP } from '@gsap/react';
@@ -32,8 +33,11 @@ export const Header = () => {
         <div className={styles.mobileNav}>
           <NavBarMobile />
         </div>
-        <div className={styles.cart}>
-          <Cart />
+        <div className={styles.actions}>
+          <div className={styles.actions__container}>
+            <Wishlist />
+            <Cart />
+          </div>
         </div>
       </div>
     </header>

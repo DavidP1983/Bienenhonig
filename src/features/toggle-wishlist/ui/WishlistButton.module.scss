@@ -1,0 +1,15 @@
+.whishList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px auto 0;
+  border-color: transparent;
+  background: transparent;
+  box-shadow: unset;
+
+  .wishlistIcon {
+    width: 25px;
+    height: 25px;
+    color: #b70a0a;
+  }
+}

@@ -1,4 +1,5 @@
 import type { ReviewSummery } from '@/entities/review/model/type';
+import { WishlistButton } from '@/features/toggle-wishlist/ui';
 import { Link } from '@/i18n/navigation';
 import { FiAward } from '@/shared/assets/icons';
 import { isNewProduct } from '@/shared/lib';
@@ -51,6 +52,7 @@ export const ProductCard = ({
             sizes="200px"
           />
         </Link>
+        <WishlistButton id={product._id} />
       </div>
 
       <div className={styles.description}>

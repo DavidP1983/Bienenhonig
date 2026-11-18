@@ -3,13 +3,15 @@ import { BsSliders2 } from 'react-icons/bs';
 import {
   FaFacebookF,
   FaGripHorizontal,
+  FaHeart,
   FaList,
+  FaRegHeart,
   FaTelegramPlane,
   FaWhatsapp,
 } from 'react-icons/fa';
 import { FiAward, FiPhone, FiRefreshCw } from 'react-icons/fi';
 import { GoCreditCard, GoPackage } from 'react-icons/go';
-import { IoIosArrowForward } from 'react-icons/io';
+import { IoIosArrowForward, IoIosHeartEmpty, IoMdHeart } from 'react-icons/io';
 import { IoAlertCircleOutline, IoLocation } from 'react-icons/io5';
 import { LuMailOpen, LuPackageX, LuTruck } from 'react-icons/lu';
 import { MdLanguage } from 'react-icons/md';
@@ -23,7 +25,9 @@ export {
   BsSliders2,
   FaFacebookF,
   FaGripHorizontal,
+  FaHeart,
   FaList,
+  FaRegHeart,
   FaTelegramPlane,
   FaWhatsapp,
   FiAward,
@@ -33,7 +37,9 @@ export {
   GoPackage,
   IoAlertCircleOutline,
   IoIosArrowForward,
+  IoIosHeartEmpty,
   IoLocation,
+  IoMdHeart,
   LuMailOpen,
   LuPackageX,
   LuTruck,

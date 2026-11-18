@@ -48,3 +48,79 @@
     font-variant-numeric: tabular-nums;
   }
 }
+
+/* Header actions */
+@mixin header-actions {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f5e8ce;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition:
+    color 0.3s ease,
+    filter 0.3s ease;
+
+  &:hover {
+    color: #ffd166;
+    filter: drop-shadow(0 0 6px rgb(255 209 102 / 45%));
+  }
+
+  &:focus-visible {
+    outline: var(--focus-outline-width) var(--focus-outline-style)
+      var(--focus-outline-color);
+    outline-offset: var(--focus-outline-offset);
+  }
+}
+
+@mixin header-action-icon {
+  width: 100%;
+  height: 100%;
+}
+
+@mixin header-action-count {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -15px;
+  left: 32px;
+  font-size: 19px;
+  color: red;
+  font-weight: 700;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: white;
+}
+
+/* Drawer */
+@mixin drawer-content {
+  border: 1px dotted red;
+  border-radius: 20px;
+}
+
+@mixin drawer-title {
+  text-align: center;
+
+  p {
+    color: #ffa500;
+    font-size: 25px;
+    font-family: var(--font-museoBold);
+  }
+}
+
+@mixin drawer-close {
+  border-radius: 20px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  color: #ffa500;
+}
+
+@mixin drawer-mask {
+  backdrop-filter: blur(10px);
+}

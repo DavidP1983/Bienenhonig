@@ -14,6 +14,9 @@ interface IProps {
   style?: IStyles;
   disabled?: boolean;
   onClick?: () => void;
+  'aria-label'?: string;
+  'aria-pressed'?: boolean;
+  title?: string;
 }
 
 export interface Props {

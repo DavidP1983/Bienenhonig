@@ -53,6 +53,8 @@
     "TICKET_CREATION_FAILED": "Failed to create the ticket.",
     "ORDER_NOT_FOUND": "We couldn't verify your order. Please check your order number and email address.",
     "BESTSELLER_FETCH_FAILED": "Failed to fetch best sellers",
+    "PRODUCTS_NOT_SELECTED": "Please select at least one product.",
+    "INVALID_PRODUCT_IDS": "Some selected products could not be found.",
     "NETWORK_ERROR": "Network error.",
     "EMPTY_RESPONSE": "The server returned no data.",
     "SERVER_ERROR": "Server error.",
@@ -219,6 +221,14 @@
     "noData": "No data to display for this request",
     "bestSeller": "Best seller",
     "new": "NEW"
+  },
+  "Wishlist": {
+    "title": "Wish list",
+    "wishlistCount": "You have {count} saved items",
+    "wishlistEmpty": "Your wish list is empty",
+    "removeFromWishlist": "remove from wish list",
+    "addToWishlist": "add to wish list",
+    "clear": "Clear list"
   },
   "ProductDetailsMetadata": {
     "title": "Product Details: {title}",

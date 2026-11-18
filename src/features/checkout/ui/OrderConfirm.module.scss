@@ -26,29 +26,19 @@
 }
 
 .drawerContent {
-  border: 1px dotted red;
-  border-radius: 20px;
+  @include drawer-content;
 }
 
 .drawerTitle {
-  text-align: center;
-
-  p {
-    color: #ffa500;
-    font-size: 25px;
-    font-family: var(--font-museoBold);
-  }
+  @include drawer-title;
 }
 
 .drawerClose {
-  border-radius: 20px;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  color: #ffa500;
+  @include drawer-close;
 }
 
 .drawerMask {
-  backdrop-filter: blur(10px);
+  @include drawer-mask;
 }
 
 .messageUndo {

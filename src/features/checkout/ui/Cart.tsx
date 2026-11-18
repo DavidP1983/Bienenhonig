@@ -23,6 +23,7 @@ export const Cart = () => {
   return (
     <>
       <button
+        title="shopping cart"
         className={styles.btn}
         onClick={handleOpen}
         aria-label={`Cart, ${cartCount} Article`}

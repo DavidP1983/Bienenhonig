@@ -1,0 +1,38 @@
+@use '@/shared/styles/mixins' as *;
+
+.drawerContent {
+  @include drawer-content;
+}
+
+.drawerTitle {
+  @include drawer-title;
+}
+
+.drawerClose {
+  @include drawer-close;
+}
+
+.drawerMask {
+  @include drawer-mask;
+}
+
+.notfound {
+  height: 100%;
+  display: grid;
+  place-items: center;
+  font-size: clamp(24px, 4vw, 35px);
+  color: currentcolor;
+  font-family: var(--font-museoMono);
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.btn {
+  width: 100%;
+  height: 45px;
+  margin-top: auto;
+}
