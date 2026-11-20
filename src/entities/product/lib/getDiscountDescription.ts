@@ -13,17 +13,19 @@ export const getDiscountDescription = (
     };
   }
 
-  /*Если обычной скидки нет — проверяем скидку за количество выбранного товара*/
+  /* Скидка за количество */
   if (variant.quantityDiscount) {
     const { minQuantity, discountPercent } = variant.quantityDiscount;
+    const isActive = quantity >= minQuantity;
+
     return {
       discount: discountPercent,
       discountType: 'quantity',
-      isActive: quantity >= minQuantity,
+      isActive: isActive,
     };
   }
 
-  // /*Seller не указал скидки*/
+  /*Скидки нет*/
   return {
     discount: 0,
     discountType: null,

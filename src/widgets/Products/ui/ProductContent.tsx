@@ -90,7 +90,7 @@ export const ProductContent = ({
   return (
     <motion.ul className={viewCardMode}>
       <AnimatePresence mode="popLayout">
-        {data?.map((product) => (
+        {data?.map((product, index) => (
           <motion.li
             className={styles.card}
             key={product._id}
@@ -107,6 +107,7 @@ export const ProductContent = ({
               reviewSummary={reviewSummaryMap.get(product._id.toString())}
               viewMode={viewMode}
               isBestSeller={bestSellerIdSet.has(product._id.toString())}
+              isPriority={index === 0}
             />
           </motion.li>
         ))}

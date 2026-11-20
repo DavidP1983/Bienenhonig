@@ -1,0 +1,15 @@
+.backInStock {
+  & .input {
+    padding: 10px 11px;
+  }
+
+  & .btn {
+    height: 45px;
+  }
+
+  & .formItem {
+    :global(.ant-form-item-explain-error) {
+      color: #800608;
+    }
+  }
+}

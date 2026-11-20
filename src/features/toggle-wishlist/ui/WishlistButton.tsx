@@ -1,6 +1,7 @@
 import { useWishlistStore } from '@/entities/wish-list';
 import { IoIosHeartEmpty, IoMdHeart } from '@/shared/assets/icons';
 import { Button } from '@/shared/ui';
+import { message } from 'antd';
 import { useTranslations } from 'next-intl';
 import { useShallow } from 'zustand/react/shallow';
 
@@ -20,12 +21,23 @@ export const WishlistButton = ({ id }: { id: string }) => {
   const isInWishlistAttr =
     isInWishlist && hasHydrated ? t('removeFromWishlist') : t('addToWishlist');
 
+  const MessageStorage = {
+    add: () => message.info(t('messageAdd')),
+    remove: () => message.info(t('messageRemove')),
+  };
+
+  const handleToggleWishList = (id: string) => {
+    toggleWishlist(id);
+    const key = isInWishlist && hasHydrated ? 'remove' : 'add';
+    MessageStorage[key]();
+  };
+
   return (
     <Button
       props={{
         type: 'default',
         htmlType: 'button',
-        onClick: () => toggleWishlist(id),
+        onClick: () => handleToggleWishList(id),
         'aria-label': isInWishlistAttr,
         'aria-pressed': hasHydrated && isInWishlist,
         title: isInWishlistAttr,

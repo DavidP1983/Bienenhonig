@@ -21,9 +21,11 @@ export const getVariantPrice = (
   const originalPrice = variant.price;
   const originalPriceWithDiscount = originalPrice * (1 - discount / 100);
   const quantityPrice = originalPrice * quantity;
+  const appliedDiscount = isActive ? discount : 0;
   const totalPrice =
-    Math.round((quantityPrice * (1 - discount / 100) + Number.EPSILON) * 100) /
-    100;
+    Math.round(
+      (quantityPrice * (1 - appliedDiscount / 100) + Number.EPSILON) * 100
+    ) / 100;
 
   return {
     originalPrice,

@@ -10,21 +10,27 @@ const getInitialVariant = (
 };
 
 export const useProductPurchase = (
-  filteredVariants: Variants[],
+  firstAvailableVariant: Variants[],
   size?: string
 ) => {
-  const [selectedVariant, setSelectedVariant] = useState<Variants>(() =>
-    getInitialVariant(filteredVariants, size)!
-  );
+  const [selectedVariantSize, setSelectedVariantSize] = useState<
+    string | undefined
+  >(() => getInitialVariant(firstAvailableVariant, size)?.size);
+
   const [quantity, setQuantity] = useState(1);
   const [selectedItems, setSelectedItems] = useState<
     { size: string; quantity: number }[]
   >([]);
 
+  const selectedVariant =
+    firstAvailableVariant.find(
+      (variant) => variant.size === selectedVariantSize
+    ) ?? getInitialVariant(firstAvailableVariant, size);
+
   /* Ф-ия по добавления выбранного варианта в список*/
   const handleVariantChange = (size: string) => {
     /* Выбираем из всех полученных вариантов, тот который совпал с выбранным размером*/
-    const variant = filteredVariants.find((item) => item.size === size);
+    const variant = firstAvailableVariant.find((item) => item.size === size);
 
     if (!variant || variant.quantity <= 0) {
       return;
@@ -40,7 +46,7 @@ export const useProductPurchase = (
       variant.quantity
     );
 
-    setSelectedVariant(variant);
+    setSelectedVariantSize(variant.size);
     setQuantity(nextQuantity);
 
     /* Если у нас еще нет в нашем состоянии элемента  то добавляем его с начальным значением счетчика 1*/
@@ -98,7 +104,9 @@ export const useProductPurchase = (
     setSelectedItems(updatedItems);
     if (updatedItems.length === 0) {
       setQuantity(1);
-      setSelectedVariant(getInitialVariant(filteredVariants, size)!);
+      setSelectedVariantSize(
+        getInitialVariant(firstAvailableVariant, size)?.size
+      );
     }
   };
 
@@ -106,7 +114,9 @@ export const useProductPurchase = (
   const removeAllItemsAfterAddToCart = () => {
     setSelectedItems([]);
     setQuantity(1);
-    setSelectedVariant(getInitialVariant(filteredVariants, size)!);
+    setSelectedVariantSize(
+      getInitialVariant(firstAvailableVariant, size)?.size
+    );
   };
 
   return {

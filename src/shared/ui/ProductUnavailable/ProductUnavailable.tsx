@@ -1,14 +1,17 @@
+import { BackInStockSubscribeForm } from '@/features/back-instock-subscribe/ui';
 import { IoAlertCircleOutline, LuPackageX } from '@/shared/assets/icons';
 import { useTranslations } from 'next-intl';
 
 import styles from './ProductUnavailable.module.scss';
 
 interface ProductUnavailableProps {
+  productId?: string;
   title?: string;
   description?: string;
 }
 
 export const ProductUnavailable = ({
+  productId,
   title = 'unavailableTitle',
   description = 'unavailableDescription',
 }: ProductUnavailableProps) => {
@@ -37,6 +40,7 @@ export const ProductUnavailable = ({
         </div>
         <span className={styles.unavailable__try}>{t('try')}</span>
       </div>
+      {productId && <BackInStockSubscribeForm productId={productId} />}
     </div>
   );
 };

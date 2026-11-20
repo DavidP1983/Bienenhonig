@@ -93,7 +93,7 @@ export const PurchaseItem = ({
         <div className={styles.price}>
           <strong>€{totalPrice.toFixed(2)}</strong>
 
-          {discount > 0 && (
+          {isActive && (
             <div className={styles.quantityPrice}>
               {t('was')} €{quantityPrice.toFixed(2)}
             </div>

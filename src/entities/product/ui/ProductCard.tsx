@@ -16,6 +16,7 @@ type Props = {
   reviewSummary: ReviewSummery | undefined;
   viewMode: ViewMode;
   isBestSeller: boolean;
+  isPriority: boolean;
 };
 
 export const ProductCard = ({
@@ -23,6 +24,7 @@ export const ProductCard = ({
   reviewSummary,
   viewMode,
   isBestSeller,
+  isPriority,
 }: Props) => {
   const t = useTranslations('ProductCard');
 
@@ -50,6 +52,7 @@ export const ProductCard = ({
             width={200}
             height={200}
             sizes="200px"
+            priority={isPriority}
           />
         </Link>
         <WishlistButton id={product._id} />

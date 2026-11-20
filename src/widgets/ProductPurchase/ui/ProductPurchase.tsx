@@ -1,7 +1,7 @@
 'use client';
 import { useCartOrder } from '@/entities/cart';
 import { getVariantPrice } from '@/entities/product/lib';
-import type { Product } from '@/entities/product/model/types';
+import type { Product, Variants } from '@/entities/product/model/types';
 import { PiShoppingCart } from '@/shared/assets/icons';
 import { Button, ProductUnavailable } from '@/shared/ui';
 import { message } from 'antd';
@@ -20,7 +20,7 @@ export type ProductPurchaseProps = {
 export const ProductPurchase = ({ data, size }: ProductPurchaseProps) => {
   const t = useTranslations('ProductPurchase');
 
-  const filteredVariants = data.variants.filter(
+  const firstAvailableVariant = data.variants.filter(
     (variant) => variant.quantity > 0
   );
   const {
@@ -32,7 +32,7 @@ export const ProductPurchase = ({ data, size }: ProductPurchaseProps) => {
     increment,
     removeItemFromTheList,
     removeAllItemsAfterAddToCart,
-  } = useProductPurchase(filteredVariants, size);
+  } = useProductPurchase(firstAvailableVariant, size);
 
   const { items: selectedItemsData, total } = getSelectedItemsData(
     data,
@@ -42,12 +42,25 @@ export const ProductPurchase = ({ data, size }: ProductPurchaseProps) => {
   const getCartOrder = useCartOrder((state) => state.getCartOrder);
 
   if (!selectedVariant) {
-    return <ProductUnavailable />;
+    return <ProductUnavailable productId={data._id} />;
   }
 
   const handleAddToCart = () => {
     if (!selectedItemsData.length) {
       message.error(t('emptySelection'));
+      return;
+    }
+
+    const unavailableItem = selectedItemsData.find((item) => {
+      const variant = data.variants.find(
+        (variant) => variant.size === item.size
+      );
+
+      return !variant || item.quantity > variant.quantity;
+    });
+
+    if (unavailableItem) {
+      message.error(t('insufficientStock'));
       return;
     }
 
@@ -66,67 +79,74 @@ export const ProductPurchase = ({ data, size }: ProductPurchaseProps) => {
     removeAllItemsAfterAddToCart();
   };
 
+  const renderVariantPrice = (variant: Variants) => {
+    const selectedItem = selectedItems.find(
+      (item) => item.size === variant.size
+    );
+
+    const variantQuantity = selectedItem?.quantity ?? 0;
+    const { originalPrice, originalPriceWithDiscount, discountDesc } =
+      getVariantPrice(variant, variantQuantity);
+
+    switch (discountDesc.discountType) {
+      case 'quantity':
+        return (
+          <>
+            <strong className={styles.originalPrice}>
+              €{originalPrice.toFixed(2)}
+            </strong>
+            <span className={styles.quantityDiscount}>
+              {t('quantityDiscount', {
+                discount: discountDesc.discount,
+                minQuantity: variant.quantityDiscount?.minQuantity ?? 3,
+              })}
+            </span>
+          </>
+        );
+      case 'regular':
+        return (
+          <>
+            <strong className={styles.priceDiscount}>
+              €{originalPriceWithDiscount.toFixed(2)}
+            </strong>
+            <div className={styles.discountDesc}>
+              <del> €{originalPrice.toFixed(2)}</del>
+              <span>−{discountDesc.discount}%</span>
+            </div>
+          </>
+        );
+      default:
+        return (
+          <strong className={styles.originalPrice}>
+            €{originalPrice.toFixed(2)}
+          </strong>
+        );
+    }
+  };
+
   const renderVariantButtons = (data: Product) => {
     return data.variants.map((variant) => {
       const isOutOfStock = variant.quantity <= 0;
 
-      const isSelected =
-        selectedVariant.size === variant.size ? styles.active : '';
+      const isSelected = selectedVariant.size === variant.size;
 
       const stockText = isOutOfStock ? t('outOfStock') : t('inStock');
-
       const stockStyle = isOutOfStock ? styles.outStock : styles.inStock;
-
-      const { originalPrice, originalPriceWithDiscount, discountDesc } =
-        getVariantPrice(variant, quantity);
 
       return (
         <div
           className={styles.desc}
           key={variant.size}>
           <button
-            key={variant.size}
             type="button"
             disabled={isOutOfStock}
-            className={`${styles.size} ${isSelected}`}
+            className={`${styles.size} ${isSelected ? styles.active : ''}`}
             onClick={() => handleVariantChange(variant.size)}>
             {variant.size}
             <span className={`${styles.stock} ${stockStyle}`}>{stockText}</span>
           </button>
 
-          <div className={styles.price}>
-            {discountDesc.discount > 0 ? (
-              <>
-                {discountDesc.discountType === 'quantity' ? (
-                  <>
-                    <strong className={styles.originalPrice}>
-                      €{originalPrice.toFixed(2)}
-                    </strong>
-                    <span className={styles.quantityDiscount}>
-                      {t('quantityDiscount', {
-                        discount: discountDesc.discount,
-                        minQuantity: variant.quantityDiscount?.minQuantity ?? 3,
-                      })}
-                    </span>
-                  </>
-                ) : (
-                  <>
-                    <strong className={styles.priceDiscount}>
-                      €{originalPriceWithDiscount.toFixed(2)}
-                    </strong>
-                    <div className={styles.discountDesc}>
-                      <del> €{originalPrice.toFixed(2)}</del>
-                      <span>−{discountDesc.discount}%</span>
-                    </div>
-                  </>
-                )}
-              </>
-            ) : (
-              <strong className={styles.originalPrice}>
-                €{originalPrice.toFixed(2)}
-              </strong>
-            )}
-          </div>
+          <div className={styles.price}>{renderVariantPrice(variant)}</div>
         </div>
       );
     });
@@ -169,7 +189,10 @@ export const ProductPurchase = ({ data, size }: ProductPurchaseProps) => {
             aria-label="Increase quantity"
             className={styles.max}
             onClick={increment}
-            disabled={quantity >= selectedVariant.quantity}>
+            disabled={
+              quantity >= selectedVariant.quantity ||
+              selectedItemsData.length === 0
+            }>
             +
           </button>
         </div>

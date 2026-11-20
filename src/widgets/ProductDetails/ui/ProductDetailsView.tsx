@@ -51,6 +51,7 @@ const ProductDetailsViewComponent = ({
 
         <div className={styles.detailsSidebar}>
           <ProductPurchase
+            key={data._id}
             data={data}
             size={size}
           />

@@ -55,6 +55,7 @@
     "BESTSELLER_FETCH_FAILED": "Failed to fetch best sellers",
     "PRODUCTS_NOT_SELECTED": "Please select at least one product.",
     "INVALID_PRODUCT_IDS": "Some selected products could not be found.",
+    "BACK_IN_STOCK_ALREADY_EXISTS": "You are already subscribed to this product.",
     "NETWORK_ERROR": "Network error.",
     "EMPTY_RESPONSE": "The server returned no data.",
     "SERVER_ERROR": "Server error.",
@@ -228,7 +229,9 @@
     "wishlistEmpty": "Your wish list is empty",
     "removeFromWishlist": "remove from wish list",
     "addToWishlist": "add to wish list",
-    "clear": "Clear list"
+    "clear": "Clear list",
+    "messageAdd": "Wish Item added to the wish list !",
+    "messageRemove": "Wish item removed from the wish list !"
   },
   "ProductDetailsMetadata": {
     "title": "Product Details: {title}",
@@ -269,7 +272,7 @@
     "unavailableTitle": "Product unavailable",
     "unavailableDescription": "Sorry, this product is currently unavailable. It may be out of stock or no longer offered.",
     "propose": "What can you do?",
-    "try": "Try again later or explore other available products.",
+    "try": "Subscribe to a restock notification or explore other products.",
     "emptySelection": "Please select at least one item",
     "cartAddSuccess": "Products added to cart",
     "inStock": "In stock",
@@ -280,7 +283,22 @@
     "selectedVariants": "Selected variants",
     "addToCart": "Add to cart",
     "relatedProductTitle": "You might also like",
-    "relatedProductPrice": "From"
+    "relatedProductPrice": "From",
+    "insufficientStock": "Not enough stock available for the selected quantity"
+  },
+  "BackInStock": {
+    "fields": {
+      "email": {
+        "label": "Email",
+        "required": "Please enter your email address",
+        "invalid": "Please enter a valid email address"
+      }
+    },
+    "placeholder": "Enter your email address",
+    "submit": "Notify me",
+    "submitting": "Submitting...",
+    "success": "You have successfully subscribed!",
+    "error": "Something went wrong. Please try again."
   },
   "PurchaseItem": {
     "quantityDiscount": "Discount {discount}% off for {minQuantity} items",
