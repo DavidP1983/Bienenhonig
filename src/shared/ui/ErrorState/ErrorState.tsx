@@ -57,11 +57,9 @@ export const ErrorState = ({
       <div className={styles.message}>{message ?? t('title')}</div>
       {showAction && (
         <Button
-          props={{
-            type: 'primary',
-            style: { display: 'block', margin: '10px auto' },
-            onClick: handleClick,
-          }}>
+          type="primary"
+          style={{ display: 'block', margin: '10px auto' }}
+          onClick={handleClick}>
           {onRetry ? `${t('btnDescTry')}` : `${t('btnDescBack')}`}
         </Button>
       )}
