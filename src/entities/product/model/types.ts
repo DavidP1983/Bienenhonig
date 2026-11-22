@@ -34,6 +34,17 @@ export interface SellerContact {
   value: string;
 }
 
+/* Характеристики предпочтения */
+export type HoneyFlavorPreference = 'mild' | 'rich' | 'floral' | null;
+
+export type HoneyRecommendedUse =
+  'everyday' | 'tea' | 'baking' | 'breakfast' | 'gift';
+
+export interface HoneyGuideAttributes {
+  flavorPreference: HoneyFlavorPreference;
+  recommendedUses: HoneyRecommendedUse[];
+}
+
 export interface Product {
   _id: string;
   sellerId: string;
@@ -48,6 +59,7 @@ export interface Product {
   variants: Variants[];
   discountPercent: DiscountPercent;
   quantityDiscount?: QuantityDiscount;
+  honeyGuide?: HoneyGuideAttributes;
   isActive: boolean;
   createdAt: Date;
   updatedAt: Date;

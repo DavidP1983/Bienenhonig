@@ -42,19 +42,17 @@ export const ProductFilterDrawer = ({
       {children}
       <div className={btnStyles}>
         <Button
-          props={{
-            type: 'default',
-            onClick: clearAllFilters,
-          }}>
+          type="default"
+          htmlType="button"
+          onClick={clearAllFilters}>
           {t('reset')}
         </Button>
         <Button
-          props={{
-            type: 'primary',
-            onClick: () => {
-              applyFilter();
-              onClose();
-            },
+          type="primary"
+          htmlType="button"
+          onClick={() => {
+            applyFilter();
+            onClose();
           }}>
           {t('apply', { count: resultCount })}
         </Button>

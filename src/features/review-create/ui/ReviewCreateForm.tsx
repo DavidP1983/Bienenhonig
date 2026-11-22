@@ -1,8 +1,8 @@
 'use client';
 import type { Review } from '@/entities/review/model/type';
 import { useCreateReview } from '@/entities/review/model/useCreateReview';
-import { StatusMessage } from '@/shared/ui';
-import { Button, Form, Input, Select, message } from 'antd';
+import { Button, StatusMessage } from '@/shared/ui';
+import { Form, Input, Select, message } from 'antd';
 import { useTranslations } from 'next-intl';
 
 type ReviewCreateFormValues = Pick<
@@ -148,6 +148,7 @@ export const ReviewCreateForm = ({
             {t('submit')}
           </Button>
           <Button
+            type="default"
             onClick={onCancel}
             style={{ marginLeft: 8 }}
             htmlType="button">

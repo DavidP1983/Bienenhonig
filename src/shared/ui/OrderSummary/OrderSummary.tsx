@@ -30,7 +30,10 @@ export const OrderSummary = ({
     return (
       <div className={styles.spinner}>
         <p>{t('calculating')}</p>
-        <Spin size="large" />
+        <Spin
+          size="large"
+          aria-hidden="true"
+        />
       </div>
     );
   }
@@ -38,13 +41,13 @@ export const OrderSummary = ({
   if (isError || deliveryPrice === undefined) {
     return (
       <div className={styles.totalError}>
-        <IoAlertCircleOutline />
+        <IoAlertCircleOutline aria-hidden="true" />
         <p>{t('calculationError')}</p>
         <Button
-          props={{
-            type: 'default',
-            onClick: onRetry,
-          }}>
+          type="default"
+          onClick={onRetry}
+          htmlType="button"
+          role="alert">
           {t('tryAgain')}
         </Button>
       </div>

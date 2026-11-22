@@ -8,7 +8,7 @@
   grid-template-rows: minmax(200px, auto);
   grid-auto-rows: minmax(200px, auto);
   gap: 20px;
-  padding: 30px 0;
+  margin-top: 15px;
   align-items: start;
 
   /* Показ карточек в ProductContent */
@@ -29,6 +29,42 @@
     .card {
       width: 100%;
     }
+  }
+}
+
+.recommendationHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 10px;
+
+  h2 {
+    color: var(--text-color);
+    font-family: var(--font-museoMono);
+  }
+
+  .btn {
+    font-size: 16px;
+    font-family: var(--font-museoSans);
+    color: #676464;
+    text-decoration: none;
+    transition: color 0.25s ease;
+
+    &:hover {
+      color: #333 !important;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+  }
+
+  .matches {
+    background-color: #aae2b8;
+    color: #006e0c;
+    font-family: var(--font-museoMono);
+    width: fit-content;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 12px;
   }
 }
 

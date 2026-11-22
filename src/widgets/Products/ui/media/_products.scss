@@ -46,5 +46,10 @@
         height: 35px;
       }
     }
+
+    .recommendationHeader {
+      flex-direction: column;
+      gap: 10px;
+    }
   }
 }

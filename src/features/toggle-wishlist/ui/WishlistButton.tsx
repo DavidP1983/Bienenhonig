@@ -34,14 +34,12 @@ export const WishlistButton = ({ id }: { id: string }) => {
 
   return (
     <Button
-      props={{
-        type: 'default',
-        htmlType: 'button',
-        onClick: () => handleToggleWishList(id),
-        'aria-label': isInWishlistAttr,
-        'aria-pressed': hasHydrated && isInWishlist,
-        title: isInWishlistAttr,
-      }}
+      type="default"
+      htmlType="button"
+      onClick={() => handleToggleWishList(id)}
+      aria-label={isInWishlistAttr}
+      aria-pressed={hasHydrated ? isInWishlist : undefined}
+      title={isInWishlistAttr}
       icon={
         isInWishlist && hasHydrated ? (
           <IoMdHeart className={styles.wishlistIcon} />

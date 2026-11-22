@@ -1,6 +1,8 @@
 import { Modal } from 'antd';
 import type { ReactNode } from 'react';
 
+import styles from './ResultModal.module.scss';
+
 type ResultModalProps = {
   open: boolean;
   onClose?: () => void;
@@ -18,6 +20,7 @@ export const ResultModal = ({
 }: ResultModalProps) => {
   return (
     <Modal
+      className={styles.modal}
       title={title}
       centered
       open={open}

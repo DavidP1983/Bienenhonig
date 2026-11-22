@@ -1,7 +1,7 @@
 'use client';
-import { ResultModal } from '@/shared/ui';
+import { Button, ResultModal } from '@/shared/ui';
 import { SyncOutlined } from '@ant-design/icons';
-import { Button, Form, Input, Result, Space } from 'antd';
+import { Form, Input, Result, Space } from 'antd';
 import { useTranslations } from 'next-intl';
 import { getSupportFormFields } from '../config/supportForm.config';
 import type { SupportFormValues } from '../model/types';

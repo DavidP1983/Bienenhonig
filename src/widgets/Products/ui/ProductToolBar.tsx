@@ -13,6 +13,9 @@ type ProductToolBarProps = {
   viewMode: ViewMode;
   onChangeViewMode: (mode: ViewMode) => void;
   openProductFilters: () => void;
+  openHoneyGuid: () => void;
+  isHoneyGuideActive: boolean;
+  shouldShowProductResults: boolean;
 };
 
 export const ProductToolBar = ({
@@ -20,8 +23,11 @@ export const ProductToolBar = ({
   pageSize,
   total,
   openProductFilters,
+  openHoneyGuid,
   onChangeViewMode,
   viewMode,
+  isHoneyGuideActive,
+  shouldShowProductResults,
 }: ProductToolBarProps) => {
   const t = useTranslations('Products');
 
@@ -37,23 +43,32 @@ export const ProductToolBar = ({
         />
         <div className={styles.toolBar__filter}>
           <Button
+            type="default"
+            onClick={openProductFilters}
+            disabled={isHoneyGuideActive}
             className={styles.toolBar__btn}
-            icon={<BsSliders2 className={styles.toolBar__icon} />}
-            props={{
-              type: 'default',
-              onClick: openProductFilters,
-            }}>
+            icon={<BsSliders2 className={styles.toolBar__icon} />}>
             {t('filter')}
+          </Button>
+          <Button
+            type="default"
+            onClick={openHoneyGuid}
+            className={styles.toolBar__btn}
+            aria-expanded={isHoneyGuideActive}
+            aria-controls="honey-guide-modal">
+            {t('guid')}
           </Button>
         </div>
       </div>
-      <p className={styles.toolBar__totalItemPerPage}>
-        {t('showingItems', {
-          showingItems,
-          showingPerPage,
-          total,
-        })}
-      </p>
+      {shouldShowProductResults && (
+        <p className={styles.toolBar__totalItemPerPage}>
+          {t('showingItems', {
+            showingItems,
+            showingPerPage,
+            total,
+          })}
+        </p>
+      )}
     </div>
   );
 };

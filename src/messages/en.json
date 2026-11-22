@@ -192,7 +192,8 @@
   },
   "Products": {
     "showingItems": "Showing {showingItems} – {showingPerPage} of {total} items",
-    "filter": "Filter"
+    "filter": "Filter",
+    "guid": "Honey Guide"
   },
   "ProductFilter": {
     "searchByArticle": "Search by Article",
@@ -212,6 +213,33 @@
     "range": "Price Range",
     "activeFilters": "Active filters"
   },
+  "HoneyGuide": {
+    "title": "Find your perfect honey",
+    "description": "Not sure which honey to choose ? Let us help you find the right one.",
+    "useTitle": "What are you looking for ?",
+    "tasteTitle": "What kind of taste do you prefer ?",
+    "noPreference": "I have no preference",
+    "findButton": "Find my honey",
+    "recommendedUses": {
+      "everyday": "Everyday use",
+      "tea": "For tea",
+      "baking": "For baking",
+      "breakfast": "For breakfast",
+      "gift": "As a gift"
+    },
+    "flavors": {
+      "mild": "Mild and delicate",
+      "rich": "Rich and intense",
+      "floral": "Floral and aromatic"
+    },
+    "explanation": {
+      "title": "Why we recommend {product}",
+      "uses": "It is suitable: {uses}.",
+      "flavor": "It matches your taste preference: {flavor}.",
+      "both": "It is suitable: {uses} and matches your taste preference: {flavor}."
+    },
+    "bestMatch": "Best match"
+  },
   "ProductCard": {
     "discount": "Discount",
     "inStock": "In stock",
@@ -221,7 +249,13 @@
     "seller": "Sold by",
     "noData": "No data to display for this request",
     "bestSeller": "Best seller",
-    "new": "NEW"
+    "new": "NEW",
+    "recommended": "Recommended for you",
+    "noMatching": "No matching products found",
+    "backToAllProducts": "Back to all products",
+    "hideExplanation": "Hide explanation",
+    "showExplanation": "Why this honey?",
+    "matches": "{count} matches"
   },
   "Wishlist": {
     "title": "Wish list",
@@ -366,7 +400,10 @@
     "total": "Total",
     "itemRemoved": "{count, plural, one {# item removed} other {# items removed}}",
     "undoDescription": "Restore removed items",
-    "undo": "Undo"
+    "undo": "Undo",
+    "emptyCart": "Your cart is empty.",
+    "deliveryLoading": "Delivery information is loading. Please wait.",
+    "deliveryError": "Unable to load delivery information. Please try again."
   },
   "CheckoutMetadata": {
     "checkoutTitle": "Checkout | Page"

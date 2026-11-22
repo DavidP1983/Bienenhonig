@@ -1,0 +1,7 @@
+.modal {
+  :global(.ant-modal-body) {
+    max-height: 80vh;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+}

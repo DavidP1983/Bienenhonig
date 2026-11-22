@@ -1,9 +1,9 @@
 'use client';
 import { useCartOrder } from '@/entities/cart';
 import { Link } from '@/i18n/navigation';
-import { ResultModal } from '@/shared/ui';
+import { Button, ResultModal } from '@/shared/ui';
 import { SyncOutlined } from '@ant-design/icons';
-import { Button, Col, Form, Input, Result, Row, Space } from 'antd';
+import { Col, Form, Input, Result, Row, Space } from 'antd';
 import { useTranslations } from 'next-intl';
 import { useShallow } from 'zustand/react/shallow';
 import {
@@ -97,11 +97,11 @@ export const CheckoutForm = () => {
               direction="vertical"
               size="middle"
               style={{ width: '100%' }}>
-              <Button
-                type="primary"
-                block>
-                <Link href="/products">{tResult('continueShopping')}</Link>
-              </Button>
+              <Link
+                href="/products"
+                className={styles.continueShopping}>
+                {tResult('continueShopping')}
+              </Link>
             </Space>
           }
         />

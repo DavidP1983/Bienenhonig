@@ -211,14 +211,13 @@ export const ProductPurchase = ({ data, size }: ProductPurchaseProps) => {
       />
 
       <Button
-        icon={<PiShoppingCart />}
-        props={{
-          type: 'primary',
-          disabled:
-            selectedVariant.quantity <= 0 || !Boolean(selectedItemsData.length),
-          onClick: handleAddToCart,
-        }}
-        className={styles.addToCart}>
+        type="primary"
+        disabled={
+          selectedVariant.quantity <= 0 || !Boolean(selectedItemsData.length)
+        }
+        onClick={handleAddToCart}
+        className={styles.addToCart}
+        icon={<PiShoppingCart />}>
         {t('addToCart')}
       </Button>
     </div>

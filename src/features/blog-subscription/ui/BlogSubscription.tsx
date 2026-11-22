@@ -30,7 +30,9 @@ export const BlogSubscription = () => {
           disabled
         />
         <Button
-          props={{ type: 'primary', disabled: true, htmlType: 'button' }}
+          type="primary"
+          disabled={true}
+          htmlType="button"
           className={styles.subscribe}>
           {t('subscribe')}
         </Button>

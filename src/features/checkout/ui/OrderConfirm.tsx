@@ -48,7 +48,7 @@ export const OrderConfirm = ({ open, onClose }: OrderConfirmProps) => {
     handleComplete,
   } = useUndoDelete({ cartOrder, removeOrder });
 
-  /* Эффект для вызова сообщения */
+  /* Эффект для вызова сообщения по отмене удаления заказа из корзины */
   useEffect(() => {
     if (!pendingDeletes.length) {
       message.destroy('undo-key');
@@ -83,6 +83,17 @@ export const OrderConfirm = ({ open, onClose }: OrderConfirmProps) => {
   const isDeliveryError = isError || deliveryPrice === undefined;
   const disabledBtn =
     !visibleCartOrder.length || isDeliveryLoading || isDeliveryError;
+
+  /* Отображение подсказки для пользователей при возникновении процессов ниже*/
+  let checkoutDisabledReason: string | undefined;
+
+  if (!visibleCartOrder.length) {
+    checkoutDisabledReason = t('emptyCart');
+  } else if (isDeliveryLoading) {
+    checkoutDisabledReason = t('deliveryLoading');
+  } else if (isDeliveryError) {
+    checkoutDisabledReason = t('deliveryError');
+  }
 
   /* Список заказа */
   const renderOrder = (items: ICartOrder[]) => {
@@ -150,15 +161,15 @@ export const OrderConfirm = ({ open, onClose }: OrderConfirmProps) => {
       )}
       {
         <Button
-          props={{
-            type: 'primary',
-            onClick: () => {
-              onClose();
-              router.push('/checkout');
-            },
-            disabled: disabledBtn,
+          type="primary"
+          htmlType="button"
+          onClick={() => {
+            onClose();
+            router.push('/checkout');
           }}
-          className={styles.btnConfirmOrder}>
+          disabled={disabledBtn}
+          className={styles.btnConfirmOrder}
+          title={checkoutDisabledReason}>
           {t('checkout')}
         </Button>
       }

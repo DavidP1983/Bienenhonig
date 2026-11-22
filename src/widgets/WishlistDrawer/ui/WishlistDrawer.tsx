@@ -108,12 +108,10 @@ export const WishlistDrawer = ({ open, onClose }: WishlistDrawerProps) => {
       <div className={styles.wrapper}>
         {renderWishlistContent()}
         <Button
-          props={{
-            type: 'primary',
-            htmlType: 'button',
-            onClick: clearWishlist,
-            disabled: !products.length,
-          }}
+          type="primary"
+          htmlType="button"
+          onClick={clearWishlist}
+          disabled={!products.length}
           className={styles.btn}>
           {t('clear')}
         </Button>

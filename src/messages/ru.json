@@ -190,7 +190,8 @@
   },
   "Products": {
     "showingItems": "Показано {showingItems}–{showingPerPage} из {total} товаров",
-    "filter": "Фильтры"
+    "filter": "Фильтры",
+    "guid": "Гид по мёду"
   },
   "ProductFilter": {
     "searchByArticle": "Поиск по артикулу",
@@ -210,6 +211,33 @@
     "range": "Диапазон цен",
     "activeFilters": "Активные фильтры"
   },
+  "HoneyGuide": {
+    "title": "Найдите свой идеальный мёд",
+    "description": "Не знаете, какой мёд выбрать ? Мы поможем вам найти подходящий.",
+    "useTitle": "Для чего вы ищете мёд ?",
+    "tasteTitle": "Какой вкус мёда вы предпочитаете ?",
+    "noPreference": "У меня нет предпочтений",
+    "findButton": "Подобрать мёд",
+    "recommendedUses": {
+      "everyday": "На каждый день",
+      "tea": "Для чая",
+      "baking": "Для выпечки",
+      "breakfast": "Для завтрака",
+      "gift": "В подарок"
+    },
+    "flavors": {
+      "mild": "Мягкий и нежный",
+      "rich": "Насыщенный и интенсивный",
+      "floral": "Цветочный и ароматный"
+    },
+    "explanation": {
+      "title": "Почему мы рекомендуем {product}",
+      "uses": "Подходит: {uses}.",
+      "flavor": "Соответствует вашему вкусовому предпочтению: {flavor}.",
+      "both": "Подходит: {uses} и соответствует вашему вкусовому предпочтению: {flavor}."
+    },
+    "bestMatch": "Лучший вариант"
+  },
   "ProductCard": {
     "discount": "Скидка",
     "inStock": "В наличии",
@@ -219,7 +247,13 @@
     "seller": "Продавец",
     "noData": "Нет данных для отображения",
     "bestSeller": "Хит продаж",
-    "new": "Новинка"
+    "recommended": "Рекомендуем вам",
+    "new": "Новинка",
+    "noMatching": "Нет совпадений",
+    "backToAllProducts": "Назад к товарам",
+    "hideExplanation": "Скрыть описание",
+    "showExplanation": "Почему этот выбор?",
+    "matches": "{count, plural, one {# совпадение} few {# совпадения} many {# совпадений} other {# совпадения}}"
   },
   "Wishlist": {
     "title": "Избранное",
@@ -364,7 +398,10 @@
     "total": "Итого",
     "itemRemoved": "{count, plural, one {Удалён # товар} few {Удалено # товара} many {Удалено # товаров} other {Удалено # товара}}",
     "undoDescription": "Восстановить удалённые товары",
-    "undo": "Отменить"
+    "undo": "Отменить",
+    "emptyCart": "Ваша корзина пуста.",
+    "deliveryLoading": "Загрузка информации о доставке. Пожалуйста, подождите.",
+    "deliveryError": "Не удалось загрузить информацию о доставке. Попробуйте ещё раз."
   },
   "CheckoutMetadata": {
     "checkoutTitle": "Оформление заказа | Страница"

@@ -1,0 +1,128 @@
+.guide {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  width: 100%;
+  padding: 20px 0;
+
+  &__intro {
+    text-align: center;
+
+    h2 {
+      margin: 0 0 8px;
+      color: #3d3022;
+      font-size: 24px;
+      font-family: var(--font-museoMono);
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    p {
+      max-width: 420px;
+      margin: 0 auto;
+      color: #817566;
+      font-family: var(--font-museoSans);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    h3 {
+      margin: 0;
+      color: #493b2b;
+      font-size: 16px;
+      font-family: var(--font-museoSans);
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    :global(.ant-checkbox-group),
+    :global(.ant-radio-group) {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      width: 100%;
+    }
+
+    :global(.ant-list) {
+      background: transparent;
+    }
+
+    :global(.ant-list-items) {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    :global(.ant-list-item) {
+      padding: 0;
+      border: none;
+    }
+
+    :global(.ant-checkbox-wrapper),
+    :global(.ant-radio-wrapper) {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      min-height: 44px;
+      padding: 10px 14px;
+      border: 1px solid #eee5d6;
+      border-radius: 10px;
+      background: #fffdf9;
+      color: #554735;
+      font-size: 14px;
+      transition: all 0.2s ease;
+
+      &:hover {
+        border-color: #d9ad58;
+        background: #fff9ed;
+      }
+    }
+
+    :global(.ant-checkbox-wrapper-checked),
+    :global(.ant-radio-wrapper-checked) {
+      border-color: #d9a441;
+      background: #fff6e4;
+      color: #8a5b13;
+    }
+
+    :global(.ant-checkbox-inner),
+    :global(.ant-radio-inner) {
+      border-color: #c9b99e;
+    }
+
+    :global(.ant-checkbox-checked) :global(.ant-checkbox-inner) {
+      border-color: #c58b28;
+      background-color: #c58b28;
+    }
+  }
+
+  > :global(.ant-btn) {
+    height: 46px;
+    border: none;
+    border-radius: 10px;
+    background: #c58b28;
+    box-shadow: 0 4px 12px rgb(197 139 40 / 18%);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+
+    &:hover:not(:disabled) {
+      background: #ad741b;
+      box-shadow: 0 6px 16px rgb(197 139 40 / 25%);
+      transform: translateY(-1px);
+    }
+
+    &:disabled {
+      background: #e8dfd0;
+      box-shadow: none;
+      color: #a99d8c;
+    }
+  }
+}

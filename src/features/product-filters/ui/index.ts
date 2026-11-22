@@ -1,4 +1,5 @@
 export { AppliedFilterChips } from './AppliedFilterChips';
+export { HoneyGuide } from './HoneyGuide';
 export { PriceRangeFilter } from './PriceRangeFilter';
 export { ProductFilterDrawer } from './ProductFilterDrawer';
 export { ProductFilter } from './ProductFilters';

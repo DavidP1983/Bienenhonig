@@ -1,11 +1,7 @@
 'use client';
 import { useBestSeller, useProducts } from '@/entities/product/model';
 import { useReviewSummary } from '@/entities/review/model/useReviewSummary';
-import {
-  ProductFilter,
-  useFilter,
-  useSelectAndFilterSort,
-} from '@/features/product-filters';
+import { useFilter, useSelectAndFilterSort } from '@/features/product-filters';
 import {
   AppliedFilterChips,
   ProductFilterDrawer,
@@ -15,20 +11,49 @@ import {
   ProductPagination,
   useProductPagination,
 } from '@/features/product-pagination';
-import { ErrorBoundary } from '@/shared/ui';
+import { ErrorBoundary, ResultModal } from '@/shared/ui';
+import { Spin } from 'antd';
+import { useTranslations } from 'next-intl';
+import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
 import { useShallow } from 'zustand/react/shallow';
 import { ProductContent } from '.';
 import type { ViewMode } from '../model/types';
+import { useHoneyGuideRecommendation } from '../model/useHoneyGuideRecommendations';
 import { ProductToolBar } from './ProductToolBar';
+
+const HoneyGuide = dynamic(
+  () =>
+    import('@/features/product-filters/ui/HoneyGuide').then(
+      (mod) => mod.HoneyGuide
+    ),
+  {
+    loading: () => <Spin />,
+  }
+);
+
+const ProductFilter = dynamic(
+  () =>
+    import('@/features/product-filters/ui/ProductFilters').then(
+      (mod) => mod.ProductFilter
+    ),
+  {
+    loading: () => <Spin />,
+  }
+);
 
 import styles from './Products.module.scss';
 
 export const Products = () => {
+  const t = useTranslations('Products');
+
   const [filterOpen, setFilterOpen] = useState(false);
-  const [shouldLoadProductFilter, setShouldLoadProductFilter] = useState(false);
+  const [activeOverlay, setActiveOverlay] = useState<'filter' | 'guid' | null>(
+    null
+  );
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
 
+  /* Запросы по получению данных*/
   const { data, isPending, isError, refetch, error } = useProducts();
   const { data: bestSeller } = useBestSeller();
   const {
@@ -36,12 +61,6 @@ export const Products = () => {
     isPending: isPendingReview,
     isError: isErrorReview,
   } = useReviewSummary();
-
-  const reviewData = {
-    reviewSummary,
-    isPendingReview,
-    isErrorReview,
-  };
 
   /* Фильтрация */
   const { clearAllFilters, applyFilter, cancelDraft, filter, search } =
@@ -65,6 +84,21 @@ export const Products = () => {
   const { paginatedData, page, pageSize, setPage, setPageSize, total } =
     useProductPagination(filteredData);
 
+  /* Honey Guid Logic */
+  const {
+    honeyGuideOpen,
+    setHoneyGuideOpen,
+    honeyGuideAttributes,
+    handleOpenHoneyGuid,
+    handleBackToProducts,
+    handleHoneyGuideFind,
+    isHoneyGuideActive,
+    recommendedProducts,
+  } = useHoneyGuideRecommendation({
+    data,
+    setActiveOverlay,
+  });
+
   /* Reset the page when filters change */
   useEffect(() => {
     setPage(1);
@@ -85,8 +119,9 @@ export const Products = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  /* Opening filters */
   const openProductFilters = () => {
-    setShouldLoadProductFilter(true);
+    setActiveOverlay('filter');
     setFilterOpen(true);
   };
 
@@ -94,6 +129,15 @@ export const Products = () => {
     setViewMode(mode);
     localStorage.setItem('products-view-mode', mode);
   };
+
+  /* При появлении одного из тригеров скрывать инфо о продукте на странице*/
+  const shouldShowProductResults =
+    !isHoneyGuideActive && !isPending && !isError && (data?.length ?? 0) > 0;
+
+  /* Данный которые мы передаем ниже */
+  const productsToDisplay = isHoneyGuideActive
+    ? recommendedProducts
+    : paginatedData;
 
   return (
     <>
@@ -108,36 +152,53 @@ export const Products = () => {
         viewMode={viewMode}
         onChangeViewMode={handleViewModeChange}
         openProductFilters={openProductFilters}
+        openHoneyGuid={handleOpenHoneyGuid}
+        isHoneyGuideActive={isHoneyGuideActive}
+        shouldShowProductResults={shouldShowProductResults}
       />
       <div className={styles.productSection}>
         <div>
           <ErrorBoundary>
             <ProductContent
               products={{
-                data: paginatedData,
+                data: productsToDisplay,
                 bestSellerIds: bestSeller ?? [],
               }}
-              isPending={isPending}
-              isError={isError}
-              error={error}
-              onRetry={refetch}
-              reviews={reviewData}
+              query={{
+                isPending,
+                isError,
+                error,
+                onRetry: refetch,
+              }}
+              reviews={{
+                reviewSummary,
+                isPendingReview,
+                isErrorReview,
+              }}
               viewMode={viewMode}
+              honeyGuide={{
+                isHoneyGuideActive,
+                honeyGuideAttributes: honeyGuideAttributes ?? undefined,
+              }}
+              onBackToProducts={handleBackToProducts}
             />
           </ErrorBoundary>
 
-          <div className={styles.pagination}>
-            <ProductPagination
-              page={page}
-              pageSize={pageSize}
-              total={total}
-              onPageChange={onPageChange}
-            />
-          </div>
+          {!isHoneyGuideActive && (
+            <div className={styles.pagination}>
+              <ProductPagination
+                page={page}
+                pageSize={pageSize}
+                total={total}
+                onPageChange={onPageChange}
+                shouldShowProductResults={shouldShowProductResults}
+              />
+            </div>
+          )}
         </div>
       </div>
 
-      {shouldLoadProductFilter && (
+      {activeOverlay === 'filter' && (
         <ProductFilterDrawer
           filterOpen={filterOpen}
           onClose={() => setFilterOpen(false)}
@@ -152,6 +213,28 @@ export const Products = () => {
           resultCount={resultCount}>
           <ProductFilter />
         </ProductFilterDrawer>
+      )}
+
+      {activeOverlay === 'guid' && (
+        <ResultModal
+          title={
+            <p
+              style={{
+                color: '#d9a441',
+                textAlign: 'center',
+                fontSize: '24px',
+              }}>
+              {t('guid')}
+            </p>
+          }
+          open={honeyGuideOpen}
+          onClose={() => {
+            setHoneyGuideOpen(false);
+            setActiveOverlay(null);
+          }}
+          closable>
+          <HoneyGuide onFind={handleHoneyGuideFind} />
+        </ResultModal>
       )}
     </>
   );

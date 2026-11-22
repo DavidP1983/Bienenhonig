@@ -5,6 +5,7 @@ type Props = {
   pageSize: number;
   total: number;
   onPageChange: (page: number, pageSize: number) => void;
+  shouldShowProductResults: boolean;
 };
 
 export const ProductPagination = ({
@@ -12,18 +13,23 @@ export const ProductPagination = ({
   pageSize,
   total,
   onPageChange,
+  shouldShowProductResults,
 }: Props) => {
   if (total === 0) return null;
 
   return (
-    <Pagination
-      current={page}
-      pageSize={pageSize}
-      total={total}
-      showSizeChanger
-      pageSizeOptions={[4, 6, Number(total)]}
-      onChange={onPageChange}
-      align="center"
-    />
+    <>
+      {shouldShowProductResults && (
+        <Pagination
+          current={page}
+          pageSize={pageSize}
+          total={total}
+          showSizeChanger
+          pageSizeOptions={[4, 6, Number(total)]}
+          onChange={onPageChange}
+          align="center"
+        />
+      )}
+    </>
   );
 };

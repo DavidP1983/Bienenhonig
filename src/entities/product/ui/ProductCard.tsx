@@ -7,9 +7,16 @@ import { ReviewRating } from '@/shared/ui';
 import { ProductImage } from '@/shared/ui/ProductImage/ProductImage';
 import type { ViewMode } from '@/widgets/Products/model/types';
 import { useTranslations } from 'next-intl';
-import type { Product } from '../model/types';
+import { getHoneyGuideMatch } from '../lib/getHoneyGuideMatch';
+import type { HoneyGuideAttributes, Product } from '../model/types';
+import { HoneyGuideExplanation } from './HoneyGuideExplanation';
 
 import styles from './ProductCard.module.scss';
+
+type ProductCardHoneyGuideProps = {
+  attributes: HoneyGuideAttributes | undefined;
+  isBestMatch: boolean;
+};
 
 type Props = {
   product: Product;
@@ -17,6 +24,7 @@ type Props = {
   viewMode: ViewMode;
   isBestSeller: boolean;
   isPriority: boolean;
+  honeyGuide: ProductCardHoneyGuideProps;
 };
 
 export const ProductCard = ({
@@ -25,16 +33,59 @@ export const ProductCard = ({
   viewMode,
   isBestSeller,
   isPriority,
+  honeyGuide,
 }: Props) => {
   const t = useTranslations('ProductCard');
+  const tHoneyGuide = useTranslations('HoneyGuide');
+
+  const { attributes, isBestMatch } = honeyGuide;
 
   const productUrl = `/products/${product._id}`;
-
-  const isInStock = product.variants.some((variant) => variant.quantity > 0);
-
   const viewCardMode = viewMode === 'list' ? styles.horizontal : '';
 
+  const isInStock = product.variants.some((variant) => variant.quantity > 0);
   const isNew = isNewProduct(product.createdAt);
+
+  /* Отображения предпочтения выбора в карточке */
+  const honeyGuideMatch = attributes
+    ? getHoneyGuideMatch(product, attributes)
+    : null;
+
+  const shouldShowHoneyGuideExplanation =
+    honeyGuideMatch !== null &&
+    (honeyGuideMatch.flavorMatch || honeyGuideMatch.matchingUses.length > 0);
+
+  const matchingUsesText =
+    honeyGuideMatch?.matchingUses.map((use) =>
+      tHoneyGuide(`recommendedUses.${use}`)
+    ) ?? [];
+
+  const flavorText = honeyGuideMatch?.flavorMatch
+    ? tHoneyGuide(`flavors.${attributes!.flavorPreference}`)
+    : null;
+
+  const explanationText = (() => {
+    if (matchingUsesText.length > 0 && flavorText) {
+      return tHoneyGuide('explanation.both', {
+        uses: matchingUsesText.join(', '),
+        flavor: flavorText,
+      });
+    }
+
+    if (matchingUsesText.length > 0) {
+      return tHoneyGuide('explanation.uses', {
+        uses: matchingUsesText.join(', '),
+      });
+    }
+
+    if (flavorText) {
+      return tHoneyGuide('explanation.flavor', {
+        flavor: flavorText,
+      });
+    }
+
+    return null;
+  })();
 
   return (
     <div className={`${styles.cardItem} ${viewCardMode}`}>
@@ -60,6 +111,18 @@ export const ProductCard = ({
 
       <div className={styles.description}>
         <div className={styles.sort}>{product.slug}</div>
+        <div className={styles.matches}>
+          {isBestMatch && (
+            <span className={styles.bestHoneyMatch}>
+              {tHoneyGuide('bestMatch')}
+            </span>
+          )}
+          {attributes && product.honeyGuide?.flavorPreference && (
+            <span className={styles.honeyFlavor}>
+              {tHoneyGuide(`flavors.${product.honeyGuide.flavorPreference}`)}
+            </span>
+          )}
+        </div>
 
         <div className={styles.seller}>
           {t('seller')} <span>{product.sellerName}</span>
@@ -97,6 +160,15 @@ export const ProductCard = ({
             {t('reviews', { count: reviewSummary?.reviewCount ?? 0 })}
           </Link>
         </div>
+
+        {shouldShowHoneyGuideExplanation && explanationText && (
+          <HoneyGuideExplanation
+            productTitle={tHoneyGuide('explanation.title', {
+              product: product.title,
+            })}
+            explanationText={explanationText}
+          />
+        )}
 
         <div className={isInStock ? styles.inStock : styles.outStock}>
           <div className={styles.indicator}></div>
