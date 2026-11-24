@@ -4,27 +4,6 @@
   @include order-list;
 }
 
-.noData {
-  text-align: center;
-  font-size: 20px;
-  color: var(--text-black);
-  font-family: var(--font-museoMono);
-
-  img {
-    width: 50%;
-    height: 50%;
-  }
-}
-
-.btnConfirmOrder {
-  display: block;
-  margin-top: 40px;
-  padding: 15px;
-  line-height: normal;
-  height: auto;
-  width: 100%;
-}
-
 .drawerContent {
   @include drawer-content;
 }
@@ -39,6 +18,26 @@
 
 .drawerMask {
   @include drawer-mask;
+}
+
+.wrapper {
+  @include wrapper;
+}
+
+.noData {
+  @include empty-data;
+}
+
+.btnWrapper {
+  padding: 20px 0;
+
+  & .btnConfirmOrder {
+    display: block;
+    padding: 15px;
+    line-height: normal;
+    height: auto;
+    width: 100%;
+  }
 }
 
 .messageUndo {

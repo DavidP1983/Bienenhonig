@@ -16,19 +16,12 @@
   @include drawer-mask;
 }
 
-.notfound {
-  height: 100%;
-  display: grid;
-  place-items: center;
-  font-size: clamp(24px, 4vw, 35px);
-  color: currentcolor;
-  font-family: var(--font-museoMono);
+.wrapper {
+  @include wrapper;
 }
 
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+.notfound {
+  @include empty-data;
 }
 
 .btn {

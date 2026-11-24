@@ -1,9 +1,11 @@
 import { useWishlistProducts, useWishlistStore } from '@/entities/wish-list';
 import { WishlistItems } from '@/entities/wish-list/ui/WishlistItems';
 import { WishlistButton } from '@/features/toggle-wishlist/ui';
+import sadBee from '@/shared/assets/img/error/sadBee.png';
 import { getApiErrorCode } from '@/shared/errors';
 import { Button, ErrorState, ReusableDrawer, SkeletonJSX } from '@/shared/ui';
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 import { useShallow } from 'zustand/react/shallow';
 
 import styles from './WishlistDrawer.module.scss';
@@ -45,7 +47,17 @@ export const WishlistDrawer = ({ open, onClose }: WishlistDrawerProps) => {
     }
 
     if (productsIds.length === 0) {
-      return <p className={styles.notfound}>{t('wishlistEmpty')}</p>;
+      return (
+        <div className={styles.notfound}>
+          {t('wishlistEmpty')}
+          <Image
+            src={sadBee}
+            alt="sadBee"
+            width={200}
+            height={200}
+          />
+        </div>
+      );
     }
 
     if (isPending) {
@@ -72,7 +84,17 @@ export const WishlistDrawer = ({ open, onClose }: WishlistDrawerProps) => {
     }
 
     if (!products.length) {
-      return <p className={styles.notfound}>{t('wishlistEmpty')}</p>;
+      return (
+        <div className={styles.notfound}>
+          {t('wishlistEmpty')}
+          <Image
+            src={sadBee}
+            alt="sadBee"
+            width={200}
+            height={200}
+          />
+        </div>
+      );
     }
 
     return (

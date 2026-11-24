@@ -279,7 +279,7 @@
     transition: all 0.5s;
 
     &:hover {
-      color: white;
+      color: #fff;
       background: rgb(1 145 61 / 96.2%);
     }
 
@@ -290,8 +290,9 @@
 
   .outOfOrder {
     border: 2px dotted black;
-    background: red;
+    background: #6b6258;
     transition: all 0.5s;
+    color: #fff;
 
     &:hover {
       background: darkred;

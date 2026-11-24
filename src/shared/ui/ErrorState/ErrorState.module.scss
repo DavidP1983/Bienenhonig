@@ -9,14 +9,14 @@
   .title {
     font-family: var(--font-museoMono);
     font-size: 25px;
-    color: red;
+    color: #991b1b;
   }
 
   .message {
     font-size: 20px;
     font-family: var(--font-museoMono);
     text-align: center;
-    color: red;
+    color: #991b1b;
   }
 
   &.compact {
@@ -35,6 +35,14 @@
     .message {
       font-size: 18px;
     }
+  }
+
+  .btn {
+    display: block;
+    margin: 10px auto;
+    height: 40px;
+    padding: 0 20px;
+    font-size: 16px;
   }
 }
 

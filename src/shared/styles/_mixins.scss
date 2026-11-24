@@ -22,7 +22,6 @@
 
 @mixin order-list {
   width: 100%;
-  margin-top: 20px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -123,4 +122,27 @@
 
 @mixin drawer-mask {
   backdrop-filter: blur(10px);
+}
+
+@mixin wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+@mixin empty-data {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  font-size: clamp(22px, 4vw, 25px);
+  color: currentcolor;
+  font-family: var(--font-museoMono);
+
+  img {
+    object-fit: cover;
+  }
 }

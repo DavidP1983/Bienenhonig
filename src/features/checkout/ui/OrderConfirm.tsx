@@ -147,32 +147,36 @@ export const OrderConfirm = ({ open, onClose }: OrderConfirmProps) => {
         content: `${styles.drawerClose}`,
       }}
       width={500}>
-      {order}
-      {visibleCartOrder.length > 0 && (
-        <OrderSummary
-          isPending={isPending}
-          isError={isError}
-          onRetry={() => refetch()}
-          deliveryPrice={deliveryPrice}
-          deliveryTotal={deliveryTotal}
-          productsTotal={productsTotal}
-          grandTotal={grandTotal}
-        />
-      )}
-      {
-        <Button
-          type="primary"
-          htmlType="button"
-          onClick={() => {
-            onClose();
-            router.push('/checkout');
-          }}
-          disabled={disabledBtn}
-          className={styles.btnConfirmOrder}
-          title={checkoutDisabledReason}>
-          {t('checkout')}
-        </Button>
-      }
+      <div className={styles.wrapper}>
+        {order}
+        {visibleCartOrder.length > 0 && (
+          <OrderSummary
+            isPending={isPending}
+            isError={isError}
+            onRetry={() => refetch()}
+            deliveryPrice={deliveryPrice}
+            deliveryTotal={deliveryTotal}
+            productsTotal={productsTotal}
+            grandTotal={grandTotal}
+          />
+        )}
+        {
+          <div className={styles.btnWrapper}>
+            <Button
+              type="primary"
+              htmlType="button"
+              onClick={() => {
+                onClose();
+                router.push('/checkout');
+              }}
+              disabled={disabledBtn}
+              className={styles.btnConfirmOrder}
+              title={checkoutDisabledReason}>
+              {t('checkout')}
+            </Button>
+          </div>
+        }
+      </div>
     </ReusableDrawer>
   );
 };

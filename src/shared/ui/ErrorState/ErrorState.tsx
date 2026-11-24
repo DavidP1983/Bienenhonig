@@ -58,8 +58,8 @@ export const ErrorState = ({
       {showAction && (
         <Button
           type="primary"
-          style={{ display: 'block', margin: '10px auto' }}
-          onClick={handleClick}>
+          onClick={handleClick}
+          className={styles.btn}>
           {onRetry ? `${t('btnDescTry')}` : `${t('btnDescBack')}`}
         </Button>
       )}

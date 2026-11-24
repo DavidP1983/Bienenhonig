@@ -15,7 +15,9 @@ export const Carousel = () => {
   const t = useTranslations('Carousel');
   const [emblaRef, emblaApi] = useEmblaCarousel(OPTIONS, [
     ClassNames(),
-    Autoplay(),
+    Autoplay({
+      stopOnInteraction: false,
+    }),
   ]);
 
   const { selectedIndex, scrollSnaps, onDotButtonClick } =
