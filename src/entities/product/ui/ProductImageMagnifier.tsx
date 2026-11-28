@@ -7,6 +7,7 @@ export const ProductImageMagnifier = ({ imageSrc }: { imageSrc: string }) => {
         src: imageSrc,
         zoomImgSrc: imageSrc,
         alt: 'image presentation',
+        fetchPriority: 'high',
         mgShape: 'circle',
         mgBorderWidth: 2,
         mgWidth: 200,

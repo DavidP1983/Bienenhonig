@@ -1,4 +1,4 @@
-.checkoutForm {
+:global(.ant-form).checkoutForm {
   margin-top: 20px;
   padding: 30px 20px;
   width: 100%;
@@ -16,12 +16,13 @@
     padding: 11px;
   }
 
-  &__btnCover {
+  :global(.ant-form-item).checkoutForm__btnCover {
     margin-bottom: 0;
   }
 
-  &__btn {
+  :global(.ant-btn-variant-solid).checkoutForm__btn {
     padding: 20px 15px;
+    background: #0958d9;
   }
 }
 

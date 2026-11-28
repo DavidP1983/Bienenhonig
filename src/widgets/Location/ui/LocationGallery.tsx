@@ -69,9 +69,12 @@ export const LocationGallery = ({ galleryImage }: LocationGalleryProps) => {
             className={`box ${styles.items}`}
             key={item.publicId}>
             <ProductImage
+              alt={item.alt ?? ''}
               image={item}
               width={800}
               height={600}
+              sizes="370px"
+              quality={65}
             />
           </div>
         ))}

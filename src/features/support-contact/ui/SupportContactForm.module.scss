@@ -13,17 +13,23 @@
   }
 
   &__desc {
-    color: #7d7474;
+    color: #514000;
     font-size: 15px;
     font-family: var(--font-museoSans);
   }
 
   &__form {
-    margin-top: 20px;
+    &:global(.ant-form) {
+      margin-top: 20px;
+    }
 
     & .input,
     & .btn {
       height: 45px;
+    }
+
+    & .btn {
+      background: #0958d9;
     }
   }
 }

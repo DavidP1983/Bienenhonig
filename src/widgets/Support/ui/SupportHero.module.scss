@@ -15,7 +15,7 @@
     align-items: center;
     gap: 10px;
     font-size: 18px;
-    color: var(--text-color);
+    color: #514000;
     font-family: var(--font-museoSans);
 
     svg {
@@ -26,13 +26,12 @@
   &__title,
   &__desc {
     font-size: 25px;
-    color: var(--text-color);
+    color: #514000;
     font-family: var(--font-museoSans);
   }
 
   &__desc {
     font-size: 16px;
-    color: #625d5d;
   }
 }
 

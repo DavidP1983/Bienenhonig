@@ -1,4 +1,5 @@
 'use client';
+import { ProductImage } from '@/shared/ui/ProductImage/ProductImage';
 import Autoplay from 'embla-carousel-autoplay';
 import ClassNames from 'embla-carousel-class-names';
 import useEmblaCarousel from 'embla-carousel-react';
@@ -7,7 +8,6 @@ import { DotButton, NextButton, PrevButton } from '.';
 import { useDotButton, usePrevNextButtons } from '../model';
 import { OPTIONS, SLIDES } from '../model/carousel.constants';
 
-import { ProductImage } from '@/shared/ui/ProductImage/ProductImage';
 import styles from './Carousel.module.scss';
 import './carousel.css';
 
@@ -45,10 +45,11 @@ export const Carousel = () => {
                     className="embla__slide"
                     key={item.publicId}>
                     <ProductImage
-                      style="embla__slide__img"
+                      className="embla__slide__img"
+                      alt={item.alt ?? ''}
                       image={item}
-                      width={800}
-                      height={800}
+                      width={376}
+                      height={304}
                     />
                   </div>
                 ))}

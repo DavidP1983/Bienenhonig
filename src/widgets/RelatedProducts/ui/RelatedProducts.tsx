@@ -55,6 +55,7 @@ export const RelatedProducts = ({ currentProductId }: Props) => {
               <div className={styles.related__image}>
                 <ProductImage
                   image={product.images?.[0]}
+                  alt={product.images?.[0].alt ?? ''}
                   width={80}
                   height={80}
                   sizes="80px"

@@ -26,18 +26,13 @@ export const LocationHero = ({
     <section
       className={styles.location}
       aria-labelledby={`location-${city}`}>
-      <motion.div
-        className={styles.title}
-        variants={fadeUp}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}>
+      <div className={styles.title}>
         <div></div>
         <h1 id={`location-${city}`}>
           {t('titlePrefix')} <span>{title}</span> {t('titleSuffix')}
         </h1>
         <div></div>
-      </motion.div>
+      </div>
 
       <motion.div
         className={styles.addr}
@@ -66,8 +61,9 @@ export const LocationHero = ({
           whileInView="visible"
           viewport={{ once: true }}>
           <ProductImage
-            style={styles.clover}
+            className={styles.clover}
             image={galleryImage[0]}
+            alt={galleryImage[0].alt ?? ''}
             width={250}
             height={150}
             priority

@@ -12,7 +12,7 @@ type UndoMessageProps = {
   onComplete: () => void;
 };
 
-const DURATION = 10000;
+const DURATION = 5000;
 
 const UndoMessage = ({
   text,

@@ -62,7 +62,8 @@ export const PurchaseItem = ({
         <div className={styles.desc}>
           {isCartOrder && (
             <ProductImage
-              style={styles.image}
+              className={styles.image}
+              alt={item.image?.[0].alt ?? ''}
               image={item.image?.[0]}
               width={200}
               height={200}

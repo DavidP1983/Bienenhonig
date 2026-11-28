@@ -5,8 +5,8 @@
   flex-direction: column;
   gap: 20px;
   width: 100%;
+}
 
-  & .total {
-    @include purchase-total;
-  }
+.total {
+  @include purchase-total;
 }

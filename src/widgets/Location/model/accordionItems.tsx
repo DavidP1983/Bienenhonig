@@ -5,9 +5,7 @@ export const getAccordionItems = (t: Translate): CollapseProps['items'] => [
   {
     key: '1',
     label: (
-      <span
-        className="ant-collapse-header-text label"
-        role="tab">
+      <span className="ant-collapse-header-text label">
         {t('recipes.label')}
       </span>
     ),
@@ -23,9 +21,7 @@ export const getAccordionItems = (t: Translate): CollapseProps['items'] => [
   {
     key: '2',
     label: (
-      <span
-        className="ant-collapse-header-text label"
-        role="tab">
+      <span className="ant-collapse-header-text label">
         {t('opinions.label')}
       </span>
     ),
@@ -41,11 +37,7 @@ export const getAccordionItems = (t: Translate): CollapseProps['items'] => [
   {
     key: '3',
     label: (
-      <span
-        className="ant-collapse-header-text label"
-        role="tab">
-        {t('books.label')}
-      </span>
+      <span className="ant-collapse-header-text label">{t('books.label')}</span>
     ),
     children: (
       <p

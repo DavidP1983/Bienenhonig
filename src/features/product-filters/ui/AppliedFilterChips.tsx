@@ -157,7 +157,7 @@ export const AppliedFilterChips = () => {
           )}
         </div>
         <Button
-          type="link"
+          type="text"
           onClick={clearAllFilters}
           className={styles.chips__reset}>
           {t('reset')}

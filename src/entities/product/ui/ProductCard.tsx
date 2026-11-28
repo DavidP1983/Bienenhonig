@@ -100,6 +100,7 @@ export const ProductCard = ({
         <Link href={productUrl}>
           <ProductImage
             image={product.images?.[0]}
+            alt={product.images?.[0].alt ?? ''}
             width={200}
             height={200}
             sizes="200px"

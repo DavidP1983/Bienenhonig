@@ -29,21 +29,15 @@ export const ProductDetailsContent = ({ data }: ProductDetailsProps) => {
       const { scrollHeight, clientHeight } = contentRef.current;
       setReadMoreButton(scrollHeight !== clientHeight);
     }
-  }, []);
+  }, [data.description.text]);
 
   const toggleText = () => {
     const element = contentRef.current;
-    if (element) {
-      const { scrollHeight } = element;
-      if (!isOpen) {
-        element.style.height = `${scrollHeight}px`;
-        element.classList.toggle('open');
-      } else {
-        element.style.height = `${52}px`;
-        element.classList.toggle('open');
-      }
-    }
-    setIsOpen(!isOpen);
+    if (!element) return;
+
+    element.style.height = isOpen ? '52px' : `${element.scrollHeight}px`;
+
+    setIsOpen((prev) => !prev);
   };
 
   return (
@@ -74,22 +68,22 @@ export const ProductDetailsContent = ({ data }: ProductDetailsProps) => {
             <dt>{t('origin')}</dt>
             <dd>{data.description.origin}</dd>
           </div>
-
-          <div
-            ref={contentRef}
-            className={`${styles.originDescription} ${isOpen ? styles.open : ''}`}>
-            <p>{data.description.text}</p>
-          </div>
-
-          {readMoreButton && (
-            <button
-              type="button"
-              className={styles.readMore}
-              onClick={toggleText}>
-              {isOpen ? `${t('readLess')}` : `${t('readMore')}`}
-            </button>
-          )}
         </dl>
+
+        <div
+          ref={contentRef}
+          className={`${styles.originDescription} ${isOpen ? styles.open : ''}`}>
+          <p>{data.description.text}</p>
+        </div>
+
+        {readMoreButton && (
+          <button
+            type="button"
+            className={styles.readMore}
+            onClick={toggleText}>
+            {isOpen ? `${t('readLess')}` : `${t('readMore')}`}
+          </button>
+        )}
         <p className={styles.photoDisclaimer}>{t('disclaimer')}</p>
       </div>
       <SellerContacts contacts={data.contacts} />

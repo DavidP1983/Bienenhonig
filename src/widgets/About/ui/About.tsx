@@ -18,7 +18,7 @@ export const About = () => {
         <div className={styles.image}>
           <ProductImage
             image={aboutContent.author.image}
-            alt={aboutContent.author.image.alt}
+            alt={aboutContent.author.image?.alt ?? ''}
             width={400}
             height={400}
             priority
@@ -40,7 +40,7 @@ export const About = () => {
         <div className={styles.image}>
           <ProductImage
             image={aboutContent.products.image}
-            alt={aboutContent.products.image.alt}
+            alt={aboutContent.products.image?.alt ?? ''}
             width={400}
             height={400}
             priority

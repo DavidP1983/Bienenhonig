@@ -133,17 +133,15 @@ export const SupportContactForm = () => {
               data-id="textArea"
             />
           </Form.Item>
-          <Form.Item>
-            <Button
-              type="primary"
-              icon={isPending ? <SyncOutlined spin /> : null}
-              disabled={isPending}
-              htmlType="submit"
-              block
-              className={styles.btn}>
-              {isPending ? t('sendingMessage') : t('sendMessage')}
-            </Button>
-          </Form.Item>
+          <Button
+            type="primary"
+            icon={isPending ? <SyncOutlined spin /> : null}
+            disabled={isPending}
+            htmlType="submit"
+            block
+            className={styles.btn}>
+            {isPending ? t('sendingMessage') : t('sendMessage')}
+          </Button>
         </Form>
       </div>
     </>

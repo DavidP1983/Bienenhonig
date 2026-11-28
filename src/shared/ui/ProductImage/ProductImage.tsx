@@ -3,40 +3,34 @@ import { getImageUrl } from '@/shared/lib/getImageUrl';
 import { CloudinaryImage } from '@/shared/types/types';
 import Image from 'next/image';
 
-type ProductImageProps = {
+type ProductImageProps = Omit<React.ComponentProps<typeof Image>, 'src'> & {
   image?: CloudinaryImage;
-  alt?: string;
-  width: number;
-  height?: number;
-  sizes?: string;
-  priority?: boolean;
-  style?: string;
 };
 
 export const ProductImage = ({
   image,
   width,
   alt,
-  style,
+  className,
   ...props
 }: ProductImageProps) => {
   if (!image) {
     return (
       <Image
-        className={style}
+        className={className}
         src={placeholderImage}
         alt="Image not available"
         width={width}
         height={props.height}
-        priority={props.priority}
+        {...props}
       />
     );
   }
 
   return (
     <Image
-      className={style}
-      src={getImageUrl(image, width)}
+      className={className}
+      src={getImageUrl(image, Number(width))}
       alt={alt ?? image.alt ?? ''}
       width={width}
       {...props}
